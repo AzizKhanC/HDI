@@ -1,4 +1,4 @@
-NHDR 2020 REPRODUCTION FROM SURVEY MICRODATA
+NHDR 2020 reproduction from survey microdata
 ============================================
 
 This folder reproduces the subnational indices of UNDP Pakistan's National
@@ -14,9 +14,11 @@ Start with "2. Notes/NHDR2020 reproduction note.pdf": what was done, which
 survey and variable feeds each indicator against what UNDP used, the results,
 and the problems found. "2. Notes/NHDR2020 reproduction deck.pptx" gives the
 same story in 15 slides, with editable charts and sources in the notes.
+"2. Notes/Do file guide.docx" describes the do file section by section in
+two pages, with what each section compares and what it finds.
 
 
-FOLDERS
+Folders
 -------
 1. Dos             The Stata do file, and the two files its results workbook
                    reads: Variable dictionary.csv (a descriptive name for every
@@ -33,6 +35,11 @@ FOLDERS
                    2. Figures reproduced NHDR style: the reproductions alone.
                    3. Figures published: the figures cropped from the report.
                    4. Stata charts: the charts Stata draws, kept for reference.
+                   Only "4. Stata charts/Charts" is drawn by the do file.
+                   Folder 2 is drawn by "7. Python tools/figures.py" from the
+                   result tables the do file writes. Folders 1 and 3 and
+                   "4. Stata charts/Side by side" are made by juxtapose.py.
+                   See "Where the plots come from" at the top of the do file.
 5. Output CSVs     Every result table of the latest run (Results), the figure
                    data (Figure data), Checks.txt, the Stata log and the
                    results workbook. Run.txt names the run they come from.
@@ -42,7 +49,7 @@ FOLDERS
 8. Stata runs      One folder per run of the do file.
 
 
-HOW TO RUN
+How to run
 ----------
 Needs: Stata 16 or later; Python 3 with the packages in
 "7. Python tools/requirements.txt"; for the Word note only, Node.js.
@@ -75,7 +82,7 @@ Needs: Stata 16 or later; Python 3 with the packages in
    dictionary.py and rerun.
 
 
-CONVENTIONS
+Conventions
 -----------
 - File and folder names use spaces, never underscores. Survey files in
   "6. Raw data" keep their publishers' names so they can be matched to the

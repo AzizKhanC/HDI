@@ -1,2 +1,4 @@
 8. Stata runs/
 6. Raw data/
+__pycache__/
+*.pyc

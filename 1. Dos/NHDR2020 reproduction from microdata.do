@@ -1,121 +1,222 @@
 *==============================================================================*
-*   NHDR 2020 REPRODUCTION FROM SURVEY MICRODATA
+*   NHDR 2020 reproduction from survey microdata
 *
 *   Reproduces the subnational indices of UNDP Pakistan's National Human
-*   Development Report 2020 (NHDR 2020, "The Three Ps of Inequality") from
-*   the raw survey files, checks every result against the printed tables,
-*   and reproduces forward to the 2024-25 surveys.
+*   Development Report 2020 (NHDR 2020, "The Three Ps of Inequality: Power,
+*   People and Policy") from the raw survey files, checks every result
+*   against the printed tables, and carries the same method forward to the
+*   2024-25 surveys.
 *
-*   File      NHDR2020 reproduction from microdata.do 
+*   File      NHDR2020 reproduction from microdata.do
 *   Author    Aziz Khan
-*   Version    October 2026
+*   Version   October 2026
 *   Requires  Stata 16 or later. Runs in about five minutes on Stata 18 SE.
+*   Guide     "2. Notes/Do file guide.docx" describes every section in two
+*             pages.
 *==============================================================================*
 *==============================================================================*
 
-* Processing steps
+* How to run
 * ----------
-* 1. Open "1. Dos".
-* 2. run "NHDR2020 reproduction from microdata.do"
-* 3. You get your outputs ina new folder "8. Stata runs/Run YYYYMMDD HHMMSS".
-* 4. To refresh the tables, figures and note in folders 2 to 5, run 7. Python tools/Build outputs.py" (see the package README.txt).
-* This would need a separates env and might need a bit 
+* 1. Open Stata and change directory to "1. Dos" (or to the package folder).
+* 2. Type: do "NHDR2020 reproduction from microdata.do"
+* 3. Outputs go to a new folder, "8. Stata runs/Run YYYYMMDD HHMMSS". No
+*    earlier run folder is ever written over.
+* 4. To refresh the tables, figures and note in folders 2 to 5, run
+*    "7. Python tools/Build outputs.py" (see README.txt). The Python step
+*    needs its own environment with the packages listed in
+*    "7. Python tools/requirements.txt".
 
-* What does this do file intend to replicate?
-* ------------------
-* NHDR 2020 Statistical Annex Tables 1 to 8A for 2006-07 and 2018-19, by province and urban or rural area:
-*   HDI    Human Development Index                   Tables 1, 2A
-*   IHDI   Inequality-adjusted Human Development Index   Table 3 ITheir version of HDI to capture inequality across the quintiles
-*   CDI    Child Development Index                   Tables 4, 4A
-*   YDI    Youth Development Index                   Tables 5, 5A
-*   GDI    Gender Development Index                  Tables 6, 6A
-*   GII    Gender Inequality Index                   Tables 7, 7A
-*   LDI    Labour Development Index                  Tables 8, 8A
+* What this do file reproduces
+* ----------------------------
+* NHDR 2020 Statistical Annex Tables 1 to 8A for 2006-07 and 2018-19, by
+* province and by urban and rural area:
+*   HDI    Human Development Index                        Tables 1, 2A
+*   IHDI   Inequality-adjusted Human Development Index    Table 3
+*          (UNDP Pakistan's own variant: inequality is measured across the
+*          five consumption quintiles, not across individuals as in the
+*          global IHDI)
+*   CDI    Child Development Index                        Tables 4, 4A
+*   YDI    Youth Development Index                        Tables 5, 5A
+*   GDI    Gender Development Index                       Tables 6, 6A
+*   GII    Gender Inequality Index                        Tables 7, 7A
+*   LDI    Labour Development Index                       Tables 8, 8A
 
-* To top it off:
-* It adds the Multidimensional Poverty Index (MPI) of 2014-15 and 2019-20,
-* a district and divisional HDI from PSLM 2019-20, every index for 2024-25,
-* we juxtapose the visualizations throughout the UNHDR report against this excercise to compare where we might be veering off.
+* Beyond the NHDR tables
+* ----------------------
+*   The Multidimensional Poverty Index (MPI) of 2014-15 and 2019-20.
+*   A district and divisional HDI from PSLM 2019-20.
+*   Every index for 2024-25 on the same construction.
+*   The data behind each NHDR figure, so that every published figure can be
+*   set beside its reproduction to show where and by how much the two diverge.
 
-* Abbreviations 
-* -------------------------------
+* Where the plots come from
+* -------------------------
+* This do file draws the Stata charts and writes the data behind every
+* figure. It does not draw the figures in "4. Plots/2. Figures reproduced
+* NHDR style". Those are drawn in Python. The chain is:
+*   Stata charts   drawn here with graph bar, graph hbar and twoway in
+*                  Sections 8A.5, 26 and 27.1, and saved as Figure *.png and
+*                  Map *.png in the run folder. "Build outputs.py" copies them
+*                  to "4. Plots/4. Stata charts/Charts".
+*   Figure data    written here as Figure *.csv and Figure *.dta (Sections
+*                  8A.5 and 26), and copied to "5. Output CSVs/Figure data".
+*   NHDR style     drawn by "7. Python tools/figures.py" in the report's own
+*                  layout, typeface and colors. It reads these result tables
+*                  from the run folder:
+*                    HDI all microdata.csv, IHDI all microdata.csv  Section 20.6
+*                    Series HDI, GDI and GII Pakistan.csv          Section 26A
+*                    GDI reproduced 2018-19 2024-25.csv            Section 17.4
+*                    GII 2006-07 reproduced.csv                    Section 20.4
+*                    GII 2018-19 all microdata.csv                 Section 22.2b
+*                    CDI reproduced PDHS.csv                       Section 23.4b
+*                    YDI survival PMMS 2019.csv                    Section 24.1b
+*                    YDI 2017-18 2024-25.csv                       Section 24.2
+*                    LDI 2012-13 2017-18 2024-25.csv               Section 25.2
+*                    Figure 5.19 data.csv                          Section 8A.5
+*                    WEF GGGI Pakistan.csv                         Section 26A.6
+*   Juxtaposed     "7. Python tools/juxtapose.py" crops each published figure
+*                  from the report PDF ("4. Plots/3. Figures published") and
+*                  sets it beside its NHDR-style redraw ("4. Plots/1. Figures
+*                  juxtaposed") and beside its Stata chart ("4. Plots/4. Stata
+*                  charts/Side by side").
+* The two reproduced sets do not always plot the same basis. The NHDR-style
+* redraws use the series with every dimension taken from the microdata, on
+* the four NHDR years (2006-07, 2012-13, 2015-16, 2018-19). Several Stata
+* charts plot the 2018-19 and 2024-25 variants of Sections 13 to 25 instead.
+
+* Abbreviations
+* -------------
 *   HIES   Household Integrated Economic Survey, PBS (2005-06 to 2024-25)
-*   PSLM   Pakistan Social and Living Standards Measurement survey
+*   PSLM   Pakistan Social and Living Standards Measurement survey, PBS
 *   LFS    Labour Force Survey, PBS (2006-07 to 2024-25)
-*   PDHS   Pakistan Demographic and Health Survey, NIPS and ICF. We had to register on the DHS website for this.
-*   PMMS   Pakistan Maternal Mortality Survey 2019, NIPS and ICF, Same
-*   MICS6  Multiple Indicator Cluster Surveys, round 6, UNICEF and the provincial bureaus of statistics
+*   PDHS   Pakistan Demographic and Health Survey, NIPS and ICF. The DHS
+*          Program releases the files only after registration and approval
+*          of a research request on its website.
+*   PMMS   Pakistan Maternal Mortality Survey 2019, NIPS and ICF, released
+*          by the DHS Program on the same terms as PDHS
+*   MICS6  Multiple Indicator Cluster Surveys, round 6, UNICEF and the
+*          provincial bureaus of statistics
+*   NIPS   National Institute of Population Studies
 *   PBS    Pakistan Bureau of Statistics
 *   WDI    World Development Indicators, World Bank
-*   GRP    gross regional (provincial) product.Dr Pasha's work and articles go into much more detail.Two words Needs improvements,
+*   GRP    gross regional (provincial) product. Pakistan publishes no
+*          official provincial accounts. Dr Hafiz Pasha's estimates and
+*          articles document the allocation in far more detail than NHDR
+*          does. The GRP series built here still needs improvement.
 *   PPP    purchasing power parity
-*   CMC    century month code, the DHS and MICS date format
+*   CMC    century month code, the DHS and MICS date format (months since
+*          January 1900)
+*   q5     probability of dying before age five, per 1,000 live births
+*   e0     life expectancy at birth, years
+*   PSU    primary sampling unit, the survey cluster
+*   OCAC   Oil Companies Advisory Council
+*   PIDE   Pakistan Institute of Development Economics
+*   ICLS   International Conference of Labour Statisticians
+*   ISCO   International Standard Classification of Occupations
+*   PSIC   Pakistan Standard Industrial Classification
+*   OPHI   Oxford Poverty and Human Development Initiative
+*   WEF    World Economic Forum (GGGI: Global Gender Gap Index)
 
 * Structure
-* -----------
+* ---------
 *   0    Setup: paths, output folder, log, checks file
 *   1    Helper programs used throughout
 *   2    Published reference values
 *   3    Adult literacy, HIES 2018-19, against Table 2A
-*   4    Net enrolment, level matched, against Table 2A (we call it ner)
-*   5    The HDI construction
+*   4    Net enrollment, level matched, against Table 2A (variable ner)
+*   5    The HDI construction, recovered by inversion of Table 1
 *   6    The current UNDP HDI construction, an external benchmark
-*   7    Life expectancy from the HDI health index
+*   7    Life expectancy recovered from the HDI health index
 *   8    Under-five mortality from the MICS6 birth histories
-*   8A   Under-five mortality, stunting and wasting from PDHS 2006-07,2012-13 and 2017-18, and Figure 5.19
-*   9    Gross regional product by province, Pasha's allocation. This is the main bone of contention. Multiple roads and multiple destination. *asha has written articles excoriating this  failure to document GRP. India does it.
-*   10   HDR's income column: level, ranking, scale, We try to suss it out through different approaches. Would need confirmation. 
-*   11   HIES 2024-25: We clean and check the new survey against PBS published benchmarks.
-*   12   The HDI 2024-25 
-*   13   The HDI 2024-25 on price basis, and its decomposition  since 2018-19
-*   14   District education from PSLM 2019-20, with standard errors (helps us answer how sure are we>)
+*   8A   Under-five mortality, stunting and wasting from PDHS 2006-07,
+*        2012-13 and 2017-18, and Figure 5.19
+*   9    Gross regional product by province, Pasha's allocation. This is
+*        the main point of contention: several allocation routes exist and
+*        each gives different provincial shares. Pasha has published
+*        articles criticizing the absence of documented provincial accounts.
+*        India, by contrast, publishes official state accounts.
+*   10   What NHDR's income column is: level, ranking and scale, tested
+*        three ways. The finding needs confirmation from UNDP Pakistan.
+*   11   HIES 2024-25 read and checked against PBS published benchmarks
+*   12   The HDI 2024-25, inputs as the surveys report them
+*   13   The HDI 2024-25 on one instrument and one price basis, and its
+*        decomposition since 2018-19
+*   14   District education from PSLM 2019-20, with standard errors, to show
+*        how precise each district estimate is
 *   15   The district and divisional HDI
 *   16   Inequality-adjusted Human Development Index (IHDI), Table 3
 *   17   Gender Development Index (GDI), Tables 6 and 6A
 *   18   Gender Inequality Index (GII), Tables 7 and 7A
 *   19   Multidimensional Poverty Index (MPI), PSLM 2019-20
-*   20   The 2006-07 columns from HIES 2005-06: education, GDI, GII, IHDI;
+*   20   The 2006-07 columns from HIES 2005-06: education, GDI, GII, IHDI,
 *        the HDI with every dimension from microdata (20.6) and with Pasha's
 *        provincial income (20.7)
 *   21   MPI 2014-15 and the change to 2019-20
 *   22   The LFS rounds read on one basis (2006-07 to 2024-25)
-*   23   Child Development Index (CDI), Tables 4 and 4A; PSLM 2006-07 and
-*        2008-09 tested against the 2007-08 inputs (23.6)
+*   23   Child Development Index (CDI), Tables 4 and 4A, with PSLM 2006-07
+*        and 2008-09 tested against the 2007-08 inputs (23.6)
 *   24   Youth Development Index (YDI), Tables 5 and 5A
 *   25   Labour Development Index (LDI), Tables 8 and 8A
 *   26A  The four-year series behind the report figures
 *   26   The report figures and maps
 *   27   Summary of checks and the results workbook
 
-*  What do get after the do run  8. Stata runs/Run YYYYMMDD HHMMSS")
-* -----------------------------------------------------------------
+* What a run writes (folder "8. Stata runs/Run YYYYMMDD HHMMSS")
+* --------------------------------------------------------------
 *   NHDR replication.log            the full log
 *   Checks.txt                      every validation check, PASS or FAIL
-*   NHDR replication results.xlsx   one worksheet per results table, with a headline row and descriptive column names
-*                                   (from "Output descriptions.csv" and
-*                                   "Variable dictionary.csv" in "1. Dos")
+*   NHDR replication results.xlsx   one worksheet per results table, with a
+*                                   headline row and descriptive column
+*                                   names (from "Output descriptions.csv"
+*                                   and "Variable dictionary.csv" in "1. Dos")
 *   *.csv, *.dta                    each results table on its own
-*   Figure *.png, Map *.png         the charts of Sections 8A, 26 and 27
+*   Figure *.png, Map *.png         the Stata charts of Sections 8A, 26 and 27
 
 * Rules
-* -----------
+* -----
 *   Province codes, after recoding in every survey: 1 Khyber Pakhtunkhwa,
-*   2 Punjab, 3 Sindh, 4 Balochistan. Region: 1 rural, 2 urban. HIES 2005-06  numbers both the other way round and is recoded in Section 20.
-*   Domains are Pakistan, the four provinces and the urban and rural part of each: 15 in all, the rows of NHDR Table 1.
+*   2 Punjab, 3 Sindh, 4 Balochistan. Region: 1 rural, 2 urban. HIES 2005-06,
+*   2007-08 and 2011-12 number both the other way round. 2005-06 and 2007-08
+*   are recoded in Sections 20.1 and 23.2. 2011-12 enters only at the
+*   national level (Section 26A) and needs no recode.
+*   Domains are Pakistan, the four provinces and the urban and rural part of
+*   each: 15 in all, the rows of NHDR Table 1.
 *   Published files are read with asdouble, so that a value printed as 0.475
 *   is compared as 0.475 and not as its nearest single-precision number.
-*   A "published" check compares a result with the figure NHDR, PBS, MICS or UNDP . A "reference" check compares it with the value an
-*   independent Python implementation produced from the same raw files.This 2Xs our confidence. UNDP might prefer python as they mentioned it one of the meetings
-*   Each check label starts with a step number: Step n is Section n + 2  (Step 5A is Section 8A, Step 23A is Section 26A). Ease for looping and naming.
+
+* How every comparison is made (the juxtaposition logic)
+* -------------------------------------------------------
+*   Each result is set against a target with nhdr_check (Section 1.1), which
+*   writes one line to Checks.txt: PASS or FAIL, the label, the value
+*   computed, the target and the tolerance.
+*   [published x]  the target is the figure NHDR, PBS, MICS, PDHS or UNDP
+*                  printed. The tolerance is half a unit of the last printed
+*                  digit plus a margin for floating point: a value printed
+*                  to one decimal matches within 0.05, and the do file
+*                  allows 0.06.
+*   [reference x]  the target is the value an independent Python
+*                  implementation produced from the same raw files. Two
+*                  separate code bases agreeing doubles the confidence in
+*                  the result. UNDP Pakistan indicated in a meeting that it
+*                  may prefer Python.
+*   [diagnostic]   the check tests a claim (for example, that a goalpost is
+*                  rejected) rather than a value.
+*   Each check label starts with a step number: Step n is Section n + 2
+*   (Step 5A is Section 8A, Step 23A is Section 26A). The step numbers keep
+*   the labels short and sortable in Checks.txt.
 
 
 *==============================================================================*
-* SECTION 0   SETUP
+* Section 0   Setup
 *==============================================================================*
+* Sets Stata's behavior for the run, finds the package folder, opens a new
+* run folder and log, confirms that every raw file is on disk, and opens
+* Checks.txt. Nothing is computed here.
 
-version 16
-clear all
-set more off
+version 16                 // interpret every command as Stata 16 does
+clear all                  // empty memory, programs, frames and stored results
+set more off               // never pause the log
 set varabbrev off          // prevent Stata from guessing a variable name
 set type double            // every new numeric variable is double precision
 set linesize 160
@@ -126,6 +227,9 @@ set sortseed 20260925      // makes the order of tied observations repeatable
 * Start Stata in either folder and root is found on its own. To run from
 * anywhere else, set it first, for example:
 *   global root "D:/Aziz/Development/HDI/stata/NHDR2020 replication from microdata"
+* The two mata lines ask whether "6. Raw data" exists in the current folder
+* (here_ok) or in its parent (up_ok). direxists() returns 1 or 0, and
+* st_local() hands that value back to Stata as a local macro.
 if `"$root"' == "" {
     mata: st_local("here_ok", strofreal(direxists("6. Raw data")))
     mata: st_local("up_ok",   strofreal(direxists("../6. Raw data")))
@@ -142,6 +246,12 @@ if `"$root"' == "" {
     }
 }
 
+* One global per survey round. Every survey file is used as released by its
+* publisher: PBS microdata releases for HIES, PSLM and LFS, the UNICEF MICS
+* website for MICS6, and the DHS Program for PDHS and PMMS. Published
+* figures (NHDR tables, WDI series, PBS reports) are hand-entered or
+* downloaded CSV files in "6. Raw data/Published", each listed with its
+* source in "6. Raw data/Published/Sources register.csv".
 global raw  "$root/6. Raw data"
 global h18  "$raw/HIES 2018-19"        // HIES 2018-19, the NHDR 2020 base year
 global h24  "$raw/HIES 2024-25"        // HIES 2024-25, the latest round
@@ -157,6 +267,10 @@ global mics "$raw/MICS6"               // MICS6 birth histories, four provinces
 global pub  "$raw/Published"           // published figures, with sources
 global geo  "$raw/Geo"                 // province polygons for the maps
 global pdhs "$raw/PDHS"                // PDHS recode files, three rounds
+* The PDHS folder names are the names the DHS Program gives each download:
+* country, round, survey type, download date (29 September 2026) and the
+* request and user numbers. They are kept so that the files trace to the
+* download.
 global pd06 "$pdhs/PK_2006-07_DHS_09292026_925_170967"   // PDHS 2006-07, as downloaded
 global pd12 "$pdhs/PK_2012-13_DHS_09292026_924_170967"   // PDHS 2012-13
 global pd17 "$pdhs/PK_2017-18_DHS_09292026_924_170967"   // PDHS 2017-18
@@ -171,12 +285,17 @@ global p08  "$raw/PSLM 2008-09"        // PSLM 2008-09 district round
 * ---- 0.2 A new output folder for every run -----------------------------------
 * The folder name has date and time of the run. Prevents overwriting.
 
-local rundate = string(date(c(current_date), "DMY"), "%tdCCYYNNDD")
-local runtime = subinstr(c(current_time), ":", "", .)
+local rundate = string(date(c(current_date), "DMY"), "%tdCCYYNNDD")   // today as YYYYMMDD
+local runtime = subinstr(c(current_time), ":", "", .)                  // now as HHMMSS
+* capture runs a command and keeps going if it fails. mkdir fails when the
+* folder already exists, which is expected after the first run, so the
+* failure is ignored on purpose.
 capture mkdir "$root/8. Stata runs"
 global out "$root/8. Stata runs/Run `rundate' `runtime'"
 capture mkdir "$out"
-* Two runs started in the same second would share a folder. Stop ratherthan write over the first run.
+* Two runs started in the same second would share a folder. Stop rather than
+* write over the first run. confirm new file succeeds (_rc = 0) only when the
+* log does not exist yet. A nonzero _rc means the folder is already in use.
 capture confirm new file "$out/NHDR replication.log"
 if _rc {
     display as error "Output folder $out is already in use. Wait a second and rerun."
@@ -185,7 +304,7 @@ if _rc {
 
 * ---- 0.3 Log -----------------------------------------------------------------
 
-capture log close _all
+capture log close _all     // close any log left open by an earlier run, with no error if none is open
 log using "$out/NHDR replication.log", text name(main)
 
 display as text _n "NHDR 2020 replication, run started `c(current_date)' `c(current_time)'"
@@ -194,9 +313,19 @@ display as text "output : $out" _n
 
 * ---- 0.4 Confirm that every raw file is where the do file expects it --------
 
-* The PDHS rounds  from the DHS Program as one zip per round. If round's folder does not exist yet but its zip does, the zip is unpacked. 
-* in place with the official unzipfile command. Redundant after the first run
-*HDS needs registeration and verification before they give  access
+* The DHS Program delivers each PDHS round as one zip. If a round's folder
+* does not hold its births recode yet but the zip is on disk, the zip is
+* unpacked in place with Stata's own unzipfile command. After the first run
+* the folders exist and this loop does nothing. The DHS Program releases the
+* files only after registration and approval of a research request.
+* The loop runs over the three download folders named in Section 0.1. probe
+* is one file that must exist once a round is unpacked: the births recode
+* (BR) of that round. DHS numbers its recode phases in the file names: 53 is
+* phase 5 (PDHS 2006-07), 61 is phase 6 (2012-13), 71 is phase 7 (2017-18).
+* capture confirm file sets _rc to 0 when the file exists and to 601 when it
+* does not. capture noisily runs unzipfile, shows its output, and does not
+* stop the run if unzipping fails: the missing file list below then names
+* what is absent.
 
 foreach b in "PK_2006-07_DHS_09292026_925_170967" "PK_2012-13_DHS_09292026_924_170967" ///
     "PK_2017-18_DHS_09292026_924_170967" {
@@ -215,7 +344,10 @@ foreach b in "PK_2006-07_DHS_09292026_925_170967" "PK_2012-13_DHS_09292026_924_1
     }
 }
 
-* A missing file stops the run here, with its name, rather than halfway
+* A missing file stops the run here, with its name, rather than halfway.
+* need collects the full path of every raw file the do file opens, survey
+* by survey. The loop after the list tests each one and exits with error 601
+* (file not found) on the first that is absent.
 
 local need
 local need `"`need' "$h18/plist.dta" "$h18/sec_2ab.dta" "$h18/sec_6a.dta" "$h18/sec_10a.dta""'
@@ -276,21 +408,61 @@ display as text "All raw input files found." _n
 * ---- 0.5 Checks file and counters ---------------------------------------------
 
 * STRICT = 0 reports failed checks and carries on. STRICT = 1 stops at the
-* first failed check.
+* first failed check. The global names are code identifiers, kept as they
+* are because every section refers to them.
 global STRICT = 0
-global NCHK   = 0
-global NFAIL  = 0
+global NCHK   = 0          // checks run
+global NFAIL  = 0          // checks failed
 global NFIG   = 0          // figures attempted (Sections 8A and 26)
 global NFIGOK = 0          // figures written
+* Checks.txt stays open for the whole run under the handle chk. nhdr_check
+* (Section 1.1) appends one tab-separated line per check, and Section 27
+* closes the file and reads it back into the results workbook.
 file open chk using "$out/Checks.txt", write text
 file write chk "status" _tab "check" _tab "computed" _tab "target" _tab "tolerance" _n
 
 
 *==============================================================================*
-* SECTION 1   HELPER PROGRAMS
+* Section 1   Helper programs
 *==============================================================================*
+* Defines the commands that every later section calls. Nothing is computed.
 
-* Fifteen helper programs 
+* Fifteen helper programs are defined here. Six more are defined next to the
+* only section that uses them: nhdr_pdhs_region and nhdr_q5_dhs (8A.1),
+* nhdr_mpi_by (19.5), nhdr_pdhs_le_domains (20.6), nhdr_cdi and nhdr_cdi_hh
+* (23.1, 23.2), nhdr_pslm_district (23.6), nhdr_ydi and nhdr_lfs_domains
+* (24.1, 24.2), nhdr_ldi (25.1), and nhdr_map and nhdr_map_index (26.0).
+*
+* Stata idioms used throughout, explained once here
+*   capture program drop X   Removes program X if an earlier run in the same
+*                            Stata session left it in memory. Without it,
+*                            program define stops with "program X already
+*                            defined". capture suppresses the error raised
+*                            when X does not exist yet, as on a first run.
+*   program define ... end   Defines a command. syntax lists its options.
+*                            Capital letters in an option name only mark the
+*                            shortest abbreviation Stata accepts: LABel()
+*                            may be typed label() or lab(). They are Stata
+*                            syntax, not emphasis.
+*   tempvar, tempfile,       Names that Stata creates for the life of the
+*   tempname                 program or do file and deletes at the end, so
+*                            intermediate variables and files never collide
+*                            with real ones.
+*   preserve ... restore     Sets the data aside, works on a copy, and puts
+*                            the original back.
+*   postfile ... post ...    Builds a new data set one row at a time.
+*   postclose
+*   capture noisily { }      Runs the block, shows its output, and carries on
+*                            if any command inside fails. Used only for the
+*                            figures (Sections 8A.5 and 26), so that a
+*                            graphics problem cannot stop the run.
+*   _rc                      The return code of the last captured command:
+*                            0 means success.
+*   r(mean), r(N), r(max)    Results left by summarize and count, read on the
+*                            next line before any other command overwrites
+*                            them.
+*   `=expression'            Evaluates the expression in place, so a computed
+*                            value can be passed as an option.
 
 * ---- 1.1 nhdr_check: record one validation check ------------------------------
 
@@ -298,8 +470,11 @@ file write chk "status" _tab "check" _tab "computed" _tab "target" _tab "toleran
 * got   : the value the do file computed
 * want  : the target, a published figure or the reference result
 * tol   : tolerance: the largest absolute difference accepted as a match
+* The program adds one to the check counter, adds one to the failure counter
+* when |got - want| exceeds tol, prints the line to the log and writes it to
+* Checks.txt. With STRICT = 1 a failure stops the run (exit 9).
 
-capture program drop nhdr_check
+capture program drop nhdr_check     // clear any earlier definition (see the note above)
 program define nhdr_check
     syntax , LABel(string) GOT(string) WANT(real) TOL(real)
     local g = `got'
@@ -322,13 +497,17 @@ program define nhdr_check
     }
 end
 
-* ---- 1.2 nhdr_stack_domains: put each record in its reporting domains/strata  -------
+* ---- 1.2 nhdr_stack_domains: put each record in its reporting domains (strata) --
 * Every person or household belongs to four of the 15 NHDR domains: Pakistan,
-* Pakistan urban or rural, its province, and its province urban or ruraldomain, so that a single collapse by domain produces all 15 rows at once
-* The program makes four copies of each record and labels each copy with one.
-* Domain labels match the region column of the published tables exactly, for example "Khyber Pakhtunkhwa-Rural".
+* Pakistan urban or rural, its province, and its province urban or rural.
+* The program makes four copies of each record (expand 4) and labels each
+* copy with one domain, so that a single collapse by domain produces all 15
+* rows at once. Domain labels match the region column of the published tables
+* exactly, for example "Khyber Pakhtunkhwa-Rural", so that the merge with the
+* published table needs no recoding. Weighted means are unaffected by the
+* copies because each copy sits in a different domain.
 
-capture program drop nhdr_stack_domains
+capture program drop nhdr_stack_domains     // clear any earlier definition
 program define nhdr_stack_domains
     syntax , PROVince(varname) REGion(varname)
     tempvar pid copy pname rname
@@ -356,20 +535,22 @@ end
 * ---- 1.3 nhdr_quintile: equal-population quintiles within a group -----------
 
 * Records are sorted on per capita welfare within each group, the weight is
-* cumulated, and quintile = ceil(5 x cumulative share of the weight), kept between 1 and 5. Records with missing welfare or weight get no quintile.
-* The cut is over everyone in the group, not only over the population in an indicator's own universe.
-* Poorer households hold more children, so the
+* cumulated, and quintile = ceil(5 x cumulative share of the weight), kept
+* between 1 and 5. Records with missing welfare or weight get no quintile.
+* The cut is over everyone in the group, not only over the population in an
+* indicator's own universe. Poorer households hold more children, so the
 * 15-and-over population is not spread 20 percent per quintile, and the
 * published quintile rows do not average to the published total. Cutting over
-* all persons reproduces that behaviour.
+* all persons reproduces that behavior.
 
-capture program drop nhdr_quintile
+capture program drop nhdr_quintile     // clear any earlier definition
 program define nhdr_quintile
     syntax , WELfare(varname) WTvar(varname) BY(varname) GENerate(name)
     tempvar ok w0 cum tot
     gen byte `ok' = !missing(`welfare', `wtvar')
     gen double `w0' = cond(`ok', `wtvar', 0)
-    * Missing welfare sorts last, beacuse it never enters the running sum.
+    * Missing welfare sorts last, because Stata sorts missing above every
+    * number, and its zero weight never enters the running sum.
     bysort `by' (`welfare'): gen double `cum' = sum(`w0')
     by `by': egen double `tot' = total(`w0')
     gen byte `generate' = ceil((`cum' / `tot') * 5) if `ok'
@@ -379,20 +560,34 @@ end
 
 * ---- 1.4 nhdr_index: the NHDR 2020 Human Development Index (HDI) construction ------------------------------
 
-* Recovered by inversion from Table 1 in Section 5 and verified there against all 120 published dimension indices and composites.
-*   education  E = (2/3)(literacy/100) + (1/3)(net enrolment/100) the pre-2010 UNDP education index
-*   health     H = (LE - 25) / (90 - 25)  a 65-year band, neither the pre-2010 25 to 85 nor the post-2010 20 to 85. They mention one thing and do another. Consult the gaolposts.
-*   income     I = (ln PCI - ln 100) / (ln 100,000 - ln 100). This too is a rule of thumb we dont see in a UNDP published reports. Needs to be clarified.
-*   composite  HDI = (E x H x I)^(1/3), the post-2010 geometric mean, They used arithmetic pre-2010's
-* Classification thresholds are those of the NHDR 2020 Readers' guide.
+* Recovered by inversion from Table 1 in Section 5 and verified there against
+* all 120 published dimension indices and composites.
+*   education  E = (2/3)(literacy/100) + (1/3)(net enrollment/100), the
+*              pre-2010 UNDP education index
+*   health     H = (LE - 25) / (90 - 25), a 65-year band. It is neither the
+*              pre-2010 UNDP band (25 to 85) nor the band UNDP has used since
+*              HDR 2014 (20 to 85). NHDR states that it follows the standard UNDP method and
+*              then applies goalposts no UNDP report uses. The goalposts need
+*              confirmation from UNDP Pakistan.
+*   income     I = (ln PCI - ln 100) / (ln 100,000 - ln 100). The 100,000
+*              PPP dollar ceiling appears in no published UNDP report either
+*              (the pre-2010 ceiling is 40,000, and the ceiling since HDR
+*              2014 is 75,000). It is recovered from the printed income indices, not
+*              documented, and needs confirmation.
+*   composite  HDI = (E x H x I)^(1/3), the post-2010 geometric mean. UNDP's
+*              pre-2010 HDI was the arithmetic mean of the three indices,
+*              so NHDR combines a pre-2010 education index with a post-2010
+*              aggregation.
+* Classification thresholds (0.700 and 0.550) are those of the NHDR 2020
+* Readers' guide.
 
-capture program drop nhdr_index
+capture program drop nhdr_index     // clear any earlier definition
 program define nhdr_index
     syntax , LITeracy(varname) ENRolment(varname) LIFE(varname) INCome(varname) ///
         [PREfix(string)]
     gen double `prefix'education_index = (2/3) * (`literacy' / 100) + (1/3) * (`enrolment' / 100)
     gen double `prefix'health_index    = (`life' - 25) / (90 - 25)
-    gen double `prefix'income_index    = (ln(`income') - ln(100)) / (ln(100000) - ln(100)) //100k why?
+    gen double `prefix'income_index    = (ln(`income') - ln(100)) / (ln(100000) - ln(100))   // 100,000 ceiling: recovered by inversion, not documented by NHDR
     gen double `prefix'hdi = (`prefix'education_index * `prefix'health_index * ///
         `prefix'income_index)^(1/3)
     gen str24 `prefix'classification = ""
@@ -402,13 +597,22 @@ program define nhdr_index
 end
 
 * ---- 1.5 nhdr_le_from_q5: life expectancy implied by under-five mortality ---
-* We use implied because this var hasnt ben tracked properly across surveys
-* Model life table families :, For each mortality level, the probability of dying before age five (q5) and life expectancy at birth (e0). Levels 13
-* to 24 bracket Pakistan: e0 from 50.0 to 77.5 years. Life expectancy is constructed  by linear interpolation of e0 on ln(q5), because q5 falls geometrically
-* across levels, and a linear reading would drift at the low-mortality end
-* where Pakistan's better districts fall.  Outside the tabulated range the end level is used. The family parameters are loaded in Section 2.4.
+* Life expectancy is implied rather than measured because no Pakistani survey
+* measures it by province, district or quintile. Under-five mortality is
+* measured, by MICS6 and PDHS, and a model life table converts one into the
+* other.
+* Model life table families: for each mortality level, the probability of
+* dying before age five (q5) and life expectancy at birth (e0). Levels 13
+* to 24 bracket Pakistan: e0 from 50.0 to 77.5 years. Life expectancy is
+* interpolated linearly in ln(q5), because q5 falls geometrically across
+* levels, and a linear reading would drift at the low-mortality end where
+* Pakistan's better districts fall. Outside the tabulated range the end level
+* is used. The family parameters are loaded in Section 2.4 from
+* "6. Raw data/Published/Model life tables.csv".
+* The forvalues loop walks the 11 intervals between the 12 tabulated levels
+* (k = 1 to n - 1) and fills each record whose ln(q5) falls inside interval k.
 
-capture program drop nhdr_le_from_q5
+capture program drop nhdr_le_from_q5     // clear any earlier definition
 program define nhdr_le_from_q5
     syntax varname(numeric), GENerate(name) [FAMily(string)]
     if "`family'" == "" local family "west"
@@ -436,10 +640,12 @@ program define nhdr_le_from_q5
     }
 end
 
-* ---- 1.6 nhdr_q5_from_le: the inverse, used to doublecheck  life expectancy ------
+* ---- 1.6 nhdr_q5_from_le: the inverse, used to cross-check life expectancy ------
 * Interpolates ln(q5) on e0 within the family and returns q5 per 1,000.
+* Section 7 uses it to ask what under-five mortality NHDR's printed life
+* expectancy implies, under each family.
 
-capture program drop nhdr_q5_from_le
+capture program drop nhdr_q5_from_le     // clear any earlier definition
 program define nhdr_q5_from_le
     syntax varname(numeric), GENerate(name) [FAMily(string)]
     if "`family'" == "" local family "west"
@@ -466,7 +672,8 @@ program define nhdr_q5_from_le
 end
 
 * ---- 1.7 nhdr_q5: synthetic cohort under-five mortality ---------------------
-*Another method for LE. MICS and DHS  uses this. 
+* The input to life expectancy (Section 1.5). It is the method MICS and DHS
+* use for every published mortality table.
 * The DHS and MICS method (Rutstein and Rojas 2006, chapter 8). Births in the
 * window before interview are split into eight age segments, in months:
 * 0-1, 1-3, 3-6, 6-12, 12-24, 24-36, 36-48, 48-60.
@@ -485,8 +692,11 @@ end
 *    wmweight women's sample weight
 * and replaces the data in memory with one row per group, holding
 * u5mr_per_1000, births (unweighted, in the window) and deaths_weighted.
+* The eight segment bounds in the loop below are the DHS age segments in
+* months (Guide to DHS Statistics, Table 8.1). j counts the segments, and
+* _e1 to _e8 and _d1 to _d8 hold the exposure and deaths of each.
 
-capture program drop nhdr_q5
+capture program drop nhdr_q5     // clear any earlier definition
 program define nhdr_q5
     syntax , BY(varlist) WINDOW(integer)
     tempvar mb died agedth one dth5
@@ -528,9 +738,15 @@ end
 * PSLM and MICS6 spell the same district in up to four ways. The key is the
 * name in lower case, with anything other than a to z or a space turned into
 * a space and runs of spaces collapsed. An explicit alias list then maps the
-* remaining spellings onto one key. The list is written out rather than rekying on a fuzzy matcher, which would pair Kohat with Kohlu.
+* remaining spellings onto one key. The list is written out rather than
+* relying on a fuzzy matcher, which would pair Kohat with Kohlu.
+* pairs holds "from" "to" pairs read off the PSLM 2019-20 and MICS6 district
+* labels. The loop steps through it two words at a time (k = 1, 3, 5, ...):
+* word k is the spelling found in one survey, word k + 1 the key it maps to.
+* A pair whose two words are identical is kept as a placeholder and changes
+* nothing.
 
-capture program drop nhdr_district_key
+capture program drop nhdr_district_key     // clear any earlier definition
 program define nhdr_district_key
     syntax varname(string), GENerate(name)
     tempvar raw
@@ -550,11 +766,12 @@ program define nhdr_district_key
 end
 
 * ---- 1.9 nhdr_prov_long: one row of provincial values to long form ----------
-* Published allocator tables haveth one column per province. This turns
-* the four provincial columns of a single row into four rows of code,
-* province and value, the shape the allocation in Section 9 needs.
+* Published allocator tables (OCAC, PBS electricity, PBS CMI) have one column
+* per province. This turns the four provincial columns of a single row into
+* four rows of code, province and value, the shape the allocation in
+* Section 9 needs.
 
-capture program drop nhdr_prov_long
+capture program drop nhdr_prov_long     // clear any earlier definition
 program define nhdr_prov_long
     syntax , CODE(string)
     keep punjab sindh khyberpakhtunkhwa balochistan
@@ -577,8 +794,10 @@ end
 * one minus the ratio of the geometric to the arithmetic mean. Used over the
 * five equal-population quintiles, so the unweighted means are exact.
 * Creates <prefix><variable> on every row of the group.
+* The IHDI (Sections 16, 20.5, 20.6 and 26A) calls it with the five quintile
+* rows of each domain in memory.
 
-capture program drop nhdr_atkinson
+capture program drop nhdr_atkinson     // clear any earlier definition
 program define nhdr_atkinson
     syntax varlist(numeric), BY(varlist) PREfix(string)
     foreach v of local varlist {
@@ -591,10 +810,13 @@ program define nhdr_atkinson
     }
 end
 
-* ---- 1.11 nhdr_gdi_hdi: HDI gender, Gender Development Index (GDI) ----
-* As nhdr_index, except that the income index runs from 100 to 75,000 PPP dollars, the goalposts Table 6 is on (Section 17.1). This is also one of the many quirks of NH
+* ---- 1.11 nhdr_gdi_hdi: the female and male HDI of the Gender Development Index (GDI) --
+* As nhdr_index, except that the income index runs from 100 to 75,000 PPP
+* dollars, the goalposts Table 6 is on (Section 17.1). The HDI of Table 1
+* runs to 100,000. The same report therefore uses two income ceilings, one
+* more of NHDR's undocumented departures from the UNDP method.
 
-capture program drop nhdr_gdi_hdi
+capture program drop nhdr_gdi_hdi     // clear any earlier definition
 program define nhdr_gdi_hdi
     syntax , LITeracy(varname) ENRolment(varname) LIFE(varname) INCome(varname) [PREfix(string)]
     if "`prefix'" == "" local prefix "gdi_"
@@ -606,7 +828,10 @@ end
 
 * ---- 1.12 nhdr_gii: the Gender Inequality Index (GII), NHDR 2020 variant ---------
 * Inputs in percent. See Section 18 for the formula and its recovery.
-capture program drop nhdr_gii
+* NC is the no-care rate, EM the share of women 15-19 ever married, SEAT the
+* seat shares, SEC the share with primary schooling or more, LFPR the labor
+* force participation rates, F female and M male.
+capture program drop nhdr_gii     // clear any earlier definition
 program define nhdr_gii
     syntax , NOCare(varname) EVMarried(varname) SEATF(varname) SEATM(varname) ///
         SECF(varname) SECM(varname) LFPRF(varname) LFPRM(varname) [PREfix(string)]
@@ -625,9 +850,11 @@ program define nhdr_gii
 end
 
 * ---- 1.13 nhdr_by_province: weighted means for Pakistan and the provinces ---
-* Replaces the data in memory with five rows (Pakistan and the four Provinces), each holding the weighted mean of every listed variable over
-* its own non-missing universe.
-capture program drop nhdr_by_province
+* Replaces the data in memory with five rows (Pakistan and the four
+* provinces), each holding the weighted mean of every listed variable over
+* its own non-missing universe. Province codes other than 1 to 4 (Islamabad,
+* where a survey codes it apart) enter Pakistan but get no row of their own.
+capture program drop nhdr_by_province     // clear any earlier definition
 program define nhdr_by_province
     syntax , VARs(varlist) WGT(varname) PROVince(varname)
     drop if missing(`wgt')
@@ -650,14 +877,15 @@ end
 
 * ---- 1.14 nhdr_earned_income: the female share of earned income ------------
 
-* Income is the most tricjy of the three.
+* Income is the hardest of the three dimensions to split by sex, because no
+* survey reports income per head for women and men separately.
 * The UNDP split (HDR 2019 Technical Note 3):  S_f = (W_f/W_m x EA_f) / (W_f/W_m x EA_f + EA_m)
 * EA_f  female share of the economically active population aged 10 and over
 * W_f/W_m  ratio of mean female to mean male annual earnings, paid employees
 * Replaces the data in memory with one row per domain (Pakistan and the
 * provinces) holding ea_f, wage_ratio and s_f.
 
-capture program drop nhdr_earned_income
+capture program drop nhdr_earned_income     // clear any earlier definition
 program define nhdr_earned_income
     syntax , SEX(varname) ACTive(varname) EARN(varname) AGE(varname) WGT(varname) DOMain(name)
     keep if `age' >= 10 & !missing(`age') & !missing(`wgt')
@@ -683,8 +911,10 @@ program define nhdr_earned_income
 end
 
 * ---- 1.15 nhdr_fig_done: count a figure and confirm its file was written ----
+* Called after every figure. NFIG counts figures attempted and NFIGOK those
+* whose PNG exists. Section 26.23 checks that the two are equal.
 
-capture program drop nhdr_fig_done
+capture program drop nhdr_fig_done     // clear any earlier definition
 program define nhdr_fig_done
     args file
     global NFIG = $NFIG + 1
@@ -694,28 +924,34 @@ program define nhdr_fig_done
 end
 
 *==============================================================================*
-* SECTION 2   PUBLISHED REFERENCE VALUES
+* Section 2   Published reference values
 *==============================================================================*
 * Everything the reproduction is checked against, loaded once. Each file in
-* 6. Raw data/Published carries its source in 6. Raw data/Published/Sources register.csv.
-* Numeric columns are read in double precision (asdouble), for the reason
-* given under rules mentioned ealier.
+* "6. Raw data/Published" carries its source in "6. Raw data/Published/
+* Sources register.csv". Numeric columns are read in double precision
+* (asdouble), for the reason given under Rules in the file header.
+* Small reference tables are kept as tempfiles (t1, t2a, pdhs) and merged
+* where needed. Single values are kept as scalars (le2018, bm_<id>, ...),
+* which stay in memory for the whole run whatever data set is loaded.
 
 * ---- 2.1 NHDR 2020 Statistical Annex Table 1: dimension indices ------------
 * One row per domain. Columns lit_idx, ner_idx, edu_idx, health_idx,
 * income_idx and hdi, for 2006-07 and 2018-19, each to three decimals.
 
+* Input: "6. Raw data/Published/NHDR2020 Table 1.csv", typed from the NHDR
+* 2020 Statistical Annex, Table 1.
 import delimited using "$pub/NHDR2020 Table 1.csv", clear varnames(1) asdouble  encoding(utf-8) stringcols(1)
-rename region domain //strata 
+rename region domain       // domain = the reporting stratum, one of the 15 rows
 tempfile t1
 save `t1'
 
 * ---- 2.2 NHDR 2020 Statistical Annex Table 2A: the four indicators ---------
 * One row per domain and quintile (All, Q1 to Q5): adult literacy and net
-* enrolment in percent, life expectancy in years, per capita income in PPP
+* enrollment in percent, life expectancy in years, per capita income in PPP
 * dollars, for 2006-07 and 2018-19.
+* Input: "6. Raw data/Published/NHDR2020 Table 2A.csv", typed from the annex.
 import delimited using "$pub/NHDR2020 Table 2A.csv", clear varnames(1) asdouble  encoding(utf-8) stringcols(1 2)
-   
+
 rename region domain
 tempfile t2a
 save `t2a'
@@ -726,6 +962,12 @@ save `t2a'
 *   NY.GNP.PCAP.PP.KD  GNI per head, constant 2021 PPP dollars, 2018 and 2024
 *   NY.GNP.PCAP.PP.CD  GNI per head, current PPP dollars, 2006, 2018, 2024
 *   PA.NUS.PPP         PPP conversion factor, rupees per dollar, 2006, 2018
+* Input: "6. Raw data/Published/WDI Pakistan.csv", one row per indicator and
+* year, downloaded from the World Bank DataBank.
+* Each spec in the loop is "indicator year scalar": the WDI code, the year,
+* and the name of the scalar that receives the value. The run stops (exit
+* 459) if a code and year do not identify exactly one row, so a changed
+* download cannot slip in a wrong value.
 
 import delimited using "$pub/WDI Pakistan.csv", clear varnames(1) asdouble encoding(utf-8)
 foreach spec in "SP.DYN.LE00.IN 2018 le2018" "SP.DYN.LE00.IN 2024 le2024" ///
@@ -748,8 +990,14 @@ display as text "WDI: GNI per head, current PPP, 2006 " %6.0f gnic2006 ", 2018 "
 display as text "WDI: PPP conversion factor, 2006 " %8.4f ppp2006 ", 2018 " %8.4f ppp2018
 
 * ---- 2.4 Model life tables ----------------------------------------------------
-* Coale-Demeny West (1983) and United Nations South Asian (1982), levels 13  to 24. For each family the q5 and e0 values are stored as two globals,
+* Coale-Demeny West (1983) and United Nations South Asian (1982), levels 13
+* to 24. For each family the q5 and e0 values are stored as two globals,
 * ordered from level 13 to level 24, and read by nhdr_le_from_q5.
+* Input: "6. Raw data/Published/Model life tables.csv", typed from the two
+* published model life table volumes.
+* The outer loop runs over the two families. The inner loop walks every row
+* of the file and appends the row's q5 and e0 to the family's globals when
+* the row belongs to that family.
 
 import delimited using "$pub/Model life tables.csv", clear varnames(1) asdouble encoding(utf-8)
 sort family level
@@ -769,6 +1017,9 @@ display as text "e0 by level, both families: $MLT_west_e0"
 * ---- 2.5 Published benchmarks -----------------------------------------------
 * PBS literacy for PSLM 2018-19 and HIES 2024-25, PBS consumption means for  both HIES rounds, the MICS6 published under-five mortality rates, and
 * UNDP Pakistan's 2017 HDI with its four inputs. Stored as scalars bm_<id>.
+* Input: "6. Raw data/Published/Published benchmarks.csv", one row per value
+* (columns id and value). The loop turns row i into the scalar bm_<id>, for
+* example bm_u5mr_mics_PUN, the MICS6 Punjab rate used in Section 8.3.
 import delimited using "$pub/Published benchmarks.csv", clear varnames(1) asdouble encoding(utf-8)
 forvalues i = 1/`=_N' {
     local id = id[`i']
@@ -776,7 +1027,12 @@ forvalues i = 1/`=_N' {
 }
 
 * ---- 2.6 PDHS 2017-18 under-five mortality by province -----------------------
-* Ten years before the survey for provinces, five years for Pakistan. Still usable since this var doesnt fluctuate much
+* Ten years before the survey for provinces, five years for Pakistan, as the
+* PDHS 2017-18 final report tabulates them. The ten-year window still serves
+* a 2018-19 index because provincial child mortality moves slowly from year
+* to year.
+* Input: "6. Raw data/Published/PDHS 2017-18 mortality.csv", typed from the
+* PDHS 2017-18 final report.
 
 import delimited using "$pub/PDHS 2017-18 mortality.csv", clear varnames(1) asdouble encoding(utf-8)
 keep domain u5mr_per_1000
@@ -785,7 +1041,10 @@ tempfile pdhs
 save `pdhs'
 
 * ---- 2.7 PBS national accounts, 2018-19 ----------------------------------------
-* GNI at market prices and population, used only to show in Section 10 that the NHDR income control is not PBS GNI converted at the PPP factor.
+* GNI at market prices and population, used only to show in Section 10 that
+* the NHDR income control is not PBS GNI converted at the PPP factor.
+* Input: "6. Raw data/Published/PBS national accounts.csv", typed from the
+* PBS National Accounts tables.
 
 import delimited using "$pub/PBS national accounts.csv", clear varnames(1) asdouble encoding(utf-8)
 quietly summarize gni_mp_rs_mn if fiscal_year == "2018-19"
@@ -796,6 +1055,7 @@ scalar pop_1819 = r(mean)
 * ---- 2.8 Published benchmarks for the inequality and gender indices (IHDI, GDI, GII) ----------------------------
 * NHDR 2020 Figures 2.19 and 2.20 and Chapter 4, and PBS LFS 2018-19 Table 4.
 * Stored as scalars bm_<id>, like 2.5.
+* Input: "6. Raw data/Published/Published benchmarks indices.csv".
 
 import delimited using "$pub/Published benchmarks indices.csv", clear varnames(1) asdouble ///
     encoding(utf-8) stringcols(1 3)
@@ -806,7 +1066,7 @@ forvalues i = 1/`=_N' {
 
 
 *==============================================================================*
-* SECTION 3   ADULT LITERACY, HIES 2018-19, AGAINST NHDR TABLE 2A (HDI INPUT)
+* Section 3   Adult literacy, HIES 2018-19, against NHDR Table 2A (HDI input)
 *==============================================================================*
 
 * Source    PBS, HIES 2018-19 microdata
@@ -818,31 +1078,42 @@ forvalues i = 1/`=_N' {
 * Formula   L_D = 100 x sum_i (w_i x lit_i) / sum_i (w_i), over persons i in
 *           domain D, where lit_i = 1 if the person reads and writes and 0 otherwise
 * Target    Table 2A, lit_2018_19: 15 domains x (All, Q1 to Q5) = 90 values
-* Result    all 15 domain totals match to the printed decimal. Quintile rows match to within about five points, for reasons given in Section 10.
+* Result    all 15 domain totals match to the printed decimal. Quintile rows
+*           match to within about five points, for reasons given in
+*           Section 10.
 
 * ---- 3.1 One record per person ---------------------------------------------
 
+* Input: HIES 2018-19 roster, "6. Raw data/HIES 2018-19/plist.dta". s1aq04 is
+* sex (1 male, 2 female), kept for the GDI in Section 17.
 use hhcode idc age province region weights s1aq04 using "$h18/plist.dta", clear
-* Household size is counted on the complete roster, before anything is dropped, because it divides household consumption into per capita terms.
+* Household size is counted on the complete roster, before anything is
+* dropped, because it divides household consumption into per capita terms.
 bysort hhcode: gen int hhsize = _N
-* The education section is matched on household, person, province and region, which is how the published rows were reproduced.
+* Input: HIES 2018-19 education section, sec_2ab.dta. It is matched on
+* household, person, province and region, which is how the published rows
+* were reproduced. keep(master match) keeps every roster member, with or
+* without an education record.
 merge 1:1 hhcode idc province region using "$h18/sec_2ab.dta", keepusing(s2aq01 s2bq01 s2bq05 s2bq14) keep(master match) nogenerate
-* Household consumption, the ranking variable for the quintile rows.
+* Input: HIES 2018-19 household summary file, sec_12ce.dta (PBS aggregates).
+* Household consumption is the ranking variable for the quintile rows.
 merge m:1 hhcode using "$h18/sec_12ce.dta", keepusing(t_income t_exp)  keep(master match) nogenerate
 gen double pc_exp = t_exp / hhsize
 gen double pc_inc = t_income / hhsize      // used by the IHDI in Section 16
 
 * ---- 3.2 The literacy indicator -----------------------------------------------
 * Missing outside the universe, so that any weighted mean over any domain
-* restricts itself to the right population without a separate filter. Basically level matching is needed. Cohorts
-gen double lit15 = (s2aq01 == 1) if age >= 15 & !missing(age) & !missing(s2aq01)
+* restricts itself to the right population without a separate filter. The
+* same device defines each age cohort below: an indicator is 0 or 1 inside
+* its cohort and missing outside it.
+gen double lit15 = (s2aq01 == 1) if age >= 15 & !missing(age) & !missing(s2aq01)   // 1 reads and writes, 0 not, age 15+
 
 
 *==============================================================================*
-* SECTION 4   NET ENROLMENT, LEVEL MATCHED, AGAINST NHDR TABLE 2A (HDI INPUT)
+* Section 4   Net enrollment, level matched, against NHDR Table 2A (HDI input)
 *==============================================================================*
 
-* The annex defines net enrolment as children aged 5 to 14 attending classes
+* The annex defines net enrollment as children aged 5 to 14 attending classes
 * 1 to 10, over all children aged 5 to 14. Applied literally that returns
 * 62.0 percent for Pakistan in 2018-19 against a published 37.0. Six
 * definitions were tested. The one that reproduces every domain is a
@@ -858,13 +1129,16 @@ gen double lit15 = (s2aq01 == 1) if age >= 15 & !missing(age) & !missing(s2aq01)
 * Formula   N_D = 100 x sum_i (w_i x enr_i) / sum_i (w_i)
 * Target    Table 2A, ner_2018_19
 
-* ---- 4.1 The enrolment indicator ------------------------------------------------
+* ---- 4.1 The enrollment indicator ------------------------------------------------
 
 gen double cls = s2bq14 if s2bq01 == 3                 // attending now
-replace cls = . if inlist(cls, 25, 26, 27, 28) | cls > 10
+replace cls = . if inlist(cls, 25, 26, 27, 28) | cls > 10   // katchi and pre-primary, and classes above matric
+* ner is 1 when the child's class matches the age band of the table above,
+* 0 otherwise, and missing outside ages 5 to 14.
 gen double ner = ((inrange(age, 5, 9)   & inrange(cls, 1, 5))  | ///
                   (inrange(age, 10, 12) & inrange(cls, 6, 8))  | ///
                   (inrange(age, 13, 14) & inrange(cls, 9, 10))) if inrange(age, 5, 14)
+* h18p, the HIES 2018-19 person file, is reused in Sections 17, 18 and 26A.
 tempfile h18p
 save `h18p'
 
@@ -875,13 +1149,15 @@ save `h18p'
 * are therefore cut within each domain, on per capita consumption.
 
 keep hhcode idc province region weights pc_exp pc_inc lit15 ner
-nhdr_stack_domains, province(province) region(region)
-nhdr_quintile, welfare(pc_exp) wtvar(weights) by(domain) generate(q)
+nhdr_stack_domains, province(province) region(region)                   // 4 copies per person, one per domain
+nhdr_quintile, welfare(pc_exp) wtvar(weights) by(domain) generate(q)     // q = 1 to 5 within each domain
 tempfile stacked edu_all
 save `stacked'
+* Domain totals (the "All" rows), person-weighted means.
 collapse (mean) lit15 ner [aw=weights], by(domain)
 gen str3 quintile = "All"
 save `edu_all'
+* Quintile rows Q1 to Q5 of every domain.
 use `stacked', clear
 drop if missing(q)
 collapse (mean) lit15 ner [aw=weights], by(domain q)
@@ -891,10 +1167,12 @@ append using `edu_all'
 replace lit15 = 100 * lit15
 replace ner   = 100 * ner
 rename (lit15 ner) (lit_reproduced ner_reproduced)
+* Juxtaposition: each reproduced row beside the Table 2A value for the same
+* domain and quintile, and the gap between them.
 merge 1:1 domain quintile using `t2a', keepusing(lit_2018_19 ner_2018_19) ///
     keep(master match) nogenerate
 rename (lit_2018_19 ner_2018_19) (lit_published ner_published)
-gen double lit_diff = lit_reproduced - lit_published
+gen double lit_diff = lit_reproduced - lit_published      // reproduced minus published, points
 gen double ner_diff = ner_reproduced - ner_published
 sort domain quintile
 tempfile edu1819
@@ -905,7 +1183,9 @@ list domain lit_reproduced lit_published lit_diff ner_reproduced ner_published n
     if quintile == "All", noobs sep(0) abbreviate(16)
 
 * ---- 4.3 Checks ---------------------------------------------------------------------
-* Published values are printed to one decimal, so itreproduce within 0.05 is an exact match. The tolerance of 0.06 leaves room for floating point only.
+* Published values are printed to one decimal, so a reproduction within
+* 0.05 is an exact match. The tolerance of 0.06 leaves room for floating
+* point only. Targets: 57.4 and 37.0 are Table 2A, Pakistan, All, 2018-19.
 quietly summarize lit_reproduced if domain == "Pakistan" & quintile == "All"
 nhdr_check, label("Step 1 literacy, Pakistan 2018-19 [published 57.4]")  got(`=r(mean)') want(57.4) tol(0.06)
 quietly summarize ner_reproduced if domain == "Pakistan" & quintile == "All"
@@ -919,9 +1199,10 @@ nhdr_check, label("Step 1 literacy, worst of 15 domain totals, |gap| [published]
 quietly summarize _absn if quintile == "All"
 nhdr_check, label("Step 2 enrolment, worst of 15 domain totals, |gap| [published]") ///
     got(`=r(max)') want(0) tol(0.06)
-* Quintile rows: the reference is the worst gap the Python package corroborated
-* Tied per capita values inside a household are ordered differently by the
-* two programs, so the tolerance is wider.
+* Quintile rows: the reference is the worst gap the independent Python
+* implementation produced (4.85 and 5.06 points). Tied per capita values
+* inside a household are ordered differently by the two programs, so the
+* tolerance is wider.
 quietly summarize _absl if quintile != "All"
 nhdr_check, label("Step 1 literacy, worst of 75 quintile rows [reference 4.85]") ///
     got(`=r(max)') want(4.8488) tol(0.25)
@@ -933,21 +1214,24 @@ export delimited using "$out/Table 2A education replication 2018-19.csv"
 save "$out/Table 2A education replication 2018-19.dta"
 
 *==============================================================================*
-* SECTION 5   HUMAN DEVELOPMENT INDEX (HDI) CONSTRUCTION, RECOVERED BY INVERSION
+* Section 5   Human Development Index (HDI) construction, recovered by inversion
 *==============================================================================*
 
-* NHDR 2020 says it follows "the standard methodology" of UNDP's global Human Development Reports and does not say which year. Solving the
-* goalposts and weights out of the published dimension indices gives a versionthat no UNDP report uses (see nhdr_index in Section 1.4):
-*     education   two-thirds literacy, one-third enrolment    (pre-2010 UNDP)
+* NHDR 2020 says it follows "the standard methodology" of UNDP's global
+* Human Development Reports and does not say which year. Solving the
+* goalposts and weights out of the published dimension indices gives a
+* version that no UNDP report uses (see nhdr_index in Section 1.4):
+*     education   two-thirds literacy, one-third enrollment    (pre-2010 UNDP)
 *     health      goalposts 25 and 90 years                    (neither)
 *     income      goalposts 100 and 100,000 PPP dollars        (neither)
 *     aggregation geometric mean                               (post-2010 UNDP)
-* The recovery is verified here: 
-*the published Table 2A indicators are pushed through the construction and compared with Table 1.
+* The recovery is verified here: the published Table 2A indicators are
+* pushed through the construction and compared with Table 1.
+* Inputs: Tables 1 and 2A as loaded in Section 2 (t1, t2a). No survey data.
 * Target    Table 1: education, health and income indices and the composite,
 *           15 domains x 2 years = 120 values, printed to three decimals
 * Result    worst absolute error 0.0011, which is the rounding of the one
-*           decimal inputs in Table 2A 
+*           decimal inputs in Table 2A
 
 use `t2a', clear
 keep if quintile == "All"
@@ -961,11 +1245,15 @@ scalar pci_pak_1819 = r(mean)          // NHDR income control, 4,922 PPP dollars
 quietly summarize le_2018_19 if domain == "Pakistan"
 scalar le_pak_1819 = r(mean)           // NHDR life expectancy, 67.1 years
 merge 1:1 domain using `t1', keep(match) nogenerate
+* The two NHDR years. prefix() keeps the two sets of indices apart:
+* r2006_07_hdi and r2018_19_hdi, and likewise for each dimension.
 foreach y in 2006_07 2018_19 {
     nhdr_index, literacy(lit_`y') enrolment(ner_`y') life(le_`y') income(pci_`y') prefix(r`y'_)
 }
 
-* One row per domain, year and derived quantity.
+* One row per domain, year and derived quantity: 15 domains x 2 years x 4
+* quantities = 120 rows, each holding the value recomputed here and the
+* value printed in Table 1.
 tempname ph
 tempfile idxval
 postfile `ph' str30 domain str8 year str16 quantity double(replicated published) using `idxval'
@@ -1009,7 +1297,7 @@ save "$out/UNDP index validation.dta"
 
 
 *==============================================================================*
-* SECTION 6   THE CURRENT UNDP HDI CONSTRUCTION, AN EXTERNAL BENCHMARK
+* Section 6   The current UNDP HDI construction, an external benchmark
 *==============================================================================*
 
 * A separate check that the index arithmetic is coded correctly. UNDP Pakistan published Pakistan's 2017 HDI with its four inputs, citing the 2018 Statistical Update.
@@ -1018,6 +1306,9 @@ save "$out/UNDP index validation.dta"
 *     education  mean of min(EYS/18, 1) and min(MYS/15, 1)
 *     income     (ln GNI - ln 100) / (ln 75,000 - ln 100)
 *     composite  geometric mean
+* Inputs: bm_undp17_le, _eys, _mys, _gni and _hdi, the scalars of Section 2.5
+* (life expectancy, expected and mean years of schooling, GNI per head, HDI).
+* EYS and MYS are capped at 18 and 15 years, the UNDP maxima.
 scalar m_h   = (bm_undp17_le - 20) / (85 - 20)
 scalar m_e   = (min(bm_undp17_eys / 18, 1) + min(bm_undp17_mys / 15, 1)) / 2
 scalar m_i   = (ln(bm_undp17_gni) - ln(100)) / (ln(75000) - ln(100))
@@ -1030,7 +1321,7 @@ nhdr_check, label("Step 3b modern UNDP HDI, Pakistan 2017 [published 0.562]") //
 
 
 *==============================================================================*
-* SECTION 7   LIFE EXPECTANCY RECOVERED FROM THE HDI HEALTH INDEX
+* Section 7   Life expectancy recovered from the HDI health index
 *==============================================================================*
 
 * NHDR 2020 says provincial life expectancy was estimated from under-five mortality and does not name the model life table. Because the index
@@ -1044,15 +1335,19 @@ nhdr_check, label("Step 3b modern UNDP HDI, Pakistan 2017 [published 0.562]") //
 * Result    all 30 inside the band, mean gap 0.004 years: Tables 1 and 2A
 *           are one series
 
+* Inputs: Table 1 health indices and Table 2A life expectancy. No survey data.
 use `t1', clear
 keep domain health_idx_2006_07 health_idx_2018_19
 merge 1:1 domain using `t2a_all', keepusing(le_2006_07 le_2018_19) keep(match) nogenerate
+* One row per domain and year (30 rows), so both years are handled at once.
 reshape long health_idx_ le_, i(domain) j(year) string
 rename (health_idx_ le_) (health_index_published life_printed_table2a)
 gen double life_recovered = 25 + 65 * health_index_published
-gen double life_band_low  = life_recovered - 0.0325
+gen double life_band_low  = life_recovered - 0.0325     // 0.0325 = 0.5 x 0.001 x 65, see above
 gen double life_band_high = life_recovered + 0.0325
 gen double gap_years = life_recovered - life_printed_table2a
+* consistent = 1 when the printed life expectancy, allowing for its own
+* rounding to one decimal (0.05), falls inside the band of the recovered value.
 gen byte consistent = (life_printed_table2a >= life_band_low - 0.05) & ///
                       (life_printed_table2a <= life_band_high + 0.05)
 * Audit of the unnamed model life table: the under-five mortality each
@@ -1085,7 +1380,7 @@ export delimited using "$out/Life expectancy inversion.csv"
 save "$out/Life expectancy inversion.dta"
 
 *==============================================================================*
-* SECTION 8   UNDER-FIVE MORTALITY FROM THE MICS6 BIRTH HISTORIES
+* Section 8   Under-five mortality from the MICS6 birth histories
 *==============================================================================*
 
 * Section 7 recovers what NHDR fed in. This section supplies an independent
@@ -1111,6 +1406,11 @@ save "$out/Life expectancy inversion.dta"
 *           published 46, on 401,088 birth records
 
 * ---- 8.1 Stack the four provincial birth histories ----------------------------
+* Inputs: "6. Raw data/MICS6/<round>/bh.sav", the birth history recode of
+* each provincial MICS6, as downloaded from the UNICEF MICS website (SPSS).
+* The three lists are read in parallel: word k of provs, dirs and rounds
+* names the province, its folder and its survey year. The years are the
+* fieldwork years of each round.
 tempfile bh
 local provs  `" "Punjab" "Sindh" "Khyber Pakhtunkhwa" "Balochistan" "'
 local dirs   `" "Punjab 2017-18" "Sindh 2018-19" "KP 2019" "Balochistan 2019-20" "'
@@ -1131,9 +1431,11 @@ forvalues k = 1/4 {
     drop hh7 division
     gen str20 province = "`p'"
     gen str8 mics_round = "`r'"
+    * The first round starts the stacked file. Each later round is appended.
     if `k' > 1 append using `bh'
     save `bh', replace
 }
+* 401,088 is the total of birth records in the four bh.sav files.
 quietly count
 nhdr_check, label("Step 5 MICS6 birth records loaded, four rounds [reference]") ///
     got(`=r(N)') want(401088) tol(0)
@@ -1150,6 +1452,10 @@ save `d2v'
 export delimited using "$out/District division lookup MICS6.csv"
 
 * ---- 8.3 Validation against the published MICS6 figures, five-year window ----
+* Targets: the five-year rates printed in the MICS6 Punjab 2017-18 (67) and
+* Sindh 2018-19 (46) survey findings reports, held as bm_u5mr_mics_PUN and
+* bm_u5mr_mics_SIN (Section 2.5). One death per 1,000 is the tolerance
+* because both reports print whole numbers.
 use `bh', clear
 nhdr_q5, by(province) window(5)
 display as text _n "Step 5: provincial under-five mortality, five-year window"
@@ -1167,7 +1473,9 @@ nhdr_check, label("Step 5 Sindh q5, 5 years [reference 45.18]") ///
 
 * ---- 8.4 Provinces, ten-year window, and the life expectancy each implies ---
 * Set against PDHS 2017-18, which covers the same years and returns
-* systematically higher child mortality, and against the value NHDR used (recovered in Section 7).
+* systematically higher child mortality, and against the value NHDR used
+* (recovered in Section 7). This is the core health juxtaposition: three
+* life expectancies per province, from MICS6, from PDHS and from NHDR.
 
 use `bh', clear
 nhdr_q5, by(province) window(10)
@@ -1192,7 +1500,17 @@ rename domain province
 display as text _n "Step 5: provincial under-five mortality, ten-year window, and implied life expectancy"
 list province mics6_q5_10y le_west le_south_asian pdhs_q5 le_west_from_pdhs nhdr_le_recovered ///
     le_gap_mics_minus_pdhs, noobs sep(0) abbreviate(14)
-* Punjab seems off
+* Punjab stands apart. Its MICS6 rate (68.8 per 1,000) is the highest of the
+* four and the closest to PDHS 2017-18 (85), so its MICS6 life expectancy
+* sits 2.9 years above the PDHS-based value. In Sindh, Khyber Pakhtunkhwa
+* and Balochistan MICS6 returns 36.7 to 47.2 against PDHS 64 to 78, and the
+* gap is 6.2 to 7.0 years. The ordering of provinces therefore differs
+* between the two surveys, and the choice of survey decides the health
+* ranking (see le_gap_mics_minus_pdhs in Provincial mortality MICS6.csv).
+* Each spec is "province q5 e0": the ten-year q5 and the West-family life
+* expectancy the independent Python implementation produced. An underscore
+* stands for the space in Khyber Pakhtunkhwa so that the name stays one
+* word, and subinstr() puts the space back.
 foreach pr in "Punjab 68.8139 68.2092" "Sindh 43.1638 73.6592" ///
     "Khyber_Pakhtunkhwa 36.6525 75.3047" "Balochistan 47.2439 72.7279" {
     local nm : word 1 of `pr'
@@ -1227,11 +1545,14 @@ use `bh', clear
 drop if district == ""
 nhdr_q5, by(province district) window(10)
 nhdr_le_from_q5 u5mr_per_1000, generate(le_west) family(west)
-* Pakistan's healthiest districts has near 40 deaths per thousand and its national rate lies between 46 and 74 depending on the survey. A district
-* returning under 20, or fewer than 15 weighted deaths in ten years, is probably a reporting failure rather than low mortality: child deaths, and early
-* neonatal deathsare the first thing a retrospective birth
+* Pakistan's healthiest districts have near 40 deaths per thousand, and its
+* national rate lies between 46 and 74 depending on the survey. A district
+* returning under 20, or fewer than 15 weighted deaths in ten years, is
+* probably a reporting failure rather than low mortality: child deaths, and
+* early neonatal deaths above all, are the first thing a retrospective birth
 * history loses. Such districts stay in the file, flagged, and are not used
-* as district estimates in Section 15.
+* as district estimates in Section 15. thin flags districts with fewer than
+* 500 births in the window, for information only.
 
 gen byte implausible = (u5mr_per_1000 < 20) | (deaths_weighted < 15)
 gen byte thin = births < 500
@@ -1253,7 +1574,7 @@ save `distmort'
 export delimited using "$out/District mortality MICS6.csv"
 
 *==============================================================================*
-* SECTION 8A   CHILD MORTALITY, STUNTING AND WASTING FROM PDHS 2006-07, 2012-13, 2017-18
+* Section 8A   Child mortality, stunting and wasting from PDHS 2006-07, 2012-13, 2017-18
 *==============================================================================*
 
 * Without this section the PDHS values NHDR 2020 used would enter as printed: child survival,
@@ -1278,7 +1599,8 @@ export delimited using "$out/District mortality MICS6.csv"
 *           does not depend on how each round numbers them. Pakistan is the
 *           national total as PDHS publishes it: Gilgit-Baltistan and Azad
 *           Jammu and Kashmir are excluded (PDHS 2017-18 gives them zero
-*           standard weight, README ON WEIGHTS), and Islamabad and FATA are
+*           standard weight, as its readme on weights states), and
+*           Islamabad and FATA are
 *           included. Provinces are the PDHS regions: Punjab without
 *           Islamabad, Khyber Pakhtunkhwa without FATA.
 * Method    Under-five mortality by the DHS synthetic cohort (Rutstein and
@@ -1312,7 +1634,9 @@ save `t4pd'
 * ---- 8A.1 Helper programs ------------------------------------------------------
 * nhdr_pdhs_region: a province name from the value label of a region
 * variable. Records it cannot place get an empty name, and 8A.2 counts them.
-capture program drop nhdr_pdhs_region
+* Each line searches the lower-case label for the spellings the three PDHS
+* rounds use (for example "nwfp" in 2006-07 and "kpk" in 2017-18).
+capture program drop nhdr_pdhs_region     // clear any earlier definition
 program define nhdr_pdhs_region
     syntax varname, GENerate(name)
     tempvar lab
@@ -1335,7 +1659,7 @@ end
 * ending the month before the interview. Replaces the data with one row per
 * group of by(), holding u5mr_per_1000 and births (unweighted births in the
 * period).
-* A line-by-line pasteof the DHS Program's own code (DHS-Indicators-Stata,
+* A line-by-line port of the DHS Program's own code (DHS-Indicators-Stata,
 * Chap08_CM/CM_CHILD.do, prepare_child_file and make_risk_and_deaths), which
 * reproduces the published rates of all three rounds to the printed digit.
 * Until v4 this program dated each death (b3 + b7) and counted a death in
@@ -1346,8 +1670,11 @@ end
 * deaths fell out of the period: under-five mortality came out 2 to 3 per
 * 1,000 low in every round. DHS weights the deaths of both straddling
 * cohorts by one half whatever their date, and that rule alone closes the gap.
+* The two loops below run over the same eight DHS age segments, in months:
+* the first assigns each death to its segment, the second builds deaths and
+* exposure for each segment.
 
-capture program drop nhdr_q5_dhs
+capture program drop nhdr_q5_dhs     // clear any earlier definition
 program define nhdr_q5_dhs
     syntax , MONTHS(integer) [BY(varlist) OFFset(integer 0)]
     tempvar w sm em aad seg d1 d2 inw
@@ -1359,7 +1686,7 @@ program define nhdr_q5_dhs
     gen double `em' = v008 - `offset' - 1
     drop if missing(b3) | b3 > `em'
     gen byte `inw' = (b3 >= `sm')
-    * Age at death; a death at 60 months or more counts as a survivor here.
+    * Age at death. A death at 60 months or more counts as a survivor here.
     gen double `aad' = b7 if b5 == 0
     replace `aad' = . if `aad' > 59
     gen byte   `seg' = .
@@ -1423,6 +1750,13 @@ end
 * ---- 8A.2 Under-five mortality and survival, PDHS 2006-07, 2012-13, 2017-18 ---
 * Rows: round, domain (Pakistan and the four provinces), sex (All, Male,
 * Female) and window (60 or 120 months).
+* Inputs: the PDHS births recodes (BR), one row per birth to interviewed
+* women: PKBR53FL (2006-07), PKBR61FL (2012-13), PKBR71FL (2017-18).
+* Each spec is "round|file". The two substr() lines split it at the "|".
+* first = 1 until the first block is saved, so the first result starts the
+* file and every later one is appended to it.
+* The inner loop runs the two windows DHS publishes: 60 months (five years,
+* the national rate) and 120 months (ten years, the provincial rate).
 tempfile pdq5
 local first = 1
 foreach spec in "2006_07|$pd06/PKBR53DT/PKBR53FL.DTA" "2012_13|$pd12/PKBR61DT/PKBR61FL.DTA" ///
@@ -1480,6 +1814,9 @@ save "$out/PDHS under5 mortality.dta", replace
 export delimited using "$out/PDHS under5 mortality.csv", replace
 
 * Checks against what PDHS published for the five years before each survey.
+* Each spec is "round rate": 94, 89 and 74 per 1,000 are the national
+* under-five mortality rates in the PDHS 2006-07, 2012-13 and 2017-18 final
+* reports. The reports print whole numbers, hence the tolerance of 1.
 foreach spec in "2006_07 94" "2012_13 89" "2017_18 74" {
     local rd : word 1 of `spec'
     local q  : word 2 of `spec'
@@ -1541,6 +1878,11 @@ drop _g
 * PDHS 2006-07 did not measure children, which 8A.3 tests on the file itself.
 * In that case the 2007-08 CDI keeps NHDR's printed anthropometry, and the
 * PDHS 2012-13 values are shown beside it.
+* Inputs: the PDHS household member recodes (PR), one row per household
+* member, which carry the height and weight z-scores of measured children.
+* describe ... varlist lists the variables without loading the file, and
+* posof returns 0 when hc70, hc72 or hc1 is absent, in which case continue
+* skips to the next round.
 tempfile pdanth
 local first = 1
 foreach spec in "2006_07|$pd06/PKPR53DT/PKPR53FL.DTA" "2012_13|$pd12/PKPR61DT/PKPR61FL.DTA" ///
@@ -1616,6 +1958,8 @@ export delimited using "$out/PDHS anthropometry.csv", replace
 quietly count if round == "2006_07"
 local anth06 = r(N)
 display as text "  PDHS 2006-07 anthropometry rows: `anth06' (0 means the round did not measure children)"
+* Each spec is "round stunting wasting": the national percentages printed in
+* the PDHS 2012-13 and 2017-18 final reports (45.0 and 10.8, 37.6 and 7.1).
 foreach spec in "2012_13 45.0 10.8" "2017_18 37.6 7.1" {
     local rd : word 1 of `spec'
     local s  : word 2 of `spec'
@@ -1672,6 +2016,9 @@ export delimited using "$out/PDHS CDI health inputs.csv", replace
 * quintile (v190, the survey's national wealth index), ten years, converted
 * to life expectancy through the Coale-Demeny West family (Section 1.5), as
 * Section 16.2 does with MICS6. Rows: round, domain, quintile.
+* Inputs: the births recodes of PDHS 2006-07 and 2017-18, the two rounds
+* behind NHDR's 2006-07 and 2018-19 columns. Expected: 5 domains x 5
+* quintiles = 25 rows per round.
 tempfile pdwq
 local first = 1
 foreach spec in "2006_07|$pd06/PKBR53DT/PKBR53FL.DTA" "2017_18|$pd17/PKBR71DT/PKBR71FL.DTA" {
@@ -1723,6 +2070,14 @@ save `pd_wq'
 *                  (h2 to h9 coded 1 to 3), the PDHS table definition
 *   delivery       births in the five years before the survey delivered in a
 *                  health facility (m15 20 to 49, public, private or NGO)
+* Inputs: PDHS 2017-18 household recode PKHR71FL (water source) and
+* children's recode PKKR71FL (vaccination, place of delivery).
+* vac519 and fac519 start as missing. If anything in the block fails, they
+* stay missing and the two checks after the block fail visibly.
+* The block is wrapped in capture noisily so that a graphics problem cannot
+* stop the run (see the idioms note in Section 1).
+* This block also draws the Stata version of Figure 5.19 and writes
+* "Figure 5.19 data.csv", which figures.py reads for the NHDR-style redraw.
 tempfile f519
 local vac519 = .
 local fac519 = .
@@ -1752,6 +2107,9 @@ capture noisily {
     * the 12 and 23 month edges and gives 65.1 percent with all basic
     * vaccinations, against 65.6 with b19 and 66 printed.
     gen double age_m = b19
+    * h2 to h9 are BCG, DPT or pentavalent 1 to 3, polio 1 to 3 and measles.
+    * Codes 1 to 3 are a vaccination by card date, by mother's report, or by
+    * card mark. _got stays 1 only if all eight were received.
     gen byte _got = 1
     foreach v in h2 h3 h4 h5 h6 h7 h8 h9 {
         replace _got = 0 if !inrange(`v', 1, 3)
@@ -1801,6 +2159,9 @@ capture noisily {
     graph export "$out/Figure 5.19 health access wealth.png", width(2400) replace
 }
 nhdr_fig_done "$out/Figure 5.19 health access wealth.png"
+* Targets: 66 percent with all basic vaccinations and 66 percent delivered in
+* a health facility, both printed as whole numbers in the PDHS 2017-18 final
+* report.
 nhdr_check, label("Step 5A PDHS 2017-18 basic vaccination, 12-23 months [published 66]") ///
     got(`vac519') want(66) tol(0.55)
 nhdr_check, label("Step 5A PDHS 2017-18 delivery in a health facility, 5 years [published 66]") ///
@@ -1808,7 +2169,7 @@ nhdr_check, label("Step 5A PDHS 2017-18 delivery in a health facility, 5 years [
 
 
 *==============================================================================*
-* SECTION 9   GROSS REGIONAL PRODUCT (GRP) BY PROVINCE, PASHA'S  SCHEME
+* Section 9   Gross regional product (GRP) by province, Pasha's scheme
 *==============================================================================*
 * Pakistan has no official provincial accounts. PBS publishes national value
 * added by sub-sector and stops there. Every provincial GDP figure in
@@ -1816,7 +2177,8 @@ nhdr_check, label("Step 5A PDHS 2017-18 delivery in a health facility, 5 years [
 * provinces using indicator shares. The canonical scheme is Pasha's
 * (Institute for Policy Reform, 2015): each sub-sector gets a named allocator
 * from a named source. It is applied here to the 22 PBS sub-sectors of the
-* 2015-16 base, and every sub-sector has a status flag so that the sharef GDP resting on measured data is reported clearly
+* 2015-16 base, and every sub-sector has a status flag so that the share of
+* GDP resting on measured data is reported clearly:
 *     obtained     the allocator Pasha specifies, from the source he names
 *     substitute   a documented second-best allocator
 *     unobtained   no allocator: the sub-sector is left out of the totals,
@@ -1841,7 +2203,9 @@ nhdr_check, label("Step 5A PDHS 2017-18 delivery in a health facility, 5 years [
 *   A.4     Fishing             HIES household fish catch (weakest allocator:
 *                               marine catch is landed by commercial vessels
 *                               no household survey observes)
-*   B.1     Mining              none (Energy Yearbook is sold, not published), May be buy it later if needed. 
+*   B.1     Mining              none (the Pakistan Energy Yearbook is sold,
+*                               not published free). It can be purchased
+*                               later if the gap matters.
 *   B.2.i   Large manufacturing PBS Census of Manufacturing Industries
 *                               2015-16, census value added
 *   B.2.ii  Small manufacturing LFS informal manufacturing employment
@@ -1859,7 +2223,10 @@ nhdr_check, label("Step 5A PDHS 2017-18 delivery in a health facility, 5 years [
 *   C.6     Real estate         HIES actual and imputed rent
 *   C.7-C.10 Public administration, education, health, other services:
 *                               LFS employment weighted by earnings
-* Very rough buy we have to get somewhere
+* The allocation is rough, but it is a documented starting point that any
+* better source can replace sub-sector by sub-sector.
+* The input block types the scheme above into a data set: code is the PBS
+* sub-sector code, status the allocator flag.
 clear
 input str8 code str48 sub_sector str10 status
 "A.1.i"   "Important Crops"                               "substitute"
@@ -1887,7 +2254,11 @@ input str8 code str48 sub_sector str10 status
 end
 tempfile scheme
 save `scheme'
-import delimited using "$pub/PBS GVA subsector.csv", clear varnames(1) asdouble encoding(utf-8) 
+* Input: "6. Raw data/Published/PBS GVA subsector.csv", gross value added by
+* sub-sector, 2018-19, current basic prices, Rs million, typed from PBS
+* National Accounts Table 4. assert(match) stops the run if any of the 22
+* codes fails to match the scheme.
+import delimited using "$pub/PBS GVA subsector.csv", clear varnames(1) asdouble encoding(utf-8)
 keep code gva_2018_19
 merge 1:1 code using `scheme', assert(match) nogenerate
 quietly summarize gva_2018_19
@@ -1905,6 +2276,9 @@ export delimited using "$out/GRP coverage by status 2018-19.csv"
 * ---- 9.2 Allocators from published administrative sources -------------------
 * C.2 Transport: OCAC Pakistan Oil Report 2018-19, motor spirit, high speed
 * diesel and furnace oil, metric tons, by province.
+* Input: "6. Raw data/Published/OCAC petroleum consumption.csv". MS, HSD and
+* FO are OCAC's product codes for the three fuels.
+* sh accumulates every allocator, one row per code and province.
 import delimited using "$pub/OCAC petroleum consumption.csv", clear varnames(1) asdouble encoding(utf-8)
 keep if fiscal_year == "2018-19" & inlist(product, "MS", "HSD", "FO")
 collapse (sum) punjab sindh khyberpakhtunkhwa balochistan
@@ -1914,6 +2288,7 @@ save `sh'
 
 * B.3 Electricity: PBS, Trends in Electricity Generation, Table 4.7, GWh
 * generated by province, 2020-21, the year nearest 2018-19 that was obtained.
+* Input: "6. Raw data/Published/PBS electricity generation.csv".
 import delimited using "$pub/PBS electricity generation.csv", clear varnames(1) asdouble encoding(utf-8)
 keep if fiscal_year == "2020-21"
 nhdr_prov_long, code("B.3")
@@ -1922,6 +2297,7 @@ save `sh', replace
 
 * B.2.i Large scale manufacturing: PBS Census of Manufacturing Industries
 * 2015-16, census value added by province.
+* Input: "6. Raw data/Published/PBS CMI 2015-16.csv".
 import delimited using "$pub/PBS CMI 2015-16.csv", clear varnames(1) asdouble encoding(utf-8)
 keep if reference_year == "2015-16" & measure == "census value added"
 nhdr_prov_long, code("B.2.i")
@@ -1932,6 +2308,7 @@ save `sh', replace
 * Fields: Province, S05C10 industry of main job (PSIC 2010 class),
 * S05C11 kind of enterprise, S05C13 persons engaged in the enterprise,
 * S07C04 net monthly earnings from the main job, Weight.
+* Input: "6. Raw data/LFS 2018-19/LFS 2018-19.dta", the PBS Stata release.
 use Province S05C10 S05C11 S05C13 S07C04 Weight using "$lfs/LFS 2018-19.dta", clear
 gen str20 province = ""
 replace province = "Khyber Pakhtunkhwa" if Province == 1
@@ -1948,6 +2325,12 @@ gen double psic_div = floor(S05C10 / 100) if inrange(S05C10, 100, 9999)
 * of domestic staff (division 97) go to other private services rather than
 * being dropped: in Pakistan it is a large and mainly urban category, and
 * leaving it out would tilt every service allocator toward rural provinces.
+* The division ranges below are those of the PSIC 2010 (ISIC Rev. 4) sections:
+* 01 crops, 02 forestry, 03 fishing, 05 to 09 mining, 10 to 33 manufacturing,
+* 35 to 39 utilities, 41 to 43 construction, 45 to 47 trade, 49 to 53
+* transport, 55 and 56 accommodation and food, 58 to 63 information, 64 to
+* 66 finance, 68 real estate, 84 public administration, 85 education, 86 to
+* 88 health, and the remaining service divisions to other services.
 gen str8 ss = ""
 replace ss = "A.1.i"  if psic_div == 1
 replace ss = "A.3"    if psic_div == 2
@@ -1967,6 +2350,8 @@ replace ss = "C.8"    if psic_div == 85
 replace ss = "C.9"    if inrange(psic_div, 86, 88)
 replace ss = "C.10"   if inrange(psic_div, 69, 75) | inrange(psic_div, 77, 82) | inrange(psic_div, 90, 99)
 drop if ss == "" | province == "" | missing(Weight)
+* 75,210 employed persons with a usable industry code: the count the
+* independent Python implementation found.
 quietly count
 nhdr_check, label("Step 6 LFS employed persons with an industry code [reference]") ///
     got(`=r(N)') want(75210) tol(0)
@@ -1983,7 +2368,8 @@ gen byte informal = (ss == "B.2.i") & inlist(S05C11, 8, 9) & (S05C13 < 10)
 tempfile lfsw
 save `lfsw'
 
-* Headcount shares.
+* Headcount shares: B.2.ii from informal manufacturing, then C.3 and C.4, the
+* two sub-sectors the scheme in 9.1 allocates on employment alone.
 keep if informal
 collapse (sum) value=w_emp, by(province)
 gen str8 code = "B.2.ii"
@@ -1998,7 +2384,8 @@ foreach c in C.3 C.4 {
     save `sh', replace
 }
 * Earnings-weighted shares, where a worker in Karachi and a worker in
-* Balochistan do not stand for the same value added.
+* Balochistan do not stand for the same value added. The six codes are the
+* sub-sectors 9.1 allocates on "LFS employment weighted by earnings".
 foreach c in B.4 C.1 C.7 C.8 C.9 C.10 {
     use `lfsw', clear
     keep if ss == "`c'"
@@ -2015,6 +2402,9 @@ foreach c in B.4 C.1 C.7 C.8 C.9 C.10 {
 * (purchased, received as wages in kind, own produced, received as gift). The
 * annualization factor is common to every item in a block, so it cancels out
 * of a share and is not applied.
+* Input: HIES 2018-19 consumption module, sec_6a.dta, one row per household
+* and item code (itc), read only for the item codes listed above. Household
+* weights come from weight.dta, one weight per PSU.
 use hhcode psu province itc v1 v2 v3 v4 ///
     if inrange(itc, 11201, 11204) | inrange(itc, 11401, 11410) | ///
        inlist(itc, 11501, 11502, 11506, 45401, 45402, 41101, 42101, 42102, 42103) ///
@@ -2037,6 +2427,10 @@ gen byte fire  = inlist(itc, 45401, 45402)
 gen byte rent  = inlist(itc, 41101, 42101, 42102, 42103)
 tempfile hcons
 save `hcons'
+* Each spec is "code condition": the sub-sector and the item flags whose
+* weighted value allocates it. Livestock (A.2) takes meat, dairy and fats
+* together, slaughtering (B.2.iii) meat alone, forestry (A.3) firewood and
+* real estate (C.6) rent.
 foreach spec in "A.2 (meat|dairy|fats)" "B.2.iii meat" "A.3 fire" "C.6 rent" {
     local c    : word 1 of `spec'
     local cond : word 2 of `spec'
@@ -2053,6 +2447,9 @@ foreach spec in "A.2 (meat|dairy|fats)" "B.2.iii meat" "A.3 fire" "C.6 rent" {
 * cotton. Section 10b: code 171 is the value of fish catch. s10c3 is the
 * value, in rupees. These substitute for the Agricultural Statistics Year
 * Book, whose province tables are district-wise with no province summary.
+* Each spec is "file code sub-sector". Important and other crops share the
+* one allocator (all crops, code 135), as 9.1 states.
+* Input: HIES 2018-19 agriculture sections sec_10a.dta and sec_10b.dta.
 foreach spec in "sec_10a 135 A.1.i" "sec_10a 135 A.1.ii" "sec_10a 122 A.1.iii" "sec_10b 171 A.4" {
     local f : word 1 of `spec'
     local k : word 2 of `spec'
@@ -2123,6 +2520,8 @@ quietly summarize grp_rs_mn
 gen double share_pct = 100 * grp_rs_mn / r(sum)
 display as text _n "Step 6: gross regional product, 2018-19, Rs million and percent"
 list, noobs sep(0)
+* Reference shares of national value added, percent, from the independent
+* Python implementation on the same inputs.
 foreach pr in "Punjab 57.6279" "Sindh 27.5940" "Khyber_Pakhtunkhwa 10.3646" "Balochistan 4.4135" {
     local nm : word 1 of `pr'
     local v  : word 2 of `pr'
@@ -2138,6 +2537,10 @@ save `grptot'
 * This reconstruction against Pasha (Business Recorder 2021), the Khyber
 * Pakhtunkhwa Bureau of Statistics nightlights estimate (2021) and PIDE's
 * luminosity based City Development Product (2022, calendar 2019).
+* Input: "6. Raw data/Published/GRP published estimates.csv", every published
+* provincial estimate held, with source, year, share and per head value.
+* range_pts, the spread between the highest and lowest of the four
+* estimates, is the measure of how uncertain provincial income is.
 import delimited using "$pub/GRP published estimates.csv", clear varnames(1) asdouble ///
     encoding(utf-8) stringcols(1 2 3 4)
 keep if (source == "Pasha BR 2021" & year == "2018-19") | ///
@@ -2165,6 +2568,8 @@ export delimited using "$out/GRP source comparison 2018-19.csv"
 * districts, as the LFS and HIES microdata do) and the 2018 World Bank GDP
 * PPP conversion factor. Using the market exchange rate instead would cut
 * the income index by roughly a third.
+* Input: "6. Raw data/Published/Census 2017 population.csv", PBS results of
+* the 2017 Population and Housing Census.
 import delimited using "$pub/Census 2017 population.csv", clear varnames(1) asdouble encoding(utf-8)
 keep province population_2017
 merge 1:1 province using `grptot', keepusing(grp_rs_mn) nogenerate
@@ -2181,6 +2586,8 @@ gen double nhdr_relative = nhdr_pci_2018_19 / pci_pak_1819
 rename domain province
 display as text _n "Step 6: reconstructed GRP per head against the NHDR 2020 income column"
 list, noobs sep(0) abbreviate(20)
+* Reference relatives (GRP per head over Pakistan's) from the independent
+* Python implementation.
 foreach pr in "Punjab 1.07788" "Sindh 1.18572" "Khyber_Pakhtunkhwa 0.60034" "Balochistan 0.73567" {
     local nm : word 1 of `pr'
     local v  : word 2 of `pr'
@@ -2195,7 +2602,7 @@ save `grprel'
 export delimited using "$out/GRP per capita 2018-19.csv"
 
 *==============================================================================*
-* SECTION 10   WHAT NHDR'S HDI INCOME COLUMN IS: LEVEL, RANKING, SCALE
+* Section 10   What NHDR's HDI income column is: level, ranking, scale
 *==============================================================================*
 * The per capita income column of Table 2A is the one input the reproduction
 * cannot reproduce. Three tests establish what it is.
@@ -2209,7 +2616,9 @@ export delimited using "$out/GRP per capita 2018-19.csv"
 * Source    HIES 2018-19 sec_12ce.dta (t_income, t_exp, annual rupees per
 *           household), plist.dta (household size), weight.dta (weight per PSU)
 * Weight    population weight = household weight x household size
-
+* This section is diagnostic. It tests candidate explanations of NHDR's
+* income column. The tests point to a construction but cannot prove it, and
+* the finding needs confirmation from UNDP Pakistan.
 * Result    the level is the World Bank GNI control, the distribution is the
 *           survey scaled up about threefold, the quintiles are consumption
 *           quintiles, and the provincial pattern matches no published
@@ -2239,6 +2648,8 @@ scalar base_exp = r(mean)
 tempname pt
 tempfile test1
 postfile `pt' str20 province double(survey_income survey_consumption) using `test1'
+* k is the province code (Rules, file header), and the name list is in code
+* order, so word k is the name of province k.
 forvalues k = 1/4 {
     local nm : word `k' of "Khyber Pakhtunkhwa" Punjab Sindh Balochistan
     quietly summarize pc_inc [aw=pop_w] if province == `k'
@@ -2270,6 +2681,9 @@ merge 1:1 province using `pasha', keep(master match) nogenerate
 display as text _n "Step 7, test 1: provincial per head values relative to Pakistan"
 list, noobs sep(0) abbreviate(20)
 * Mean absolute deviation of each candidate from the printed NHDR pattern.
+* The smallest deviation marks the candidate nearest NHDR. The reference
+* values in the four checks below are those of the independent Python
+* implementation.
 foreach v in survey_income survey_consumption grp_relative pasha_2018_19 {
     gen double _d = abs(`v' - nhdr_printed)
     quietly summarize _d
@@ -2311,6 +2725,8 @@ save `incst'
 collapse (mean) allm=pc_inc [aw=pop_w], by(domain)
 tempfile allm
 save `allm'
+* The loop runs once for income quintiles (pc_inc) and once for consumption
+* quintiles (pc_exp), and keeps the worst gap in each domain for each.
 tempfile test2
 local first = 1
 foreach r in pc_inc pc_exp {
@@ -2364,7 +2780,7 @@ nhdr_check, label("Step 7 test 3, underreporting factor [reference 3.03]") ///
     got(`=underreport') want(3.027) tol(0.005)
 
 *==============================================================================*
-* SECTION 11   HIES 2024-25: CHECKING THE NEW SURVEY AGAINST PBS
+* Section 11   HIES 2024-25: checking the new survey against PBS
 *==============================================================================*
 * Before an index is built on a new round, the round has to be shown to be
 * read correctly. Two checks against what PBS itself published.
@@ -2388,6 +2804,10 @@ nhdr_check, label("Step 7 test 3, underreporting factor [reference 3.03]") ///
 *           province, consumption within 0.84 percent
 
 * ---- 11.1 The 2018-19 aggregate first, same rule, as a control -----------------
+* Input: HIES 2018-19 sec_6a.dta, the four section header rows only (codes
+* 1000, 2000, 4000 and 5000 carry each section's total). Target: PBS's
+* published 2018-19 mean of Rs 37,159 per household a month (bm_cons1819_
+* hh_month, Section 2.5), within 1 percent.
 use hhcode psu itc v1 v2 v3 v4 if inlist(itc, 1000, 2000, 4000, 5000) ///
     using "$h18/sec_6a.dta", clear
 egen double v = rowtotal(v1 v2 v3 v4)
@@ -2404,6 +2824,10 @@ nhdr_check, label("Step 8 HIES 2018-19 consumption per household a month [refere
     got(`=c18_hh') want(37063.49) tol(1)
 
 * ---- 11.2 HIES 2024-25 households ------------------------------------------------
+* Inputs: HIES 2024-25 roster, consumption module, household information
+* file and PSU weights, "6. Raw data/HIES 2024-25". A household is
+* identified by prcode (the PSU) and hhno. Targets: PBS HIES 2024-25 key
+* findings, held as bm_cons2425_* in Section 2.5.
 use prcode hhno using "$h24/plist_roster.dta", clear
 bysort prcode hhno: gen int hhsize = _N
 by prcode hhno: keep if _n == 1
@@ -2455,7 +2879,8 @@ nhdr_check, label("Step 8 HIES 2024-25 consumption per household [reference 78,5
 nhdr_check, label("Step 8 HIES 2024-25 household size [PBS 5.98]") ///
     got(`=c24_size') want(`=bm_cons2425_hhsize') tol(0.03)
 
-* ---- 11.3 HIES 2024-25 persons, literacy and enrolment -----------------------------
+* ---- 11.3 HIES 2024-25 persons, literacy and enrollment -----------------------------
+* Inputs: HIES 2024-25 roster (s1aq51 age, s1aq03 sex) and education section.
 use prcode hhno idc province region s1aq51 s1aq03 using "$h24/plist_roster.dta", clear
 merge 1:1 prcode hhno idc using "$h24/sec_2ab_education.dta", ///
     keepusing(s2aq01 s2aq02 s2bq01 s2bq05 s2bq10) keep(master match) nogenerate
@@ -2465,7 +2890,7 @@ rename s1aq51 age
 * In 2024-25 reading and writing are asked separately. Literate means both.
 gen double lit15 = (s2aq01 == 1 & s2aq02 == 1) if age >= 15 & !missing(age) & !missing(s2aq01)
 gen double lit10 = (s2aq01 == 1 & s2aq02 == 1) if age >= 10 & !missing(age) & !missing(s2aq01)
-* Level-matched net enrolment, the Section 4 definition. The class field is
+* Level-matched net enrollment, the Section 4 definition. The class field is
 * s2bq10 in this round, not s2bq14.
 gen double cls = s2bq10 if s2bq01 == 3
 replace cls = . if inlist(cls, 25, 26, 27, 28) | cls > 10
@@ -2486,6 +2911,9 @@ tempfile ind24
 save `ind24'
 display as text _n "Step 8: HIES 2024-25 literacy and enrolment by domain"
 list, noobs sep(0)
+* Each spec is "domain id". id is the suffix of the scalar that holds PBS's
+* published literacy rate for that domain (bm_lit10_hies2425_<id>, Section
+* 2.5). The tolerance is 0.5 points.
 foreach pr in "Pakistan PAK" "Punjab PUN" "Sindh SIN" "Khyber_Pakhtunkhwa KP" "Balochistan BAL" {
     local nm : word 1 of `pr'
     local id : word 2 of `pr'
@@ -2503,7 +2931,7 @@ nhdr_check, label("Step 8 HIES 2024-25 net enrolment, Pakistan [reference 38.48]
 
 
 *==============================================================================*
-* SECTION 12   HUMAN DEVELOPMENT INDEX (HDI) 2024-25, INPUTS AS THE SURVEYS REPORT
+* Section 12   Human Development Index (HDI) 2024-25, inputs as the surveys report
 *==============================================================================*
 * The recovered construction applied with every input taken as the newest
 * available survey reports it. This is the survey-basis reading. Section 13
@@ -2520,6 +2948,8 @@ nhdr_check, label("Step 8 HIES 2024-25 net enrolment, Pakistan [reference 38.48]
 *              reproduces the 2018-19 column (Section 10, test 3)
 
 * ---- 12.1 Income, by domain -------------------------------------------------------
+* Input: the HIES 2024-25 household file of 11.2, and gnic2024 (WDI GNI per
+* head, current PPP dollars, Section 2.3).
 use `hh24', clear
 quietly summarize pc_exp [aw=pop_w]
 scalar nat_pc24 = r(mean)                 // survey consumption per head, rupees a year
@@ -2559,6 +2989,8 @@ gen str20 province = base
 merge m:1 province using `provmort', keepusing(le_west le_west_from_pdhs) keep(master match) nogenerate
 replace le_west           = nat_le_west           if base == "Pakistan"
 replace le_west_from_pdhs = nat_le_west_from_pdhs if base == "Pakistan"
+* NHDR's own urban and rural offsets in years, recovered from Table 2A
+* 2018-19 (see the section header).
 gen double off = 0
 replace off =  2.5 if strpos(domain, "-Urban") > 0
 replace off = -0.7 if strpos(domain, "-Rural") > 0
@@ -2566,7 +2998,10 @@ gen double life_mics = le_west + off
 gen double life_pdhs = le_west_from_pdhs + off
 drop base province le_west le_west_from_pdhs off
 
-* ---- 12.3 The survey-basis index, and the same index on PDHS mortality. Essential the most important dimension is kept constant...
+* ---- 12.3 The survey-basis index, and the same index on PDHS mortality ----------
+* Education and income are identical in the two versions. Only the health
+* input changes (MICS6 or PDHS mortality), so hdi_source_spread isolates the
+* effect of the choice of mortality survey on the composite.
 
 nhdr_index, literacy(lit_15plus) enrolment(ner_5_14) life(life_mics) income(pci_ppp_survey) prefix(sb_)
 nhdr_index, literacy(lit_15plus) enrolment(ner_5_14) life(life_pdhs) income(pci_ppp_survey) prefix(pd_)
@@ -2588,7 +3023,8 @@ export delimited using "$out/Provincial index 2024-25 survey basis.csv"
 
 
 *==============================================================================*
-* SECTION 13   HUMAN DEVELOPMENT INDEX (HDI) 2024-25 ON ONE INSTRUMENT AND ONE PRICE BASIS, AND THE DECOMPOSITION OF THE CHANGE. Wont fly.
+* Section 13   Human Development Index (HDI) 2024-25 on one instrument and one
+*              price basis, and the decomposition of the change
 *==============================================================================*
 * A composite index measures change only when every dimension is measured the
 * same way at both ends of the comparison. Two conditions have to hold.
@@ -2619,6 +3055,12 @@ export delimited using "$out/Provincial index 2024-25 survey basis.csv"
 * Result    Pakistan 0.588 against a published 0.570 for 2018-19, a pace of
 *           3.1 index points per thousand a year against 3.4 over 2006-07 to
 *           2018-19
+* Caveat    This bridging is unlikely to be accepted as a measured change.
+*           The carry-forward of health rests on one national World Bank
+*           increment and holds the 2018-19 provincial pattern fixed. It is
+*           a defensible bridge, not a measurement, and will not hold up as
+*           a provincial health comparison until a new birth history survey
+*           is fielded.
 
 * ---- 13.1 The two national carries ----------------------------------------------
 scalar d_le  = le2024 - le2018            // life expectancy increment, years
@@ -2643,9 +3085,11 @@ quietly summarize pc_exp_rs if domain == "Pakistan"
 gen double pci_ppp = control24 * (pc_exp_rs / r(mean))
 nhdr_index, literacy(lit_15plus) enrolment(ner_5_14) life(life_years) income(pci_ppp)
 gen double change_since_2018_19 = hdi - hdi_2018_19
-display as text _n "Step 10: THE 2024-25 INDEX"
+display as text _n "Step 10: the 2024-25 index"
 list domain lit_15plus ner_5_14 life_years pci_ppp education_index health_index ///
     income_index hdi hdi_2018_19 change_since_2018_19, noobs sep(0) abbreviate(12)
+* Reference HDI values for nine domains, from the independent Python
+* implementation.
 foreach pr in "Pakistan 0.5885" "Punjab 0.5934" "Sindh 0.5787" "Khyber_Pakhtunkhwa 0.5773" ///
     "Balochistan 0.5105" "Sindh-Rural 0.4857" "Sindh-Urban 0.6464" ///
     "Pakistan-Urban 0.6488" "Pakistan-Rural 0.5507" {
@@ -2665,6 +3109,10 @@ save "$out/Provincial index 2024-25 final.dta"
 restore
 
 * ---- 13.3 Decomposition of the change, final and survey basis ----------------------------
+* The loop builds the same decomposition twice: on the final index (no
+* prefix) and on the survey-basis index of Section 12 (prefix sb_). Each
+* term is one third of the log change in a dimension index, in percent, and
+* the three terms sum to the log change in the HDI.
 foreach b in final survey {
     if "`b'" == "final"  local p ""
     if "`b'" == "survey" local p "sb_"
@@ -2681,6 +3129,8 @@ display as text _n "Same decomposition with every input as the surveys report it
 list domain survey_education_pct survey_health_pct survey_income_pct survey_total_pct ///
     if inlist(domain, "Pakistan", "Punjab", "Sindh", "Khyber Pakhtunkhwa", "Balochistan"), ///
     noobs sep(0) abbreviate(20)
+* Each spec is "domain education health income": reference contributions in
+* percent from the independent Python implementation.
 foreach pr in "Pakistan 1.431 1.012 0.797" "Sindh 0.347 1.009 -0.602" "Balochistan 5.187 1.042 1.383" {
     local nm : word 1 of `pr'
     local e  : word 2 of `pr'
@@ -2707,6 +3157,8 @@ restore
 * Index points per thousand a year. The instrument effect is the part of the
 * survey-basis change that disappears once each dimension is on one
 * instrument and one price basis.
+* 12 and 6 are the years between the survey midpoints: 2006-07 to 2018-19,
+* and 2018-19 to 2024-25.
 gen double pace_2006_2018 = 1000 * (hdi_2018_19 - hdi_2006_07) / 12
 gen double pace_2018_2024 = 1000 * (hdi - hdi_2018_19) / 6
 gen double pace_2018_2024_survey = 1000 * (sb_hdi - hdi_2018_19) / 6
@@ -2723,8 +3175,7 @@ rename (sb_hdi hdi) (hdi_2024_25_survey_basis hdi_2024_25_final)
 export delimited using "$out/Chain consistency sensitivity.csv"
 
 *==============================================================================*
-* SECTION 14   DISTRICT EDUCATION FROM PSLM 2019-20, WITH
-*              STANDARD ERRORS
+* Section 14   District education from PSLM 2019-20, with standard errors
 *==============================================================================*
 * PSLM 2019-20 is the most recent district round: 870,171 persons in 126
 * districts and 5,673 primary sampling units, designed to support district
@@ -2736,7 +3187,7 @@ export delimited using "$out/Chain consistency sensitivity.csv"
 *             secc1.dta   sc1q1a can read (1 yes), sc1q2a can write (1 yes),
 *                         sc1q01 status (3 currently attending), sc1q14 class
 * Indicators the Section 3 and 4 definitions: literacy 15 and over (reads
-*           and writes), level-matched net enrolment 5 to 14
+*           and writes), level-matched net enrollment 5 to 14
 * Standard  linearized, one-stage cluster design with the PSU as the cluster,
 * errors    for a weighted proportion p in a district with m clusters:
 *               var(p) = m/(m-1) x sum_c (z_c - p x w_c)^2 / (sum_c w_c)^2
@@ -2747,6 +3198,9 @@ export delimited using "$out/Chain consistency sensitivity.csv"
 *           differences the survey cannot see.
 
 * ---- 14.1 Person file -----------------------------------------------------------
+* Inputs: PSLM 2019-20 roster plist.dta and education section secc1.dta,
+* "6. Raw data/PSLM 2019-20". District names come from the value labels of
+* district, which is how PBS names them.
 
 use hhcode psu province region district idc age weights using "$p19/plist.dta", clear
 merge 1:1 hhcode idc using "$p19/secc1.dta", keepusing(sc1q1a sc1q2a sc1q01 sc1q14) ///
@@ -2776,6 +3230,8 @@ save `p19p'
 * and over), printed as whole percentages. Its Khyber Pakhtunkhwa figure
 * includes the seven merged districts, as the microdata do. A reproduce within
 * 0.5 of a whole-percent figure matches it.
+* Each spec is "domain id". id names the scalars bm_lit10_pslm1920_<id> and
+* bm_lit15_pslm1920_<id> that hold PBS's figures (Section 2.5).
 display as text _n "Step 11: PSLM 2019-20 literacy against PBS, PSLM 2019-20 District Level Report"
 display as text "  " %-20s "domain" "   10+ reproduced   PBS    15+ reproduced   PBS"
 foreach pr in "Pakistan PAK" "Punjab PUN" "Sindh SIN" "Khyber_Pakhtunkhwa KP" "Balochistan BAL" {
@@ -2812,6 +3268,10 @@ tempfile d_edu
 save `d_edu'
 
 * ---- 14.4 Design-based standard errors -------------------------------------------------
+* The loop runs once for literacy and once for enrollment and applies the
+* variance formula of the section header: cluster totals first, then the
+* squared deviations summed within each district. A district with a single
+* cluster gets no standard error.
 foreach v in lit15 ner {
     use `p19p', clear
     keep if !missing(`v')
@@ -2855,7 +3315,7 @@ export delimited using "$out/District education 2019-20.csv"
 
 
 *==============================================================================*
-* SECTION 15   DISTRICT AND DIVISIONAL HUMAN DEVELOPMENT INDEX (HDI)
+* Section 15   District and divisional Human Development Index (HDI)
 *==============================================================================*
 * The recovered construction applied at district level.
 *   education  PSLM 2019-20, Section 14
@@ -2879,6 +3339,7 @@ export delimited using "$out/District education 2019-20.csv"
 * PSLM 2019-20 section E, income of each earner. The nine income items are
 * summed. Where they sum to zero, months worked (seaq08) times monthly
 * earnings (seaq09) are used instead.
+* Input: PSLM 2019-20 income section, sece.dta, one row per earner.
 use hhcode idc seaq08 seaq09 seaq10 seaq15 seaq17 seaq19 seaq21 seaq23 seaq24 seaq25 seaq26 ///
     using "$p19/sece.dta", clear
 egen double inc_items = rowtotal(seaq10 seaq15 seaq17 seaq19 seaq21 seaq23 seaq24 seaq25 seaq26)
@@ -2910,6 +3371,9 @@ gen double pci_ppp = pc_income_rs * pci_2018_19 / (_num / _den)
 drop _num _den pci_2018_19
 
 * ---- 15.2 Health, with the fallback ladder -----------------------------------------
+* Inputs: the MICS6 district, division and province estimates of Sections
+* 8.4 to 8.6, matched to PSLM districts on the normalized name key
+* (Section 1.8).
 nhdr_district_key district_name, generate(key)
 * Rung 1, the district's own MICS6 estimate where it passes the screen.
 preserve
@@ -2965,6 +3429,9 @@ display as text "Districts not matched by name (health falls back to the provinc
 list province_name district_name if !in_mics6, noobs sep(0)
 display as text "Life expectancy source used:"
 tab life_source
+* Each spec is "rung count": the number of the 126 districts whose life
+* expectancy comes from each rung, as the independent Python implementation
+* counted them.
 foreach pr in "district 104" "division 16" "province 6" {
     local s : word 1 of `pr'
     local n : word 2 of `pr'
@@ -2980,7 +3447,7 @@ gen int rank = _n
 order rank province_name division_name district_name literacy_15plus literacy_se_pp ner_5_14 ///
     life_years life_source pci_ppp education_index health_index income_index hdi classification ///
     clusters pop_w
-display as text _n "Step 12: DISTRICT HUMAN DEVELOPMENT INDEX, top 15 and bottom 15"
+display as text _n "Step 12: district human development index, top 15 and bottom 15"
 list rank province_name district_name literacy_15plus ner_5_14 life_years life_source pci_ppp hdi in 1/15, ///
     noobs sep(0) abbreviate(12)
 list rank province_name district_name literacy_15plus ner_5_14 life_years life_source pci_ppp hdi in -15/l, ///
@@ -2997,6 +3464,8 @@ quietly summarize hdi if district_name == "Dera Bugti"
 nhdr_check, label("Step 12 Dera Bugti, rank 126 [reference 0.3579]") got(`=r(mean)') want(0.3579) tol(0.0005)
 quietly summarize hdi if district_name == "Lahore"
 nhdr_check, label("Step 12 Lahore [reference 0.6656]") got(`=r(mean)') want(0.6656) tol(0.0005)
+* Reference counts of districts in each NHDR band (low below 0.550, medium
+* 0.550 to 0.699, high 0.700 and above).
 foreach pr in "Low 65" "Medium 58" "High 3" {
     local c : word 1 of `pr'
     local n : word 2 of `pr'
@@ -3027,7 +3496,7 @@ foreach v in literacy_15plus ner_5_14 life_years pci_ppp {
 }
 nhdr_index, literacy(literacy_15plus) enrolment(ner_5_14) life(life_years) income(pci_ppp)
 gsort -hdi
-display as text _n "Step 12: DIVISIONAL HUMAN DEVELOPMENT INDEX"
+display as text _n "Step 12: divisional human development index"
 list province_name division_name literacy_15plus ner_5_14 life_years pci_ppp hdi districts, ///
     noobs sep(0) abbreviate(14)
 quietly count
@@ -3041,7 +3510,7 @@ save "$out/Divisional index.dta"
 
 
 *==============================================================================*
-* SECTION 16   INEQUALITY-ADJUSTED HUMAN DEVELOPMENT INDEX (IHDI), TABLE 3
+* Section 16   Inequality-adjusted Human Development Index (IHDI), Table 3
 *==============================================================================*
 * NHDR 2020 says only that its IHDI follows UNDP's global method and that it
 * is "computed using the database of the HDI at the quantile levels". The
@@ -3068,6 +3537,8 @@ save "$out/Divisional index.dta"
 *           rounding of the one-decimal quintile inputs.
 
 * ---- 16.1 The method, recovered from the published quintile database ----------
+* Input: "6. Raw data/Published/NHDR2020 Table 3.csv", typed from the annex.
+* Its columns pub_* are the printed IHDI, loss and Atkinson values.
 import delimited using "$pub/NHDR2020 Table 3.csv", clear varnames(1) asdouble ///
     encoding(utf-8) stringcols(1)
 rename region domain
@@ -3113,6 +3584,10 @@ list domain hdi_2006_07 ihdi_2006_07 pub_ihdi_2006_07 loss_2006_07 pub_loss_2006
     noobs sep(0) abbreviate(12)
 * Worst gap over the 10 domain-years for each published quantity. Tolerances
 * follow the printed precision plus the rounding of the quintile inputs.
+* Each spec is "computed published tolerance": the stem of the variable
+* computed here, the stem of the Table 3 column it is compared with, and the
+* tolerance. For example "a_le ahealth 0.0001" compares a_le_<year> with
+* pub_ahealth_<year>.
 foreach spec in "ihdi ihdi 0.0015" "loss loss 0.15" "chi chi 0.15" "a_edu aedu 0.005" ///
     "a_le ahealth 0.0001" "a_pci ainc 0.002" {
     local mine : word 1 of `spec'
@@ -3130,6 +3605,9 @@ quietly summarize loss_2018_19 if domain == "Pakistan"
 nhdr_check, label("Step 13 loss due to inequality, Pakistan 2018-19, percent [published 6.26]") ///
     got(`=r(mean)') want(6.26) tol(0.05)
 * Figure 2.19: each dimension's share of the summed inequality, Pakistan 2018-19.
+* Targets: the three shares printed in Figure 2.19, held as
+* bm_ihdi_contrib_<dimension>_1819 (Section 2.8). Each spec is "variable
+* label": the stem of the share computed here and the stem of its scalar.
 gen double share_inc_2018_19    = 100 * a_pci_2018_19 / (a_edu_2018_19 + a_le_2018_19 + a_pci_2018_19)
 gen double share_edu_2018_19    = 100 * a_edu_2018_19 / (a_edu_2018_19 + a_le_2018_19 + a_pci_2018_19)
 gen double share_health_2018_19 = 100 * a_le_2018_19  / (a_edu_2018_19 + a_le_2018_19 + a_pci_2018_19)
@@ -3163,7 +3641,7 @@ nhdr_check, label("Step 13 modified Palma ratio 2018-19 [published 1.67]") got(`
 
 * ---- 16.2 The 2018-19 IHDI reproduced from the microdata ------------------------------
 * Each dimension's quintile distribution is now measured rather than read:
-*   education  the quintile literacy and enrolment reproduced in Section 4
+*   education  the quintile literacy and enrollment reproduced in Section 4
 *   income     HIES 2018-19 income per head in each consumption quintile,
 *              which is how Table 2A was cut (Section 10, test 2). The IHDI
 *              needs only the shape of the distribution, not its level.
@@ -3173,7 +3651,7 @@ nhdr_check, label("Step 13 modified Palma ratio 2018-19 [published 1.67]") got(`
 *              built in 16.2b from the PDHS microdata read in Section 8A.
 * The domain HDI is the Section 5 value, whose inputs are the published ones.
 
-* Education by quintile.
+* Education by quintile, from the Section 4 results (edu1819).
 use `edu1819', clear
 keep if inlist(domain, "Pakistan", "Punjab", "Sindh", "Khyber Pakhtunkhwa", "Balochistan")
 drop if quintile == "All"
@@ -3182,7 +3660,8 @@ gen double edu_raw = (2/3) * (lit_reproduced / 100) + (1/3) * (ner_reproduced / 
 keep domain q edu_raw
 tempfile qedu
 save `qedu'
-* Income and consumption by consumption quintile, persons weighted.
+* Income and consumption by consumption quintile, persons weighted, from the
+* stacked HIES 2018-19 person file of Section 4.2.
 use `stacked', clear
 keep if inlist(domain, "Pakistan", "Punjab", "Sindh", "Khyber Pakhtunkhwa", "Balochistan")
 drop if missing(q)
@@ -3192,6 +3671,8 @@ tempfile qinc
 save `qinc'
 * Health by wealth quintile, MICS6. Pakistan pools each province's own
 * quintiles, because MICS6 builds a separate wealth index for every province.
+* Input: the stacked MICS6 birth histories of Section 8.1. windex5 is the
+* household wealth quintile MICS6 releases with each record.
 use `bh', clear
 drop if missing(windex5)
 nhdr_q5, by(province windex5) window(10)
@@ -3237,6 +3718,8 @@ quietly summarize _g
 nhdr_check, label("Step 13 IHDI 2018-19 from microdata, worst |gap| of 5 domains [published]") ///
     got(`=r(max)') want(0) tol(0.003)
 drop _g
+* Each spec is "variable reference": Pakistan values from the independent
+* Python implementation.
 foreach spec in "a_edu_raw 0.04969" "a_inc_raw 0.13996" "a_cons_raw 0.14406" "a_le_mics 0.00080" "ihdi_raw 0.53246" {
     local v : word 1 of `spec'
     local r : word 2 of `spec'
@@ -3248,7 +3731,8 @@ save `ihdi_raw'
 export delimited using "$out/IHDI 2018-19 microdata.csv"
 
 * ---- 16.2b The 2018-19 IHDI with the health gradient from PDHS 2017-18 -------
-* Education and income as in 16.2. Health: life expectancy by wealth quintilefrom PDHS 2017-18 (Section 8A.4), the survey NHDR names. PDHS ranks
+* Education and income as in 16.2. Health: life expectancy by wealth
+* quintile from PDHS 2017-18 (Section 8A.4), the survey NHDR names. PDHS ranks
 * households on its wealth index, while Table 2A ranks them on consumption,
 * so the quintiles share a survey with NHDR but not a ranking variable.
 use `pd_wq', clear
@@ -3296,6 +3780,7 @@ list domain q le_pdhs le_nhdr_table2a, noobs sepby(domain)
 *              national increment, as in Section 13. No birth history has
 *              been fielded since MICS6, so the health gradient is held.
 * The 2018-19 comparator is ihdi_1819_samebasis from 16.2, built the same way.
+* Input: the HIES 2024-25 person file of Section 11.3 (p24).
 use `p24', clear
 keep if !missing(pc_exp) & !missing(weight)
 nhdr_stack_domains, province(province) region(region)
@@ -3314,7 +3799,7 @@ gen double loss_2024_25 = 100 * (1 - ihdi_2024_25 / hdi_2024_25)
 merge 1:1 domain using `ihdi_raw', keepusing(ihdi_1819_samebasis hdi_2018_19 pub_ihdi_2018_19) nogenerate
 gen double loss_1819_samebasis = 100 * (1 - ihdi_1819_samebasis / hdi_2018_19)
 gen double ihdi_change = ihdi_2024_25 - ihdi_1819_samebasis
-display as text _n "Step 13: THE IHDI FOR 2024-25, with 2018-19 on the same basis"
+display as text _n "Step 13: the IHDI for 2024-25, with 2018-19 on the same basis"
 list domain hdi_2024_25 ihdi_2024_25 loss_2024_25 a_edu24 a_le24 a_cons ihdi_1819_samebasis ///
     loss_1819_samebasis ihdi_change, noobs sep(0) abbreviate(14)
 quietly count
@@ -3325,26 +3810,30 @@ export delimited using "$out/IHDI 2024-25.csv"
 
 
 *==============================================================================*
-* SECTION 17   GENDER DEVELOPMENT INDEX (GDI), TABLES 6 AND 6A
+* Section 17   Gender Development Index (GDI), Tables 6 and 6A
 *==============================================================================*
 * GDI = HDI_female / HDI_male, each sub-index built on the NHDR construction.
 * Solving the goalposts out of Table 6 shows one departure from the HDI of
 * Section 5: the GDI income index runs from 100 to 75,000 PPP dollars, the
-* post-2010 UNDP band, while the HDI of Table 1 runs to 100,000. Life
-* expectancy keeps the 25 to 90 band with no sex-specific goalposts.
+* UNDP ceiling since HDR 2014, while the HDI of Table 1 runs to 100,000. The
+* report therefore uses two income ceilings, and states neither. Life
+* expectancy keeps the 25 to 90 band with no sex-specific goalposts (UNDP's
+* GDI uses 22.5 to 87.5 for women and 17.5 to 82.5 for men).
 *   female HDI_f = (E_f x H_f x I_f)^(1/3), male likewise
 *   E = (2/3) L/100 + (1/3) N/100
 *   H = (LE - 25) / 65
 *   I = (ln PCI - ln 100) / (ln 75,000 - ln 100)
 *   absolute deviation from parity = 100 x |GDI - 1|
 * Sources, as NHDR names them
-*   literacy and enrolment by sex  HIES microdata
+*   literacy and enrollment by sex  HIES microdata
 *   life expectancy by sex         UNDP Human Development Report (68.1, 66.2)
 *   income by sex                  "UNDP calculations based on National
 *                                  Accounts, LFS and Population Census 2017"
 * Target    Tables 6 and 6A, two sexes x two years
 
 * ---- 17.1 The construction, recovered from Table 6A --------------------------------
+* Input: "6. Raw data/Published/NHDR2020 Table 6.csv", Tables 6 and 6A typed
+* from the annex, one row per sex and year.
 import delimited using "$pub/NHDR2020 Table 6.csv", clear varnames(1) asdouble ///
     encoding(utf-8) stringcols(1 2)
 nhdr_gdi_hdi, literacy(lit) enrolment(ner) life(le) income(pci)
@@ -3365,6 +3854,8 @@ quietly summarize _h
 nhdr_check, label("Step 14 income goalpost 100,000 rejected: worst |gap| exceeds 0.01 [diagnostic]") ///
     got(`=(r(max) > 0.01)') want(1) tol(0)
 drop _g _h
+* Each spec is "year GDI deviation": the GDI and the absolute deviation from
+* parity printed in Table 6 for each year.
 foreach spec in "2006_07 0.750 25.0" "2018_19 0.777 22.3" {
     local y : word 1 of `spec'
     local g : word 2 of `spec'
@@ -3381,7 +3872,8 @@ tempfile t6
 save `t6'
 export delimited using "$out/GDI method Table 6.csv"
 
-* ---- 17.2 Literacy and enrolment by sex, HIES 2018-19 ------------------------------
+* ---- 17.2 Literacy and enrollment by sex, HIES 2018-19 ------------------------------
+* Input: the HIES 2018-19 person file of Section 4.1 (h18p). s1aq04 is sex.
 use `h18p', clear
 gen str6 sex = cond(s1aq04 == 2, "Female", cond(s1aq04 == 1, "Male", ""))
 drop if sex == ""
@@ -3391,6 +3883,8 @@ collapse (mean) lit15 ner [aw=weights], by(sex)
 replace lit15 = 100 * lit15
 replace ner   = 100 * ner
 list, noobs sep(0)
+* Each spec is "sex literacy enrollment": the Pakistan 2018-19 values
+* printed in Table 6A.
 foreach spec in "Female 45.8 36.0" "Male 69.6 37.9" {
     local s : word 1 of `spec'
     local l : word 2 of `spec'
@@ -3436,6 +3930,8 @@ save `gedu18', replace
 * Census 2017 female share, and a population-weighted mean of about 5,600
 * dollars, not the 4,922 control of the HDI. Neither the wage ratio nor the
 * income level NHDR used can be recovered from what it published.
+* Input: "6. Raw data/LFS 2018-19/LFS 2018-19.dta". S04C05 sex, S04C06 age,
+* S04C07 marital status, S07C03 weekly and S07C04 monthly pay.
 use S04C05 S04C06 S04C07 S05C02 S05C03 S05C04 S07C03 S07C04 S09C01 S09C04 S09C06 ///
     Weight Province using "$lfs/LFS 2018-19.dta", clear
 rename (S04C05 S04C06 S04C07 Weight Province) (sex age marital weight province)
@@ -3476,6 +3972,9 @@ nhdr_check, label("Step 14 female to male mean earnings, LFS 2018-19 [reference 
 *              female and male life expectancy, 2018 to 2024
 *   income     the UNDP split on LFS 2024-25, with the Section 13 control
 *              and the Census 2023 female share
+* Input: "6. Raw data/Published/WDI Pakistan by sex.csv". Each spec is
+* "indicator year scalar", as in Section 2.3: female (FE) and male (MA) life
+* expectancy at birth for 2018 and 2024.
 import delimited using "$pub/WDI Pakistan by sex.csv", clear varnames(1) asdouble encoding(utf-8)
 foreach spec in "SP.DYN.LE00.FE.IN 2018 lef2018" "SP.DYN.LE00.FE.IN 2024 lef2024" ///
     "SP.DYN.LE00.MA.IN 2018 lem2018" "SP.DYN.LE00.MA.IN 2024 lem2024" {
@@ -3485,12 +3984,16 @@ foreach spec in "SP.DYN.LE00.FE.IN 2018 lef2018" "SP.DYN.LE00.FE.IN 2024 lef2024
     quietly summarize value if indicator_code == "`c'" & year == `y'
     scalar `s' = r(mean)
 }
+* 68.1 and 66.2 years: the female and male life expectancy NHDR prints in
+* Table 6A for 2018-19, taken from the UNDP Human Development Report.
 scalar le_f_1819 = 68.1
 scalar le_m_1819 = 66.2
 scalar le_f_2425 = le_f_1819 + (lef2024 - lef2018)
 scalar le_m_2425 = le_m_1819 + (lem2024 - lem2018)
 display as text "  life expectancy by sex 2024-25, chained: female " as result %6.3f le_f_2425 ///
     as text ", male " as result %6.3f le_m_2425
+* Input: "6. Raw data/Published/Census female share.csv", the female share
+* of the population by province in the 2017 and 2023 censuses (PBS).
 import delimited using "$pub/Census female share.csv", clear varnames(1) asdouble ///
     encoding(utf-8) stringcols(2 4)
 rename (region year) (domain cyear)
@@ -3500,7 +4003,9 @@ save `cen'
 * LFS 2024-25, activity on the 13th ICLS definition PBS still tabulates for
 * comparison with earlier rounds: employed includes own-use farming, fishing
 * and animal rearing (S5C8 1-3), and the unemployed are looking (S9C1) and available
-* (S9C6). The reproduce matches PBS Table 3.13 in all ten cells (Section 18.3).
+* (S9C6). The reproduction matches PBS Table 3.13 in all ten cells (Section
+* 18.3).
+* Input: "6. Raw data/LFS 2024-25/LFS 2024-25.dta", the PBS Stata release.
 use S4C5 S4C6 S4C7 S5C1 S5C2 S5C3 S5C4 S5C8 S7C33 S7C43 S9C1 S9C6 Weights Province ///
     using "$lfs24/LFS 2024-25.dta", clear
 rename (S4C5 S4C6 S4C7 Weights Province) (sex age marital weight province)
@@ -3619,7 +4124,7 @@ export delimited using "$out/GDI reproduced 2018-19 2024-25.csv"
 
 
 *==============================================================================*
-* SECTION 18   GENDER INEQUALITY INDEX (GII), TABLES 7 AND 7A
+* Section 18   Gender Inequality Index (GII), Tables 7 and 7A
 *==============================================================================*
 * NHDR 2020 keeps UNDP's GII aggregation and replaces the two reproductive
 * health indicators, maternal mortality and adolescent births, which have no
@@ -3642,6 +4147,8 @@ export delimited using "$out/GDI reproduced 2018-19 2024-25.csv"
 * Target    Table 7: 5 domains x 2 years x 8 printed quantities
 
 * ---- 18.1 The construction, recovered from Table 7A ------------------------------
+* Input: "6. Raw data/Published/NHDR2020 Table 7.csv", Tables 7 and 7A typed
+* from the annex. Columns pub_* hold the printed intermediate quantities.
 import delimited using "$pub/NHDR2020 Table 7.csv", clear varnames(1) asdouble ///
     encoding(utf-8) stringcols(1 2)
 rename region domain
@@ -3667,6 +4174,7 @@ export delimited using "$out/GII method Table 7.csv"
 *     live birth in the last three years (s4dq01 = 1). No prenatal care:
 *     s4dq2a = 2. No postnatal check-up within six weeks: s4dq11a = 2.
 *     Household weights. NC = average of the two percentages.
+*     Input: HIES 2018-19 maternity section, sec_4d.dta.
 use hhcode psu province s4dq01 s4dq2a s4dq11a using "$h18/sec_4d.dta", clear
 merge m:1 psu using "$h18/weight.dta", keep(master match) nogenerate
 keep if s4dq01 == 1
@@ -3696,7 +4204,7 @@ gen str7 year = "2018_19"
 tempfile r_se18
 save `r_se18'
 
-* (c) and (d) Ever married at 15 to 19, and labour force participation 10+,
+* (c) and (d) Ever married at 15 to 19, and labor force participation 10+,
 *     LFS 2018-19 (activity as defined in Section 17.3).
 use `lfs18', clear
 gen double evm = inlist(marital, 2, 3, 4) if sex == 2 & inrange(age, 15, 19) & !missing(marital)
@@ -3712,6 +4220,10 @@ tempfile r_lf18
 save `r_lf18'
 
 * Published comparators.
+* Input: "6. Raw data/Published/PBS LFS refined LFPR.csv", PBS's refined
+* participation rates (ages 10 and over) by sex and province for each LFS
+* round, typed from the LFS annual reports. After reshape the columns read
+* male<survey> and female<survey>, for example femalelfs1819.
 import delimited using "$pub/PBS LFS refined LFPR.csv", clear varnames(1) asdouble ///
     encoding(utf-8) stringcols(1 2 5)
 rename region domain
@@ -3750,7 +4262,7 @@ replace _a = max(abs(raw_lfpr_f - femalelfs1819), abs(raw_lfpr_m - malelfs1819))
 quietly summarize _a
 nhdr_check, label("Step 15 LFPR 10+, LFS 2018-19 microdata vs PBS, worst of 10 cells [published]") ///
     got(`=r(max)') want(0) tol(0.05)
-* What NHDR printed as 2018-19 labour force participation is the PBS 2017-18
+* What NHDR printed as 2018-19 labor force participation is the PBS 2017-18
 * column, in all ten cells.
 replace _a = max(abs(lfpr_f - femalelfs1718), abs(lfpr_m - malelfs1718))
 quietly summarize _a
@@ -3767,7 +4279,9 @@ drop _a
 
 * The GII on reproduced inputs, and what each substitution moves.
 * raw   : every reproduced input (seats stay published)
-* swap_ : NHDR's inputs with one reproduced input swapped in
+* s1_ to s4_ : NHDR's inputs with one reproduced input swapped in, so that
+*        d_care, d_evm, d_educ and d_lfpr each measure how far one input
+*        alone moves the GII away from the printed value
 nhdr_gii, nocare(raw_no_care_f) evmarried(raw_evm1519_f) seatf(seats_f) seatm(seats_m) ///
     secf(raw_sec_f) secm(raw_sec_m) lfprf(raw_lfpr_f) lfprm(raw_lfpr_m) prefix(raw_)
 nhdr_gii, nocare(raw_no_care_f) evmarried(evm1519_f) seatf(seats_f) seatm(seats_m) ///
@@ -3802,6 +4316,7 @@ export delimited using "$out/GII 2018-19 reproduced.csv"
 *               assembly was located in a primary source. Holding the input
 *               keeps the change attributable to the three measured
 *               dimensions.
+* Input: HIES 2024-25 maternity section, Sec_04d_pre_post_natal.dta.
 use prcode hhno province s4dq01 s4dq021 s4dq111 using "$h24/Sec_04d_pre_post_natal.dta", clear
 merge m:1 prcode using "$h24/weight.dta", keep(master match) nogenerate
 keep if s4dq01 == 1
@@ -3855,7 +4370,7 @@ nhdr_gii, nocare(no_care_f) evmarried(evm1519_f) seatf(seats_f) seatm(seats_m) /
 merge 1:1 domain using `gii18', keepusing(raw_gii pub_gii raw_no_care_f raw_evm1519_f raw_sec_f ///
     raw_sec_m raw_lfpr_f raw_lfpr_m) nogenerate
 gen double gii_change = g24_gii - raw_gii
-display as text _n "Step 15: THE GII FOR 2024-25, with 2018-19 on the same reproduced inputs"
+display as text _n "Step 15: the GII for 2024-25, with 2018-19 on the same reproduced inputs"
 list domain no_care_f raw_no_care_f evm1519_f raw_evm1519_f sec_f raw_sec_f lfpr_f raw_lfpr_f, ///
     noobs sep(0) abbreviate(12)
 list domain pub_gii raw_gii g24_gii gii_change, noobs sep(0) abbreviate(12)
@@ -3865,7 +4380,7 @@ export delimited using "$out/GII 2024-25.csv"
 
 
 *==============================================================================*
-* SECTION 19   MULTIDIMENSIONAL POVERTY INDEX (MPI), PSLM 2019-20
+* Section 19   Multidimensional Poverty Index (MPI), PSLM 2019-20
 *==============================================================================*
 * NHDR 2020 cites Pakistan's national MPI but does not compute one. The
 * official 2019-20 MPI (Ministry of Planning, Development and Special
@@ -3882,7 +4397,7 @@ export delimited using "$out/GII 2024-25.csv"
 * wording leaves a coding choice, the choice made here is the one that
 * reproduces the published uncensored headcount of Appendix B:
 *   Education (1/3)
-*     years of schooling   1/6   no man OR no woman aged 10+ has completed
+*     years of schooling   1/6   no man or no woman aged 10+ has completed
 *                                class 5 (sc1q05 5-24, or attending class
 *                                6+). A household with no man or no woman
 *                                of that age is deprived on that side.
@@ -3892,7 +4407,7 @@ export delimited using "$out/GII 2024-25.csv"
 *                                teaching, or no female or male teacher
 *                                (sc1q02, sc1q10 codes 1 2 3 7 8)
 *   Health (1/3)
-*     immunisation         1/9   any child aged 1 to 4 missing BCG, Penta
+*     immunization         1/9   any child aged 1 to 4 missing BCG, Penta
 *                                1-3, PCV 1-3, OPV 1-3, IPV or measles 1, or
 *                                any child under one missing BCG or OPV 0.
 *                                Card, recall and campaign doses all count.
@@ -3912,14 +4427,14 @@ export delimited using "$out/GII 2024-25.csv"
 *     overcrowding         1/42  4 or more people per room
 *     electricity          1/21  lighting from neither the grid nor solar
 *     cooking fuel         1/21  wood, dung, crop residue, coal or other
-*     assets               1/21  (not more than two small assets OR no large
-*                                asset) AND no car. Small: radio, TV, iron,
+*     assets               1/21  (not more than two small assets or no large
+*                                asset) and no car. Small: radio, TV, iron,
 *                                fan, sewing machine, chair, watch, air
 *                                cooler, bicycle, landline. Large:
 *                                refrigerator or freezer, air conditioner,
 *                                tractor, motorcycle, computer.
-*     land and livestock   1/21  rural only: under 2.25 acres unirrigated AND
-*                                under 1.125 acres irrigated, AND under 2
+*     land and livestock   1/21  rural only: under 2.25 acres unirrigated and
+*                                under 1.125 acres irrigated, and under 2
 *                                cattle, 3 goats or sheep, 5 chickens and no
 *                                draught animal
 * Target    Appendix B, C and D of the MPI Report 2019-20
@@ -3928,6 +4443,7 @@ export delimited using "$out/GII 2024-25.csv"
 *           headcounts inside the published 95 percent interval
 
 * ---- 19.1 Households ------------------------------------------------------------------
+* Input: PSLM 2019-20 roster, plist.dta. sb1q4 is sex.
 use hhcode psu province region district idc sb1q4 age weights using "$p19/plist.dta", clear
 tempfile p19mpi
 save `p19mpi'
@@ -3938,6 +4454,9 @@ tempfile mpihh
 save `mpihh'
 
 * ---- 19.2 Education deprivations ----------------------------------------------------
+* Input: PSLM 2019-20 education section, secc1.dta. Each person-level flag is
+* collapsed to the household with (max): a household is deprived if any
+* member is.
 use `p19mpi', clear
 merge 1:1 hhcode idc using "$p19/secc1.dta", keepusing(sc1q01 sc1q02 sc1q05 sc1q10 sc1q14) ///
     keep(master match) nogenerate
@@ -3957,6 +4476,13 @@ tempfile dedu
 save `dedu'
 
 * ---- 19.3 Health deprivations --------------------------------------------------------
+* Inputs: PSLM 2019-20 immunization section seci.dta (children under five)
+* and maternity section secj.dta.
+* siaq5a to siaq5m are the 13 vaccine fields of the immunization section.
+* The loop sets got_<letter> = 1 when the dose was received by card (1),
+* recall (2) or campaign (4). a is BCG and h is OPV 0, the birth dose: full
+* immunization for ages 1 to 4 needs every dose except h, and a child under
+* one is deprived only if BCG or OPV 0 is missing.
 use hhcode idc siaq5a siaq5b siaq5c siaq5d siaq5e siaq5f siaq5g siaq5h siaq5i siaq5j ///
     siaq5k siaq5l siaq5m using "$p19/seci.dta", clear
 merge m:1 hhcode idc using `p19mpi', keepusing(age) keep(master match) nogenerate
@@ -3981,6 +4507,8 @@ tempfile dmat
 save `dmat'
 
 * ---- 19.4 Living standard deprivations ----------------------------------------------
+* Inputs: PSLM 2019-20 housing (secf1.dta), water and sanitation (secf2.dta),
+* assets (sech.dta), and land and livestock (secg.dta).
 use hhcode sf1q04 sf1q07 sf1q08 sf1q10 sf1q11_1c sf1q11_1d sf1q11_1e sf1q11_1f ///
     using "$p19/secf1.dta", clear
 tempfile f1
@@ -3996,7 +4524,10 @@ collapse (max) own, by(hhcode itc)
 reshape wide own, i(hhcode) j(itc)
 tempfile assets
 save `assets'
-* Land and livestock.
+* Land and livestock. itc 1 is land, 4 cattle, 5 goats and sheep, 6 draught
+* animals, 7 poultry. sgaq31 is the area unit of sgaq03. Codes 1 to 4 are
+* converted to acres with the factors 1, 0.5, 0.125 and 1/43.56 (1,000
+* square feet, at 43,560 square feet to the acre).
 use hhcode itc sgaq01 sgaq03 sgaq31 sgaq05 using "$p19/secg.dta", clear
 keep if sgaq01 == 1
 gen double acres = sgaq03 * cond(sgaq31 == 1, 1, cond(sgaq31 == 2, 0.5, cond(sgaq31 == 3, 0.125, ///
@@ -4022,6 +4553,12 @@ merge 1:1 hhcode using `dmat', keep(master match) nogenerate
 foreach v in d_yos d_att d_qual d_imm d_anc d_del {
     replace `v' = 0 if missing(`v')
 }
+* The 16 asset item codes of section H that the asset indicator below uses:
+* small assets 1 2 9 10 14 16 20 27 34, large assets 4 5 8 28 33, car 30 31.
+* reshape creates own<code> only for items some household owns. capture
+* confirm variable tests whether own<k> exists, and when it does not (_rc
+* nonzero) the line after creates it as 0, so the formulas below never stop
+* on a missing variable.
 foreach k in 1 2 4 5 8 9 10 14 16 20 27 28 30 31 33 34 {
     capture confirm variable own`k'
     if _rc gen byte own`k' = 0
@@ -4031,7 +4568,10 @@ foreach v in irr rain cattle goats draught poultry {
     replace `v' = 0 if missing(`v')
 }
 * A missing water or toilet record counts as deprived, as an unimproved
-* source would.
+* source would. The code lists are the PSLM 2019-20 questionnaire codes of
+* the improved sources and facilities named in the section header: sf2q01
+* water source, sf2q04 time to water (3 to 5 are over 30 minutes), sf2q11
+* toilet, sf1q07 walls, sf1q04 rooms, sf1q10 lighting, sf1q08 cooking fuel.
 gen byte d_water = !inlist(sf2q01, 1, 2, 3, 4, 6, 8, 9, 10, 11, 13, 16, 18) | inlist(sf2q04, 3, 4, 5)
 gen byte d_san   = !inlist(sf2q11, 2, 3, 4, 5)
 gen byte d_walls = inlist(sf1q07, 2, 3, 4, 6)
@@ -4047,6 +4587,8 @@ gen byte d_live = (cattle < 2) & (goats < 3) & (poultry < 5) & (draught < 1)
 gen byte d_landlive = d_land & d_live & region == 1
 
 * ---- 19.5 Identification and aggregation ------------------------------------------------
+* c is the weighted deprivation score, the weights of the section header.
+* 1e-9 absorbs floating point, so that a score of exactly 1/3 counts as poor.
 gen double c = (1/6) * d_yos + (1/8) * d_att + (1/24) * d_qual ///
     + (1/9) * (d_imm + d_anc + d_del) ///
     + (1/21) * (d_water + d_san + d_elec + d_fuel + d_assets + d_landlive) ///
@@ -4066,6 +4608,10 @@ tempfile mpihh2
 save `mpihh2'
 
 * Uncensored headcounts, national, against Appendix B.
+* Input: "6. Raw data/Published/MPI 2019-20 uncensored published.csv", typed
+* from Appendix B of the MPI Report 2019-20. The loop turns each row into a
+* scalar unc_<indicator>. The second loop runs over the 14 indicators and
+* keeps the largest gap in worst.
 preserve
 import delimited using "$pub/MPI 2019-20 uncensored published.csv", clear varnames(1) asdouble encoding(utf-8)
 forvalues i = 1/`=_N' {
@@ -4084,8 +4630,9 @@ foreach d in yos att qual imm anc del water san walls crowd elec fuel assets lan
 nhdr_check, label("Step 16 MPI uncensored headcounts, worst of 14 indicators, points [published]") ///
     got(`worst') want(0) tol(1.0)
 
-* H, A and MPI for any grouping.
-capture program drop nhdr_mpi_by
+* H, A and MPI for any grouping. A is the mean of c_poor, which is missing for
+* the non-poor, so the mean runs over the poor only.
+capture program drop nhdr_mpi_by     // clear any earlier definition
 program define nhdr_mpi_by
     syntax , [BY(varlist)]
     local byopt
@@ -4096,6 +4643,9 @@ program define nhdr_mpi_by
     gen double MPI = (H / 100) * (A / 100)
 end
 
+* Input: "6. Raw data/Published/MPI 2019-20 published.csv", Appendices C and
+* D of the MPI Report 2019-20: national, area, provincial and district MPI,
+* H and A, with the district confidence intervals.
 import delimited using "$pub/MPI 2019-20 published.csv", clear varnames(1) asdouble ///
     encoding(utf-8) stringcols(1 2 3)
 tempfile mpipub
@@ -4119,6 +4669,7 @@ append using `m_nr'
 merge 1:1 area using `mpipub', keepusing(mpi h a) keep(master match) nogenerate
 display as text _n "Step 16: MPI 2019-20, national, rural-urban and provinces, against Appendix C"
 list area MPI mpi H h A a, noobs sep(0)
+* Seven areas, each checked on MPI, H and A against Appendix C.
 foreach ar in Pakistan Rural Urban Punjab Sindh Khyber_Pakhtunkhwa Balochistan {
     local nm = subinstr("`ar'", "_", " ", .)
     quietly summarize MPI if area == "`nm'"
@@ -4149,6 +4700,7 @@ save `m_d'
 use `mpipub', clear
 keep if level == "district"
 gen str60 key = ustrregexra(lower(area), "[^a-z]", "")
+* The two district names spelled differently in the report and in PSLM.
 replace key = "bajur"              if key == "bajaur"
 replace key = "shaheedbanazirabad" if key == "shaheedbenazirabad"
 keep key area mpi mpi_lo mpi_hi h h_lo h_hi a
@@ -4221,7 +4773,7 @@ export delimited using "$out/MPI 2019-20 divisions.csv"
 
 
 *==============================================================================*
-* SECTION 20   THE 2006-07 COLUMNS FROM HIES 2005-06: EDUCATION, GDI, GII, IHDI
+* Section 20   The 2006-07 columns from HIES 2005-06: education, GDI, GII, IHDI
 *==============================================================================*
 * NHDR 2020 heads its first year "2006-07", but Tables 2A, 6 and 6A carry the
 * footnote "The values are used for 2005-2006". The education inputs of the
@@ -4247,11 +4799,13 @@ export delimited using "$out/MPI 2019-20 divisions.csv"
 *           file. The assignment is not a guess: the only other reading
 *           misses the Table 2A domain totals by up to 14 points.
 *           Eight persons appear twice in sec 2a.dta, and the first record is kept.
-* Result    literacy and enrolment within 0.07 points in all 15 domains,
+* Result    literacy and enrollment within 0.07 points in all 15 domains,
 *           GDI education by sex exact, the GII care input exact to the
 *           printed whole percent
 
 * ---- 20.1 One record per person, with consumption per head ----------------------
+* Inputs: HIES 2005-06 files in "6. Raw data/HIES 2005-06", listed in the
+* section header. The consumption rule is the one of Section 11.
 use hhcode itc v1 v2 v3 v4 if inlist(itc, 1000, 2000, 4000, 5000) using "$h05/sec6abcd.dta", clear
 egen double v = rowtotal(v1 v2 v3 v4)
 gen double a = v * cond(itc == 1000, 26, cond(itc == 5000, 1, 12))
@@ -4267,6 +4821,8 @@ bysort hhcode: gen int hhsize = _N
 merge 1:1 hhcode idc using `e05', keep(master match) nogenerate
 merge m:1 hhcode using `c05', keep(master match) nogenerate
 gen double pc_exp = t_exp / hhsize
+* HIES 2005-06 codes 1 Punjab, 2 Sindh, 3 NWFP, 4 Balochistan, and 1 urban,
+* 2 rural. These two lines put both on the convention of this file.
 recode province (1 = 2) (2 = 3) (3 = 1) (4 = 4), generate(_p)
 recode region (1 = 2) (2 = 1), generate(_r)
 drop province region
@@ -4279,7 +4835,7 @@ gen double ner = ((inrange(age, 5, 9)   & inrange(cls, 1, 5))  | ///
 tempfile h05p
 save `h05p'
 
-* ---- 20.2 Literacy and enrolment on the Table 2A layout, 2006-07 column ---------
+* ---- 20.2 Literacy and enrollment on the Table 2A layout, 2006-07 column ---------
 keep hhcode idc province region weight pc_exp lit15 ner
 nhdr_stack_domains, province(province) region(region)
 nhdr_quintile, welfare(pc_exp) wtvar(weight) by(domain) generate(q)
@@ -4307,6 +4863,7 @@ save `edu0506'
 display as text _n "Step 17: domain totals, HIES 2005-06, against the 2006-07 column of Table 2A"
 list domain lit_reproduced lit_published lit_diff ner_reproduced ner_published ner_diff ///
     if quintile == "All", noobs sep(0) abbreviate(16)
+* Targets: 50.7 and 34.7, Table 2A, Pakistan, All, 2006-07.
 quietly summarize lit_reproduced if domain == "Pakistan" & quintile == "All"
 nhdr_check, label("Step 17 literacy, Pakistan 2006-07 [published 50.7]") got(`=r(mean)') want(50.7) tol(0.06)
 quietly summarize ner_reproduced if domain == "Pakistan" & quintile == "All"
@@ -4333,6 +4890,8 @@ drop _absl _absn
 export delimited using "$out/Table 2A education replication 2006-07.csv"
 
 * ---- 20.3 The GDI of 2006-07: education by sex, and the index ----------------------
+* Juxtaposition: education by sex from HIES 2005-06 against Table 6A, and
+* the GDI recomputed with it against the printed 0.750.
 * Same universes, split by sex (s1aq03: 1 male, 2 female). Life expectancy
 * and income by sex are NHDR's own (Table 6A). Only education is survey data.
 use `h05p', clear
@@ -4427,7 +4986,7 @@ export delimited using "$out/GII 2006-07 reproduced.csv"
 
 * ---- 20.5 The IHDI of 2006-07 from the microdata ----------------------------------
 * The 16.2 construction applied to the first year:
-*   education  quintile literacy and enrolment reproduced in 20.2
+*   education  quintile literacy and enrollment reproduced in 20.2
 *   income     HIES 2005-06 consumption per head by consumption quintile.
 *              HIES 2005-06 has no household income aggregate in 6. Raw data, so
 *              the shape of the income distribution is proxied by
@@ -4496,7 +5055,7 @@ export delimited using "$out/IHDI 2006-07 PDHS.csv"
 * printed indices. This section replaces those two recovered inputs with
 * survey values as well, so that every number in Tables 1, 2A and 3 has a
 * microdata counterpart, for the 15 domains and their consumption quintiles.
-*   education  literacy 15+ and level-matched net enrolment 5-14, HIES
+*   education  literacy 15+ and level-matched net enrollment 5-14, HIES
 *              (Sections 4 and 20.2), unchanged
 *   health     life expectancy at birth from PDHS under-five mortality,
 *              ten years before the survey, DHS synthetic cohort (8A.1),
@@ -4519,7 +5078,16 @@ export delimited using "$out/IHDI 2006-07 PDHS.csv"
 *   hdi_e    microdata education, NHDR life expectancy and income
 *   hdi_eh   microdata education and life expectancy, NHDR income
 *   hdi_ehi  every dimension from the microdata
-capture program drop nhdr_pdhs_le_domains
+* p_hdi is the HDI on NHDR's own Table 2A inputs. Reading p_hdi, hdi_e,
+* hdi_eh and hdi_ehi left to right isolates the contribution of each
+* dimension to the gap between NHDR and the microdata. hdi_ehi is the
+* series the NHDR-style figures plot (figures.py reads HDI all
+* microdata.csv).
+* nhdr_pdhs_le_domains: life expectancy for the 15 domains and their wealth
+* quintiles from one PDHS births recode. It stacks the records into the 15
+* domains as nhdr_stack_domains does (expand 4), runs the DHS synthetic
+* cohort over ten years, and converts q5 to e0 with the West family.
+capture program drop nhdr_pdhs_le_domains     // clear any earlier definition
 program define nhdr_pdhs_le_domains
     syntax using/
     use v005 v008 v024 v025 v190 b3 b4 b5 b7 using `"`using'"', clear
@@ -4552,6 +5120,11 @@ program define nhdr_pdhs_le_domains
     keep domain quintile u5mr_per_1000 le_pdhs births
 end
 
+* Input: "6. Raw data/Published/WDI Pakistan.csv", GNI per head, current PPP
+* dollars. The eight calendar years are the two halves of the four fiscal
+* years the figures need: 2005 and 2006 for NHDR's "2006-07" column (HIES
+* 2005-06), 2011 and 2012 for "2012-13" (HIES 2011-12), 2015 and 2016 for
+* "2015-16", 2018 and 2019 for "2018-19".
 import delimited using "$pub/WDI Pakistan.csv", clear varnames(1) asdouble encoding(utf-8) ///
     stringcols(1 2)
 keep if indicator_code == "NY.GNP.PCAP.PP.CD"
@@ -4568,6 +5141,11 @@ display as text "  WDI GNI per head PPP, fiscal-year averages: 2006-07 " as resu
     as text ", 2018-19 " as result %6.0f gnify_2018_19
 nhdr_check, label("Step 17 WDI GNI PPP 2018-19 fiscal average against NHDR's control, percent [published 4922]") ///
     got(`=100 * abs(gnify_2018_19 - 4922) / 4922') want(0) tol(0.1)
+* Each spec holds six fields separated by "|": the year, the PDHS births
+* recode of that year, the stacked HIES person file (Sections 4.2 and 20.2),
+* its weight variable, the education results file, and the WDI income
+* control. tokenize splits the spec at each "|", so the fields land in `1',
+* `3', `5', `7', `9' and `11' (the even positions hold the "|" itself).
 tempfile hdim
 local first = 1
 foreach spec in "2018_19|$pd17/PKBR71DT/PKBR71FL.DTA|stacked|weights|edu1819|`=gnify_2018_19'" ///
@@ -4676,12 +5254,13 @@ export delimited using "$out/IHDI all microdata.csv", replace
 * Each province's income per head relative to Pakistan is set to Pasha's
 * relative (2007-08 for NHDR's 2006-07 column, 2018-19 for 2018-19, with IPR
 * 2015's 2014-15 as a second 2018-19 variant). HIES keeps the split within a
-* province (urban, rural, quintiles); the Pakistan rows stay as they are.
+* province (urban, rural, quintiles), and the Pakistan rows stay as they are.
 *   pci_pasha     the national level of 20.6 (WDI), Pasha's provincial pattern
 *   pci_pasha_nl  NHDR's national level (4,135 and 4,922), Pasha's pattern
 * hdi_pasha_nl uses microdata education and NHDR's own life expectancy, so it
 * differs from the published HDI only through the provincial income pattern.
 * If Pasha's pattern were NHDR's, hdi_pasha_nl would match Table 1.
+* Input: "6. Raw data/Published/GRP published estimates.csv" (Section 9.7).
 import delimited using "$pub/GRP published estimates.csv", clear varnames(1) asdouble ///
     encoding(utf-8) stringcols(1 2 3 4)
 keep if (source == "Pasha IPR 2015" & inlist(year, "2007-08", "2014-15")) | ///
@@ -4737,7 +5316,7 @@ export delimited using "$out/HDI Pasha income.csv", replace
 
 
 *==============================================================================*
-* SECTION 21   MULTIDIMENSIONAL POVERTY INDEX (MPI) 2014-15 AND THE CHANGE TO 2019-20
+* Section 21   Multidimensional Poverty Index (MPI) 2014-15 and the change to 2019-20
 *==============================================================================*
 * The MPI Report 2019-20 compares 2019-20 with 2014-15 on a harmonized
 * measure: the 2014-15 indicator set as it can be built on both PSLM rounds,
@@ -4765,7 +5344,7 @@ export delimited using "$out/HDI Pasha income.csv", replace
 *             sec_f1.dta  land and livestock: itc item, sf1c01 owns, sf1c02
 *                         quantity, sf1c04 irrigated
 * Indicators as in Section 19, with the report's harmonized definitions:
-*   years of schooling  no man OR no woman 10+ has completed class 5
+*   years of schooling  no man or no woman 10+ has completed class 5
 *   attendance          any child 6 to 11 not attending
 *   quality             any child 4 to 15 never enrolled or left because too
 *                       expensive, too far, poor teaching, or no female or
@@ -4792,6 +5371,7 @@ export delimited using "$out/HDI Pasha income.csv", replace
 *           every province and area within 0.3 points of H
 
 * ---- 21.1 Households -------------------------------------------------------------------
+* Input: PSLM 2014-15 roster, "6. Raw data/PSLM 2014-15/plist.dta".
 use hhcode province region district idc sbq04 age weight using "$p14/plist.dta", clear
 tempfile p14p
 save `p14p'
@@ -4826,10 +5406,14 @@ save `p14int'
 use hhcode yr mon shq6a shq6b shq6c shq6d shq6e shq6f shq6g shq6h shq6i shq6j shq6k ///
     using "$p14/sec_h.dta", clear
 merge m:1 hhcode using `p14int', keep(master match) nogenerate
-gen int by_ = 2000 + yr
-gen int bm_ = cond(mon == 0, 6, mon)
+gen int by_ = 2000 + yr                      // birth year: yr is stored as two digits
+gen int bm_ = cond(mon == 0, 6, mon)         // an unknown birth month (0) is taken as June, mid-year
 gen double agem = (int_year - by_) * 12 + (int_month - bm_)
 gen double agey = floor(agem / 12)
+* shq6a to shq6k are the vaccine fields of PSLM 2014-15 section H. A dose
+* counts when received by card (1), recall (2) or campaign (4). Full
+* immunization takes the eight doses of the harmonized definition (a to g
+* and k), with a as BCG.
 foreach v in a b c d e f g h i j k {
     gen byte got_`v' = inlist(shq6`v', 1, 2, 4)
 }
@@ -4868,6 +5452,8 @@ collapse (sum) irr rain cattle goats draught poultry, by(hhcode)
 tempfile p14ll
 save `p14ll'
 
+* Merge every household-level block onto the household file. ``f'' expands
+* twice: first to the tempfile name, then to its path.
 use `p14hh', clear
 foreach f in d14edu d14imm d14mat p14g p14f2 p14ll {
     merge 1:1 hhcode using ``f'', keep(master match) nogenerate
@@ -4883,6 +5469,9 @@ gen byte d_walls = inlist(sgq04, 2, 3, 5)
 gen byte d_crowd = (sgq02 == 0) | ((hhsize / sgq02) >= 4 & !missing(sgq02) & sgq02 > 0)
 gen byte d_elec  = (sgq08 != 1)
 gen byte d_fuel  = inlist(sgq07, 1, 4, 6, 7, 8)
+* sf2q11a to sf2q11q are the 17 asset questions of PSLM 2014-15 section F2
+* (1 owns). The small and large groups below follow the asset list of the
+* section header, and y_o (car) cancels the deprivation.
 foreach k in a b c d e f g h i j k l m n o p q {
     gen byte y_`k' = (sf2q11`k' == 1)
 }
@@ -4908,6 +5497,8 @@ tempfile mpi14hh
 save `mpi14hh'
 
 * ---- 21.5 National, rural-urban and provincial, against Tables 2 to 6 ----------------------
+* Input: "6. Raw data/Published/MPI 2014-15 harmonized published.csv", the
+* harmonized 2014-15 and 2019-20 values of the MPI Report 2019-20, Chapter 3.
 import delimited using "$pub/MPI 2014-15 harmonized published.csv", clear varnames(1) asdouble ///
     encoding(utf-8) stringcols(1 2 3)
 tempfile mpi14pub
@@ -4961,6 +5552,8 @@ export delimited using "$out/MPI 2014-15 national provincial.csv"
 * ---- 21.6 The harmonized 2019-20 measure and the change -------------------------------------
 * The 2019-20 households of Section 19, restricted to the districts surveyed
 * in both rounds.
+* Input: "6. Raw data/Published/PSLM district crosswalk 2014-15 2019-20.csv",
+* built from Section 2.3 of the MPI Report 2019-20.
 import delimited using "$pub/PSLM district crosswalk 2014-15 2019-20.csv", clear varnames(1) ///
     asdouble encoding(utf-8) stringcols(2 4 5)
 rename district_2019_20 district
@@ -5069,7 +5662,7 @@ save "$out/MPI change districts.dta"
 
 
 *==============================================================================*
-* SECTION 22   THE LABOUR FORCE SURVEY (LFS) ROUNDS, READ ON ONE BASIS
+* Section 22   The Labour Force Survey (LFS) rounds, read on one basis
 *==============================================================================*
 * The CDI, YDI and LDI draw on the Labour Force Survey, and so does the GII.
 * Three facts, established below, govern how NHDR used it:
@@ -5111,6 +5704,10 @@ save "$out/MPI change districts.dta"
 *   mw        the minimum wage in force (Table 2 of Technical Note 8, and
 *             the federal notification of July 2024)
 
+* Input: "6. Raw data/Published/LFS population minimum wage.csv": for each
+* LFS round, the population PBS used for absolute numbers and the minimum
+* wage in force. The loop turns row i into the scalars pop_<survey> and
+* mw_<survey>, for example pop_lfs1718.
 import delimited using "$pub/LFS population minimum wage.csv", clear varnames(1) asdouble ///
     encoding(utf-8) stringcols(1 5)
 forvalues i = 1/`=_N' {
@@ -5120,6 +5717,10 @@ forvalues i = 1/`=_N' {
 }
 
 * ---- 22.1 LFS 2017-18 ---------------------------------------------------------------------
+* Input: "6. Raw data/LFS 2017-18/LFS 2017-18.sav", the PBS release. The
+* province is the first digit of the ten-digit PrCode, hence floor(PrCode /
+* 1e9). capture confirm string variable tests whether PrCode was read as
+* text, and destring converts it only in that case.
 import spss using "$lfs17/LFS 2017-18.sav", clear
 keep PrCode S04C05 S04C06 S04C07 S04C09 S04C10 S05C02 S05C03 S05C04 S05C08 S05C09 S05C10 ///
     S05C11 S05C13 S05C171 S06C01 S07C033 S07C043 S09C01 S09C04 S09C06 ///
@@ -5154,7 +5755,10 @@ save `lfs1718'
 
 * ---- 22.2 LFS 2012-13 ---------------------------------------------------------------------
 * The Stata release stores most answers as text. They are converted, and a
-* stray non-numeric entry becomes missing.
+* stray non-numeric entry becomes missing. The loop tests every variable
+* (capture confirm string variable) and destrings only the text ones.
+* Input: "6. Raw data/LFS 2012-13/LFS-2012-13.dta". Prcode has nine digits
+* in this round, so the province is floor(Prcode / 1e8).
 use Prcode s4_q5 s4_q6 s4_q9 s5_q2 s5_q3 s5_q4 s5_q8 s5_q9 s5_q10 s5_q11 s5_q13 s5_q17_1 ///
     s7_q3 s7_q4 s9_q1 s9_q4 s9_q6 Weights using "$lfs12/LFS-2012-13.dta", clear
 foreach v of varlist _all {
@@ -5194,11 +5798,12 @@ save `lfs1213', replace
 * Figures 4.9 to 4.11, since PBS ran no Labour Force Survey in 2015-16. The
 * SPSS release names its fields by questionnaire section and column, and its
 * codes follow the 2017-18 round: status 1-4 paid employees, 5-10 employers,
-* own-account workers and cultivators, 11-12 contributing family workers;
-* occupation four-digit ISCO-08, industry four-digit ISIC; province the first
-* digit of PROCESS_CODE, 6 being Islamabad. SEC7_COL33 and SEC7_COL43 are the
+* own-account workers and cultivators, 11-12 contributing family workers.
+* Occupation is four-digit ISCO-08 and industry four-digit ISIC. The province
+* is the first digit of PROCESS_CODE, 6 being Islamabad. SEC7_COL33 and SEC7_COL43 are the
 * weekly and monthly totals (cash plus kind). new_weight, released in the
 * same file, sums to the 189.19 million PBS used for absolute numbers.
+* Input: "6. Raw data/LFS 2014-15/LFS-2014-15.sav", the PBS release.
 import spss using "$lfs14/LFS-2014-15.sav", clear
 keep PROCESS_CODE SEC4_COL5 SEC4_COL6 SEC4_COL7 SEC4_COL9 SEC5_COL2 SEC5_COL3 SEC5_COL4 ///
     SEC5_COL8 SEC5_COL9 SEC5_COL10 SEC5_COL11 SEC5_COL13 SEC5_COL17_1 SEC7_COL33 SEC7_COL43 ///
@@ -5248,6 +5853,7 @@ save `lfs1415'
 * the status question, and the earnings fields exactly the 25,056 paid
 * employees, which fixes the reading. In-kind pay (7.7.4) is zero for 97
 * percent of employees and is left out. Used at the national level only.
+* Input: "6. Raw data/LFS 2006-07/lfs2006-07.sav", the PBS release.
 import spss using "$lfs06/lfs2006-07.sav", clear
 keep _v4 _v5 _v6 _v18 _v19 _v20 _v24 _v50 _v51 _v113 weights
 rename (_v4 _v5 _v6 _v24 weights) (sex age marital status w)
@@ -5272,6 +5878,8 @@ save `lfs0607'
 * 6 dependent contractor. Occupation and industry carry four-digit codes, and
 * a three-digit occupation code is an ISCO minor group with its leading zero
 * lost, so its major group is the first digit.
+* Input: "6. Raw data/LFS 2024-25/LFS 2024-25.dta". S10C10_*a are the own-use
+* production questions.
 use Province S4C5 S4C6 S4C7 S4C9 S5C1 S5C2 S5C3 S5C4 S5C8 S5C11 S5C12 S5C13 S5C15 S5C18 ///
     S5C24 S7C33 S7C43 S9C1 S9C6 S10C10_1a S10C10_2a S10C10_3a S10C10_6a S10C10_7a ///
     S10C10_9a S10C10_10a Weights using "$lfs24/LFS 2024-25.dta", clear
@@ -5298,6 +5906,8 @@ tempfile lfs2425
 save `lfs2425'
 
 * ---- 22.4 Participation: NHDR's "2018-19" column is LFS 2017-18 ----------------------------
+* Juxtaposition: participation and early marriage from the LFS 2017-18
+* microdata against the column NHDR labels 2018-19 in Table 7A.
 use `lfs1718', clear
 keep if age >= 10 & !missing(age)
 gen double lf_f = act if sex == 2
@@ -5329,7 +5939,7 @@ export delimited using "$out/LFS 2017-18 participation.csv"
 * NHDR's year for each input: prenatal and postnatal care (sec_4d s4dq01,
 * s4dq2a, s4dq11a) and primary-or-higher schooling (sec_2ab s2bq05, s2bq14)
 * from HIES 2018-19 (Section 18.2, raw_*), and participation and early
-* marriage from LFS 2017-18 (above), NHDR's labour year. No survey in 6. Raw data
+* marriage from LFS 2017-18 (above), NHDR's labor year. No survey in 6. Raw data
 * reproduces NHDR's early-marriage rate of 20.0 percent: LFS 2017-18 gives
 * 12.6 and LFS 2018-19 12.3. Parliamentary seats are administrative and stay
 * as printed.
@@ -5346,14 +5956,14 @@ export delimited using "$out/GII 2018-19 all microdata.csv", replace
 
 
 *==============================================================================*
-* SECTION 23   CHILD DEVELOPMENT INDEX (CDI), TABLES 4 AND 4A
+* Section 23   Child Development Index (CDI), Tables 4 and 4A
 *==============================================================================*
 * Technical Note 6. Three dimensions, each the arithmetic mean of its
 * normalized indicators, and the CDI the arithmetic mean of the three:
 *   living standard  income per child equivalent YNE (300 to 2,000), share of
 *                    children in the two richest quintiles (10 to 50),
 *                    children 10 to 14 not working (70 to 100)
-*   education        net enrolment, primary 5-9 (0 to 100), middle 10-12
+*   education        net enrollment, primary 5-9 (0 to 100), middle 10-12
 *                    (0 to 75), matric 13-14 (0 to 50), and education
 *                    expenditure per child equivalent EEC
 *   health           fully immunized at 12 to 23 months (20 to 100), under-five
@@ -5363,7 +5973,7 @@ export delimited using "$out/GII 2018-19 all microdata.csv", replace
 * The note prints no goalposts for EEC. Inverting the 30 education indices of
 * Table 4 against Table 4A fixes them: every pair from about (3, 78) to
 * (7, 81) reproduces all 30 within the rounding of the whole-number
-* enrolment rates, and (5, 80) is the round pair inside that set.
+* enrollment rates, and (5, 80) is the round pair inside that set.
 * Two quantities the note leaves open were settled on the microdata:
 *   "real" rupees     2001-02 prices, the first year of the CDI series. With
 *                     the CPI (World Bank WDI, fiscal-year average of calendar
@@ -5394,7 +6004,13 @@ export delimited using "$out/GII 2018-19 all microdata.csv", replace
 *           download link for LFS 2007-08 serves the 2006-07 file).
 
 * ---- 23.1 The construction, recovered from Tables 4 and 4A ------------------------------
-capture program drop nhdr_cdi
+* nhdr_cdi applies the normalizations of the section header. Each divisor
+* is the width of a goalpost band: 1700 = 2,000 - 300 for income per child
+* equivalent, 40 = 50 - 10 for the top two quintiles, 30 = 100 - 70 for not
+* working, 75 = 80 - 5 for education spending, 80 = 100 - 20 for
+* immunization, 0.075 = 0.955 - 0.880 for survival, 85 = 100 - 15 for not
+* stunted and 40 = 100 - 60 for not wasted.
+capture program drop nhdr_cdi     // clear any earlier definition
 program define nhdr_cdi
     syntax , INCome(varname) TOP2(varname) NOTwork(varname) NERP(varname) NERM(varname) ///
         NERX(varname) EEC(varname) IMMun(varname) SURVival(varname) STUNT(varname) ///
@@ -5405,11 +6021,16 @@ program define nhdr_cdi
         (`stunt' - 15) / 85 + (`wast' - 60) / 40) / 4
     gen double `prefix'cdi = (`prefix'sl + `prefix'edu + `prefix'hea) / 3
 end
+* Input: "6. Raw data/Published/NHDR2020 Table 4.csv", Tables 4 and 4A typed
+* from the annex, one row per region, sex and year.
 import delimited using "$pub/NHDR2020 Table 4.csv", clear varnames(1) asdouble ///
     encoding(utf-8) stringcols(1 2 3)
 nhdr_cdi, income(income_pce) top2(top2) notwork(notwork) nerp(ner_p) nerm(ner_m) nerx(ner_x) ///
     eec(eec) immun(immun) survival(survival) stunt(notstunted) wast(notwasted) prefix(m_)
 gen double cdi_from_pub = (pub_sl_idx + pub_edu_idx + pub_health_idx) / 3
+* Each spec is "computed published tolerance", as in Section 16.1. Education
+* takes the widest tolerance because Table 4A prints enrollment as whole
+* percentages.
 foreach p in "sl sl 0.0015" "edu edu 0.006" "hea health 0.0025" {
     local mine : word 1 of `p'
     local pub  : word 2 of `p'
@@ -5434,7 +6055,12 @@ export delimited using "$out/CDI method Table 4.csv"
 * attended now, missing if not attending), t_exp (annual household
 * consumption) and ee (annual household education spending). Replaces the
 * data with five rows, Pakistan and the provinces.
-capture program drop nhdr_cdi_hh
+* deflator() is the CPI of the survey year over the CPI of 2001-02, so that
+* rupees are in 2001-02 prices. NE, the child-equivalent household size,
+* counts the first adult as 2, every other adult as 1.4 and every child as
+* 1. income_pce and eec are monthly (divided by 12) and are set on one row
+* per household (_first) so that each household counts once.
+capture program drop nhdr_cdi_hh     // clear any earlier definition
 program define nhdr_cdi_hh
     syntax , DEFLator(real)
     bysort hhid: gen int _nh = _N
@@ -5464,6 +6090,9 @@ program define nhdr_cdi_hh
     }
 end
 
+* Input: "6. Raw data/Published/WDI Pakistan CPI.csv", consumer price index,
+* World Bank WDI. The eight calendar years are the two halves of the four
+* fiscal years needed: 2001-02 (the base), 2007-08, 2018-19 and 2024-25.
 import delimited using "$pub/WDI Pakistan CPI.csv", clear varnames(1) asdouble encoding(utf-8)
 foreach y in 2001 2002 2007 2008 2018 2019 2024 2025 {
     quietly summarize value if calendar_year == `y'
@@ -5477,6 +6106,9 @@ scalar cpi_fy2425 = (cpi_2024 + cpi_2025) / 2
 
 * (a) HIES 2007-08. Provinces and regions are coded as in 2005-06 (Section
 *     20) and recoded. Most roster answers are stored as text.
+*     Inputs: "6. Raw data/HIES 2007-08": sec 6abcde.dta (consumption),
+*     sec2a.dta (education, s2bq19c education spending), plist.dta (roster)
+*     and sec3b.dta (immunization).
 use hhcode itc v1 v2 v3 v4 if inlist(itc, 1000, 2000, 4000, 5000) using "$h07/sec 6abcde.dta", clear
 egen double v = rowtotal(v1 v2 v3 v4)
 gen double a = v * cond(itc == 1000, 26, cond(itc == 5000, 1, 12))
@@ -5509,7 +6141,9 @@ foreach v in s3bq01b s3bq04a s3bq04d s3bq04h {
     if !_rc destring `v', replace force
 }
 merge 1:1 hhcode idc using `h07p', keepusing(prov weight) keep(match) nogenerate
-keep if inrange(s3bq01b, 12, 23)
+keep if inrange(s3bq01b, 12, 23)            // children aged 12 to 23 months
+* s3bq04a, s3bq04d and s3bq04h hold the three doses the section header names
+* (BCG, the third DPT dose, the third polio dose). 1 is card, 2 recall.
 gen double immun = inlist(s3bq04a, 1, 2) & inlist(s3bq04d, 1, 2) & inlist(s3bq04h, 1, 2)
 nhdr_by_province, vars(immun) wgt(weight) province(prov)
 replace immun = 100 * immun
@@ -5517,6 +6151,11 @@ merge 1:1 domain using `cdih07', nogenerate
 save `cdih07', replace
 
 * (b) HIES 2018-19.
+*     Inputs: sec_6a.dta (consumption and the education items), plist.dta,
+*     sec_2ab.dta and sec_3b.dta (immunization).
+*     The six item codes of e are the fee, uniform, book, copy and
+*     stationery items named in the section header. The two fee codes
+*     (101001, 101002) are split by sector in 2018-19.
 use hhcode itc v1 v2 v3 v4 using "$h18/sec_6a.dta", clear
 egen double v = rowtotal(v1 v2 v3 v4)
 gen double a = v * cond(itc == 1000, 26, cond(itc == 5000, 1, 12)) if inlist(itc, 1000, 2000, 4000, 5000)
@@ -5541,7 +6180,9 @@ use hhcode idc s3bq1b s3bq4a s3bq4d s3bq4k using "$h18/sec_3b.dta", clear
 capture confirm string variable s3bq1b
 if !_rc destring s3bq1b, replace force
 merge 1:1 hhcode idc using `h18c', keepusing(prov weight) keep(match) nogenerate
-keep if inrange(s3bq1b, 12, 23)
+keep if inrange(s3bq1b, 12, 23)              // children aged 12 to 23 months
+* BCG, the third pentavalent dose and the third polio dose, by card (1),
+* recall (2) or campaign (4).
 gen double immun = inlist(s3bq4a, 1, 2, 4) & inlist(s3bq4d, 1, 2, 4) & inlist(s3bq4k, 1, 2, 4)
 nhdr_by_province, vars(immun) wgt(weight) province(prov)
 replace immun = 100 * immun
@@ -5551,6 +6192,8 @@ save `cdih18', replace
 * (c) HIES 2024-25. The household is prcode and hhno. The fee items are
 *     split by level in 2024-25 (101001 school, 101002 college, 101003
 *     university) where 2018-19 split them by sector.
+*     Inputs: "6. Raw data/HIES 2024-25": sec_6a_consum_exp.dta, the
+*     roster, weight.dta, sec_2ab_education.dta and Sec_03b_immunisation.dta.
 use prcode hhno itc v1 v2 v3 v4 using "$h24/sec_6a_consum_exp.dta", clear
 egen double v = rowtotal(v1 v2 v3 v4)
 gen double a = v * cond(itc == 1000, 26, cond(itc == 5000, 1, 12)) if inlist(itc, 1000, 2000, 4000, 5000)
@@ -5585,6 +6228,10 @@ merge 1:1 domain using `cdih24', nogenerate
 save `cdih24', replace
 
 * ---- 23.3 Children 10 to 14 not working, LFS ----------------------------------------------
+* Two readings for each round: work_wide counts employment or own-use
+* production (NHDR's reading, which reproduces Table 4A for LFS 2017-18),
+* work_emp counts employment alone (the comparable reading across rounds,
+* see 23.5).
 use `lfs1718', clear
 keep if inrange(age, 10, 14)
 gen double work_wide = emp | ownuse
@@ -5618,7 +6265,9 @@ merge 1:1 region sex year using `t4', keep(master match match_update match_confl
     keepusing(income_pce top2 notwork ner_p ner_m ner_x eec immun survival notstunted notwasted ///
     pub_sl_idx pub_edu_idx pub_health_idx pub_cdi) generate(_m) update
 * "update" keeps every reproduced value and fills only what was not reproduced:
-* the PDHS health inputs in both years, and child work in 2007-08.
+* the PDHS health inputs in both years, and child work in 2007-08. The
+* p_ copies made next keep NHDR's printed inputs beside the reproduced ones,
+* so that each input can be compared cell by cell.
 drop _m
 preserve
 use `t4', clear
@@ -5639,7 +6288,7 @@ list region year income_pce p_income_pce top2 p_top2 notwork p_notwork ner_p p_n
 display as text _n "Step 20: CDI reproduced, against Table 4"
 list region year r_sl pub_sl_idx r_edu pub_edu_idx r_hea pub_health_idx r_cdi pub_cdi, ///
     noobs sep(5) abbreviate(12)
-* Enrolment: Table 4A prints whole percentages.
+* Enrollment: Table 4A prints whole percentages.
 gen double _g = max(abs(ner_p - p_ner_p), abs(ner_m - p_ner_m), abs(ner_x - p_ner_x))
 quietly summarize _g
 nhdr_check, label("Step 20 CDI enrolment, 3 levels x 5 domains x 2 years, worst |gap| [published]") ///
@@ -5705,7 +6354,7 @@ export delimited using "$out/CDI reproduced PDHS.csv"
 
 * ---- 23.5 The CDI for 2024-25 ------------------------------------------------------------
 * Inputs as measured on the newest rounds:
-*   HIES 2024-25   income per child equivalent, top two quintiles, enrolment,
+*   HIES 2024-25   income per child equivalent, top two quintiles, enrollment,
 *                  education spending, immunization
 *   LFS 2024-25    children not working. LFS 2024-25 asks the own-use
 *                  production questions of every household member, with a
@@ -5745,7 +6394,7 @@ merge 1:1 region using `cdi24', nogenerate
 gen double cdi_change = c24_cdi - c18_cdi
 gen str40 status_2024_25 = cond(c24_cdi >= 0.700, "High child development", ///
     cond(c24_cdi >= 0.550, "Medium child development", "Low child development"))
-display as text _n "Step 20: THE CDI FOR 2024-25, with 2018-19 reproduced on the same basis"
+display as text _n "Step 20: the CDI for 2024-25, with 2018-19 reproduced on the same basis"
 list region income_pce_1819 income_pce top2_1819 top2 notwork_1819 notwork ner_p_1819 ner_p ///
     eec_1819 eec immun_1819 immun, noobs sep(0) abbreviate(10)
 list region pub_cdi c18_cdi c24_sl c24_edu c24_hea c24_cdi cdi_change status_2024_25, ///
@@ -5783,7 +6432,7 @@ nhdr_cdi, income(income_pce) top2(top2) notwork(notwork) nerp(ner_p) nerm(ner_m)
 keep region c18h_cdi pub_cdi
 merge 1:1 region using `c24h', nogenerate
 gen double cdi_change_h = c24h_cdi - c18h_cdi
-display as text _n "Step 20: THE CDI FOR 2024-25 with the PDHS inputs reproduced, and 2018-19 on the same basis"
+display as text _n "Step 20: the CDI for 2024-25 with the PDHS inputs reproduced, and 2018-19 on the same basis"
 list region pub_cdi c18h_cdi c24h_sl c24h_edu c24h_hea c24h_cdi c24_cdi cdi_change_h, noobs sep(0) abbreviate(12)
 quietly count if !missing(c24h_cdi)
 nhdr_check, label("Step 20 CDI 2024-25 with PDHS inputs reproduced, domains [5]") got(`=r(N)') want(5) tol(0)
@@ -5796,18 +6445,24 @@ export delimited using "$out/CDI 2024-25 PDHS.csv"
 
 
 * ---- 23.6 The PSLM district rounds on either side of 2007-08, tested --------
-* NHDR names PSLM 2007-08 for the CDI's 2007-08 enrolment and immunization and
+* Inputs: "6. Raw data/PSLM 2006-07" and "6. Raw data/PSLM 2008-09", the
+* PBS releases. The two rounds name and weight their files differently,
+* so nhdr_pslm_district takes the file names, the weight file and its key,
+* and how the interview date is stored. datemode "dmy" means separate month
+* and year fields. "int" means one integer, read as day, month and two-digit
+* year.
+* NHDR names PSLM 2007-08 for the CDI's 2007-08 enrollment and immunization and
 * PSLM 2006-07 for the 2006-07 column of Table 1 (Table 1 note). PSLM 2007-08,
-* a provincial round, is not in 6. Raw data; HIES 2007-08 stands in (23.2).
+* a provincial round, is not in 6. Raw data. HIES 2007-08 stands in (23.2).
 * The two district rounds on either side, PSLM 2006-07 and 2008-09, are read
 * here on the rules used everywhere else, and set against the printed values:
 *   literacy   persons 15+ who read and write with understanding (scq01)
-*   enrolment  level matched: ages 5-9 in classes 1-5, 10-12 in 6-8, 13-14 in
-*              9-10 (scq05 attending, scq06 class); by level for the CDI
+*   enrollment  level matched: ages 5-9 in classes 1-5, 10-12 in 6-8, 13-14 in
+*              9-10 (scq05 attending, scq06 class), and by level for the CDI
 *   immunized  children 12-23 months with BCG, DPT3 and polio 3 (shq5_1,
-*              shq5_4, shq5_7) by card, recall or campaign; age from the birth
-*              year and month (year_c, month_c; month 0 taken as June) against
-*              the interview date
+*              shq5_4, shq5_7) by card, recall or campaign. Age comes from the
+*              birth year and month (year_c, month_c, with month 0 taken as
+*              June) against the interview date
 * Neither round reproduces the printed values as closely as HIES 2005-06
 * (Table 2A) and HIES 2007-08 (Table 4A) already do, so neither enters an
 * index. The results stay in "PSLM district rounds tested.csv".
@@ -5815,7 +6470,7 @@ capture program drop nhdr_pslm_district
 program define nhdr_pslm_district
     syntax , ROUND(string) DIR(string) ROSTER(string) EDUC(string) CHILD(string) ///
         WFILE(string) WKEY(string) WVAR(string) DATEMODE(string)
-    * Persons: literacy and enrolment
+    * Persons: literacy and enrollment
     use hhcode idc age using "`dir'/`roster'", clear
     tempfile ro
     save `ro'
@@ -5901,7 +6556,7 @@ nhdr_pslm_district, round("2008-09") dir("$p08") roster("sec_b.dta") educ("sec_c
 append using `ps06'
 tempfile pstest
 save `pstest'
-* Printed comparators: Table 2A 2006-07 (literacy, enrolment), Table 4A 2007-08.
+* Printed comparators: Table 2A 2006-07 (literacy, enrollment), Table 4A 2007-08.
 import delimited using "$pub/NHDR2020 Table 2A.csv", clear varnames(1) asdouble encoding(utf-8) stringcols(1 2)
 keep if quintile == "All"
 keep region lit_2006_07 ner_2006_07
@@ -5922,6 +6577,8 @@ order round region lit pub_lit_2006_07 ner514 pub_ner_2006_07 ner_p pub_ner_p ne
 sort round region
 display as text _n "Step 20: PSLM district rounds against NHDR's 2006-07 and 2007-08 columns"
 list, noobs sepby(round) abbreviate(12)
+* Reference values from the independent Python implementation, with NHDR's
+* printed value in the label for comparison.
 quietly summarize immun if round == "2006-07" & region == "Pakistan"
 nhdr_check, label("Step 20 PSLM 2006-07 full immunization 12-23 months, Pakistan [reference 81.8; NHDR 73]") ///
     got(`=r(mean)') want(81.8) tol(0.15)
@@ -5932,7 +6589,7 @@ export delimited using "$out/PSLM district rounds tested.csv", replace
 
 
 *==============================================================================*
-* SECTION 24   YOUTH DEVELOPMENT INDEX (YDI), TABLES 5 AND 5A
+* Section 24   Youth Development Index (YDI), Tables 5 and 5A
 *==============================================================================*
 * Technical Note 7. Youth are 15 to 29. Five indicators, each normalized,
 * and the YDI their arithmetic mean:
@@ -5949,8 +6606,8 @@ export delimited using "$out/PSLM district rounds tested.csv", replace
 *      pair on a 0.00005 grid that reproduces all 14 survival indices of
 *      Table 5 within rounding is 0.9970 to 0.9999.
 *   2. Equation (6) divides four indices by four. Table 5 averages all five.
-*   3. "Enrolment in higher education" is attainment: the percent of youth
-*      whose highest completed level is intermediate or above. The enrolment
+*   3. "Enrollment in higher education" is attainment: the percent of youth
+*      whose highest completed level is intermediate or above. The enrollment
 *      reading gives 13.2 percent for Pakistan against 16.6, and attainment gives
 *      16.6, and every province and sex to the printed decimal.
 *   4. The "2017-18" column is LFS 2017-18, with Islamabad in Punjab.
@@ -5962,7 +6619,10 @@ export delimited using "$out/PSLM district rounds tested.csv", replace
 *           definition reproduces. Full employment within 1.4 points.
 
 * ---- 24.1 The construction, recovered from Tables 5 and 5A ---------------------------------
-capture program drop nhdr_ydi
+* nhdr_ydi normalizes each indicator on its goalposts (section header) and
+* averages all five. The divisors are the band widths: 8 = 10 - 2, 70 = 80 -
+* 10, 30, 80 = 100 - 20, and 0.9999 - 0.9970 for survival.
+capture program drop nhdr_ydi     // clear any earlier definition
 program define nhdr_ydi
     syntax , MYS(varname) EPR(varname) HIED(varname) FULL(varname) SURVival(varname) [PREfix(string)]
     gen double `prefix'i_mys  = (`mys' - 2) / 8
@@ -5973,6 +6633,8 @@ program define nhdr_ydi
     gen double `prefix'ydi = (`prefix'i_mys + `prefix'i_epr + `prefix'i_hied + `prefix'i_full + ///
         `prefix'i_surv) / 5
 end
+* Input: "6. Raw data/Published/NHDR2020 Table 5.csv", Tables 5 and 5A typed
+* from the annex: 7 rows (Pakistan, four provinces, two sexes) x 2 years.
 import delimited using "$pub/NHDR2020 Table 5.csv", clear varnames(1) asdouble ///
     encoding(utf-8) stringcols(1 2)
 nhdr_ydi, mys(mys) epr(epr) hied(hied) full(fullemp) survival(survival) prefix(m_)
@@ -6009,9 +6671,15 @@ export delimited using "$out/YDI method Table 5.csv"
 * since January 2016 by the de jure household population (PKPQ7AFL, qh05
 * usual resident, qh07 age, ages taken at mid-year) and by the deceased
 * before death. Household weights qhweight. Pakistan is the four provinces,
-* as Table 5 has it (PMMS regions 1 to 4; Gilgit-Baltistan and AJK apart).
+* as Table 5 has it (PMMS regions 1 to 4, with Gilgit-Baltistan and AJK apart).
 * Result: six of seven cells within 0.00011 of Table 5. Balochistan gives
 * 0.9986 against 0.9990 printed, about 0.026 on its 2017-18 YDI.
+* Inputs: PMMS 2019 household member file PKPQ7AFL and household deaths file
+* PKOD7AFL, in the DHS Program download folder below. The two capture
+* confirm file lines test that both files are present. rc1 keeps the result
+* of the first test, because the second overwrites _rc. If either is
+* missing, youth survival stays as printed and the run continues.
+* s16 is January 2016 in CMC: (2016 - 1900) x 12 + 1.
 local pmms "$pdhs/PK_2019_MATERNALMORTALITYSURVEY_09292026_916_170967"
 capture confirm file "`pmms'/PKPQ7ADT/PKPQ7AFL.DTA"
 local rc1 = _rc
@@ -6034,7 +6702,8 @@ else {
     save `pmpy'
     use qhregion qhintc qhweight qh31 qh32c qh33u qh33n using "`pmms'/PKOD7ADT/PKOD7AFL.DTA", clear
     keep if qh32c >= `s16' & qh32c <= qhintc & inrange(qhregion, 1, 4)
-    * Age at death in completed years; deaths in days or months are infants.
+    * Age at death in completed years. Deaths recorded in days or months are
+    * infant deaths and take age 0.
     gen double _aad = cond(qh33u == 3, qh33n, cond(inlist(qh33u, 1, 2), 0, .))
     gen double dth  = inrange(_aad, 15, 29)
     gen double _T   = (qh32c - `s16') / 12
@@ -6081,7 +6750,9 @@ else {
 }
 
 * ---- 24.2 The YDI indicators from the LFS, 2017-18 and 2024-25 -----------------------------
-capture program drop nhdr_lfs_domains
+* nhdr_lfs_domains: as nhdr_stack_domains, but for the seven rows of Tables
+* 5 to 8: Pakistan, the four provinces, and Pakistan by sex (expand 3).
+capture program drop nhdr_lfs_domains     // clear any earlier definition
 program define nhdr_lfs_domains
     syntax , PROVince(varname) SEX(varname)
     tempvar pid copy
@@ -6099,6 +6770,11 @@ program define nhdr_lfs_domains
     drop if region == ""
 end
 * 2012-13 is added for Figure 4.1 (Section 26A): four of the five indicators.
+* The loop runs over the three LFS person files built in Section 22
+* (lfs1213, lfs1718, lfs2425). ys converts the highest level completed (PBS
+* codes, Section 22) into years: none 0, nursery and KG 1, primary 5, middle
+* 8, matric 11, intermediate 14, degree 17, the weights of the section
+* header.
 foreach r in 1213 1718 2425 {
     use `lfs`r'', clear
     keep if inrange(age, 15, 29)
@@ -6132,7 +6808,7 @@ restore
 merge m:1 region using `surv', nogenerate
 * No survey on disk measures youth mortality around 2012-13 (PDHS 2012-13
 * carries no sibling or household-death module), so its survival and YDI
-* stay missing; the other four indicators are reproduced.
+* stay missing. The other four indicators are reproduced.
 replace survival = . if year == "2012-13"
 nhdr_ydi, mys(mys) epr(epr) hied(hied) full(fullemp) survival(survival) prefix(r_)
 preserve
@@ -6179,7 +6855,7 @@ export delimited using "$out/YDI 2017-18 2024-25.csv"
 
 
 *==============================================================================*
-* SECTION 25   LABOUR DEVELOPMENT INDEX (LDI), TABLES 8 AND 8A
+* Section 25   Labour Development Index (LDI), Tables 8 and 8A
 *==============================================================================*
 * Technical Note 8. Population aged 10 and over. Five dimensions, normalized
 * on the goalposts of the note's Table 3, and the LDI their geometric mean:
@@ -6209,14 +6885,17 @@ export delimited using "$out/YDI 2017-18 2024-25.csv"
 * shares in every year. ptop and pbot give the occupation mix of paid employees
 * behind the skill premium. For the
 * two sexes, GDP is split by each sex's share of employment, which is the
-* reading that brings NHDR's female share (0.12) within reach. The labour
+* reading that brings NHDR's female share (0.12) within reach. The labor
 * share is the one input that does not reproduce: NHDR's 0.32 for 2012-13
 * implies GDP of about Rs 22.4 trillion, the pre-2017 (2005-06 base) level,
-* against Rs 25.0 trillion on the current series. With NHDR's own labour
+* against Rs 25.0 trillion on the current series. With NHDR's own labor
 * shares swapped in, every reproduced LDI is within 0.01 of Table 8.
 
 * ---- 25.1 The construction, recovered from Tables 8 and 8A ----------------------------------
-capture program drop nhdr_ldi
+* nhdr_ldi normalizes each dimension on the goalposts of Technical Note 8,
+* Table 3 (section header), and returns the geometric mean of all five
+* (ldidw, with decent work) and of the first four (ldin, without it).
+capture program drop nhdr_ldi     // clear any earlier definition
 program define nhdr_ldi
     syntax , EPR(varname) LSHare(varname) SKILL(varname) HUMcap(varname) DECent(varname) [PREfix(string)]
     gen double `prefix'i_ep = (`epr' - 0.092) / (0.978 - 0.092)
@@ -6229,6 +6908,8 @@ program define nhdr_ldi
     gen double `prefix'ldin = exp((ln(`prefix'i_ep) + ln(`prefix'i_ls) + ln(`prefix'i_sp) + ///
         ln(`prefix'i_hc)) / 4)
 end
+* Input: "6. Raw data/Published/NHDR2020 Table 8.csv", Tables 8 and 8A typed
+* from the annex: 7 rows x 2 years (2012-13 and 2017-18).
 import delimited using "$pub/NHDR2020 Table 8.csv", clear varnames(1) asdouble ///
     encoding(utf-8) stringcols(1 2)
 nhdr_ldi, epr(epr) lshare(lshare) skill(skillprem) humcap(humcap) decent(decentwork) prefix(m_)
@@ -6259,6 +6940,10 @@ save `t8'
 export delimited using "$out/LDI method Table 8.csv"
 
 * ---- 25.2 The LDI indicators from the LFS: 2012-13, 2017-18 and 2024-25 ---------------------
+* Input: "6. Raw data/Published/WDI Pakistan GDP current LCU.csv", GDP in
+* current rupees by fiscal year. The loop stores one scalar per LFS round,
+* gdp_2012_13 and so on (the hyphen becomes an underscore because a scalar
+* name cannot hold a hyphen).
 import delimited using "$pub/WDI Pakistan GDP current LCU.csv", clear varnames(1) asdouble ///
     encoding(utf-8) stringcols(4)
 foreach fy in 2012-13 2014-15 2017-18 2024-25 {
@@ -6271,6 +6956,9 @@ keep if inlist(source, "Pasha IPR 2015", "Pasha BR 2021") & province != "Pakista
 keep province year share_pct
 replace year = subinstr(year, "-", "_", .)
 reshape wide share_pct, i(province) j(year) string
+* Linear interpolation between Pasha's estimates. 2012-13 lies 5 years into
+* the 7-year span from 2007-08 to 2014-15, hence 5/7. 2017-18 lies 3 years
+* into the 4-year span from 2014-15 to 2018-19, hence 3/4.
 gen double sh_2012_13 = (share_pct2007_08 + (5/7) * (share_pct2014_15 - share_pct2007_08)) / 100
 gen double sh_2017_18 = (share_pct2014_15 + (3/4) * (share_pct2018_19 - share_pct2014_15)) / 100
 * 2014-15 is a year Pasha (2015) estimates directly.
@@ -6287,6 +6975,13 @@ tempfile grpsh
 save `grpsh'
 
 * 2014-15 is added for Figures 4.4, 4.7 and 4.15 (Section 26A).
+* The loop runs over four LFS person files from Section 22. fy is the fiscal
+* year that names the GDP scalar and the share variable of each round. yrs
+* converts the highest level completed into the human capital weights of
+* the section header: none 0, below matric 8, matric 10, intermediate 12,
+* degree 17.
+* LI, the labor income of the section header, uses ws, the weights scaled to
+* PBS population (Section 22), because it needs counts, not rates.
 foreach r in 1213 1415 1718 2425 {
     local fy = cond("`r'" == "1213", "2012_13", cond("`r'" == "1718", "2017_18", cond("`r'" == "1415", "2014_15", "2024_25")))
     use `lfs`r'', clear
@@ -6353,6 +7048,8 @@ save `t8p'
 restore
 merge 1:1 region year using `t8p', keep(master match) nogenerate
 * NHDR's labor share swapped in, to isolate the national accounts basis.
+* ldidw_nhdr_ls differs from Table 8 only through the four dimensions this
+* do file reproduces, so its gap measures how well those four reproduce.
 gen double i_ls_pub = (p_lshare - 0.060) / (0.723 - 0.060)
 gen double ldidw_nhdr_ls = exp((ln(r_i_ep) + ln(i_ls_pub) + ln(r_i_sp) + ln(r_i_hc) + ln(r_i_dw)) / 5)
 display as text _n "Step 22: LDI indicators from the LFS microdata, against Table 8A"
@@ -6394,7 +7091,7 @@ export delimited using "$out/LDI 2012-13 2017-18 2024-25.csv"
 
 
 *==============================================================================*
-* SECTION 26A   THE FOUR-YEAR SERIES BEHIND THE REPORT FIGURES (HDI, IHDI, GDI, GII)
+* Section 26A   The four-year series behind the report figures (HDI, IHDI, GDI, GII)
 *==============================================================================*
 * Figures 2.18, 2.20, 4.9, 4.10 and 4.11 plot four years: 2006-07, 2012-13,
 * 2015-16 and 2018-19. NHDR names the rounds in its source notes: HIES
@@ -6403,7 +7100,7 @@ export delimited using "$out/LDI 2012-13 2017-18 2024-25.csv"
 * builds the national series on those rounds with the rules of Sections 17,
 * 20.6 and 22.2b, so that every point of those figures has a counterpart.
 *   education  literacy 15+ (reads and writes) and level-matched net
-*              enrolment 5-14, HIES 2005-06, 2011-12, 2015-16 and 2018-19
+*              enrollment 5-14, HIES 2005-06, 2011-12, 2015-16 and 2018-19
 *   health     PDHS under-five mortality over ten years, West family: PDHS
 *              2006-07, 2012-13 and 2017-18. For 2015-16, the PDHS 2017-18
 *              birth histories over the ten years ending two years before
@@ -6412,25 +7109,32 @@ export delimited using "$out/LDI 2012-13 2017-18 2024-25.csv"
 *              quintile v190.
 *   income     HIES consumption per head, scaled to the WDI GNI per head in
 *              PPP dollars, fiscal-year average (Section 20.6)
-*   GDI        education by sex from HIES; earned income by sex by the UNDP
+*   GDI        education by sex from HIES, earned income by sex by the UNDP
 *              split on LFS 2006-07, 2012-13, 2014-15 (PBS ran no LFS in
 *              2015-16) and 2018-19, with the Census 2017 female share NHDR
-*              names; life expectancy by sex from WDI (SP.DYN.LE00.FE.IN and
+*              names, and life expectancy by sex from WDI (SP.DYN.LE00.FE.IN and
 *              .MA.IN) for the first calendar year of the fiscal year, in all
 *              four years, because NHDR's UNDP values exist for two years only
 *   GII        care and schooling: HIES 2005-06, HIES 2011-12, PSLM 2014-15
-*              (HIES 2015-16 has no maternity module) and HIES 2018-19;
+*              (HIES 2015-16 has no maternity module) and HIES 2018-19.
 *              participation and early marriage: LFS 2006-07, 2012-13,
-*              2014-15 and 2017-18; seats: WDI SG.GEN.PARL.ZS, which equals
+*              2014-15 and 2017-18. Seats: WDI SG.GEN.PARL.ZS, which equals
 *              NHDR's 21.3 (2006) and 20.2 (2018)
-* HIES 2011-12 numbers provinces and regions as HIES 2005-06 does; only the
+* HIES 2011-12 numbers provinces and regions as HIES 2005-06 does. Only the
 * national level is used here, so no recode is needed.
+* This section exists to feed the NHDR-style figures: figures.py reads
+* Series HDI, GDI and GII Pakistan.csv to draw the four-year Figures 2.18,
+* 2.20, 4.9, 4.10 and 4.11. The Stata charts of Section 26 do not use it.
 
 * ---- 26A.1 Person files, four HIES rounds ---------------------------------------
 * "Primary or higher" (GII schooling) is class 5 passed or class 6 or above
 * attended now, the 2005-06 rule of Section 20.4. The 2018-19 file keeps the
 * Section 18.2 rule (class 5 or above attended now), which reproduces Table
 * 7A for that year.
+* Inputs: the HIES 2005-06 and 2018-19 person files of Sections 20.1 and 4.1,
+* and the HIES 2011-12 and 2015-16 files read here. Each block reduces its
+* round to the same eight variables (hhcode sex age w pc_exp lit15 ner
+* prim), so that the loops in 26A.3 to 26A.5 treat the four rounds alike.
 use `h05p', clear
 gen double prim = inrange(s2bq05, 5, 24) | (s2bq01 == 3 & inrange(s2bq14, 6, 24)) if age >= 10 & !missing(age)
 gen byte sex = s1aq03
@@ -6502,6 +7206,10 @@ tempfile s18
 save `s18'
 
 * ---- 26A.2 Under-five mortality and life expectancy, Pakistan and wealth quintiles ----
+* Each spec is "year|births recode|offset". offset is the number of months
+* the ten-year window is moved back: 0 for the latest ten years, 24 for
+* 2015-16, which reads PDHS 2017-18 over the ten years ending two years
+* before that survey.
 tempfile mort
 local first = 1
 foreach spec in "2006-07|$pd06/PKBR53DT/PKBR53FL.DTA|0" "2012-13|$pd12/PKBR61DT/PKBR61FL.DTA|0" ///
@@ -6537,6 +7245,11 @@ display as text _n "Step 23A: PDHS under-five mortality and life expectancy, ten
 list if quintile == "All", noobs sep(0)
 
 * ---- 26A.3 The HDI, its quintiles and the IHDI, four years -----------------------------
+* Each spec is "year|person file|scalar suffix": the year label, the person
+* file of 26A.1, and the suffix of the WDI income control gnify_<suffix>
+* (Section 20.6).
+* palma is the HDI of Q5 over Q1 (NHDR's modified Palma ratio). pashum is
+* the mean ratio of each quintile's HDI to the one below, minus one.
 tempfile hser
 local first = 1
 foreach spec in "2006-07|s05|2006_07" "2012-13|s11|2012_13" "2015-16|s15|2015_16" "2018-19|s18|2018_19" {
@@ -6609,6 +7322,10 @@ nhdr_check, label("Step 23A HDI series cells, 4 years x 6 rows [24]") got(`=r(N)
 export delimited using "$out/Series HDI Pakistan.csv", replace
 
 * ---- 26A.4 Earned income by sex and the GDI, four years --------------------------------
+* The female share of earned income comes from four LFS rounds: 2006-07,
+* 2012-13, 2014-15 (standing for 2015-16, as PBS ran no LFS that year) and
+* 2018-19. dom is a one-character placeholder, empty for every record, so
+* that nhdr_earned_income returns the national row only.
 use `lfs0607', clear
 gen str1 dom = ""
 nhdr_earned_income, sex(sex) active(act) earn(earn) age(age) wgt(w) domain(dom)
@@ -6649,6 +7366,9 @@ foreach spec in "2006-07|s05" "2012-13|s11" "2015-16|s15" "2018-19|s18" {
     save `gser', replace
     local first = 0
 }
+* Life expectancy by sex, WDI. The calendar years are the first year of the
+* survey behind each column: 2005 for "2006-07" (HIES 2005-06), 2011 for
+* "2012-13" (HIES 2011-12), 2015 for "2015-16" and 2018 for "2018-19".
 import delimited using "$pub/WDI Pakistan by sex.csv", clear varnames(1) asdouble encoding(utf-8)
 keep if inlist(indicator_code, "SP.DYN.LE00.FE.IN", "SP.DYN.LE00.MA.IN") & inlist(year, 2005, 2011, 2015, 2018)
 gen byte sex = cond(indicator_code == "SP.DYN.LE00.FE.IN", 2, 1)
@@ -6694,6 +7414,7 @@ append using `care'
 save `care', replace
 * HIES 2011-12, section 4D: s4dq01 birth since the reference date, s4dq02
 * prenatal care, s4dq11 postnatal check-up (1 yes, 2 no). Household weights.
+* Inputs: "6. Raw data/HIES 2011-12/hh_weight.dta" and sec_4d.dta.
 use hhcode weight using "$h11/hh_weight.dta", clear
 bysort hhcode: keep if _n == 1
 tempfile hw11
@@ -6777,6 +7498,9 @@ foreach spec in "0607|2006-07" "1213|2012-13" "1415|2015-16" "1718|2018-19" {
     local first = 0
 }
 * Seats, WDI.
+* Input: "6. Raw data/Published/WDI Pakistan parliament.csv", SG.GEN.PARL.ZS,
+* the percent of seats in the national parliament held by women. The years
+* are the calendar years 2006, 2012, 2015 and 2018, one per series point.
 import delimited using "$pub/WDI Pakistan parliament.csv", clear varnames(1) asdouble encoding(utf-8) ///
     stringcols(1 2)
 keep if inlist(year, 2006, 2012, 2015, 2018)
@@ -6804,7 +7528,7 @@ copy "$pub/WEF GGGI Pakistan.csv" "$out/WEF GGGI Pakistan.csv", replace
 
 
 *==============================================================================*
-* SECTION 26   THE REPORT FIGURES AND MAPS FOR THE INDICES
+* Section 26   The report figures and maps for the indices (Stata charts)
 *==============================================================================*
 * NHDR 2020 presents its indices in Chapters 2 to 4 through figures and
 * maps. Each one that rests on an index this do file reproduces is redrawn
@@ -6830,20 +7554,29 @@ copy "$pub/WEF GGGI Pakistan.csv" "$out/WEF GGGI Pakistan.csv", replace
 *   points are joined by solid lines and reproduced points by dashed lines, so
 *   that no series mixes the two bases.
 *   NHDR also plots 2012-13 and 2015-16 points from HIES 2011-12 and
-*   2015-16. Those rounds are not in 6. Raw data, and those points are not drawn.
+*   2015-16. Section 26A computes those points, and the NHDR-style redraw
+*   (figures.py) plots them. The Stata charts of this section show the NHDR
+*   years and 2024-25 only.
 *   The maps are drawn with twoway area, part of official Stata, from the
 *   geoBoundaries province polygons in 6. Raw data/Geo. No user-written package is
 *   needed. Bands are those of the report: high 0.700 and above, medium
 *   0.550 to 0.699, low below 0.550, on the value printed to three decimals.
-*   Colors follow the ADB palette used in Section 27.1. Every figure writes
+*   Colors follow the ADB palette set in Section 26.0. Every figure writes
 *   its data as .csv and .dta beside the .png, so that each plotted value
 *   can be traced to its section.
+*   These Stata charts are the do file's own visual record. The figures in
+*   "4. Plots/2. Figures reproduced NHDR style" are not drawn here (see
+*   "Where the plots come from" in the file header).
 *   Each figure is drawn inside capture noisily, so that a graphics problem
 *   on a given machine cannot stop the run. Every figure is counted, and the
 *   checks at the end of the section report any figure not written.
 
 * ---- 26.0 Style, counters and helper programs --------------------------------
+* capture: setting the font fails in batch mode on some machines, which must
+* not stop the run.
 capture graph set window fontface "Arial"
+* Colors as red, green and blue values from 0 to 255. The global names are
+* code identifiers.
 global C1 "0 125 183"         // ADB blue
 global C2 "32 181 228"        // light blue
 global C3 "141 198 63"        // green
@@ -6861,7 +7594,10 @@ global GR "graphregion(color(white)) plotregion(color(white))"
 * file prepared in 26.1. Gilgit-Baltistan, Azad Jammu and Kashmir and
 * Islamabad Capital Territory are drawn in grey, because the provincial
 * indices do not cover them.
-capture program drop nhdr_map
+* Each polygon becomes one twoway area layer. The levelsof loop builds the
+* layers one shape at a time and records, for each band, the first layer
+* drawn in it, so that the legend shows each band once.
+capture program drop nhdr_map     // clear any earlier definition
 program define nhdr_map
     syntax , VALue(varname) LABel(varname) TITle(string) FILE(string) GEO(string) [NOTE(string)]
     keep domain `value' `label'
@@ -6936,7 +7672,7 @@ end
 * nhdr_map_index: one map from the map data of 26.10.
 * data() holds index, domain, v_nhdr (reproduced, NHDR year), p_nhdr (NHDR
 * printed) and v_2425 (reproduced, 2024-25). year() is nhdr or 2425.
-capture program drop nhdr_map_index
+capture program drop nhdr_map_index     // clear any earlier definition
 program define nhdr_map_index
     syntax , DATA(string) INDex(string) YEAR(string) TITle(string) SOURce(string) ///
         FILE(string) GEO(string)
@@ -6958,6 +7694,10 @@ end
 * vertex: shape_id, shape_name, shape_iso, seq, lon, lat. Each polygon is a
 * single closed ring. Label positions are the representative points of the
 * same polygons, fixed here so that no label falls outside its province.
+* Input: "6. Raw data/Geo/Pak ADM1 geoBoundaries coordinates.csv".
+* nvert and nnolab start at -1, so that if the block fails the two checks
+* after it fail visibly. The lx and ly values are longitude and latitude in
+* decimal degrees, one point inside each polygon.
 tempfile geo
 local nvert = -1
 local nnolab = -1
@@ -6993,6 +7733,9 @@ nhdr_check, label("Step 23 province polygons, vertices read [6. Raw data/Geo, 4,
 nhdr_check, label("Step 23 province polygons without a label position [0]") got(`nnolab') want(0) tol(0)
 
 * ---- 26.2 Figure 2.18: HDI, IHDI and the loss due to inequality, Pakistan ------
+* Five bars of HDI and IHDI: 2006-07 and 2018-19 as NHDR printed them
+* (Table 3), the same two years reproduced (Sections 20.5 and 16.2), and
+* 2024-25 (Section 16.3). x is the bar position, 1 to 5.
 capture noisily {
     import delimited using "$out/IHDI 2024-25.csv", clear varnames(1) asdouble ///
         encoding(utf-8) case(preserve)
@@ -7043,8 +7786,8 @@ capture noisily {
         legend(order(1 "HDI" 2 "IHDI") rows(1) position(6) size(small)) ///
         title("Figure 2.18  Loss in human development due to inequality, Pakistan", size(medium)) ///
         note("Orange: loss due to inequality, percent. NHDR: Table 3 as printed. Reproduced: Sections 16.2, 16.3" ///
-            "and 20.5, inequality across the five consumption quintiles. The report's 2012-13 and 2015-16" ///
-            "points rest on HIES rounds not in 6. Raw data.", size(vsmall)) $GR
+            "and 20.5, inequality across the five consumption quintiles. The 2012-13 and 2015-16 points" ///
+            "are computed in Section 26A and drawn in the NHDR-style redraw.", size(vsmall)) $GR
     graph export "$out/Figure 2.18 IHDI loss.png", width(2400) replace
 }
 nhdr_fig_done "$out/Figure 2.18 IHDI loss.png"
@@ -7277,6 +8020,9 @@ nhdr_fig_done "$out/Figure 3.28 rural urban HDI.png"
 * ---- 26.10 Maps 4.1 to 4.4: CDI, YDI, LDI and GII by province ------------------
 * For each index, the NHDR year and 2024-25. The map shades the reproduced
 * value and prints NHDR's own value beside it for the NHDR year.
+* The block assembles one file (mapd) with a row per index and domain:
+* v_nhdr reproduced in the NHDR year, p_nhdr as printed, v_2425 reproduced
+* for 2024-25. Expected: 4 indices x 5 domains = 20 complete rows.
 tempfile mapd
 local nmap = -1
 capture noisily {
@@ -7380,6 +8126,10 @@ nhdr_fig_done "$out/Map 4.4 GII 2024-25.png"
 * Published: Table 5, 2001-02 and 2017-18. Reproduced: Section 24, 2017-18 and
 * 2024-25. Series: 1 YDI, 2 schooling, 3 employment to population, 4 higher
 * education, 5 full employment, 6 survival.
+* Years are plotted at the middle of each fiscal year (2017.5 for 2017-18).
+* basis 1 is published, 2 reproduced. The forvalues loop over k builds two
+* layers per series, solid for published and dashed for reproduced, so the
+* legend refers to layers 1, 3, 5, 7, 9 and 11.
 capture noisily {
     tempname fh
     tempfile f41
@@ -7768,7 +8518,7 @@ capture noisily {
             3 "2006-07, care and schooling reproduced") rows(1) position(6) size(small)) ///
         title("Figure 4.11  Pakistan's Gender Inequality Index over time", size(medium)) ///
         note("Reproduced: Sections 20.4 (2006-07), 18.2 (2018-19) and 18.3 (2024-25). Seats are held at 2018." ///
-            "Lower is better. NHDR's 2011-12 and 2015-16 points rest on rounds not in 6. Raw data.", size(vsmall)) $GR
+            "Lower is better. The 2012-13 and 2015-16 points are in Section 26A and the NHDR-style redraw.", size(vsmall)) $GR
     graph export "$out/Figure 4.11 GII trend.png", width(2400) replace
 }
 nhdr_fig_done "$out/Figure 4.11 GII trend.png"
@@ -7953,18 +8703,23 @@ capture noisily {
 nhdr_fig_done "$out/Figure 4.15 LDI gender.png"
 
 * ---- 26.23 Checks on the figures ---------------------------------------------------
+* 29 figures and maps: Figure 5.19 (Section 8A.5), and 20 figures and 8 maps
+* (4 indices x 2 years) in this section.
 display as text _n "Step 23: report figures and maps written: " as result $NFIGOK as text " of " as result $NFIG
 nhdr_check, label("Step 23 report figures and maps attempted, with Figure 5.19 [29]") got($NFIG) want(29) tol(0)
 nhdr_check, label("Step 23 report figures and maps written, of those attempted") got($NFIGOK) want($NFIG) tol(0)
 
 
 *==============================================================================*
-* SECTION 27   SUMMARY OF CHECKS, FIGURES AND THE RESULTS WORKBOOK
+* Section 27   Summary of checks, figures and the results workbook
 *==============================================================================*
 
-file close chk
+file close chk             // Checks.txt is complete, and 27.2 reads it back
 
 * ---- 27.1 Further charts: provincial HDI trend and district scatter plots ----
+* Four charts with no NHDR counterpart: the provincial HDI series 2006-07 to
+* 2024-25, and three district scatter plots (literacy against HDI, HDI
+* against MPI, MPI 2014-15 against 2019-20). They are not counted in NFIG.
 * Wrapped in capture so that a graphics problem on a given machine cannot stop
 * the run after every result has been written.
 capture noisily {
@@ -8022,6 +8777,14 @@ capture noisily {
 * (folder 1. Dos). Row 1 of each sheet is its headline, row 2 names the CSV it
 * comes from, and the table starts on row 4 with the descriptive column names
 * of "Variable dictionary.csv". The CSV files keep the short variable names.
+* A frame is a second data set held in memory beside the main one. vdict
+* holds the variable dictionary while each results table is loaded in turn.
+* capture frame drop removes a vdict frame left by an earlier run.
+* The first loop reads the sheet list into locals f<k> (file), s<k> (sheet)
+* and h<k> (headline). The second exports one sheet per results table. The
+* first sheet creates the workbook (replace) and later ones add to it
+* (sheetreplace). A results table missing from the run is skipped with a
+* message, not an error.
 local xlsx "$out/NHDR replication results.xlsx"
 local runname = substr("$out", strrpos("$out", "/") + 1, .)
 capture frame drop vdict
@@ -8085,5 +8848,5 @@ display as text "{hline 100}"
 log close main
 
 *==============================================================================*
-* END OF FILE
+* End of file
 *==============================================================================*
