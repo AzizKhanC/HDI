@@ -54,7 +54,7 @@
 * -------------------------
 * This do file draws the Stata charts and writes the data behind every
 * figure. It does not draw the figures in "4. Plots/2. Figures reproduced
-* NHDR style". Those are drawn in Python. The chain is:
+* NHDR style". Python draws those. Each output comes from one place:
 *   Stata charts   drawn here with graph bar, graph hbar and twoway in
 *                  Sections 8A.5, 26 and 27.1, and saved as Figure *.png and
 *                  Map *.png in the run folder. "Build outputs.py" copies them
@@ -185,8 +185,8 @@
 *   Published files are read with asdouble, so that a value printed as 0.475
 *   is compared as 0.475 and not as its nearest single-precision number.
 
-* How every comparison is made (the juxtaposition logic)
-* -------------------------------------------------------
+* How each result is compared
+* ----------------------------
 *   Each result is set against a target with nhdr_check (Section 1.1), which
 *   writes one line to Checks.txt: PASS or FAIL, the label, the value
 *   computed, the target and the tolerance.
@@ -196,10 +196,10 @@
 *                  to one decimal matches within 0.05, and the do file
 *                  allows 0.06.
 *   [reference x]  the target is the value an independent Python
-*                  implementation produced from the same raw files. Two
-*                  separate code bases agreeing doubles the confidence in
-*                  the result. UNDP Pakistan indicated in a meeting that it
-*                  may prefer Python.
+*                  implementation produced from the same raw files. When
+*                  two separate code bases agree, a coding error in either
+*                  is unlikely. UNDP Pakistan said in a meeting that it may
+*                  prefer Python.
 *   [diagnostic]   the check tests a claim (for example, that a goalpost is
 *                  rejected) rather than a value.
 *   Each check label starts with a step number: Step n is Section n + 2
@@ -288,8 +288,8 @@ global p08  "$raw/PSLM 2008-09"        // PSLM 2008-09 district round
 local rundate = string(date(c(current_date), "DMY"), "%tdCCYYNNDD")   // today as YYYYMMDD
 local runtime = subinstr(c(current_time), ":", "", .)                  // now as HHMMSS
 * capture runs a command and keeps going if it fails. mkdir fails when the
-* folder already exists, which is expected after the first run, so the
-* failure is ignored on purpose.
+* folder already exists, as it does after the first run, and capture lets
+* the run continue.
 capture mkdir "$root/8. Stata runs"
 global out "$root/8. Stata runs/Run `rundate' `runtime'"
 capture mkdir "$out"
@@ -433,7 +433,7 @@ file write chk "status" _tab "check" _tab "computed" _tab "target" _tab "toleran
 * (23.1, 23.2), nhdr_pslm_district (23.6), nhdr_ydi and nhdr_lfs_domains
 * (24.1, 24.2), nhdr_ldi (25.1), and nhdr_map and nhdr_map_index (26.0).
 *
-* Stata idioms used throughout, explained once here
+* Stata idioms used throughout
 *   capture program drop X   Removes program X if an earlier run in the same
 *                            Stata session left it in memory. Without it,
 *                            program define stops with "program X already
@@ -442,8 +442,7 @@ file write chk "status" _tab "check" _tab "computed" _tab "target" _tab "toleran
 *   program define ... end   Defines a command. syntax lists its options.
 *                            Capital letters in an option name only mark the
 *                            shortest abbreviation Stata accepts: LABel()
-*                            may be typed label() or lab(). They are Stata
-*                            syntax, not emphasis.
+*                            may be typed label() or lab().
 *   tempvar, tempfile,       Names that Stata creates for the life of the
 *   tempname                 program or do file and deletes at the end, so
 *                            intermediate variables and files never collide
@@ -1167,7 +1166,7 @@ append using `edu_all'
 replace lit15 = 100 * lit15
 replace ner   = 100 * ner
 rename (lit15 ner) (lit_reproduced ner_reproduced)
-* Juxtaposition: each reproduced row beside the Table 2A value for the same
+* Comparison: each reproduced row beside the Table 2A value for the same
 * domain and quintile, and the gap between them.
 merge 1:1 domain quintile using `t2a', keepusing(lit_2018_19 ner_2018_19) ///
     keep(master match) nogenerate
@@ -1474,8 +1473,8 @@ nhdr_check, label("Step 5 Sindh q5, 5 years [reference 45.18]") ///
 * ---- 8.4 Provinces, ten-year window, and the life expectancy each implies ---
 * Set against PDHS 2017-18, which covers the same years and returns
 * systematically higher child mortality, and against the value NHDR used
-* (recovered in Section 7). This is the core health juxtaposition: three
-* life expectancies per province, from MICS6, from PDHS and from NHDR.
+* (recovered in Section 7). Each province gets three life expectancies:
+* from MICS6, from PDHS and from NHDR.
 
 use `bh', clear
 nhdr_q5, by(province) window(10)
@@ -1500,11 +1499,11 @@ rename domain province
 display as text _n "Step 5: provincial under-five mortality, ten-year window, and implied life expectancy"
 list province mics6_q5_10y le_west le_south_asian pdhs_q5 le_west_from_pdhs nhdr_le_recovered ///
     le_gap_mics_minus_pdhs, noobs sep(0) abbreviate(14)
-* Punjab stands apart. Its MICS6 rate (68.8 per 1,000) is the highest of the
-* four and the closest to PDHS 2017-18 (85), so its MICS6 life expectancy
-* sits 2.9 years above the PDHS-based value. In Sindh, Khyber Pakhtunkhwa
-* and Balochistan MICS6 returns 36.7 to 47.2 against PDHS 64 to 78, and the
-* gap is 6.2 to 7.0 years. The ordering of provinces therefore differs
+* Punjab differs from the other three. Its MICS6 rate (68.8 per 1,000) is
+* the highest of the four and the closest to PDHS 2017-18 (85), so its
+* MICS6 life expectancy sits 2.9 years above the PDHS-based value. In Sindh,
+* Khyber Pakhtunkhwa and Balochistan MICS6 returns 36.7 to 47.2 against PDHS
+* 64 to 78, and the gap is 6.2 to 7.0 years. The ordering of provinces differs
 * between the two surveys, and the choice of survey decides the health
 * ranking (see le_gap_mics_minus_pdhs in Provincial mortality MICS6.csv).
 * Each spec is "province q5 e0": the ten-year q5 and the West-family life
@@ -3055,12 +3054,10 @@ export delimited using "$out/Provincial index 2024-25 survey basis.csv"
 * Result    Pakistan 0.588 against a published 0.570 for 2018-19, a pace of
 *           3.1 index points per thousand a year against 3.4 over 2006-07 to
 *           2018-19
-* Caveat    This bridging is unlikely to be accepted as a measured change.
-*           The carry-forward of health rests on one national World Bank
-*           increment and holds the 2018-19 provincial pattern fixed. It is
-*           a defensible bridge, not a measurement, and will not hold up as
-*           a provincial health comparison until a new birth history survey
-*           is fielded.
+* Caveat    This bridging will not pass as a measured change. Health
+*           carries forward one national World Bank increment and holds the
+*           2018-19 provincial pattern fixed. Provincial health cannot be
+*           compared over time until a new birth history survey is fielded.
 
 * ---- 13.1 The two national carries ----------------------------------------------
 scalar d_le  = le2024 - le2018            // life expectancy increment, years
@@ -3192,7 +3189,7 @@ export delimited using "$out/Chain consistency sensitivity.csv"
 * errors    for a weighted proportion p in a district with m clusters:
 *               var(p) = m/(m-1) x sum_c (z_c - p x w_c)^2 / (sum_c w_c)^2
 *           z_c = weighted sum of the indicator in cluster c, w_c = weighted
-*           count. Reporting it is not decoration: a district estimate on
+*           count. The standard error matters: a district estimate on
 *           eight clusters carries an interval several points wide, and a
 *           ranking of 126 districts on point estimates alone invents
 *           differences the survey cannot see.
@@ -4890,7 +4887,7 @@ drop _absl _absn
 export delimited using "$out/Table 2A education replication 2006-07.csv"
 
 * ---- 20.3 The GDI of 2006-07: education by sex, and the index ----------------------
-* Juxtaposition: education by sex from HIES 2005-06 against Table 6A, and
+* Comparison: education by sex from HIES 2005-06 against Table 6A, and
 * the GDI recomputed with it against the printed 0.750.
 * Same universes, split by sex (s1aq03: 1 male, 2 female). Life expectancy
 * and income by sex are NHDR's own (Table 6A). Only education is survey data.
@@ -5906,7 +5903,7 @@ tempfile lfs2425
 save `lfs2425'
 
 * ---- 22.4 Participation: NHDR's "2018-19" column is LFS 2017-18 ----------------------------
-* Juxtaposition: participation and early marriage from the LFS 2017-18
+* Comparison: participation and early marriage from the LFS 2017-18
 * microdata against the column NHDR labels 2018-19 in Table 7A.
 use `lfs1718', clear
 keep if age >= 10 & !missing(age)
@@ -7564,9 +7561,9 @@ copy "$pub/WEF GGGI Pakistan.csv" "$out/WEF GGGI Pakistan.csv", replace
 *   Colors follow the ADB palette set in Section 26.0. Every figure writes
 *   its data as .csv and .dta beside the .png, so that each plotted value
 *   can be traced to its section.
-*   These Stata charts are the do file's own visual record. The figures in
-*   "4. Plots/2. Figures reproduced NHDR style" are not drawn here (see
-*   "Where the plots come from" in the file header).
+*   The do file draws only these Stata charts. The figures in "4. Plots/2.
+*   Figures reproduced NHDR style" are drawn in Python (see "Where the plots
+*   come from" in the file header).
 *   Each figure is drawn inside capture noisily, so that a graphics problem
 *   on a given machine cannot stop the run. Every figure is counted, and the
 *   checks at the end of the section report any figure not written.
