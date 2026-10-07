@@ -1,0 +1,525 @@
+{
+ "Table 1": {
+  "Adult literacy index": {
+   "max_abs_diff": 0.0752,
+   "where": "Balochistan-Rural / Q3 / 2006-07",
+   "median_abs_diff": 0.0106,
+   "n": 180,
+   "n_over_tol": 91
+  },
+  "Net enrolment index": {
+   "max_abs_diff": 0.0636,
+   "where": "Balochistan-Urban / Q5 / 2006-07",
+   "median_abs_diff": 0.0099,
+   "n": 180,
+   "n_over_tol": 88
+  },
+  "Education index": {
+   "max_abs_diff": 0.0536,
+   "where": "Balochistan-Rural / Q3 / 2006-07",
+   "median_abs_diff": 0.0094,
+   "n": 180,
+   "n_over_tol": 86
+  },
+  "Health index": {
+   "max_abs_diff": 0.1692,
+   "where": "Sindh-Rural / Q4 / 2018-19",
+   "median_abs_diff": 0.0237,
+   "n": 180,
+   "n_over_tol": 138
+  },
+  "Income index": {
+   "max_abs_diff": 0.105,
+   "where": "Sindh-Urban / Q4 / 2006-07",
+   "median_abs_diff": 0.0209,
+   "n": 180,
+   "n_over_tol": 132
+  },
+  "HDI": {
+   "max_abs_diff": 0.0605,
+   "where": "Balochistan-Rural / Q4 / 2006-07",
+   "median_abs_diff": 0.0108,
+   "n": 180,
+   "n_over_tol": 96
+  }
+ },
+ "Table 2A": {
+  "Adult literacy rate (%)": {
+   "max_abs_diff": 7.5217,
+   "where": "Balochistan-Rural / Q3 / 2006-07",
+   "median_abs_diff": 1.0618,
+   "n": 180,
+   "n_over_tol": 91
+  },
+  "Net enrolment rate (%)": {
+   "max_abs_diff": 6.3561,
+   "where": "Balochistan-Urban / Q5 / 2006-07",
+   "median_abs_diff": 0.9873,
+   "n": 180,
+   "n_over_tol": 88
+  },
+  "Life expectancy at birth (years)": {
+   "max_abs_diff": 11.0,
+   "where": "Sindh-Rural / Q4 / 2018-19",
+   "median_abs_diff": 1.5488,
+   "n": 180,
+   "n_over_tol": 115
+  },
+  "Per capita income (PPP $)": {
+   "max_abs_diff": 4922.3191,
+   "where": "Sindh-Urban / Q4 / 2006-07",
+   "median_abs_diff": 513.2748,
+   "n": 180,
+   "n_over_tol": 123
+  }
+ },
+ "Table 3": {
+  "HDI": {
+   "max_abs_diff": 0.013,
+   "where": "Sindh / 2018-19",
+   "median_abs_diff": 0.0087,
+   "n": 10,
+   "n_over_tol": 4
+  },
+  "IHDI": {
+   "max_abs_diff": 0.0166,
+   "where": "Khyber Pakhtunkhwa / 2006-07",
+   "median_abs_diff": 0.0081,
+   "n": 10,
+   "n_over_tol": 3
+  },
+  "Coefficient of human inequality (%)": {
+   "max_abs_diff": 1.8069,
+   "where": "Khyber Pakhtunkhwa / 2006-07",
+   "median_abs_diff": 0.3686,
+   "n": 10,
+   "n_over_tol": 3
+  },
+  "Overall loss (%)": {
+   "max_abs_diff": 1.9479,
+   "where": "Khyber Pakhtunkhwa / 2006-07",
+   "median_abs_diff": 0.3815,
+   "n": 10,
+   "n_over_tol": 4
+  },
+  "Inequality in education": {
+   "max_abs_diff": 0.0109,
+   "where": "Balochistan / 2006-07",
+   "median_abs_diff": 0.0092,
+   "n": 10,
+   "n_over_tol": 3
+  },
+  "Inequality in health": {
+   "max_abs_diff": 0.0007,
+   "where": "Khyber Pakhtunkhwa / 2006-07",
+   "median_abs_diff": 0.0004,
+   "n": 10,
+   "n_over_tol": 0
+  },
+  "Inequality in income": {
+   "max_abs_diff": 0.0526,
+   "where": "Khyber Pakhtunkhwa / 2006-07",
+   "median_abs_diff": 0.0127,
+   "n": 10,
+   "n_over_tol": 6
+  }
+ },
+ "Table 4": {
+  "Living standard index": {
+   "max_abs_diff": 0.0284,
+   "where": "Punjab / All / 2018-19",
+   "median_abs_diff": 0.0082,
+   "n": 10,
+   "n_over_tol": 4
+  },
+  "Education index": {
+   "max_abs_diff": 0.0463,
+   "where": "Punjab / All / 2018-19",
+   "median_abs_diff": 0.0052,
+   "n": 10,
+   "n_over_tol": 2
+  },
+  "Health and nutrition index": {
+   "max_abs_diff": 0.0476,
+   "where": "Khyber Pakhtunkhwa / All / 2007-08",
+   "median_abs_diff": 0.0063,
+   "n": 10,
+   "n_over_tol": 4
+  },
+  "CDI": {
+   "max_abs_diff": 0.0251,
+   "where": "Punjab / All / 2018-19",
+   "median_abs_diff": 0.0073,
+   "n": 10,
+   "n_over_tol": 4
+  }
+ },
+ "Table 4A": {
+  "Income per child equivalent (real Rs)": {
+   "max_abs_diff": 154.1152,
+   "where": "Punjab / All / 2018-19",
+   "median_abs_diff": 36.4806,
+   "n": 10,
+   "n_over_tol": 4
+  },
+  "Children in top two quintiles (%)": {
+   "max_abs_diff": 1.1282,
+   "where": "Sindh / All / 2007-08",
+   "median_abs_diff": 0.3108,
+   "n": 10,
+   "n_over_tol": 1
+  },
+  "Children 10-14 not working (%)": {
+   "max_abs_diff": 0.206,
+   "where": "Balochistan / All / 2018-19",
+   "median_abs_diff": 0.1015,
+   "n": 5,
+   "n_over_tol": 0
+  },
+  "Net enrolment, primary (%)": {
+   "max_abs_diff": 0.4622,
+   "where": "Punjab / All / 2007-08",
+   "median_abs_diff": 0.2388,
+   "n": 10,
+   "n_over_tol": 0
+  },
+  "Net enrolment, middle (%)": {
+   "max_abs_diff": 0.3951,
+   "where": "Balochistan / All / 2018-19",
+   "median_abs_diff": 0.247,
+   "n": 10,
+   "n_over_tol": 0
+  },
+  "Net enrolment, matric (%)": {
+   "max_abs_diff": 0.4586,
+   "where": "Sindh / All / 2018-19",
+   "median_abs_diff": 0.2917,
+   "n": 10,
+   "n_over_tol": 0
+  },
+  "Education spending per child equivalent": {
+   "max_abs_diff": 13.7906,
+   "where": "Punjab / All / 2018-19",
+   "median_abs_diff": 1.1068,
+   "n": 10,
+   "n_over_tol": 6
+  },
+  "Fully immunized 12-23 months (%)": {
+   "max_abs_diff": 15.7642,
+   "where": "Khyber Pakhtunkhwa / All / 2007-08",
+   "median_abs_diff": 2.6767,
+   "n": 10,
+   "n_over_tol": 7
+  },
+  "Children not stunted (%)": {
+   "max_abs_diff": 0.0487,
+   "where": "Punjab / All / 2018-19",
+   "median_abs_diff": 0.0347,
+   "n": 5,
+   "n_over_tol": 0
+  },
+  "Children not wasted (%)": {
+   "max_abs_diff": 0.551,
+   "where": "Balochistan / All / 2018-19",
+   "median_abs_diff": 0.1914,
+   "n": 5,
+   "n_over_tol": 0
+  },
+  "Under-five survival": {
+   "max_abs_diff": 0.0005,
+   "where": "Punjab / All / 2007-08",
+   "median_abs_diff": 0.0003,
+   "n": 10,
+   "n_over_tol": 0
+  }
+ },
+ "Table 5": {
+  "Years of schooling index": {
+   "max_abs_diff": 0.0032,
+   "where": "Khyber Pakhtunkhwa / 2017-18",
+   "median_abs_diff": 0.0017,
+   "n": 7,
+   "n_over_tol": 0
+  },
+  "Employment-to-population index": {
+   "max_abs_diff": 0.0825,
+   "where": "Balochistan / 2017-18",
+   "median_abs_diff": 0.0126,
+   "n": 7,
+   "n_over_tol": 6
+  },
+  "Higher education index": {
+   "max_abs_diff": 0.0005,
+   "where": "Punjab / 2017-18",
+   "median_abs_diff": 0.0002,
+   "n": 7,
+   "n_over_tol": 0
+  },
+  "Fully employed index": {
+   "max_abs_diff": 0.0172,
+   "where": "Khyber Pakhtunkhwa / 2017-18",
+   "median_abs_diff": 0.0071,
+   "n": 7,
+   "n_over_tol": 2
+  },
+  "Youth survival index": {
+   "max_abs_diff": 0.1274,
+   "where": "Balochistan / 2017-18",
+   "median_abs_diff": 0.0082,
+   "n": 7,
+   "n_over_tol": 1
+  },
+  "YDI": {
+   "max_abs_diff": 0.0106,
+   "where": "Balochistan / 2017-18",
+   "median_abs_diff": 0.0015,
+   "n": 7,
+   "n_over_tol": 1
+  }
+ },
+ "Table 5A": {
+  "Mean years of schooling": {
+   "max_abs_diff": 0.0208,
+   "where": "Pakistan - Male / 2017-18",
+   "median_abs_diff": 0.0149,
+   "n": 7,
+   "n_over_tol": 0
+  },
+  "Employment to population (%)": {
+   "max_abs_diff": 5.7556,
+   "where": "Balochistan / 2017-18",
+   "median_abs_diff": 0.9005,
+   "n": 7,
+   "n_over_tol": 3
+  },
+  "Higher education attainment (%)": {
+   "max_abs_diff": 0.0048,
+   "where": "Punjab / 2017-18",
+   "median_abs_diff": 0.0034,
+   "n": 7,
+   "n_over_tol": 0
+  },
+  "Fully employed (%)": {
+   "max_abs_diff": 1.3496,
+   "where": "Khyber Pakhtunkhwa / 2017-18",
+   "median_abs_diff": 0.5718,
+   "n": 7,
+   "n_over_tol": 1
+  },
+  "Youth survival": {
+   "max_abs_diff": 0.0004,
+   "where": "Balochistan / 2017-18",
+   "median_abs_diff": 0.0001,
+   "n": 7,
+   "n_over_tol": 1
+  }
+ },
+ "Table 6": {
+  "Education index": {
+   "max_abs_diff": 0.0003,
+   "where": "Female / 2018-19",
+   "median_abs_diff": 0.0002,
+   "n": 4,
+   "n_over_tol": 0
+  },
+  "Life expectancy index": {
+   "max_abs_diff": 0.0374,
+   "where": "Male / 2006-07",
+   "median_abs_diff": 0.0255,
+   "n": 4,
+   "n_over_tol": 4
+  },
+  "Income index": {
+   "max_abs_diff": 0.0684,
+   "where": "Female / 2006-07",
+   "median_abs_diff": 0.032,
+   "n": 4,
+   "n_over_tol": 4
+  },
+  "HDI by sex": {
+   "max_abs_diff": 0.0318,
+   "where": "Female / 2006-07",
+   "median_abs_diff": 0.0209,
+   "n": 4,
+   "n_over_tol": 3
+  },
+  "GDI": {
+   "max_abs_diff": 0.0342,
+   "where": "Female / 2018-19",
+   "median_abs_diff": 0.0293,
+   "n": 4,
+   "n_over_tol": 4
+  }
+ },
+ "Table 6A": {
+  "Adult literacy rate (%)": {
+   "max_abs_diff": 0.046,
+   "where": "Female / 2018-19",
+   "median_abs_diff": 0.0271,
+   "n": 4,
+   "n_over_tol": 0
+  },
+  "Net enrolment rate (%)": {
+   "max_abs_diff": 0.0293,
+   "where": "Male / 2018-19",
+   "median_abs_diff": 0.01,
+   "n": 4,
+   "n_over_tol": 0
+  },
+  "Life expectancy at birth (years)": {
+   "max_abs_diff": 2.385,
+   "where": "Male / 2006-07",
+   "median_abs_diff": 1.655,
+   "n": 4,
+   "n_over_tol": 3
+  },
+  "Estimated earned income (PPP $)": {
+   "max_abs_diff": 1681.6384,
+   "where": "Male / 2006-07",
+   "median_abs_diff": 967.9878,
+   "n": 4,
+   "n_over_tol": 3
+  }
+ },
+ "Table 7": {
+  "GII": {
+   "max_abs_diff": 0.0315,
+   "where": "Punjab / 2018-19",
+   "median_abs_diff": 0.0222,
+   "n": 10,
+   "n_over_tol": 6
+  }
+ },
+ "Table 7A": {
+  "Without prenatal and postnatal care (%)": {
+   "max_abs_diff": 0.5099,
+   "where": "Sindh / 2018-19",
+   "median_abs_diff": 0.2106,
+   "n": 10,
+   "n_over_tol": 0
+  },
+  "Women 15-19 ever married (%)": {
+   "max_abs_diff": 11.8483,
+   "where": "Khyber Pakhtunkhwa / 2018-19",
+   "median_abs_diff": 7.7189,
+   "n": 6,
+   "n_over_tol": 6
+  },
+  "Seats in parliament, female (%)": {
+   "max_abs_diff": 0.045,
+   "where": "Pakistan / 2006-07",
+   "median_abs_diff": 0.0398,
+   "n": 2,
+   "n_over_tol": 0
+  },
+  "Secondary education, female (%)": {
+   "max_abs_diff": 0.3936,
+   "where": "Punjab / 2018-19",
+   "median_abs_diff": 0.207,
+   "n": 10,
+   "n_over_tol": 0
+  },
+  "Secondary education, male (%)": {
+   "max_abs_diff": 0.5957,
+   "where": "Khyber Pakhtunkhwa / 2006-07",
+   "median_abs_diff": 0.2485,
+   "n": 10,
+   "n_over_tol": 0
+  },
+  "Labour force participation, female (%)": {
+   "max_abs_diff": 1.6534,
+   "where": "Pakistan / 2006-07",
+   "median_abs_diff": 0.0244,
+   "n": 6,
+   "n_over_tol": 1
+  },
+  "Labour force participation, male (%)": {
+   "max_abs_diff": 1.2595,
+   "where": "Pakistan / 2006-07",
+   "median_abs_diff": 0.0283,
+   "n": 6,
+   "n_over_tol": 1
+  }
+ },
+ "Table 8": {
+  "Employment-to-population index": {
+   "max_abs_diff": 0.0007,
+   "where": "Pakistan - Female / 2017-18",
+   "median_abs_diff": 0.0003,
+   "n": 14,
+   "n_over_tol": 0
+  },
+  "Labour share index": {
+   "max_abs_diff": 0.1843,
+   "where": "Khyber Pakhtunkhwa / 2017-18",
+   "median_abs_diff": 0.1012,
+   "n": 14,
+   "n_over_tol": 14
+  },
+  "Skill premium index": {
+   "max_abs_diff": 0.0435,
+   "where": "Pakistan - Female / 2012-13",
+   "median_abs_diff": 0.0161,
+   "n": 14,
+   "n_over_tol": 11
+  },
+  "Human capital index": {
+   "max_abs_diff": 0.0218,
+   "where": "Punjab / 2017-18",
+   "median_abs_diff": 0.0106,
+   "n": 14,
+   "n_over_tol": 7
+  },
+  "Decent work index": {
+   "max_abs_diff": 0.0687,
+   "where": "Khyber Pakhtunkhwa / 2017-18",
+   "median_abs_diff": 0.0082,
+   "n": 14,
+   "n_over_tol": 7
+  },
+  "LDI with decent work": {
+   "max_abs_diff": 0.0345,
+   "where": "Sindh / 2017-18",
+   "median_abs_diff": 0.0195,
+   "n": 14,
+   "n_over_tol": 13
+  }
+ },
+ "Table 8A": {
+  "Employment to population": {
+   "max_abs_diff": 0.0007,
+   "where": "Pakistan - Female / 2017-18",
+   "median_abs_diff": 0.0003,
+   "n": 14,
+   "n_over_tol": 0
+  },
+  "Labour share of GDP": {
+   "max_abs_diff": 0.1245,
+   "where": "Khyber Pakhtunkhwa / 2017-18",
+   "median_abs_diff": 0.0654,
+   "n": 14,
+   "n_over_tol": 13
+  },
+  "Skill premium": {
+   "max_abs_diff": 0.2032,
+   "where": "Pakistan - Female / 2012-13",
+   "median_abs_diff": 0.0802,
+   "n": 14,
+   "n_over_tol": 6
+  },
+  "Human capital (years)": {
+   "max_abs_diff": 0.1849,
+   "where": "Punjab / 2017-18",
+   "median_abs_diff": 0.0885,
+   "n": 14,
+   "n_over_tol": 6
+  },
+  "Incidence of decent work": {
+   "max_abs_diff": 1.8445,
+   "where": "Khyber Pakhtunkhwa / 2017-18",
+   "median_abs_diff": 0.2057,
+   "n": 14,
+   "n_over_tol": 1
+  }
+ }
+}

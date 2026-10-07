@@ -1,0 +1,9 @@
+# Python packages the tools in this folder need (tested with Python 3.12).
+pandas
+numpy
+matplotlib
+openpyxl
+pyreadstat
+PyMuPDF
+Pillow
+python-pptx

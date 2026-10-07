@@ -1,0 +1,81 @@
+code,sub_sector,status,province,gva_rs_mn
+A.1.i,Important Crops,substitute,Balochistan,92450.60469676573
+A.1.i,Important Crops,substitute,Khyber Pakhtunkhwa,88113.90712519582
+A.1.i,Important Crops,substitute,Punjab,1125225.025257398
+A.1.i,Important Crops,substitute,Sindh,386641.4629206404
+A.1.ii,Other Crops,substitute,Balochistan,62936.76501194812
+A.1.ii,Other Crops,substitute,Khyber Pakhtunkhwa,59984.51048765369
+A.1.ii,Other Crops,substitute,Punjab,766009.3001280902
+A.1.ii,Other Crops,substitute,Sindh,263210.424372308
+A.1.iii,Cotton Ginning,substitute,Balochistan,4034.779159849349
+A.1.iii,Cotton Ginning,substitute,Khyber Pakhtunkhwa,332.5844215079945
+A.1.iii,Cotton Ginning,substitute,Punjab,100902.60638964
+A.1.iii,Cotton Ginning,substitute,Sindh,76567.03002900269
+A.2,Livestock,obtained,Balochistan,233159.6875670749
+A.2,Livestock,obtained,Khyber Pakhtunkhwa,821039.9867917786
+A.2,Livestock,obtained,Punjab,3439865.152064127
+A.2,Livestock,obtained,Sindh,1187303.173577019
+A.3,Forestry,obtained,Balochistan,14907.30339442664
+A.3,Forestry,obtained,Khyber Pakhtunkhwa,70665.28245030463
+A.3,Forestry,obtained,Punjab,76732.65546725516
+A.3,Forestry,obtained,Sindh,22202.75868801358
+A.4,Fishing,substitute,Balochistan,197.1516454455775
+A.4,Fishing,substitute,Khyber Pakhtunkhwa,4612.21638747483
+A.4,Fishing,substitute,Punjab,137872.180196847
+A.4,Fishing,substitute,Sindh,21610.45177023263
+B.2.i,Large Scale Manufacturing,substitute,Balochistan,118487.612135574
+B.2.i,Large Scale Manufacturing,substitute,Khyber Pakhtunkhwa,284128.9509634582
+B.2.i,Large Scale Manufacturing,substitute,Punjab,1959944.477313876
+B.2.i,Large Scale Manufacturing,substitute,Sindh,1903583.959587092
+B.2.ii,Small Scale Manufacturing,obtained,Balochistan,14953.63531514919
+B.2.ii,Small Scale Manufacturing,obtained,Khyber Pakhtunkhwa,92386.0701005398
+B.2.ii,Small Scale Manufacturing,obtained,Punjab,529325.271187347
+B.2.ii,Small Scale Manufacturing,obtained,Sindh,135878.023396964
+B.2.iii,Slaughtering,obtained,Balochistan,33687.67949403391
+B.2.iii,Slaughtering,obtained,Khyber Pakhtunkhwa,70322.60457876812
+B.2.iii,Slaughtering,obtained,Punjab,263390.2088096958
+B.2.iii,Slaughtering,obtained,Sindh,106936.5071175022
+B.3,Electricity Gas and Water supply,substitute,Balochistan,79151.00924756713
+B.3,Electricity Gas and Water supply,substitute,Khyber Pakhtunkhwa,109074.7524782421
+B.3,Electricity Gas and Water supply,substitute,Punjab,326151.8395021588
+B.3,Electricity Gas and Water supply,substitute,Sindh,209236.398772032
+B.4,Construction,obtained,Balochistan,144607.1692420241
+B.4,Construction,obtained,Khyber Pakhtunkhwa,201043.5345295636
+B.4,Construction,obtained,Punjab,388654.9442343535
+B.4,Construction,obtained,Sindh,440899.3519940588
+C.1,Wholesale and Retail trade,obtained,Balochistan,168886.1602739598
+C.1,Wholesale and Retail trade,obtained,Khyber Pakhtunkhwa,663323.3335663853
+C.1,Wholesale and Retail trade,obtained,Punjab,4874675.145767118
+C.1,Wholesale and Retail trade,obtained,Sindh,2012484.360392537
+C.10,Other Private Services,obtained,Balochistan,90470.74327278491
+C.10,Other Private Services,obtained,Khyber Pakhtunkhwa,314959.7587048902
+C.10,Other Private Services,obtained,Punjab,2132109.220369719
+C.10,Other Private Services,obtained,Sindh,773903.2776526067
+C.2,Transportation and Storage,obtained,Balochistan,78067.76729029308
+C.2,Transportation and Storage,obtained,Khyber Pakhtunkhwa,291356.6296698424
+C.2,Transportation and Storage,obtained,Punjab,2292583.007771613
+C.2,Transportation and Storage,obtained,Sindh,1001531.595268252
+C.3,Accommodation and Food Services,obtained,Balochistan,32300.73003807095
+C.3,Accommodation and Food Services,obtained,Khyber Pakhtunkhwa,76786.57043124919
+C.3,Accommodation and Food Services,obtained,Punjab,332731.5710863353
+C.3,Accommodation and Food Services,obtained,Sindh,146157.1284443446
+C.4,Information and Communication,substitute,Balochistan,19519.90871651108
+C.4,Information and Communication,substitute,Khyber Pakhtunkhwa,41782.21547426375
+C.4,Information and Communication,substitute,Punjab,491176.4693180833
+C.4,Information and Communication,substitute,Sindh,211990.4064911419
+C.6,Real Estate Activities Ownership of Dwellings,obtained,Balochistan,87708.33550036476
+C.6,Real Estate Activities Ownership of Dwellings,obtained,Khyber Pakhtunkhwa,236312.5840785271
+C.6,Real Estate Activities Ownership of Dwellings,obtained,Punjab,1318834.016889897
+C.6,Real Estate Activities Ownership of Dwellings,obtained,Sindh,713395.0635312109
+C.7,Public Administration and Social Security,obtained,Balochistan,285170.035643293
+C.7,Public Administration and Social Security,obtained,Khyber Pakhtunkhwa,271082.4973630419
+C.7,Public Administration and Social Security,obtained,Punjab,936308.1549285371
+C.7,Public Administration and Social Security,obtained,Sindh,609884.312065128
+C.8,Education,obtained,Balochistan,118907.3781199034
+C.8,Education,obtained,Khyber Pakhtunkhwa,258608.6114590867
+C.8,Education,obtained,Punjab,673341.5135518013
+C.8,Education,obtained,Sindh,322472.4968692086
+C.9,Human Health and Social Work,obtained,Balochistan,43780.67194354024
+C.9,Human Health and Social Work,obtained,Khyber Pakhtunkhwa,91299.88150023579
+C.9,Human Health and Social Work,obtained,Punjab,336989.5813328894
+C.9,Human Health and Social Work,obtained,Sindh,229141.8652233345

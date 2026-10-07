@@ -1,0 +1,396 @@
+Old path (relative to package folder),New path
+6. Raw data\documents\sources_downloaded,6. Raw data\documents\Sources downloaded
+6. Raw data\hies_2005_06,6. Raw data\HIES 2005-06
+6. Raw data\hies_2007_08,6. Raw data\HIES 2007-08
+6. Raw data\hies_2018_19,6. Raw data\HIES 2018-19
+6. Raw data\hies_2024_25,6. Raw data\HIES 2024-25
+6. Raw data\hies_remaining\data-in-stata,6. Raw data\HIES 2011-12
+6. Raw data\hies_remaining\data_stata_2015-16\data_stata_2015-16,6. Raw data\hies_remaining\data_stata_2015-16\PBS Stata files
+6. Raw data\hies_remaining\data_stata_2015-16,6. Raw data\HIES 2015-16
+6. Raw data\hies_remaining,"6. Raw data\HIES unidentified round, not read"
+6. Raw data\lfs_2006_07,6. Raw data\LFS 2006-07
+6. Raw data\lfs_2012_13,6. Raw data\LFS 2012-13
+6. Raw data\lfs_2014_15,6. Raw data\LFS 2014-15
+6. Raw data\lfs_2017_18,6. Raw data\LFS 2017-18
+6. Raw data\lfs_2018_19,6. Raw data\LFS 2018-19
+6. Raw data\lfs_2024_25,6. Raw data\LFS 2024-25
+6. Raw data\mics6\punjab_2017_18,6. Raw data\mics6\Punjab 2017-18
+6. Raw data\mics6\sindh_2018_19,6. Raw data\mics6\Sindh 2018-19
+6. Raw data\mics6\kp_2019,6. Raw data\mics6\KP 2019
+6. Raw data\mics6\balochistan_2019_20,6. Raw data\mics6\Balochistan 2019-20
+6. Raw data\pdhs\extracted\1990_91,6. Raw data\pdhs\extracted\1990-91
+6. Raw data\pdhs\extracted\2006_07,6. Raw data\pdhs\extracted\2006-07
+6. Raw data\pdhs\extracted\2012_13,6. Raw data\pdhs\extracted\2012-13
+6. Raw data\pdhs\extracted\2017_18,6. Raw data\pdhs\extracted\2017-18
+6. Raw data\pdhs\extracted\2019_pmms,6. Raw data\pdhs\extracted\2019 PMMS
+6. Raw data\pdhs\extracted,6. Raw data\pdhs\Zipped for Drive
+6. Raw data\pdhs\pdhs_prepare_for_drive.py,6. Raw data\pdhs\Prepare PDHS for Drive.py
+6. Raw data\pslm_2014_15,6. Raw data\PSLM 2014-15
+6. Raw data\pslm_2019_20,6. Raw data\PSLM 2019-20
+6. Raw data\Published\provenance\extract_kpbos_nightlights_2021.txt,6. Raw data\Published\provenance\Extract KPBOS nightlights 2021.txt
+6. Raw data\Published\provenance\extract_ocac_oil_report_2018_19.txt,6. Raw data\Published\provenance\Extract OCAC oil report 2018-19.txt
+6. Raw data\Published\provenance\extract_pasha_br_2021.txt,6. Raw data\Published\provenance\Extract pasha BR 2021.txt
+6. Raw data\Published\provenance\extract_pasha_ipr_2015.txt,6. Raw data\Published\provenance\Extract pasha IPR 2015.txt
+6. Raw data\Published\provenance\extract_pbs_cmi_2015_16.txt,6. Raw data\Published\provenance\Extract PBS CMI 2015-16.txt
+6. Raw data\Published\provenance\extract_pbs_electricity_t4_7.txt,6. Raw data\Published\provenance\Extract PBS electricity T4 7.txt
+6. Raw data\Published\provenance\extract_pbs_na_table2.txt,6. Raw data\Published\provenance\Extract PBS NA Table 2.txt
+6. Raw data\Published\provenance\extract_pbs_na_table4.txt,6. Raw data\Published\provenance\Extract PBS NA Table 4.txt
+6. Raw data\Published\provenance\extract_pdhs_2017_18_key_findings.txt,6. Raw data\Published\provenance\Extract PDHS 2017-18 key findings.txt
+6. Raw data\Published\provenance\extract_pes_2024_25_table1_5.txt,6. Raw data\Published\provenance\Extract PES 2024-25 Table 1 5.txt
+6. Raw data\Published\provenance\extract_pslm_2018_19_literacy.txt,6. Raw data\Published\provenance\Extract PSLM 2018-19 literacy.txt
+6. Raw data\Published\provenance\extract_undp_hdi_2017_blog.txt,6. Raw data\Published\provenance\Extract UNDP HDI 2017 blog.txt
+6. Raw data\Published\provenance\wdi_pakistan_parliament.txt,6. Raw data\Published\provenance\WDI Pakistan parliament.txt
+6. Raw data\Published\provenance\wef_gggi_pakistan.txt,6. Raw data\Published\provenance\WEF GGGI Pakistan.txt
+6. Raw data\Published\census_2017_population.csv,6. Raw data\Published\Census 2017 population.csv
+6. Raw data\Published\census_female_share.csv,6. Raw data\Published\Census female share.csv
+6. Raw data\Published\grp_published_estimates.csv,6. Raw data\Published\GRP published estimates.csv
+6. Raw data\Published\lfs_population_minwage.csv,6. Raw data\Published\LFS population minimum wage.csv
+6. Raw data\Published\model_life_tables.csv,6. Raw data\Published\Model life tables.csv
+6. Raw data\Published\mpi_2014_15_harmonized_published.csv,6. Raw data\Published\MPI 2014-15 harmonized published.csv
+6. Raw data\Published\mpi_2019_20_published.csv,6. Raw data\Published\MPI 2019-20 published.csv
+6. Raw data\Published\mpi_2019_20_uncensored_published.csv,6. Raw data\Published\MPI 2019-20 uncensored published.csv
+6. Raw data\Published\nhdr2020_table1.csv,6. Raw data\Published\NHDR2020 Table 1.csv
+6. Raw data\Published\nhdr2020_table2a.csv,6. Raw data\Published\NHDR2020 Table 2A.csv
+6. Raw data\Published\nhdr2020_table3.csv,6. Raw data\Published\NHDR2020 Table 3.csv
+6. Raw data\Published\nhdr2020_table4.csv,6. Raw data\Published\NHDR2020 Table 4.csv
+6. Raw data\Published\nhdr2020_table5.csv,6. Raw data\Published\NHDR2020 Table 5.csv
+6. Raw data\Published\nhdr2020_table6.csv,6. Raw data\Published\NHDR2020 Table 6.csv
+6. Raw data\Published\nhdr2020_table7.csv,6. Raw data\Published\NHDR2020 Table 7.csv
+6. Raw data\Published\nhdr2020_table8.csv,6. Raw data\Published\NHDR2020 Table 8.csv
+6. Raw data\Published\ocac_petroleum_consumption.csv,6. Raw data\Published\OCAC petroleum consumption.csv
+6. Raw data\Published\pbs_cmi_2015_16.csv,6. Raw data\Published\PBS CMI 2015-16.csv
+6. Raw data\Published\pbs_electricity_generation.csv,6. Raw data\Published\PBS electricity generation.csv
+6. Raw data\Published\pbs_gva_subsector.csv,6. Raw data\Published\PBS GVA subsector.csv
+6. Raw data\Published\pbs_lfs_refined_lfpr.csv,6. Raw data\Published\PBS LFS refined LFPR.csv
+6. Raw data\Published\pbs_national_accounts.csv,6. Raw data\Published\PBS national accounts.csv
+6. Raw data\Published\pdhs_2017_18_mortality.csv,6. Raw data\Published\PDHS 2017-18 mortality.csv
+6. Raw data\Published\pslm_district_crosswalk_2014_15_2019_20.csv,6. Raw data\Published\PSLM district crosswalk 2014-15 2019-20.csv
+6. Raw data\Published\published_benchmarks.csv,6. Raw data\Published\Published benchmarks.csv
+6. Raw data\Published\published_benchmarks_indices.csv,6. Raw data\Published\Published benchmarks indices.csv
+6. Raw data\Published\sources_register.csv,6. Raw data\Published\Sources register.csv
+6. Raw data\Published\wdi_pakistan.csv,6. Raw data\Published\WDI Pakistan.csv
+6. Raw data\Published\wdi_pakistan_by_sex.csv,6. Raw data\Published\WDI Pakistan by sex.csv
+6. Raw data\Published\wdi_pakistan_cpi.csv,6. Raw data\Published\WDI Pakistan CPI.csv
+6. Raw data\Published\wdi_pakistan_gdp_current_lcu.csv,6. Raw data\Published\WDI Pakistan GDP current LCU.csv
+6. Raw data\Published\wdi_pakistan_parliament.csv,6. Raw data\Published\WDI Pakistan parliament.csv
+6. Raw data\Published\wef_gggi_pakistan.csv,6. Raw data\Published\WEF GGGI Pakistan.csv
+6. Raw data\Documents\Sources downloaded\wef\WEF_GenderGap_Report_2006.pdf,6. Raw data\Documents\Sources downloaded\wef\WEF GenderGap Report 2006.pdf
+6. Raw data\Documents\Sources downloaded\wef\WEF_GenderGap_Report_2007.pdf,6. Raw data\Documents\Sources downloaded\wef\WEF GenderGap Report 2007.pdf
+6. Raw data\Documents\Sources downloaded\wef\WEF_GenderGap_Report_2008.pdf,6. Raw data\Documents\Sources downloaded\wef\WEF GenderGap Report 2008.pdf
+6. Raw data\Documents\Sources downloaded\wef\WEF_GenderGap_Report_2009.pdf,6. Raw data\Documents\Sources downloaded\wef\WEF GenderGap Report 2009.pdf
+6. Raw data\Documents\Sources downloaded\wef\WEF_GenderGap_Report_2010.pdf,6. Raw data\Documents\Sources downloaded\wef\WEF GenderGap Report 2010.pdf
+6. Raw data\Documents\Sources downloaded\wef\WEF_GenderGap_Report_2011.pdf,6. Raw data\Documents\Sources downloaded\wef\WEF GenderGap Report 2011.pdf
+6. Raw data\Documents\Sources downloaded\wef\WEF_GenderGap_Report_2012.pdf,6. Raw data\Documents\Sources downloaded\wef\WEF GenderGap Report 2012.pdf
+6. Raw data\Documents\Sources downloaded\wef\WEF_GenderGap_Report_2013.pdf,6. Raw data\Documents\Sources downloaded\wef\WEF GenderGap Report 2013.pdf
+6. Raw data\Documents\Sources downloaded\wef\WEF_GGGR_2014_CompleteReport.pdf,6. Raw data\Documents\Sources downloaded\wef\WEF GGGR 2014 CompleteReport.pdf
+6. Raw data\Documents\Sources downloaded\wef\WEF_GGGR_2015_cover.pdf,6. Raw data\Documents\Sources downloaded\wef\WEF GGGR 2015 cover.pdf
+6. Raw data\Documents\Sources downloaded\wef\WEF_GGGR_2017.pdf,6. Raw data\Documents\Sources downloaded\wef\WEF GGGR 2017.pdf
+6. Raw data\Documents\Sources downloaded\wef\WEF_GGGR_2018.pdf,6. Raw data\Documents\Sources downloaded\wef\WEF GGGR 2018.pdf
+6. Raw data\Documents\Sources downloaded\wef\WEF_GGGR_2020.pdf,6. Raw data\Documents\Sources downloaded\wef\WEF GGGR 2020.pdf
+6. Raw data\Documents\Sources downloaded\wef\WEF_GGGR_2021.pdf,6. Raw data\Documents\Sources downloaded\wef\WEF GGGR 2021.pdf
+6. Raw data\Documents\Sources downloaded\wef\WEF_GGGR_2022.pdf,6. Raw data\Documents\Sources downloaded\wef\WEF GGGR 2022.pdf
+6. Raw data\Documents\Sources downloaded\wef\WEF_GGGR_2023.pdf,6. Raw data\Documents\Sources downloaded\wef\WEF GGGR 2023.pdf
+6. Raw data\Documents\Sources downloaded\wef\WEF_GGGR_2024.pdf,6. Raw data\Documents\Sources downloaded\wef\WEF GGGR 2024.pdf
+6. Raw data\Documents\Sources downloaded\wef\WEF_GGGR_2025.pdf,6. Raw data\Documents\Sources downloaded\wef\WEF GGGR 2025.pdf
+6. Raw data\Documents\Sources downloaded\wef\WEF_Global_Gender_Gap_Report_2016.pdf,6. Raw data\Documents\Sources downloaded\wef\WEF Global Gender Gap Report 2016.pdf
+6. Raw data\Documents\Sources downloaded\BusinessRecorder_2021-08-17_Pasha_Size_of_provincial_economies.html,6. Raw data\Documents\Sources downloaded\BusinessRecorder 2021-08-17 Pasha Size of provincial economies.html
+6. Raw data\Documents\Sources downloaded\IPR_Pasha_2015_Growth_of_the_Provincial_Economies.pdf,6. Raw data\Documents\Sources downloaded\IPR Pasha 2015 Growth of the Provincial Economies.pdf
+6. Raw data\Documents\Sources downloaded\KPBOS_2021_GDP_of_KP_Districts_Nightlights_PolicyBrief.pdf,6. Raw data\Documents\Sources downloaded\KPBOS 2021 GDP of KP Districts Nightlights PolicyBrief.pdf
+6. Raw data\Documents\Sources downloaded\MoPDSI_UNICEF_OPHI_Pakistan_MPI_Report_2019-20.pdf,6. Raw data\Documents\Sources downloaded\MOPDSI UNICEF OPHI Pakistan MPI Report 2019-20.pdf
+6. Raw data\Documents\Sources downloaded\NIPS_ICF_PDHS_2017-18_Key_Findings_SR257.pdf,6. Raw data\Documents\Sources downloaded\NIPS ICF PDHS 2017-18 Key Findings SR257.pdf
+6. Raw data\Documents\Sources downloaded\OCAC_Pakistan_Oil_Report_2018-19.pdf,6. Raw data\Documents\Sources downloaded\OCAC Pakistan Oil Report 2018-19.pdf
+6. Raw data\Documents\Sources downloaded\Pakistan_Economic_Survey_2024-25_Ch1_Growth_and_Investment.pdf,6. Raw data\Documents\Sources downloaded\Pakistan Economic Survey 2024-25 Ch1 Growth and Investment.pdf
+6. Raw data\Documents\Sources downloaded\PBS_Census_of_Manufacturing_Industries_2015-16.pdf,6. Raw data\Documents\Sources downloaded\PBS Census of Manufacturing Industries 2015-16.pdf
+6. Raw data\Documents\Sources downloaded\PBS_HIES_2018-19_Full_Report.pdf,6. Raw data\Documents\Sources downloaded\PBS HIES 2018-19 Full Report.pdf
+6. Raw data\Documents\Sources downloaded\PBS_LFS_2024-25_Annual_Report.pdf,6. Raw data\Documents\Sources downloaded\PBS LFS 2024-25 Annual Report.pdf
+6. Raw data\Documents\Sources downloaded\PBS_National_Accounts_Table2_main_aggregates.pdf,6. Raw data\Documents\Sources downloaded\PBS National Accounts Table 2 main aggregates.pdf
+6. Raw data\Documents\Sources downloaded\PBS_National_Accounts_Table4_GVA_by_subsector.pdf,6. Raw data\Documents\Sources downloaded\PBS National Accounts Table 4 GVA by subsector.pdf
+6. Raw data\Documents\Sources downloaded\PBS_PSLM_2019-20_District_Level_Report.pdf,6. Raw data\Documents\Sources downloaded\PBS PSLM 2019-20 District Level Report.pdf
+6. Raw data\Documents\Sources downloaded\PBS_Trends_in_Electricity_Generation_2006-07_to_2020-21.pdf,6. Raw data\Documents\Sources downloaded\PBS Trends in Electricity Generation 2006-07 to 2020-21.pdf
+6. Raw data\Documents\Sources downloaded\SBOS_Sindh_MICS_2018-19_Survey_Findings_Report.pdf,6. Raw data\Documents\Sources downloaded\SBOS Sindh MICS 2018-19 Survey Findings Report.pdf
+6. Raw data\Documents\Sources downloaded\UNDP_Pakistan_2018-09-16_Human_Development_in_Pakistan_blog.html,6. Raw data\Documents\Sources downloaded\UNDP Pakistan 2018-09-16 Human Development in Pakistan blog.html
+6. Raw data\Documents\Sources downloaded\WorldBank_WDI_Pakistan_4_indicators_2000-2025.json,6. Raw data\Documents\Sources downloaded\WorldBank WDI Pakistan 4 indicators 2000-2025.json
+6. Raw data\Documents\Sources downloaded\WorldBank_WDI_Pakistan_LE_by_sex_2000-2025.json,6. Raw data\Documents\Sources downloaded\WorldBank WDI Pakistan LE by sex 2000-2025.json
+6. Raw data\Documents\hdr2020_technical_notes.pdf,6. Raw data\Documents\Hdr2020 technical notes.pdf
+6. Raw data\Documents\hdr2023-24_technical_notes.pdf,6. Raw data\Documents\Hdr2023-24 technical notes.pdf
+6. Raw data\Documents\PBS_Census_2017_Table01_population_by_sex.pdf,6. Raw data\Documents\PBS Census 2017 Table 01 population by sex.pdf
+6. Raw data\Documents\PBS_Census_2023_National_Report.pdf,6. Raw data\Documents\PBS Census 2023 National Report.pdf
+6. Raw data\Documents\PBS_LFS_2018-19_Annual_Report.pdf,6. Raw data\Documents\PBS LFS 2018-19 Annual Report.pdf
+6. Raw data\Documents\Readme_Pakistan_Balochistan_MICS6.rtf,6. Raw data\Documents\Readme Pakistan Balochistan MICS6.rtf
+6. Raw data\Documents\Readme_Pakistan_Khyber_Pakhtunkhwa_MICS6.rtf,6. Raw data\Documents\Readme Pakistan Khyber Pakhtunkhwa MICS6.rtf
+6. Raw data\Documents\Read_me_Pakistan_Sindh_MICS6.txt,6. Raw data\Documents\Read me Pakistan Sindh MICS6.txt
+6. Raw data\Geo\pak_adm1_geoboundaries_coordinates.csv,6. Raw data\Geo\Pak ADM1 geoBoundaries coordinates.csv
+1. Dos\nhdr_hdi_replication_from_raw_microdata_v4_local.do,1. Dos\NHDR2020 reproduction from microdata.do
+4. Plots\4. Figures juxtaposed,4. Plots\1. Figures juxtaposed
+4. Plots\5. Figures reproduced nhdr style,4. Plots\2. Figures reproduced NHDR style
+4. Plots\5. figures_published,4. Plots\3. Figures published
+4. Plots\06_stata_charts\side_by_side,4. Plots\06_stata_charts\Side by side
+4. Plots\06_stata_charts,4. Plots\4. Stata charts
+5. Output CSVs\figure_data_csv,5. Output CSVs\Figure data
+5. Output CSVs\results_csv,5. Output CSVs\Results
+2. Notes\NHDR2020_reproduction_note.docx,2. Notes\NHDR2020 reproduction note.docx
+2. Notes\NHDR2020_reproduction_note.pdf,2. Notes\NHDR2020 reproduction note.pdf
+3. Tables\csv\Table_1.csv,3. Tables\csv\Table 1.csv
+3. Tables\csv\Table_2A.csv,3. Tables\csv\Table 2A.csv
+3. Tables\csv\Table_3.csv,3. Tables\csv\Table 3.csv
+3. Tables\csv\Table_4.csv,3. Tables\csv\Table 4.csv
+3. Tables\csv\Table_4A.csv,3. Tables\csv\Table 4A.csv
+3. Tables\csv\Table_5.csv,3. Tables\csv\Table 5.csv
+3. Tables\csv\Table_5A.csv,3. Tables\csv\Table 5A.csv
+3. Tables\csv\Table_6.csv,3. Tables\csv\Table 6.csv
+3. Tables\csv\Table_6A.csv,3. Tables\csv\Table 6A.csv
+3. Tables\csv\Table_7.csv,3. Tables\csv\Table 7.csv
+3. Tables\csv\Table_7A.csv,3. Tables\csv\Table 7A.csv
+3. Tables\csv\Table_8.csv,3. Tables\csv\Table 8.csv
+3. Tables\csv\Table_8A.csv,3. Tables\csv\Table 8A.csv
+3. Tables\gap_summary.json,3. Tables\Gap summary.json
+3. Tables\NHDR2020_annex_tables_published_vs_reproduced.xlsx,3. Tables\NHDR2020 annex tables published vs reproduced.xlsx
+4. Plots\4. Stata charts\charts\fig_2_18_ihdi_loss.png,4. Plots\4. Stata charts\charts\Figure 2.18 IHDI loss.png
+4. Plots\4. Stata charts\charts\fig_2_19_ihdi_components.png,4. Plots\4. Stata charts\charts\Figure 2.19 IHDI components.png
+4. Plots\4. Stata charts\charts\fig_2_20_hdi_quintiles.png,4. Plots\4. Stata charts\charts\Figure 2.20 HDI quintiles.png
+4. Plots\4. Stata charts\charts\fig_3_10_quintile_hdi_provinces.png,4. Plots\4. Stata charts\charts\Figure 3.10 quintile HDI provinces.png
+4. Plots\4. Stata charts\charts\fig_3_22_top_bottom_ratio.png,4. Plots\4. Stata charts\charts\Figure 3.22 top bottom ratio.png
+4. Plots\4. Stata charts\charts\fig_3_23_loss_provinces.png,4. Plots\4. Stata charts\charts\Figure 3.23 loss provinces.png
+4. Plots\4. Stata charts\charts\fig_3_28_rural_urban_hdi.png,4. Plots\4. Stata charts\charts\Figure 3.28 rural urban HDI.png
+4. Plots\4. Stata charts\charts\fig_3_6_provincial_hdi.png,4. Plots\4. Stata charts\charts\Figure 3.6 provincial HDI.png
+4. Plots\4. Stata charts\charts\fig_4_10_earnings_by_sex.png,4. Plots\4. Stata charts\charts\Figure 4.10 earnings by sex.png
+4. Plots\4. Stata charts\charts\fig_4_11_gii_trend.png,4. Plots\4. Stata charts\charts\Figure 4.11 GII trend.png
+4. Plots\4. Stata charts\charts\fig_4_12_cdi_gender.png,4. Plots\4. Stata charts\charts\Figure 4.12 CDI gender.png
+4. Plots\4. Stata charts\charts\fig_4_13_ydi_gender.png,4. Plots\4. Stata charts\charts\Figure 4.13 YDI gender.png
+4. Plots\4. Stata charts\charts\fig_4_15_ldi_gender.png,4. Plots\4. Stata charts\charts\Figure 4.15 LDI gender.png
+4. Plots\4. Stata charts\charts\fig_4_1_ydi_trend.png,4. Plots\4. Stata charts\charts\Figure 4.1 YDI trend.png
+4. Plots\4. Stata charts\charts\fig_4_4_ldi_trend.png,4. Plots\4. Stata charts\charts\Figure 4.4 LDI trend.png
+4. Plots\4. Stata charts\charts\fig_4_5_ldi_dimension_change.png,4. Plots\4. Stata charts\charts\Figure 4.5 LDI dimension change.png
+4. Plots\4. Stata charts\charts\fig_4_6_ldi_provinces.png,4. Plots\4. Stata charts\charts\Figure 4.6 LDI provinces.png
+4. Plots\4. Stata charts\charts\fig_4_7_cdi_gender_trend.png,4. Plots\4. Stata charts\charts\Figure 4.7 CDI gender trend.png
+4. Plots\4. Stata charts\charts\fig_4_8_ydi_gender_trend.png,4. Plots\4. Stata charts\charts\Figure 4.8 YDI gender trend.png
+4. Plots\4. Stata charts\charts\fig_4_9_gdi_trend.png,4. Plots\4. Stata charts\charts\Figure 4.9 GDI trend.png
+4. Plots\4. Stata charts\charts\fig_5_19_health_access_wealth.png,4. Plots\4. Stata charts\charts\Figure 5.19 health access wealth.png
+4. Plots\4. Stata charts\charts\fig_district_hdi_mpi.png,4. Plots\4. Stata charts\charts\Figure district HDI MPI.png
+4. Plots\4. Stata charts\charts\fig_district_literacy_hdi.png,4. Plots\4. Stata charts\charts\Figure district literacy HDI.png
+4. Plots\4. Stata charts\charts\fig_district_mpi_change.png,4. Plots\4. Stata charts\charts\Figure district MPI change.png
+4. Plots\4. Stata charts\charts\fig_map_4_1_cdi_2018_19.png,4. Plots\4. Stata charts\charts\Map 4.1 CDI 2018-19.png
+4. Plots\4. Stata charts\charts\fig_map_4_1_cdi_2024_25.png,4. Plots\4. Stata charts\charts\Map 4.1 CDI 2024-25.png
+4. Plots\4. Stata charts\charts\fig_map_4_2_ydi_2017_18.png,4. Plots\4. Stata charts\charts\Map 4.2 YDI 2017-18.png
+4. Plots\4. Stata charts\charts\fig_map_4_2_ydi_2024_25.png,4. Plots\4. Stata charts\charts\Map 4.2 YDI 2024-25.png
+4. Plots\4. Stata charts\charts\fig_map_4_3_ldi_2017_18.png,4. Plots\4. Stata charts\charts\Map 4.3 LDI 2017-18.png
+4. Plots\4. Stata charts\charts\fig_map_4_3_ldi_2024_25.png,4. Plots\4. Stata charts\charts\Map 4.3 LDI 2024-25.png
+4. Plots\4. Stata charts\charts\fig_map_4_4_gii_2018_19.png,4. Plots\4. Stata charts\charts\Map 4.4 GII 2018-19.png
+4. Plots\4. Stata charts\charts\fig_map_4_4_gii_2024_25.png,4. Plots\4. Stata charts\charts\Map 4.4 GII 2024-25.png
+4. Plots\4. Stata charts\charts\fig_provincial_trend.png,4. Plots\4. Stata charts\charts\Figure provincial trend.png
+4. Plots\4. Stata charts\Side by side\figure_2_18.png,4. Plots\4. Stata charts\Side by side\Figure 2.18.png
+4. Plots\4. Stata charts\Side by side\figure_2_19.png,4. Plots\4. Stata charts\Side by side\Figure 2.19.png
+4. Plots\4. Stata charts\Side by side\figure_2_20.png,4. Plots\4. Stata charts\Side by side\Figure 2.20.png
+4. Plots\4. Stata charts\Side by side\figure_3_10.png,4. Plots\4. Stata charts\Side by side\Figure 3.10.png
+4. Plots\4. Stata charts\Side by side\figure_3_22.png,4. Plots\4. Stata charts\Side by side\Figure 3.22.png
+4. Plots\4. Stata charts\Side by side\figure_3_23.png,4. Plots\4. Stata charts\Side by side\Figure 3.23.png
+4. Plots\4. Stata charts\Side by side\figure_3_28.png,4. Plots\4. Stata charts\Side by side\Figure 3.28.png
+4. Plots\4. Stata charts\Side by side\figure_3_6.png,4. Plots\4. Stata charts\Side by side\Figure 3.6.png
+4. Plots\4. Stata charts\Side by side\figure_4_1.png,4. Plots\4. Stata charts\Side by side\Figure 4.1.png
+4. Plots\4. Stata charts\Side by side\figure_4_10.png,4. Plots\4. Stata charts\Side by side\Figure 4.10.png
+4. Plots\4. Stata charts\Side by side\figure_4_11.png,4. Plots\4. Stata charts\Side by side\Figure 4.11.png
+4. Plots\4. Stata charts\Side by side\figure_4_12.png,4. Plots\4. Stata charts\Side by side\Figure 4.12.png
+4. Plots\4. Stata charts\Side by side\figure_4_13.png,4. Plots\4. Stata charts\Side by side\Figure 4.13.png
+4. Plots\4. Stata charts\Side by side\figure_4_15.png,4. Plots\4. Stata charts\Side by side\Figure 4.15.png
+4. Plots\4. Stata charts\Side by side\figure_4_4.png,4. Plots\4. Stata charts\Side by side\Figure 4.4.png
+4. Plots\4. Stata charts\Side by side\figure_4_5.png,4. Plots\4. Stata charts\Side by side\Figure 4.5.png
+4. Plots\4. Stata charts\Side by side\figure_4_6.png,4. Plots\4. Stata charts\Side by side\Figure 4.6.png
+4. Plots\4. Stata charts\Side by side\figure_4_7.png,4. Plots\4. Stata charts\Side by side\Figure 4.7.png
+4. Plots\4. Stata charts\Side by side\figure_4_8.png,4. Plots\4. Stata charts\Side by side\Figure 4.8.png
+4. Plots\4. Stata charts\Side by side\figure_4_9.png,4. Plots\4. Stata charts\Side by side\Figure 4.9.png
+4. Plots\4. Stata charts\Side by side\figure_5_19.png,4. Plots\4. Stata charts\Side by side\Figure 5.19.png
+4. Plots\4. Stata charts\Side by side\map_4_1.png,4. Plots\4. Stata charts\Side by side\Map 4.1.png
+4. Plots\4. Stata charts\Side by side\map_4_2.png,4. Plots\4. Stata charts\Side by side\Map 4.2.png
+4. Plots\4. Stata charts\Side by side\map_4_3.png,4. Plots\4. Stata charts\Side by side\Map 4.3.png
+4. Plots\4. Stata charts\Side by side\map_4_4.png,4. Plots\4. Stata charts\Side by side\Map 4.4.png
+4. Plots\4. Stata charts\Side by side\NHDR2020_figures_published_vs_reproduced_stata_charts.pdf,4. Plots\4. Stata charts\Side by side\NHDR2020 figures published vs reproduced stata charts.pdf
+4. Plots\1. Figures juxtaposed\figure_2_18.png,4. Plots\1. Figures juxtaposed\Figure 2.18.png
+4. Plots\1. Figures juxtaposed\figure_2_19.png,4. Plots\1. Figures juxtaposed\Figure 2.19.png
+4. Plots\1. Figures juxtaposed\figure_2_20.png,4. Plots\1. Figures juxtaposed\Figure 2.20.png
+4. Plots\1. Figures juxtaposed\figure_3_10.png,4. Plots\1. Figures juxtaposed\Figure 3.10.png
+4. Plots\1. Figures juxtaposed\figure_3_13.png,4. Plots\1. Figures juxtaposed\Figure 3.13.png
+4. Plots\1. Figures juxtaposed\figure_3_16.png,4. Plots\1. Figures juxtaposed\Figure 3.16.png
+4. Plots\1. Figures juxtaposed\figure_3_19.png,4. Plots\1. Figures juxtaposed\Figure 3.19.png
+4. Plots\1. Figures juxtaposed\figure_3_22.png,4. Plots\1. Figures juxtaposed\Figure 3.22.png
+4. Plots\1. Figures juxtaposed\figure_3_23.png,4. Plots\1. Figures juxtaposed\Figure 3.23.png
+4. Plots\1. Figures juxtaposed\figure_3_28.png,4. Plots\1. Figures juxtaposed\Figure 3.28.png
+4. Plots\1. Figures juxtaposed\figure_3_6.png,4. Plots\1. Figures juxtaposed\Figure 3.6.png
+4. Plots\1. Figures juxtaposed\figure_4_1.png,4. Plots\1. Figures juxtaposed\Figure 4.1.png
+4. Plots\1. Figures juxtaposed\figure_4_10.png,4. Plots\1. Figures juxtaposed\Figure 4.10.png
+4. Plots\1. Figures juxtaposed\figure_4_11.png,4. Plots\1. Figures juxtaposed\Figure 4.11.png
+4. Plots\1. Figures juxtaposed\figure_4_12.png,4. Plots\1. Figures juxtaposed\Figure 4.12.png
+4. Plots\1. Figures juxtaposed\figure_4_13.png,4. Plots\1. Figures juxtaposed\Figure 4.13.png
+4. Plots\1. Figures juxtaposed\figure_4_15.png,4. Plots\1. Figures juxtaposed\Figure 4.15.png
+4. Plots\1. Figures juxtaposed\figure_4_4.png,4. Plots\1. Figures juxtaposed\Figure 4.4.png
+4. Plots\1. Figures juxtaposed\figure_4_5.png,4. Plots\1. Figures juxtaposed\Figure 4.5.png
+4. Plots\1. Figures juxtaposed\figure_4_6.png,4. Plots\1. Figures juxtaposed\Figure 4.6.png
+4. Plots\1. Figures juxtaposed\figure_4_7.png,4. Plots\1. Figures juxtaposed\Figure 4.7.png
+4. Plots\1. Figures juxtaposed\figure_4_8.png,4. Plots\1. Figures juxtaposed\Figure 4.8.png
+4. Plots\1. Figures juxtaposed\figure_4_9.png,4. Plots\1. Figures juxtaposed\Figure 4.9.png
+4. Plots\1. Figures juxtaposed\figure_5_19.png,4. Plots\1. Figures juxtaposed\Figure 5.19.png
+4. Plots\1. Figures juxtaposed\map_4_1.png,4. Plots\1. Figures juxtaposed\Map 4.1.png
+4. Plots\1. Figures juxtaposed\map_4_2.png,4. Plots\1. Figures juxtaposed\Map 4.2.png
+4. Plots\1. Figures juxtaposed\map_4_3.png,4. Plots\1. Figures juxtaposed\Map 4.3.png
+4. Plots\1. Figures juxtaposed\map_4_4.png,4. Plots\1. Figures juxtaposed\Map 4.4.png
+4. Plots\1. Figures juxtaposed\NHDR2020_figures_published_vs_reproduced.pdf,4. Plots\1. Figures juxtaposed\NHDR2020 figures published vs reproduced.pdf
+4. Plots\2. Figures reproduced NHDR style\figure_2_18.png,4. Plots\2. Figures reproduced NHDR style\Figure 2.18.png
+4. Plots\2. Figures reproduced NHDR style\figure_2_19.png,4. Plots\2. Figures reproduced NHDR style\Figure 2.19.png
+4. Plots\2. Figures reproduced NHDR style\figure_2_20.png,4. Plots\2. Figures reproduced NHDR style\Figure 2.20.png
+4. Plots\2. Figures reproduced NHDR style\figure_3_10.png,4. Plots\2. Figures reproduced NHDR style\Figure 3.10.png
+4. Plots\2. Figures reproduced NHDR style\figure_3_13.png,4. Plots\2. Figures reproduced NHDR style\Figure 3.13.png
+4. Plots\2. Figures reproduced NHDR style\figure_3_16.png,4. Plots\2. Figures reproduced NHDR style\Figure 3.16.png
+4. Plots\2. Figures reproduced NHDR style\figure_3_19.png,4. Plots\2. Figures reproduced NHDR style\Figure 3.19.png
+4. Plots\2. Figures reproduced NHDR style\figure_3_22.png,4. Plots\2. Figures reproduced NHDR style\Figure 3.22.png
+4. Plots\2. Figures reproduced NHDR style\figure_3_23.png,4. Plots\2. Figures reproduced NHDR style\Figure 3.23.png
+4. Plots\2. Figures reproduced NHDR style\figure_3_28.png,4. Plots\2. Figures reproduced NHDR style\Figure 3.28.png
+4. Plots\2. Figures reproduced NHDR style\figure_3_6.png,4. Plots\2. Figures reproduced NHDR style\Figure 3.6.png
+4. Plots\2. Figures reproduced NHDR style\figure_4_1.png,4. Plots\2. Figures reproduced NHDR style\Figure 4.1.png
+4. Plots\2. Figures reproduced NHDR style\figure_4_10.png,4. Plots\2. Figures reproduced NHDR style\Figure 4.10.png
+4. Plots\2. Figures reproduced NHDR style\figure_4_11.png,4. Plots\2. Figures reproduced NHDR style\Figure 4.11.png
+4. Plots\2. Figures reproduced NHDR style\figure_4_12.png,4. Plots\2. Figures reproduced NHDR style\Figure 4.12.png
+4. Plots\2. Figures reproduced NHDR style\figure_4_13.png,4. Plots\2. Figures reproduced NHDR style\Figure 4.13.png
+4. Plots\2. Figures reproduced NHDR style\figure_4_15.png,4. Plots\2. Figures reproduced NHDR style\Figure 4.15.png
+4. Plots\2. Figures reproduced NHDR style\figure_4_4.png,4. Plots\2. Figures reproduced NHDR style\Figure 4.4.png
+4. Plots\2. Figures reproduced NHDR style\figure_4_5.png,4. Plots\2. Figures reproduced NHDR style\Figure 4.5.png
+4. Plots\2. Figures reproduced NHDR style\figure_4_6.png,4. Plots\2. Figures reproduced NHDR style\Figure 4.6.png
+4. Plots\2. Figures reproduced NHDR style\figure_4_7.png,4. Plots\2. Figures reproduced NHDR style\Figure 4.7.png
+4. Plots\2. Figures reproduced NHDR style\figure_4_8.png,4. Plots\2. Figures reproduced NHDR style\Figure 4.8.png
+4. Plots\2. Figures reproduced NHDR style\figure_4_9.png,4. Plots\2. Figures reproduced NHDR style\Figure 4.9.png
+4. Plots\2. Figures reproduced NHDR style\figure_5_19.png,4. Plots\2. Figures reproduced NHDR style\Figure 5.19.png
+4. Plots\2. Figures reproduced NHDR style\map_4_1.png,4. Plots\2. Figures reproduced NHDR style\Map 4.1.png
+4. Plots\2. Figures reproduced NHDR style\map_4_2.png,4. Plots\2. Figures reproduced NHDR style\Map 4.2.png
+4. Plots\2. Figures reproduced NHDR style\map_4_3.png,4. Plots\2. Figures reproduced NHDR style\Map 4.3.png
+4. Plots\2. Figures reproduced NHDR style\map_4_4.png,4. Plots\2. Figures reproduced NHDR style\Map 4.4.png
+4. Plots\3. Figures published\figure_2_18_p25.png,4. Plots\3. Figures published\Figure 2.18 p25.png
+4. Plots\3. Figures published\figure_2_19_p25.png,4. Plots\3. Figures published\Figure 2.19 p25.png
+4. Plots\3. Figures published\figure_2_20_p25.png,4. Plots\3. Figures published\Figure 2.20 p25.png
+4. Plots\3. Figures published\figure_3_10_p35.png,4. Plots\3. Figures published\Figure 3.10 p35.png
+4. Plots\3. Figures published\figure_3_13_p36.png,4. Plots\3. Figures published\Figure 3.13 p36.png
+4. Plots\3. Figures published\figure_3_16_p36.png,4. Plots\3. Figures published\Figure 3.16 p36.png
+4. Plots\3. Figures published\figure_3_19_p37.png,4. Plots\3. Figures published\Figure 3.19 p37.png
+4. Plots\3. Figures published\figure_3_22_p38.png,4. Plots\3. Figures published\Figure 3.22 p38.png
+4. Plots\3. Figures published\figure_3_23_p38.png,4. Plots\3. Figures published\Figure 3.23 p38.png
+4. Plots\3. Figures published\figure_3_28_p40.png,4. Plots\3. Figures published\Figure 3.28 p40.png
+4. Plots\3. Figures published\figure_3_6_p33.png,4. Plots\3. Figures published\Figure 3.6 p33.png
+4. Plots\3. Figures published\figure_4_10_p56.png,4. Plots\3. Figures published\Figure 4.10 p56.png
+4. Plots\3. Figures published\figure_4_11_p56.png,4. Plots\3. Figures published\Figure 4.11 p56.png
+4. Plots\3. Figures published\figure_4_12_p59.png,4. Plots\3. Figures published\Figure 4.12 p59.png
+4. Plots\3. Figures published\figure_4_13_p59.png,4. Plots\3. Figures published\Figure 4.13 p59.png
+4. Plots\3. Figures published\figure_4_15_p60.png,4. Plots\3. Figures published\Figure 4.15 p60.png
+4. Plots\3. Figures published\figure_4_1_p50.png,4. Plots\3. Figures published\Figure 4.1 p50.png
+4. Plots\3. Figures published\figure_4_4_p52.png,4. Plots\3. Figures published\Figure 4.4 p52.png
+4. Plots\3. Figures published\figure_4_5_p52.png,4. Plots\3. Figures published\Figure 4.5 p52.png
+4. Plots\3. Figures published\figure_4_6_p54.png,4. Plots\3. Figures published\Figure 4.6 p54.png
+4. Plots\3. Figures published\figure_4_7_p54.png,4. Plots\3. Figures published\Figure 4.7 p54.png
+4. Plots\3. Figures published\figure_4_8_p55.png,4. Plots\3. Figures published\Figure 4.8 p55.png
+4. Plots\3. Figures published\figure_4_9_p55.png,4. Plots\3. Figures published\Figure 4.9 p55.png
+4. Plots\3. Figures published\figure_5_19_p74.png,4. Plots\3. Figures published\Figure 5.19 p74.png
+4. Plots\3. Figures published\map_4_1_p49.png,4. Plots\3. Figures published\Map 4.1 p49.png
+4. Plots\3. Figures published\map_4_2_p50.png,4. Plots\3. Figures published\Map 4.2 p50.png
+4. Plots\3. Figures published\map_4_3_p53.png,4. Plots\3. Figures published\Map 4.3 p53.png
+4. Plots\3. Figures published\map_4_4_p57.png,4. Plots\3. Figures published\Map 4.4 p57.png
+5. Output CSVs\Figure data\fig_2_18_data.csv,5. Output CSVs\Figure data\Figure 2.18 data.csv
+5. Output CSVs\Figure data\fig_2_19_data.csv,5. Output CSVs\Figure data\Figure 2.19 data.csv
+5. Output CSVs\Figure data\fig_2_20_data.csv,5. Output CSVs\Figure data\Figure 2.20 data.csv
+5. Output CSVs\Figure data\fig_3_10_data.csv,5. Output CSVs\Figure data\Figure 3.10 data.csv
+5. Output CSVs\Figure data\fig_3_22_data.csv,5. Output CSVs\Figure data\Figure 3.22 data.csv
+5. Output CSVs\Figure data\fig_3_23_data.csv,5. Output CSVs\Figure data\Figure 3.23 data.csv
+5. Output CSVs\Figure data\fig_3_28_data.csv,5. Output CSVs\Figure data\Figure 3.28 data.csv
+5. Output CSVs\Figure data\fig_3_6_data.csv,5. Output CSVs\Figure data\Figure 3.6 data.csv
+5. Output CSVs\Figure data\fig_4_10_data.csv,5. Output CSVs\Figure data\Figure 4.10 data.csv
+5. Output CSVs\Figure data\fig_4_11_data.csv,5. Output CSVs\Figure data\Figure 4.11 data.csv
+5. Output CSVs\Figure data\fig_4_12_data.csv,5. Output CSVs\Figure data\Figure 4.12 data.csv
+5. Output CSVs\Figure data\fig_4_13_data.csv,5. Output CSVs\Figure data\Figure 4.13 data.csv
+5. Output CSVs\Figure data\fig_4_15_data.csv,5. Output CSVs\Figure data\Figure 4.15 data.csv
+5. Output CSVs\Figure data\fig_4_1_data.csv,5. Output CSVs\Figure data\Figure 4.1 data.csv
+5. Output CSVs\Figure data\fig_4_4_data.csv,5. Output CSVs\Figure data\Figure 4.4 data.csv
+5. Output CSVs\Figure data\fig_4_5_data.csv,5. Output CSVs\Figure data\Figure 4.5 data.csv
+5. Output CSVs\Figure data\fig_4_6_data.csv,5. Output CSVs\Figure data\Figure 4.6 data.csv
+5. Output CSVs\Figure data\fig_4_7_data.csv,5. Output CSVs\Figure data\Figure 4.7 data.csv
+5. Output CSVs\Figure data\fig_4_8_data.csv,5. Output CSVs\Figure data\Figure 4.8 data.csv
+5. Output CSVs\Figure data\fig_4_9_data.csv,5. Output CSVs\Figure data\Figure 4.9 data.csv
+5. Output CSVs\Figure data\fig_5_19_data.csv,5. Output CSVs\Figure data\Figure 5.19 data.csv
+5. Output CSVs\Figure data\fig_maps_data.csv,5. Output CSVs\Figure data\Figure maps data.csv
+5. Output CSVs\Results\cdi_2024_25.csv,5. Output CSVs\Results\CDI 2024-25.csv
+5. Output CSVs\Results\cdi_2024_25_pdhs.csv,5. Output CSVs\Results\CDI 2024-25 PDHS.csv
+5. Output CSVs\Results\cdi_method_table4.csv,5. Output CSVs\Results\CDI method Table 4.csv
+5. Output CSVs\Results\cdi_rebuilt_2007_08_2018_19.csv,5. Output CSVs\Results\CDI reproduced 2007-08 2018-19.csv
+5. Output CSVs\Results\cdi_rebuilt_pdhs.csv,5. Output CSVs\Results\CDI reproduced PDHS.csv
+5. Output CSVs\Results\chain_consistency_sensitivity.csv,5. Output CSVs\Results\Chain consistency sensitivity.csv
+5. Output CSVs\Results\decomposition_final.csv,5. Output CSVs\Results\Decomposition final.csv
+5. Output CSVs\Results\decomposition_survey_basis.csv,5. Output CSVs\Results\Decomposition survey basis.csv
+5. Output CSVs\Results\district_division_lookup_mics6.csv,5. Output CSVs\Results\District division lookup MICS6.csv
+5. Output CSVs\Results\district_education_2019_20.csv,5. Output CSVs\Results\District education 2019-20.csv
+5. Output CSVs\Results\district_index.csv,5. Output CSVs\Results\District index.csv
+5. Output CSVs\Results\district_mortality_mics6.csv,5. Output CSVs\Results\District mortality MICS6.csv
+5. Output CSVs\Results\divisional_index.csv,5. Output CSVs\Results\Divisional index.csv
+5. Output CSVs\Results\divisional_mortality_mics6.csv,5. Output CSVs\Results\Divisional mortality MICS6.csv
+5. Output CSVs\Results\gdi_2006_07_rebuilt.csv,5. Output CSVs\Results\GDI 2006-07 reproduced.csv
+5. Output CSVs\Results\gdi_method_table6.csv,5. Output CSVs\Results\GDI method Table 6.csv
+5. Output CSVs\Results\gdi_rebuilt_2018_19_2024_25.csv,5. Output CSVs\Results\GDI reproduced 2018-19 2024-25.csv
+5. Output CSVs\Results\gii_2006_07_rebuilt.csv,5. Output CSVs\Results\GII 2006-07 reproduced.csv
+5. Output CSVs\Results\gii_2018_19_all_microdata.csv,5. Output CSVs\Results\GII 2018-19 all microdata.csv
+5. Output CSVs\Results\gii_2018_19_rebuilt.csv,5. Output CSVs\Results\GII 2018-19 reproduced.csv
+5. Output CSVs\Results\gii_2024_25.csv,5. Output CSVs\Results\GII 2024-25.csv
+5. Output CSVs\Results\gii_method_table7.csv,5. Output CSVs\Results\GII method Table 7.csv
+5. Output CSVs\Results\grp_allocation_2018_19.csv,5. Output CSVs\Results\GRP allocation 2018-19.csv
+5. Output CSVs\Results\grp_allocator_shares_2018_19.csv,5. Output CSVs\Results\GRP allocator shares 2018-19.csv
+5. Output CSVs\Results\grp_coverage_by_status_2018_19.csv,5. Output CSVs\Results\GRP coverage by status 2018-19.csv
+5. Output CSVs\Results\grp_per_capita_2018_19.csv,5. Output CSVs\Results\GRP per capita 2018-19.csv
+5. Output CSVs\Results\grp_source_comparison_2018_19.csv,5. Output CSVs\Results\GRP source comparison 2018-19.csv
+5. Output CSVs\Results\hdi_all_microdata.csv,5. Output CSVs\Results\HDI all microdata.csv
+5. Output CSVs\Results\ihdi_2006_07_microdata.csv,5. Output CSVs\Results\IHDI 2006-07 microdata.csv
+5. Output CSVs\Results\ihdi_2006_07_pdhs.csv,5. Output CSVs\Results\IHDI 2006-07 PDHS.csv
+5. Output CSVs\Results\ihdi_2018_19_microdata.csv,5. Output CSVs\Results\IHDI 2018-19 microdata.csv
+5. Output CSVs\Results\ihdi_2018_19_pdhs.csv,5. Output CSVs\Results\IHDI 2018-19 PDHS.csv
+5. Output CSVs\Results\ihdi_2024_25.csv,5. Output CSVs\Results\IHDI 2024-25.csv
+5. Output CSVs\Results\ihdi_all_microdata.csv,5. Output CSVs\Results\IHDI all microdata.csv
+5. Output CSVs\Results\ihdi_method_table3.csv,5. Output CSVs\Results\IHDI method Table 3.csv
+5. Output CSVs\Results\income_level_diagnosis.csv,5. Output CSVs\Results\Income level diagnosis.csv
+5. Output CSVs\Results\income_quintile_diagnosis.csv,5. Output CSVs\Results\Income quintile diagnosis.csv
+5. Output CSVs\Results\ldi_2012_13_2017_18_2024_25.csv,5. Output CSVs\Results\LDI 2012-13 2017-18 2024-25.csv
+5. Output CSVs\Results\ldi_method_table8.csv,5. Output CSVs\Results\LDI method Table 8.csv
+5. Output CSVs\Results\lfs_2017_18_participation.csv,5. Output CSVs\Results\LFS 2017-18 participation.csv
+5. Output CSVs\Results\life_expectancy_inversion.csv,5. Output CSVs\Results\Life expectancy inversion.csv
+5. Output CSVs\Results\mpi_2014_15_national_provincial.csv,5. Output CSVs\Results\MPI 2014-15 national provincial.csv
+5. Output CSVs\Results\mpi_2019_20_districts.csv,5. Output CSVs\Results\MPI 2019-20 districts.csv
+5. Output CSVs\Results\mpi_2019_20_divisions.csv,5. Output CSVs\Results\MPI 2019-20 divisions.csv
+5. Output CSVs\Results\mpi_2019_20_national_provincial.csv,5. Output CSVs\Results\MPI 2019-20 national provincial.csv
+5. Output CSVs\Results\mpi_change_2014_15_2019_20.csv,5. Output CSVs\Results\MPI change 2014-15 2019-20.csv
+5. Output CSVs\Results\mpi_change_districts.csv,5. Output CSVs\Results\MPI change districts.csv
+5. Output CSVs\Results\pdhs_anthropometry.csv,5. Output CSVs\Results\PDHS anthropometry.csv
+5. Output CSVs\Results\pdhs_cdi_health_inputs.csv,5. Output CSVs\Results\PDHS CDI health inputs.csv
+5. Output CSVs\Results\pdhs_under5_mortality.csv,5. Output CSVs\Results\PDHS under5 mortality.csv
+5. Output CSVs\Results\pdhs_wealth_quintile_mortality.csv,5. Output CSVs\Results\PDHS wealth quintile mortality.csv
+5. Output CSVs\Results\provincial_index_2024_25_final.csv,5. Output CSVs\Results\Provincial index 2024-25 final.csv
+5. Output CSVs\Results\provincial_index_2024_25_survey_basis.csv,5. Output CSVs\Results\Provincial index 2024-25 survey basis.csv
+5. Output CSVs\Results\provincial_mortality_mics6.csv,5. Output CSVs\Results\Provincial mortality MICS6.csv
+5. Output CSVs\Results\series_gdi_pakistan.csv,5. Output CSVs\Results\Series GDI Pakistan.csv
+5. Output CSVs\Results\series_gii_pakistan.csv,5. Output CSVs\Results\Series GII Pakistan.csv
+5. Output CSVs\Results\series_hdi_pakistan.csv,5. Output CSVs\Results\Series HDI Pakistan.csv
+5. Output CSVs\Results\table2a_education_replication_2006_07.csv,5. Output CSVs\Results\Table 2A education replication 2006-07.csv
+5. Output CSVs\Results\table2a_education_replication_2018_19.csv,5. Output CSVs\Results\Table 2A education replication 2018-19.csv
+5. Output CSVs\Results\undp_index_validation.csv,5. Output CSVs\Results\UNDP index validation.csv
+5. Output CSVs\Results\wef_gggi_pakistan.csv,5. Output CSVs\Results\WEF GGGI Pakistan.csv
+5. Output CSVs\Results\ydi_2017_18_2024_25.csv,5. Output CSVs\Results\YDI 2017-18 2024-25.csv
+5. Output CSVs\Results\ydi_method_table5.csv,5. Output CSVs\Results\YDI method Table 5.csv
+5. Output CSVs\Results\ydi_survival_pmms_2019.csv,5. Output CSVs\Results\YDI survival PMMS 2019.csv
+5. Output CSVs\nhdr_replication.log,5. Output CSVs\NHDR replication.log
+5. Output CSVs\nhdr_replication_results.xlsx,5. Output CSVs\NHDR replication results.xlsx
+"6. Raw data/documents/Sources downloaded","6. Raw data/Documents/Sources downloaded"
+"4. Plots/4. Stata charts/charts","4. Plots/4. Stata charts/Charts"
+6. Raw data/microdata_2006_07_stata-1.zip,6. Raw data/PSLM 2006-07 (extracted copy)
+6. Raw data/data-in-stata-2008-09.zip,6. Raw data/PSLM 2008-09 (extracted copy)
+6. Raw data/data-in-stata-10-11.zip,6. Raw data/PSLM 2010-11 (extracted copy)
+6. Raw data/data-in-stata-12-13.zip,6. Raw data/PSLM 2012-13 (extracted copy)
+6. Raw data/pslm_2004_05_cwiq_stata,6. Raw data/PSLM 2004-05 CWIQ
+6. Raw data/2019-2020,6. Raw data/PSLM 2019-20 full release
+6. Raw data/Data-in-stata,6. Raw data/PSLM 2014-15 full release
+6. Raw data/Data-in-stata (1).zip,6. Raw data/PSLM zips as received/Data-in-stata (1).zip
+6. Raw data/data-in-stata-10-11.zip,6. Raw data/PSLM zips as received/data-in-stata-10-11.zip
+6. Raw data/data-in-stata-12-13.zip,6. Raw data/PSLM zips as received/data-in-stata-12-13.zip
+6. Raw data/data-in-stata-2008-09.zip,6. Raw data/PSLM zips as received/data-in-stata-2008-09.zip
+6. Raw data/Data-in-stata.zip,6. Raw data/PSLM zips as received/Data-in-stata.zip
+6. Raw data/microdata_2006_07_stata-1.zip,6. Raw data/PSLM zips as received/microdata_2006_07_stata-1.zip
+6. Raw data/pslm_2004_05_cwiq_stata.zip,6. Raw data/PSLM zips as received/pslm_2004_05_cwiq_stata.zip
+6. Raw data/stata_data_pslm_2019_20 (3).zip,6. Raw data/PSLM zips as received/stata_data_pslm_2019_20 (3).zip

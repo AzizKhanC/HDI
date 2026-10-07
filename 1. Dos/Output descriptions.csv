@@ -1,0 +1,64 @@
+File,Sheet,Description
+HDI all microdata,HDI from microdata,"Human Development Index (HDI), NHDR 2020 Table 1 construction, 2006-07 and 2018-19, by region and income quintile: published values beside values reproduced from HIES and PDHS microdata."
+Table 2A education replication 2018-19,Education 2018-19,"Adult literacy (15+) and net enrolment (5-14), HIES 2018-19, against NHDR 2020 Table 2A, by region and income quintile."
+Table 2A education replication 2006-07,Education 2006-07,"Adult literacy (15+) and net enrolment (5-14), HIES 2005-06 (NHDR's 2006-07), against NHDR 2020 Table 2A."
+UNDP index validation,HDI construction check,"Each published dimension index of NHDR 2020 Table 1 recomputed from the Table 2A indicators with the NHDR construction, to confirm the goalposts."
+Life expectancy inversion,Life expectancy recovered,"Life expectancy recovered from NHDR's published health index (25 to 90 years goalposts), and the under-five mortality it implies under two model life table families."
+Provincial mortality MICS6,Child mortality MICS6 province,"Under-five mortality from the MICS6 birth histories, ten years before each survey, by province, and the life expectancy it implies."
+Divisional mortality MICS6,Child mortality MICS6 division,"Under-five mortality from the MICS6 birth histories, ten years before each survey, by division."
+District mortality MICS6,Child mortality MICS6 district,"Under-five mortality from the MICS6 birth histories, ten years before each survey, by district, with flags for implausibly low or thin estimates."
+PDHS under5 mortality,Child mortality PDHS,"Under-five mortality from the PDHS birth histories (DHS synthetic cohort method), 2006-07, 2012-13 and 2017-18, by region and sex, five and ten years before each survey."
+PDHS anthropometry,Stunting and wasting PDHS,"Stunting and wasting of children under five, PDHS 2012-13 and 2017-18 (WHO 2006 standards), by region and sex."
+PDHS CDI health inputs,CDI health inputs PDHS,"Child Development Index (CDI) health inputs from PDHS microdata: under-five survival, children not stunted and not wasted, by region and sex."
+PDHS wealth quintile mortality,Child mortality by wealth PDHS,"Under-five mortality and implied life expectancy by PDHS household wealth quintile, 2006-07 and 2017-18."
+GRP coverage by status 2018-19,GRP coverage,"Gross regional product (GRP) 2018-19: share of national value added whose provincial split comes from an obtained allocator, a substitute, or none."
+GRP allocator shares 2018-19,GRP allocator shares,"Gross regional product 2018-19: provincial shares (%) of each national accounts sub-sector, from the allocator used for it."
+GRP source comparison 2018-19,GRP four estimates,"Provincial shares (%) of GDP: this reproduction against KP Bureau of Statistics (2021), Pasha (2021) and PIDE (2022)."
+GRP per capita 2018-19,GRP per head,"Gross regional product per head in PPP dollars, 2018-19, relative to Pakistan, against NHDR's relative income."
+Income level diagnosis,Income level,What NHDR's provincial income column tracks: provincial income relative to Pakistan under five candidate measures.
+Income quintile diagnosis,Income quintiles,"Largest gap between NHDR's quintile income ratios and the microdata ratios, with quintiles ranked on expenditure or on income."
+Provincial index 2024-25 survey basis,HDI 2024-25 survey basis,"HDI 2024-25 with every input as the surveys report it (HIES 2024-25, MICS6 or PDHS mortality), beside the published 2018-19 values."
+Provincial index 2024-25 final,HDI 2024-25,"HDI 2024-25 on one instrument and one price basis with the 2018-19 index, by region."
+Decomposition final,HDI change 2018-24 by dimension,"Change in the HDI from 2018-19 to 2024-25 split into education, health and income contributions (percent of the 2018-19 level)."
+Chain consistency sensitivity,HDI pace and sensitivity,"Pace of HDI improvement (index points per thousand a year), 2006-07 to 2018-19 and 2018-19 to 2024-25, and the effect of changing survey instrument."
+District education 2019-20,District education 2019-20,"Adult literacy and net enrolment by district, PSLM 2019-20, with standard errors."
+District index,District HDI,"District Human Development Index, NHDR 2020 construction, PSLM 2019-20 education, MICS6 mortality and HIES income, ranked."
+Divisional index,Divisional HDI,"Divisional Human Development Index, NHDR 2020 construction, population-weighted from districts."
+IHDI method Table 3,IHDI method check,"Inequality-adjusted HDI (IHDI): NHDR 2020 Table 3 recomputed from the published quintile values, to confirm the method (Atkinson, epsilon = 1)."
+IHDI 2018-19 microdata,IHDI 2018-19 microdata,Inequality-adjusted HDI 2018-19 with the inequality terms computed from HIES 2018-19 and MICS6 microdata.
+IHDI 2018-19 PDHS,IHDI 2018-19 PDHS,Inequality-adjusted HDI 2018-19 with the health inequality term from PDHS 2017-18 wealth quintiles.
+IHDI 2006-07 microdata,IHDI 2006-07 microdata,Inequality-adjusted HDI 2006-07 with the inequality terms computed from HIES 2005-06 microdata.
+IHDI 2006-07 PDHS,IHDI 2006-07 PDHS,Inequality-adjusted HDI 2006-07 with the health inequality term from PDHS 2006-07 wealth quintiles.
+IHDI all microdata,IHDI from microdata,"Inequality-adjusted HDI, 2006-07 and 2018-19, every dimension and inequality term from the microdata, against NHDR 2020 Table 3."
+IHDI 2024-25,IHDI 2024-25,"Inequality-adjusted HDI 2024-25 from HIES 2024-25, beside 2018-19 on the same basis."
+GDI method Table 6,GDI method check,Gender Development Index (GDI): NHDR 2020 Table 6 recomputed from the published Table 6A indicators.
+GDI 2006-07 reproduced,GDI 2006-07,Gender Development Index 2006-07 with education by sex reproduced from HIES 2005-06.
+GDI reproduced 2018-19 2024-25,GDI 2018-19 and 2024-25,"Gender Development Index 2018-19 and 2024-25 reproduced from HIES and LFS microdata, by region and sex."
+GII method Table 7,GII method check,Gender Inequality Index (GII): NHDR 2020 Table 7 recomputed from the published Table 7A indicators.
+GII 2006-07 reproduced,GII 2006-07,Gender Inequality Index 2006-07 with care and schooling reproduced from HIES 2005-06.
+GII 2018-19 reproduced,GII 2018-19,"Gender Inequality Index 2018-19 on reproduced inputs, and the effect of swapping each reproduced input into NHDR's printed set."
+GII 2018-19 all microdata,GII 2018-19 all microdata,"Gender Inequality Index 2018-19 with every input from microdata: HIES 2018-19 care and schooling, LFS 2017-18 early marriage and participation."
+GII 2024-25,GII 2024-25,"Gender Inequality Index 2024-25 from HIES 2024-25 and LFS 2024-25, beside 2018-19."
+LFS 2017-18 participation,LFS 2017-18 participation,"Labour force participation by sex and women 15-19 ever married, LFS 2017-18, against NHDR's 2018-19 column (Table 7A)."
+CDI method Table 4,CDI method check,Child Development Index (CDI): NHDR 2020 Table 4 recomputed from the published Table 4A indicators.
+CDI reproduced 2007-08 2018-19,CDI 2007-08 and 2018-19,"Child Development Index 2007-08 and 2018-19 reproduced from HIES, LFS and PSLM microdata, against NHDR Tables 4 and 4A."
+CDI reproduced PDHS,CDI with PDHS inputs,"Child Development Index 2007-08 and 2018-19 with survival, stunting and wasting taken from PDHS microdata."
+CDI 2024-25,CDI 2024-25,"Child Development Index 2024-25 from HIES 2024-25 and LFS 2024-25, beside 2018-19 on the same basis."
+CDI 2024-25 PDHS,CDI 2024-25 PDHS,Child Development Index 2024-25 with the PDHS 2017-18 health inputs from microdata.
+YDI method Table 5,YDI method check,Youth Development Index (YDI): NHDR 2020 Table 5 recomputed from the published Table 5A indicators.
+YDI 2017-18 2024-25,YDI 2012-13 to 2024-25,"Youth Development Index (ages 15-29) reproduced from LFS 2012-13, 2017-18 and 2024-25, by region."
+YDI survival PMMS 2019,YDI youth survival PMMS,"Youth (15-29) annual survival from the Pakistan Maternal Mortality Survey 2019 household deaths, by region."
+LDI method Table 8,LDI method check,Labour Development Index (LDI): NHDR 2020 Table 8 recomputed from the published Table 8A indicators.
+LDI 2012-13 2017-18 2024-25,LDI 2012-13 to 2024-25,"Labour Development Index including decent work, reproduced from LFS microdata and WDI GDP, by region."
+MPI 2019-20 national provincial,MPI 2019-20 provinces,"Multidimensional Poverty Index (MPI) 2019-20 from PSLM 2019-20, national and provincial, against the official MPI report."
+MPI 2019-20 districts,MPI 2019-20 districts,"Multidimensional Poverty Index 2019-20 by district, PSLM 2019-20, against the official report with its 95% intervals."
+MPI 2019-20 divisions,MPI 2019-20 divisions,"Multidimensional Poverty Index 2019-20 by division, PSLM 2019-20."
+MPI 2014-15 national provincial,MPI 2014-15,"Multidimensional Poverty Index 2014-15 (harmonized), PSLM 2014-15, national and provincial."
+MPI change 2014-15 2019-20,MPI change 2014-19,"Change in the Multidimensional Poverty Index from 2014-15 to 2019-20 (harmonized), by province and area."
+MPI change districts,MPI change by district,Change in the Multidimensional Poverty Index from 2014-15 to 2019-20 by district.
+Series HDI Pakistan,Series HDI and IHDI,"Pakistan HDI, IHDI, Palma and Pashum ratios for 2006-07, 2012-13, 2015-16 and 2018-19, all from microdata (Figures 2.18 to 2.20)."
+Series GDI Pakistan,Series GDI,"Pakistan Gender Development Index by sex for 2006-07, 2012-13, 2015-16 and 2018-19 (Figure 4.9)."
+Series GII Pakistan,Series GII,"Pakistan Gender Inequality Index and its inputs for 2006-07, 2012-13, 2015-16 and 2018-19 (Figure 4.11)."
+HDI Pasha income,HDI with Pasha income,"Human Development Index with provincial income per head set to Pasha's estimates (IPR 2015, BR 2021) and HIES for the split within each province, against NHDR Table 1 and the all-microdata HDI."
+PSLM district rounds tested,PSLM 2006-07 and 2008-09 tested,"Literacy, enrolment and child immunization from the PSLM 2006-07 and 2008-09 district rounds, against NHDR's 2006-07 (Table 2A) and 2007-08 (Table 4A) values. Tested, not used in any index."
+WEF GGGI Pakistan,WEF Global Gender Gap,"World Economic Forum Global Gender Gap Index, Pakistan score and rank by edition, transcribed from the WEF reports (Figure 4.8)."

@@ -1,0 +1,31 @@
+Region,Sex,Year,Living standard index: published in NHDR 2020,Living standard index: reproduced from microdata,"Living standard index: difference, reproduced minus published",Living standard index: basis of the reproduced value,Education index: published in NHDR 2020,Education index: reproduced from microdata,"Education index: difference, reproduced minus published",Education index: basis of the reproduced value,Health and nutrition index: published in NHDR 2020,Health and nutrition index: reproduced from microdata,"Health and nutrition index: difference, reproduced minus published",Health and nutrition index: basis of the reproduced value,CDI: published in NHDR 2020,CDI: reproduced from microdata,"CDI: difference, reproduced minus published",CDI: basis of the reproduced value
+Pakistan,All,2007-08,0.493,0.4887455821409841,-0.004254417859015869,reproduced,0.357,0.3531052150903822,-0.00389478490961781,reproduced,0.545,0.5315703538492497,-0.013429646150750374,reproduced,0.465,0.4578070503602054,-0.00719294963979461,reproduced
+Pakistan,All,2018-19,0.611,0.5991432326025189,-0.011856767397481094,reproduced,0.42,0.4207587582529579,0.0007587582529579029,reproduced,0.694,0.6985232273161348,0.004523227316134859,reproduced,0.575,0.5728084060572038,-0.0021915939427961106,reproduced
+Pakistan,Male,2007-08,0.503,,,n.a.,0.368,,,n.a.,0.538,,,n.a.,0.47,,,n.a.
+Pakistan,Male,2018-19,0.649,,,n.a.,0.439,,,n.a.,0.669,,,n.a.,0.586,,,n.a.
+Pakistan,Female,2007-08,0.483,,,n.a.,0.339,,,n.a.,0.557,,,n.a.,0.46,,,n.a.
+Pakistan,Female,2018-19,0.569,,,n.a.,0.401,,,n.a.,0.719,,,n.a.,0.563,,,n.a.
+Punjab,All,2007-08,0.571,0.5551521515832168,-0.015847848416783106,reproduced,0.397,0.3904619143069442,-0.006538085693055806,reproduced,0.565,0.5651353359300284,0.00013533593002845734,reproduced,0.511,0.5035831339400632,-0.007416866059936855,reproduced
+Punjab,All,2018-19,0.687,0.6586121559977548,-0.028387844002245255,reproduced,0.542,0.4956654147487061,-0.046334585251293914,reproduced,0.736,0.735364188436392,-0.0006358115636080353,reproduced,0.655,0.6298805863942843,-0.02511941360571568,reproduced
+Punjab,Male,2007-08,0.588,,,n.a.,0.396,,,n.a.,0.56,,,n.a.,0.515,,,n.a.
+Punjab,Male,2018-19,0.721,,,n.a.,0.549,,,n.a.,0.698,,,n.a.,0.656,,,n.a.
+Punjab,Female,2007-08,0.555,,,n.a.,0.39,,,n.a.,0.567,,,n.a.,0.504,,,n.a.
+Punjab,Female,2018-19,0.65,,,n.a.,0.535,,,n.a.,0.778,,,n.a.,0.654,,,n.a.
+Sindh,All,2007-08,0.407,0.4158560973385004,0.008856097338500402,reproduced,0.331,0.3299684093505362,-0.0010315906494638427,reproduced,0.458,0.4402540602665799,-0.01774593973342009,reproduced,0.399,0.3953595223185388,-0.003640477681461196,reproduced
+Sindh,All,2018-19,0.548,0.5555032975655165,0.007503297565516487,reproduced,0.392,0.3490179835352359,-0.04298201646476413,reproduced,0.607,0.6107800106934201,0.003780010693420155,reproduced,0.516,0.5051004305980575,-0.010899569401942477,reproduced
+Sindh,Male,2007-08,0.405,,,n.a.,0.354,,,n.a.,0.455,,,n.a.,0.405,,,n.a.
+Sindh,Male,2018-19,0.586,,,n.a.,0.424,,,n.a.,0.552,,,n.a.,0.521,,,n.a.
+Sindh,Female,2007-08,0.412,,,n.a.,0.305,,,n.a.,0.454,,,n.a.,0.39,,,n.a.
+Sindh,Female,2018-19,0.506,,,n.a.,0.358,,,n.a.,0.664,,,n.a.,0.51,,,n.a.
+Khyber Pakhtunkhwa,All,2007-08,0.427,0.4394521891122444,0.012452189112244383,reproduced,0.305,0.2963698564198718,-0.008630143580128202,reproduced,0.615,0.5673589314341002,-0.04764106856589978,reproduced,0.449,0.4343936589887389,-0.014606341011261126,reproduced
+Khyber Pakhtunkhwa,All,2018-19,0.552,0.546019617164359,-0.005980382835641063,reproduced,0.361,0.3687258707862295,0.007725870786229494,reproduced,0.685,0.6923063419824713,0.007306341982471265,reproduced,0.533,0.53568394331102,0.002683943311019954,reproduced
+Khyber Pakhtunkhwa,Male,2007-08,0.448,,,n.a.,0.336,,,n.a.,0.562,,,n.a.,0.449,,,n.a.
+Khyber Pakhtunkhwa,Male,2018-19,0.605,,,n.a.,0.405,,,n.a.,0.68,,,n.a.,0.564,,,n.a.
+Khyber Pakhtunkhwa,Female,2007-08,0.403,,,n.a.,0.272,,,n.a.,0.674,,,n.a.,0.45,,,n.a.
+Khyber Pakhtunkhwa,Female,2018-19,0.492,,,n.a.,0.314,,,n.a.,0.687,,,n.a.,0.498,,,n.a.
+Balochistan,All,2007-08,0.24,0.2460593969494317,0.006059396949431722,reproduced,0.191,0.1893714474598026,-0.0016285525401973922,reproduced,0.511,0.4643128467490272,-0.046687153250972835,reproduced,0.314,0.2999145637194205,-0.01408543628057951,reproduced
+Balochistan,All,2018-19,0.399,0.4014150233642724,0.002415023364272406,reproduced,0.183,0.1797520449698212,-0.0032479550301788007,reproduced,0.466,0.4606269275067114,-0.005373072493288611,reproduced,0.349,0.3472646652802683,-0.001735334719731696,reproduced
+Balochistan,Male,2007-08,0.264,,,n.a.,0.22,,,n.a.,0.515,,,n.a.,0.333,,,n.a.
+Balochistan,Male,2018-19,0.434,,,n.a.,0.211,,,n.a.,0.414,,,n.a.,0.353,,,n.a.
+Balochistan,Female,2007-08,0.213,,,n.a.,0.162,,,n.a.,0.498,,,n.a.,0.291,,,n.a.
+Balochistan,Female,2018-19,0.358,,,n.a.,0.151,,,n.a.,0.523,,,n.a.,0.344,,,n.a.

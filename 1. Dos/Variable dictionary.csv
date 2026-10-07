@@ -1,0 +1,1074 @@
+File,Variable,Label
+HDI all microdata,year,Year (NHDR survey year)
+HDI all microdata,domain,"Region (Pakistan, province, or urban/rural part)"
+HDI all microdata,quintile,"Income quintile (All, or Q1 poorest to Q5 richest)"
+HDI all microdata,lit_reproduced,"Adult literacy rate 15+, reproduced from HIES microdata (%)"
+HDI all microdata,lit_pub,"Adult literacy rate 15+, published NHDR 2020 (%)"
+HDI all microdata,ner_reproduced,"Net enrolment rate 5-14, reproduced from HIES microdata (%)"
+HDI all microdata,ner_pub,"Net enrolment rate 5-14, published NHDR 2020 (%)"
+HDI all microdata,le_pdhs,"Life expectancy at birth from PDHS under-five mortality, West model (years)"
+HDI all microdata,le_pub,"Life expectancy at birth, published NHDR 2020 (years)"
+HDI all microdata,u5mr_per_1000,"Under-five mortality rate, deaths per 1,000 live births"
+HDI all microdata,births,Births in the window (unweighted count)
+HDI all microdata,pci_micro,"Income per head from HIES consumption, scaled to WDI GNI per head (PPP $)"
+HDI all microdata,pci_pub,"Income per head, published NHDR 2020 (PPP $)"
+HDI all microdata,cons,"Consumption per head per year, HIES (rupees)"
+HDI all microdata,m_education_index,"Education index, all from microdata"
+HDI all microdata,p_education_index,"Education index, published NHDR inputs"
+HDI all microdata,m_health_index,"Health index, all from microdata"
+HDI all microdata,p_health_index,"Health index, published NHDR inputs"
+HDI all microdata,m_income_index,"Income index, all from microdata"
+HDI all microdata,p_income_index,"Income index, published NHDR inputs"
+HDI all microdata,hdi_e,"HDI, microdata education, published health and income"
+HDI all microdata,hdi_eh,"HDI, microdata education and health, published income"
+HDI all microdata,hdi_ehi,"HDI, every dimension from microdata"
+HDI all microdata,p_hdi,"HDI, published NHDR inputs"
+HDI all microdata,m_classification,"Human development level, all from microdata"
+HDI all microdata,p_classification,"Human development level, published NHDR inputs"
+HDI all microdata,e_education_index,"Education index, microdata education only"
+HDI all microdata,e_health_index,"Health index, microdata education only"
+HDI all microdata,e_income_index,"Income index, microdata education only"
+HDI all microdata,e_classification,"Human development level, microdata education only"
+HDI all microdata,eh_education_index,"Education index, microdata education and health"
+HDI all microdata,eh_health_index,"Health index, microdata education and health"
+HDI all microdata,eh_income_index,"Income index, microdata education and health"
+HDI all microdata,eh_classification,"Human development level, microdata education and health"
+Table 2A education replication 2018-19,domain,"Region (Pakistan, province, or urban/rural part)"
+Table 2A education replication 2018-19,lit_reproduced,"Adult literacy rate 15+, reproduced from HIES microdata (%)"
+Table 2A education replication 2018-19,ner_reproduced,"Net enrolment rate 5-14, reproduced from HIES microdata (%)"
+Table 2A education replication 2018-19,quintile,"Income quintile (All, or Q1 poorest to Q5 richest)"
+Table 2A education replication 2018-19,lit_published,"Adult literacy rate 15+, published NHDR 2020 Table 2A (%)"
+Table 2A education replication 2018-19,ner_published,"Net enrolment rate 5-14, published NHDR 2020 Table 2A (%)"
+Table 2A education replication 2018-19,lit_diff,"Adult literacy, reproduced minus published (percentage points)"
+Table 2A education replication 2018-19,ner_diff,"Net enrolment, reproduced minus published (percentage points)"
+Table 2A education replication 2006-07,domain,"Region (Pakistan, province, or urban/rural part)"
+Table 2A education replication 2006-07,lit_reproduced,"Adult literacy rate 15+, reproduced from HIES microdata (%)"
+Table 2A education replication 2006-07,ner_reproduced,"Net enrolment rate 5-14, reproduced from HIES microdata (%)"
+Table 2A education replication 2006-07,quintile,"Income quintile (All, or Q1 poorest to Q5 richest)"
+Table 2A education replication 2006-07,lit_published,"Adult literacy rate 15+, published NHDR 2020 Table 2A (%)"
+Table 2A education replication 2006-07,ner_published,"Net enrolment rate 5-14, published NHDR 2020 Table 2A (%)"
+Table 2A education replication 2006-07,lit_diff,"Adult literacy, reproduced minus published (percentage points)"
+Table 2A education replication 2006-07,ner_diff,"Net enrolment, reproduced minus published (percentage points)"
+UNDP index validation,domain,"Region (Pakistan, province, or urban/rural part)"
+UNDP index validation,year,Year (NHDR survey year)
+UNDP index validation,quantity,"Index compared (education, health, income, HDI)"
+UNDP index validation,replicated,Index recomputed from the Table 2A indicators
+UNDP index validation,published,Index as printed in NHDR 2020 Table 1
+UNDP index validation,diff,Recomputed minus published
+UNDP index validation,absdiff,Absolute difference
+UNDP index validation,within_0001,Equal at three decimals (1 = yes)
+UNDP index validation,within_0002,Within one unit of the third decimal (1 = yes)
+Life expectancy inversion,domain,"Region (Pakistan, province, or urban/rural part)"
+Life expectancy inversion,year,Year (NHDR survey year)
+Life expectancy inversion,health_index_published,"Health index, published NHDR 2020 Table 1"
+Life expectancy inversion,life_printed_table2a,"Life expectancy at birth, published NHDR 2020 Table 2A (years)"
+Life expectancy inversion,life_recovered,"Life expectancy recovered from the health index, 25 + 65 x index (years)"
+Life expectancy inversion,life_band_low,"Lower bound of recovered life expectancy, rounding of the index (years)"
+Life expectancy inversion,life_band_high,"Upper bound of recovered life expectancy, rounding of the index (years)"
+Life expectancy inversion,gap_years,Printed minus recovered life expectancy (years)
+Life expectancy inversion,consistent,Printed value within the rounding band (1 = yes)
+Life expectancy inversion,q5_implied_west,"Under-five mortality implied, Coale-Demeny West (per 1,000)"
+Life expectancy inversion,q5_implied_south_asian,"Under-five mortality implied, UN South Asian (per 1,000)"
+Provincial mortality MICS6,province,Province
+Provincial mortality MICS6,deaths_weighted,"Under-five deaths in the window, weighted"
+Provincial mortality MICS6,births,Births in the window (unweighted count)
+Provincial mortality MICS6,mics6_q5_10y,"Under-five mortality, MICS6, ten years before the survey (per 1,000)"
+Provincial mortality MICS6,window_years,"Window before the survey, years"
+Provincial mortality MICS6,le_west,"Life expectancy at birth from under-five mortality, Coale-Demeny West (years)"
+Provincial mortality MICS6,le_south_asian,"Life expectancy at birth from under-five mortality, UN South Asian (years)"
+Provincial mortality MICS6,pdhs_q5,"PDHS 2017-18 published under-five mortality, ten years (per 1,000)"
+Provincial mortality MICS6,le_west_from_pdhs,Life expectancy from PDHS 2017-18 published under-five mortality (years)
+Provincial mortality MICS6,nhdr_le_recovered,Life expectancy recovered from NHDR's published health index (years)
+Provincial mortality MICS6,le_gap_mics_minus_pdhs,"Life expectancy, MICS6 minus PDHS basis (years)"
+Divisional mortality MICS6,division_name,Division
+Divisional mortality MICS6,province,Province
+Divisional mortality MICS6,deaths_weighted,"Under-five deaths in the window, weighted"
+Divisional mortality MICS6,births,Births in the window (unweighted count)
+Divisional mortality MICS6,u5mr_per_1000,"Under-five mortality rate, deaths per 1,000 live births"
+Divisional mortality MICS6,window_years,"Window before the survey, years"
+Divisional mortality MICS6,le_west,"Life expectancy at birth from under-five mortality, Coale-Demeny West (years)"
+District mortality MICS6,district,"District (lower case, matching key)"
+District mortality MICS6,province,Province
+District mortality MICS6,deaths_weighted,"Under-five deaths in the window, weighted"
+District mortality MICS6,births,Births in the window (unweighted count)
+District mortality MICS6,u5mr_per_1000,"Under-five mortality rate, deaths per 1,000 live births"
+District mortality MICS6,window_years,"Window before the survey, years"
+District mortality MICS6,le_west,"Life expectancy at birth from under-five mortality, Coale-Demeny West (years)"
+District mortality MICS6,implausible,"Implausibly low: below 20 per 1,000 or under 15 weighted deaths (1 = yes)"
+District mortality MICS6,thin,Fewer than 500 births in the window (1 = yes)
+District mortality MICS6,key,District matching key (lower case)
+PDHS under5 mortality,round,Survey round
+PDHS under5 mortality,domain,"Region (Pakistan, province, or urban/rural part)"
+PDHS under5 mortality,sex,Sex
+PDHS under5 mortality,window_months,"Window before the survey, months"
+PDHS under5 mortality,u5mr_per_1000,"Under-five mortality rate, deaths per 1,000 live births"
+PDHS under5 mortality,survival,Under-five survival (1 minus under-five mortality)
+PDHS under5 mortality,births,Births in the window (unweighted count)
+PDHS anthropometry,round,Survey round
+PDHS anthropometry,domain,"Region (Pakistan, province, or urban/rural part)"
+PDHS anthropometry,sex,Sex
+PDHS anthropometry,stunted,"Children under five stunted, height-for-age below -2 SD (%)"
+PDHS anthropometry,wasted,"Children under five wasted, weight-for-height below -2 SD (%)"
+PDHS anthropometry,notstunted_pd,Children under five not stunted (%)
+PDHS anthropometry,notwasted_pd,Children under five not wasted (%)
+PDHS CDI health inputs,region,Region (Pakistan or province)
+PDHS CDI health inputs,sex,Sex
+PDHS CDI health inputs,survival_pd,"Under-five survival, ten years, PDHS microdata"
+PDHS CDI health inputs,year,Year (NHDR survey year)
+PDHS CDI health inputs,notstunted_pd,"Children under five not stunted, PDHS microdata (%)"
+PDHS CDI health inputs,notwasted_pd,"Children under five not wasted, PDHS microdata (%)"
+PDHS wealth quintile mortality,round,Survey round
+PDHS wealth quintile mortality,domain,"Region (Pakistan, province, or urban/rural part)"
+PDHS wealth quintile mortality,q,PDHS household wealth quintile
+PDHS wealth quintile mortality,u5mr_per_1000,"Under-five mortality rate, deaths per 1,000 live births"
+PDHS wealth quintile mortality,le_pdhs,"Life expectancy at birth, West model (years)"
+PDHS wealth quintile mortality,births,Births in the window (unweighted count)
+PDHS wealth quintile mortality,window_months,"Window before the survey, months"
+GRP coverage by status 2018-19,status,"Allocator status (obtained, substitute, unobtained)"
+GRP coverage by status 2018-19,gva_rs_mn,"Gross value added covered, 2018-19 (million rupees)"
+GRP coverage by status 2018-19,share_of_gdp_pct,Share of national gross value added (%)
+GRP allocator shares 2018-19,code,National accounts sub-sector code (PBS Table 4)
+GRP allocator shares 2018-19,shareBalochistan,Balochistan share of the sub-sector (%)
+GRP allocator shares 2018-19,shareKhyber_Pakhtunkhwa,Khyber Pakhtunkhwa share of the sub-sector (%)
+GRP allocator shares 2018-19,sharePunjab,Punjab share of the sub-sector (%)
+GRP allocator shares 2018-19,shareSindh,Sindh share of the sub-sector (%)
+GRP allocator shares 2018-19,sub_sector,National accounts sub-sector
+GRP source comparison 2018-19,province,Province
+GRP source comparison 2018-19,share_pctkpbos_2021,"Share of GDP, KP Bureau of Statistics nightlights 2021 (%)"
+GRP source comparison 2018-19,share_pctpasha_2021,"Share of GDP, Pasha 2021 (%)"
+GRP source comparison 2018-19,share_pctpide_2022,"Share of GDP, PIDE City Development Product 2022 (%)"
+GRP source comparison 2018-19,share_pct_reproduced,"Share of GDP, this reproduction (%)"
+GRP source comparison 2018-19,range_pts,Range across the four estimates (percentage points)
+GRP per capita 2018-19,province,Province
+GRP per capita 2018-19,grp_pc_ppp,"Gross regional product per head, 2018-19 (PPP $)"
+GRP per capita 2018-19,grp_relative,Gross regional product per head relative to Pakistan
+GRP per capita 2018-19,nhdr_relative,NHDR 2020 income per head relative to Pakistan
+Income level diagnosis,province,Province
+Income level diagnosis,survey_income,HIES 2018-19 income per head relative to Pakistan
+Income level diagnosis,survey_consumption,HIES 2018-19 consumption per head relative to Pakistan
+Income level diagnosis,nhdr_printed,NHDR 2020 income per head relative to Pakistan
+Income level diagnosis,grp_relative,Gross regional product per head relative to Pakistan (this reproduction)
+Income level diagnosis,pasha_2018_19,"Pasha provincial GDP per head relative to Pakistan, 2018-19"
+Income quintile diagnosis,domain,"Region (Pakistan, province, or urban/rural part)"
+Income quintile diagnosis,worstpc_exp,"Largest quintile gap vs NHDR ratios, quintiles ranked on expenditure"
+Income quintile diagnosis,worstpc_inc,"Largest quintile gap vs NHDR ratios, quintiles ranked on income"
+Income quintile diagnosis,aggregate,"Pakistan or a province (1), urban or rural part (0)"
+Provincial index 2024-25 survey basis,domain,"Region (Pakistan, province, or urban/rural part)"
+Provincial index 2024-25 survey basis,lit_15plus,Adult literacy rate 15+ (%)
+Provincial index 2024-25 survey basis,lit_10plus,Literacy rate 10+ (%)
+Provincial index 2024-25 survey basis,ner_5_14,Net enrolment rate 5-14 (%)
+Provincial index 2024-25 survey basis,pop_w,"Population, weighted"
+Provincial index 2024-25 survey basis,pc_exp_rs,"Consumption per head per year, HIES 2024-25 (rupees)"
+Provincial index 2024-25 survey basis,pci_ppp_survey,"Income per head, survey basis (PPP $)"
+Provincial index 2024-25 survey basis,life_mics,Life expectancy from MICS6 under-five mortality (years)
+Provincial index 2024-25 survey basis,life_pdhs,Life expectancy from PDHS 2017-18 under-five mortality (years)
+Provincial index 2024-25 survey basis,sb_education_index,"Education index, survey basis"
+Provincial index 2024-25 survey basis,sb_health_index,"Health index, survey basis, MICS6 mortality"
+Provincial index 2024-25 survey basis,sb_income_index,"Income index, survey basis"
+Provincial index 2024-25 survey basis,sb_hdi,"HDI 2024-25, survey basis, MICS6 mortality"
+Provincial index 2024-25 survey basis,sb_classification,"Human development level, survey basis"
+Provincial index 2024-25 survey basis,pd_education_index,"Education index, PDHS variant"
+Provincial index 2024-25 survey basis,pd_health_index,"Health index, PDHS 2017-18 mortality"
+Provincial index 2024-25 survey basis,pd_income_index,"Income index, PDHS variant"
+Provincial index 2024-25 survey basis,pd_hdi,"HDI 2024-25, survey basis, PDHS mortality"
+Provincial index 2024-25 survey basis,pd_classification,"Human development level, PDHS variant"
+Provincial index 2024-25 survey basis,hdi_source_spread,HDI with MICS6 mortality minus HDI with PDHS mortality
+Provincial index 2024-25 survey basis,edu_idx_2018_19,"Education index 2018-19, published NHDR 2020"
+Provincial index 2024-25 survey basis,health_idx_2018_19,"Health index 2018-19, published NHDR 2020"
+Provincial index 2024-25 survey basis,income_idx_2018_19,"Income index 2018-19, published NHDR 2020"
+Provincial index 2024-25 survey basis,hdi_2006_07,"HDI 2006-07, published NHDR 2020"
+Provincial index 2024-25 survey basis,hdi_2018_19,"HDI 2018-19, published NHDR 2020"
+Provincial index 2024-25 final,domain,"Region (Pakistan, province, or urban/rural part)"
+Provincial index 2024-25 final,lit_15plus,Adult literacy rate 15+ (%)
+Provincial index 2024-25 final,ner_5_14,Net enrolment rate 5-14 (%)
+Provincial index 2024-25 final,hdi_2006_07,"HDI 2006-07, published NHDR 2020"
+Provincial index 2024-25 final,hdi_2018_19,"HDI 2018-19, published NHDR 2020"
+Provincial index 2024-25 final,life_years,Life expectancy at birth (years)
+Provincial index 2024-25 final,pci_ppp,Income per head (PPP $)
+Provincial index 2024-25 final,education_index,Education index
+Provincial index 2024-25 final,health_index,Health index
+Provincial index 2024-25 final,income_index,Income index
+Provincial index 2024-25 final,hdi,Human Development Index (HDI) 2024-25
+Provincial index 2024-25 final,classification,Human development level (Low < 0.55 <= Medium < 0.70 <= High)
+Provincial index 2024-25 final,change_since_2018_19,HDI 2024-25 minus HDI 2018-19
+Decomposition final,domain,"Region (Pakistan, province, or urban/rural part)"
+Decomposition final,final_education_pct,Education contribution to HDI change 2018-19 to 2024-25 (%)
+Decomposition final,final_health_pct,Health contribution to HDI change 2018-19 to 2024-25 (%)
+Decomposition final,final_income_pct,Income contribution to HDI change 2018-19 to 2024-25 (%)
+Decomposition final,final_total_pct,"HDI change 2018-19 to 2024-25, log points (%)"
+Chain consistency sensitivity,domain,"Region (Pakistan, province, or urban/rural part)"
+Chain consistency sensitivity,hdi_2024_25_survey_basis,"HDI 2024-25, survey basis"
+Chain consistency sensitivity,hdi_2006_07,"HDI 2006-07, published NHDR 2020"
+Chain consistency sensitivity,hdi_2018_19,"HDI 2018-19, published NHDR 2020"
+Chain consistency sensitivity,hdi_2024_25_final,"HDI 2024-25, one instrument and price basis"
+Chain consistency sensitivity,pace_2006_2018,"Pace 2006-07 to 2018-19, index points per thousand a year"
+Chain consistency sensitivity,pace_2018_2024,"Pace 2018-19 to 2024-25, index points per thousand a year"
+Chain consistency sensitivity,pace_2018_2024_survey,"Pace 2018-19 to 2024-25, survey basis, points per thousand a year"
+Chain consistency sensitivity,instrument_effect,Part of the survey-basis HDI change due to the change of instrument
+District education 2019-20,province,Province
+District education 2019-20,district,"District (lower case, matching key)"
+District education 2019-20,district_name,District
+District education 2019-20,province_name,Province
+District education 2019-20,literacy_15plus,Adult literacy rate 15+ (%)
+District education 2019-20,ner_5_14,Net enrolment rate 5-14 (%)
+District education 2019-20,clusters,Sample clusters (primary sampling units)
+District education 2019-20,literacy_se_pp,Standard error of adult literacy (percentage points)
+District education 2019-20,ner_se_pp,Standard error of net enrolment (percentage points)
+District index,rank,Rank (1 = highest)
+District index,province_name,Province
+District index,division_name,Division
+District index,district_name,District
+District index,literacy_15plus,Adult literacy rate 15+ (%)
+District index,literacy_se_pp,Standard error of adult literacy (percentage points)
+District index,ner_5_14,Net enrolment rate 5-14 (%)
+District index,life_years,Life expectancy at birth (years)
+District index,life_source,"Level the life expectancy comes from (district, division, province)"
+District index,pci_ppp,Income per head (PPP $)
+District index,education_index,Education index
+District index,health_index,Health index
+District index,income_index,Income index
+District index,hdi,Human Development Index (HDI)
+District index,classification,Human development level (Low < 0.55 <= Medium < 0.70 <= High)
+District index,clusters,Sample clusters (primary sampling units)
+District index,pop_w,"Population, weighted"
+District index,province,Province
+District index,district,"District (lower case, matching key)"
+District index,ner_se_pp,Standard error of net enrolment (percentage points)
+Divisional index,province_name,Province
+Divisional index,division_name,Division
+Divisional index,pop_w,"Population, weighted"
+Divisional index,districts,Districts in the division
+Divisional index,literacy_15plus,Adult literacy rate 15+ (%)
+Divisional index,ner_5_14,Net enrolment rate 5-14 (%)
+Divisional index,life_years,Life expectancy at birth (years)
+Divisional index,pci_ppp,Income per head (PPP $)
+Divisional index,education_index,Education index
+Divisional index,health_index,Health index
+Divisional index,income_index,Income index
+Divisional index,hdi,Human Development Index (HDI)
+Divisional index,classification,Human development level (Low < 0.55 <= Medium < 0.70 <= High)
+IHDI method Table 3,domain,"Region (Pakistan, province, or urban/rural part)"
+IHDI method Table 3,a_edu_2006_07,"Atkinson inequality in education 2006-07, Table 2A quintiles"
+IHDI method Table 3,a_edu_2018_19,"Atkinson inequality in education 2018-19, Table 2A quintiles"
+IHDI method Table 3,a_le_2006_07,"Atkinson inequality in life expectancy 2006-07, Table 2A quintiles"
+IHDI method Table 3,a_le_2018_19,"Atkinson inequality in life expectancy 2018-19, Table 2A quintiles"
+IHDI method Table 3,a_pci_2006_07,"Atkinson inequality in income 2006-07, Table 2A quintiles"
+IHDI method Table 3,a_pci_2018_19,"Atkinson inequality in income 2018-19, Table 2A quintiles"
+IHDI method Table 3,hdi_2006_07,"HDI 2006-07, recomputed from NHDR Table 2A"
+IHDI method Table 3,hdi_2018_19,"HDI 2018-19, recomputed from NHDR Table 2A"
+IHDI method Table 3,ihdi_2006_07,"IHDI 2006-07, recomputed from NHDR Table 2A quintiles"
+IHDI method Table 3,chi_2006_07,Coefficient of human inequality 2006-07 (%)
+IHDI method Table 3,loss_2006_07,"Overall loss from inequality 2006-07, recomputed (%)"
+IHDI method Table 3,ihdi_2018_19,"IHDI 2018-19, recomputed from NHDR Table 2A quintiles"
+IHDI method Table 3,chi_2018_19,Coefficient of human inequality 2018-19 (%)
+IHDI method Table 3,loss_2018_19,"Overall loss from inequality 2018-19, recomputed (%)"
+IHDI method Table 3,pub_hdi_2006_07,"Human Development Index (HDI), published NHDR 2020, 2006-07"
+IHDI method Table 3,pub_hdi_2018_19,"Human Development Index (HDI), published NHDR 2020, 2018-19"
+IHDI method Table 3,pub_ihdi_2006_07,"Inequality-adjusted HDI (IHDI), published NHDR 2020, 2006-07"
+IHDI method Table 3,pub_ihdi_2018_19,"Inequality-adjusted HDI (IHDI), published NHDR 2020, 2018-19"
+IHDI method Table 3,pub_chi_2006_07,"Coefficient of human inequality (%), 2006-07, published"
+IHDI method Table 3,pub_chi_2018_19,"Coefficient of human inequality (%), 2018-19, published"
+IHDI method Table 3,pub_loss_2006_07,"Overall loss in HDI from inequality, published NHDR 2020 (%), 2006-07"
+IHDI method Table 3,pub_loss_2018_19,"Overall loss in HDI from inequality, published NHDR 2020 (%), 2018-19"
+IHDI method Table 3,pub_aedu_2006_07,"Inequality in education (Atkinson), 2006-07, published"
+IHDI method Table 3,pub_aedu_2018_19,"Inequality in education (Atkinson), 2018-19, published"
+IHDI method Table 3,pub_ahealth_2006_07,"Inequality in health (Atkinson), 2006-07, published"
+IHDI method Table 3,pub_ahealth_2018_19,"Inequality in health (Atkinson), 2018-19, published"
+IHDI method Table 3,pub_ainc_2006_07,"Inequality in income (Atkinson), 2006-07, published"
+IHDI method Table 3,pub_ainc_2018_19,"Inequality in income (Atkinson), 2018-19, published"
+IHDI method Table 3,share_inc_2018_19,Share of the 2018-19 loss due to income inequality (%)
+IHDI method Table 3,share_edu_2018_19,Share of the 2018-19 loss due to education inequality (%)
+IHDI method Table 3,share_health_2018_19,Share of the 2018-19 loss due to health inequality (%)
+IHDI 2018-19 microdata,domain,"Region (Pakistan, province, or urban/rural part)"
+IHDI 2018-19 microdata,a_edu_raw,"Atkinson inequality in education, HIES microdata"
+IHDI 2018-19 microdata,a_inc_raw,"Atkinson inequality in income, HIES income microdata"
+IHDI 2018-19 microdata,a_cons_raw,"Atkinson inequality in income, HIES consumption microdata"
+IHDI 2018-19 microdata,a_le_mics,"Atkinson inequality in life expectancy, MICS6 wealth quintiles"
+IHDI 2018-19 microdata,a_le_2018_19,"Atkinson inequality in life expectancy across quintiles, 2018-19"
+IHDI 2018-19 microdata,hdi_2018_19,"Human Development Index (HDI), 2018-19"
+IHDI 2018-19 microdata,pub_ihdi_2018_19,"Inequality-adjusted HDI (IHDI), published NHDR 2020, 2018-19"
+IHDI 2018-19 microdata,pub_loss_2018_19,"Overall loss in HDI from inequality, published NHDR 2020 (%), 2018-19"
+IHDI 2018-19 microdata,pub_aedu_2018_19,"Inequality in education (Atkinson), 2018-19, published"
+IHDI 2018-19 microdata,pub_ahealth_2018_19,"Inequality in health (Atkinson), 2018-19, published"
+IHDI 2018-19 microdata,pub_ainc_2018_19,"Inequality in income (Atkinson), 2018-19, published"
+IHDI 2018-19 microdata,ihdi_raw,"IHDI 2018-19, inequality terms from microdata"
+IHDI 2018-19 microdata,loss_raw,"Overall loss from inequality, microdata terms (%)"
+IHDI 2018-19 microdata,ihdi_1819_samebasis,"IHDI 2018-19 on the 2024-25 basis (consumption, NHDR health)"
+IHDI 2018-19 PDHS,domain,"Region (Pakistan, province, or urban/rural part)"
+IHDI 2018-19 PDHS,a_le_pdhs,"Atkinson inequality in life expectancy, PDHS wealth quintiles"
+IHDI 2018-19 PDHS,a_edu_raw,"Atkinson inequality in education, HIES microdata"
+IHDI 2018-19 PDHS,a_inc_raw,"Atkinson inequality in income, HIES income microdata"
+IHDI 2018-19 PDHS,a_le_mics,"Atkinson inequality in life expectancy, MICS6 wealth quintiles"
+IHDI 2018-19 PDHS,hdi_2018_19,"Human Development Index (HDI), 2018-19"
+IHDI 2018-19 PDHS,pub_ihdi_2018_19,"Inequality-adjusted HDI (IHDI), published NHDR 2020, 2018-19"
+IHDI 2018-19 PDHS,pub_ahealth_2018_19,"Inequality in health (Atkinson), 2018-19, published"
+IHDI 2018-19 PDHS,ihdi_raw,"IHDI 2018-19, MICS6 health term"
+IHDI 2018-19 PDHS,ihdi_pdhs,"IHDI 2018-19, PDHS health term"
+IHDI 2018-19 PDHS,loss_pdhs,"Overall loss from inequality, PDHS health term (%)"
+IHDI 2006-07 microdata,domain,"Region (Pakistan, province, or urban/rural part)"
+IHDI 2006-07 microdata,a_edu_raw,"Atkinson inequality in education, HIES 2005-06 microdata"
+IHDI 2006-07 microdata,a_cons,"Atkinson inequality in income, HIES 2005-06 consumption"
+IHDI 2006-07 microdata,a_le_2006_07,"Atkinson inequality in life expectancy across quintiles, 2006-07"
+IHDI 2006-07 microdata,hdi_2006_07,"Human Development Index (HDI), 2006-07"
+IHDI 2006-07 microdata,pub_ihdi_2006_07,"Inequality-adjusted HDI (IHDI), published NHDR 2020, 2006-07"
+IHDI 2006-07 microdata,pub_loss_2006_07,"Overall loss in HDI from inequality, published NHDR 2020 (%), 2006-07"
+IHDI 2006-07 microdata,pub_aedu_2006_07,"Inequality in education (Atkinson), 2006-07, published"
+IHDI 2006-07 microdata,pub_ahealth_2006_07,"Inequality in health (Atkinson), 2006-07, published"
+IHDI 2006-07 microdata,pub_ainc_2006_07,"Inequality in income (Atkinson), 2006-07, published"
+IHDI 2006-07 microdata,ihdi_raw_2006_07,"IHDI 2006-07, inequality terms from microdata"
+IHDI 2006-07 microdata,loss_raw_2006_07,"Overall loss from inequality 2006-07, microdata terms (%)"
+IHDI 2006-07 PDHS,domain,"Region (Pakistan, province, or urban/rural part)"
+IHDI 2006-07 PDHS,a_le_pdhs,"Atkinson inequality in life expectancy, PDHS 2006-07 wealth quintiles"
+IHDI 2006-07 PDHS,a_edu_raw,"Atkinson inequality in education, HIES 2005-06 microdata"
+IHDI 2006-07 PDHS,a_cons,"Atkinson inequality in income, HIES 2005-06 consumption"
+IHDI 2006-07 PDHS,a_le_2006_07,"Atkinson inequality in life expectancy across quintiles, 2006-07"
+IHDI 2006-07 PDHS,hdi_2006_07,"Human Development Index (HDI), 2006-07"
+IHDI 2006-07 PDHS,pub_ihdi_2006_07,"Inequality-adjusted HDI (IHDI), published NHDR 2020, 2006-07"
+IHDI 2006-07 PDHS,pub_loss_2006_07,"Overall loss in HDI from inequality, published NHDR 2020 (%), 2006-07"
+IHDI 2006-07 PDHS,pub_aedu_2006_07,"Inequality in education (Atkinson), 2006-07, published"
+IHDI 2006-07 PDHS,pub_ahealth_2006_07,"Inequality in health (Atkinson), 2006-07, published"
+IHDI 2006-07 PDHS,pub_ainc_2006_07,"Inequality in income (Atkinson), 2006-07, published"
+IHDI 2006-07 PDHS,ihdi_raw_2006_07,"IHDI 2006-07, NHDR health term"
+IHDI 2006-07 PDHS,loss_raw_2006_07,"Overall loss 2006-07, NHDR health term (%)"
+IHDI 2006-07 PDHS,ihdi_pdhs_2006_07,"IHDI 2006-07, PDHS health term"
+IHDI 2006-07 PDHS,loss_pdhs_2006_07,"Overall loss 2006-07, PDHS health term (%)"
+IHDI all microdata,year,Year (NHDR survey year)
+IHDI all microdata,domain,"Region (Pakistan, province, or urban/rural part)"
+IHDI all microdata,hdi_ehi,"HDI, every dimension from microdata"
+IHDI all microdata,pub_hdi,"Human Development Index (HDI), published NHDR 2020"
+IHDI all microdata,ihdi_m,"IHDI, every dimension and inequality term from microdata"
+IHDI all microdata,pub_ihdi,"Inequality-adjusted HDI (IHDI), published NHDR 2020"
+IHDI all microdata,loss_m,"Overall loss from inequality, microdata (%)"
+IHDI all microdata,pub_loss,"Overall loss in HDI from inequality, published NHDR 2020 (%)"
+IHDI all microdata,chi_m,"Coefficient of human inequality, microdata (%)"
+IHDI all microdata,a_edu_m,"Atkinson inequality in education, microdata"
+IHDI all microdata,a_health_m,"Atkinson inequality in life expectancy, PDHS wealth quintiles"
+IHDI all microdata,a_inc_m,"Atkinson inequality in income, HIES consumption"
+IHDI 2024-25,domain,"Region (Pakistan, province, or urban/rural part)"
+IHDI 2024-25,a_edu24,"Atkinson inequality in education, HIES 2024-25"
+IHDI 2024-25,a_cons,"Atkinson inequality in income, HIES 2024-25 consumption"
+IHDI 2024-25,a_le24,"Atkinson inequality in life expectancy, 2024-25"
+IHDI 2024-25,hdi_2024_25,HDI 2024-25
+IHDI 2024-25,ihdi_2024_25,IHDI 2024-25
+IHDI 2024-25,loss_2024_25,Overall loss from inequality 2024-25 (%)
+IHDI 2024-25,hdi_2018_19,"HDI 2018-19, published NHDR 2020"
+IHDI 2024-25,pub_ihdi_2018_19,"Inequality-adjusted HDI (IHDI), published NHDR 2020, 2018-19"
+IHDI 2024-25,ihdi_1819_samebasis,IHDI 2018-19 on the 2024-25 basis
+IHDI 2024-25,loss_1819_samebasis,Overall loss 2018-19 on the 2024-25 basis (%)
+IHDI 2024-25,ihdi_change,IHDI 2024-25 minus IHDI 2018-19 (same basis)
+GDI method Table 6,sex,Sex
+GDI method Table 6,year,Year (NHDR survey year)
+GDI method Table 6,lit,"Adult literacy rate 15+, published NHDR 2020 Table 6A (%)"
+GDI method Table 6,ner,"Net enrolment rate, published NHDR 2020 Table 6A (%)"
+GDI method Table 6,le,"Life expectancy at birth, published NHDR 2020 Table 6A (years)"
+GDI method Table 6,pci,"Estimated earned income per head, published Table 6A (PPP $)"
+GDI method Table 6,pub_lit_idx,"Literacy index, published"
+GDI method Table 6,pub_ner_idx,"Enrolment index, published"
+GDI method Table 6,pub_edu_idx,"Education index, published"
+GDI method Table 6,pub_le_idx,"Life expectancy index, published"
+GDI method Table 6,pub_inc_idx,"Income index, published"
+GDI method Table 6,pub_hdi,"Human Development Index (HDI), published NHDR 2020"
+GDI method Table 6,pub_gdi,"Gender Development Index, published"
+GDI method Table 6,pub_gdi_dev,"Deviation from gender parity (%), published"
+GDI method Table 6,gdi_edu,"Education index by sex, recomputed"
+GDI method Table 6,gdi_hea,"Life expectancy index by sex, recomputed"
+GDI method Table 6,gdi_inc,"Income index by sex, recomputed (goalpost 75,000)"
+GDI method Table 6,gdi_hdi,"HDI by sex, recomputed"
+GDI method Table 6,inc_idx_100k,"Income index by sex with the 100,000 goalpost"
+GDI method Table 6,gdi,"Gender Development Index (GDI), recomputed"
+GDI method Table 6,gdi_dev,"Deviation from gender parity, recomputed (%)"
+GDI 2006-07 reproduced,sex,Sex
+GDI 2006-07 reproduced,year,Year (NHDR survey year)
+GDI 2006-07 reproduced,lit,"Adult literacy rate 15+, published NHDR 2020 Table 6A (%)"
+GDI 2006-07 reproduced,ner,"Net enrolment rate, published NHDR 2020 Table 6A (%)"
+GDI 2006-07 reproduced,le,"Life expectancy at birth, published Table 6A (years)"
+GDI 2006-07 reproduced,pci,"Estimated earned income per head, published Table 6A (PPP $)"
+GDI 2006-07 reproduced,pub_lit_idx,"Literacy index, published"
+GDI 2006-07 reproduced,pub_ner_idx,"Enrolment index, published"
+GDI 2006-07 reproduced,pub_edu_idx,"Education index, published"
+GDI 2006-07 reproduced,pub_le_idx,"Life expectancy index, published"
+GDI 2006-07 reproduced,pub_inc_idx,"Income index, published"
+GDI 2006-07 reproduced,pub_hdi,"Human Development Index (HDI), published NHDR 2020"
+GDI 2006-07 reproduced,pub_gdi,"Gender Development Index, published"
+GDI 2006-07 reproduced,pub_gdi_dev,"Deviation from gender parity (%), published"
+GDI 2006-07 reproduced,lit_reproduced,"Adult literacy rate 15+ by sex, HIES 2005-06 (%)"
+GDI 2006-07 reproduced,ner_reproduced,"Net enrolment rate by sex, HIES 2005-06 (%)"
+GDI 2006-07 reproduced,r_edu,"Education index by sex, reproduced"
+GDI 2006-07 reproduced,r_hea,Life expectancy index by sex (published inputs)
+GDI 2006-07 reproduced,r_inc,Income index by sex (published inputs)
+GDI 2006-07 reproduced,r_hdi,"HDI by sex, reproduced education"
+GDI 2006-07 reproduced,r_gdi,"Gender Development Index, reproduced education"
+GDI reproduced 2018-19 2024-25,sex,Sex
+GDI reproduced 2018-19 2024-25,domain,"Region (Pakistan, province, or urban/rural part)"
+GDI reproduced 2018-19 2024-25,lit15,"Adult literacy rate 15+ by sex, HIES (%)"
+GDI reproduced 2018-19 2024-25,ner,"Net enrolment rate 5-14 by sex, HIES (%)"
+GDI reproduced 2018-19 2024-25,survey,Survey round
+GDI reproduced 2018-19 2024-25,s_f,"Female share of earned income (UNDP method, LFS wages)"
+GDI reproduced 2018-19 2024-25,s_f_w18,"Female share of earned income, 2018-19 wage ratio held"
+GDI reproduced 2018-19 2024-25,cyear,Census year used for the female population share
+GDI reproduced 2018-19 2024-25,female_share,"Female share of population, census"
+GDI reproduced 2018-19 2024-25,le_2018_19,"Life expectancy 2018-19, published NHDR 2020 (years)"
+GDI reproduced 2018-19 2024-25,pci_2018_19,"Income per head 2018-19, published NHDR 2020 (PPP $)"
+GDI reproduced 2018-19 2024-25,life_years,"Life expectancy at birth, both sexes (years)"
+GDI reproduced 2018-19 2024-25,pci_ppp,"Income per head, both sexes (PPP $)"
+GDI reproduced 2018-19 2024-25,pci_all,"Income per head, both sexes, used for the split (PPP $)"
+GDI reproduced 2018-19 2024-25,le_all,"Life expectancy, both sexes, used for the split (years)"
+GDI reproduced 2018-19 2024-25,pci,Estimated earned income per head by sex (PPP $)
+GDI reproduced 2018-19 2024-25,pci_w18,"Estimated earned income by sex, 2018-19 wage ratio held (PPP $)"
+GDI reproduced 2018-19 2024-25,le,Life expectancy at birth by sex (years)
+GDI reproduced 2018-19 2024-25,gdi_edu,Education index by sex
+GDI reproduced 2018-19 2024-25,gdi_hea,Life expectancy index by sex
+GDI reproduced 2018-19 2024-25,gdi_inc,Income index by sex
+GDI reproduced 2018-19 2024-25,gdi_hdi,HDI by sex
+GDI reproduced 2018-19 2024-25,w18_edu,"Education index by sex, 2018-19 wage ratio held"
+GDI reproduced 2018-19 2024-25,w18_hea,"Life expectancy index by sex, 2018-19 wage ratio held"
+GDI reproduced 2018-19 2024-25,w18_inc,"Income index by sex, 2018-19 wage ratio held"
+GDI reproduced 2018-19 2024-25,w18_hdi,"HDI by sex, 2018-19 wage ratio held"
+GDI reproduced 2018-19 2024-25,gdi,Gender Development Index (GDI)
+GDI reproduced 2018-19 2024-25,gdi_w18,"Gender Development Index, 2018-19 wage ratio held"
+GDI reproduced 2018-19 2024-25,gdi_dev,Deviation from gender parity (%)
+GII method Table 7,domain,"Region (Pakistan, province, or urban/rural part)"
+GII method Table 7,year,Year (NHDR survey year)
+GII method Table 7,no_care_f,"Women without prenatal and postnatal care, published NHDR (%)"
+GII method Table 7,evm1519_f,"Women 15-19 ever married, published NHDR (%)"
+GII method Table 7,seats_f,Seats in parliament held by women (%)
+GII method Table 7,seats_m,Seats in parliament held by men (%)
+GII method Table 7,sec_f,"Women 10+ with primary education or higher, published NHDR (%)"
+GII method Table 7,sec_m,"Men 10+ with primary education or higher, published NHDR (%)"
+GII method Table 7,lfpr_f,"Labour force participation rate, women 15+, published NHDR (%)"
+GII method Table 7,lfpr_m,"Labour force participation rate, men 15+, published NHDR (%)"
+GII method Table 7,pub_g_f,"GII female gender index, published NHDR 2020"
+GII method Table 7,pub_g_m,"GII male gender index, published NHDR 2020"
+GII method Table 7,pub_harm,"GII harmonic mean of the gender indices, published NHDR 2020"
+GII method Table 7,pub_gii,"Gender Inequality Index (GII), published NHDR 2020"
+GII method Table 7,pub_health_bar,"GII mean reproductive health index, published NHDR 2020"
+GII method Table 7,pub_emp_bar,"GII mean empowerment index, published NHDR 2020"
+GII method Table 7,pub_lfpr_bar,"GII mean labour participation index, published NHDR 2020"
+GII method Table 7,pub_g_fm,"GII reference gender index, published NHDR 2020"
+GII method Table 7,gii_health_f,"GII female reproductive health index, recomputed from published inputs"
+GII method Table 7,gii_emp_f,"GII female empowerment index, recomputed from published inputs"
+GII method Table 7,gii_emp_m,"GII male empowerment index, recomputed from published inputs"
+GII method Table 7,gii_g_f,"GII female gender index, recomputed from published inputs"
+GII method Table 7,gii_g_m,"GII male gender index, recomputed from published inputs"
+GII method Table 7,gii_harm,"GII harmonic mean of the gender indices, recomputed from published inputs"
+GII method Table 7,gii_health_bar,"GII mean reproductive health index, recomputed from published inputs"
+GII method Table 7,gii_emp_bar,"GII mean empowerment index, recomputed from published inputs"
+GII method Table 7,gii_lfpr_bar,"GII mean labour participation index, recomputed from published inputs"
+GII method Table 7,gii_g_fm,"GII reference gender index, recomputed from published inputs"
+GII method Table 7,gii_gii,"Gender Inequality Index (GII), recomputed from published inputs"
+GII 2006-07 reproduced,domain,"Region (Pakistan, province, or urban/rural part)"
+GII 2006-07 reproduced,raw_sec_f,"Women 10+ with primary education or higher, reproduced from HIES (%)"
+GII 2006-07 reproduced,raw_sec_m,"Men 10+ with primary education or higher, reproduced from HIES (%)"
+GII 2006-07 reproduced,raw_no_care_f,"Women without prenatal and postnatal care, reproduced from HIES (%)"
+GII 2006-07 reproduced,year,Year (NHDR survey year)
+GII 2006-07 reproduced,no_care_f,"Women without prenatal and postnatal care, published NHDR (%)"
+GII 2006-07 reproduced,evm1519_f,"Women 15-19 ever married, published NHDR (%)"
+GII 2006-07 reproduced,seats_f,Seats in parliament held by women (%)
+GII 2006-07 reproduced,seats_m,Seats in parliament held by men (%)
+GII 2006-07 reproduced,sec_f,"Women 10+ with primary education or higher, published NHDR (%)"
+GII 2006-07 reproduced,sec_m,"Men 10+ with primary education or higher, published NHDR (%)"
+GII 2006-07 reproduced,lfpr_f,"Labour force participation rate, women 15+, published NHDR (%)"
+GII 2006-07 reproduced,lfpr_m,"Labour force participation rate, men 15+, published NHDR (%)"
+GII 2006-07 reproduced,pub_g_f,"GII female gender index, published NHDR 2020"
+GII 2006-07 reproduced,pub_g_m,"GII male gender index, published NHDR 2020"
+GII 2006-07 reproduced,pub_harm,"GII harmonic mean of the gender indices, published NHDR 2020"
+GII 2006-07 reproduced,pub_gii,"Gender Inequality Index (GII), published NHDR 2020"
+GII 2006-07 reproduced,pub_health_bar,"GII mean reproductive health index, published NHDR 2020"
+GII 2006-07 reproduced,pub_emp_bar,"GII mean empowerment index, published NHDR 2020"
+GII 2006-07 reproduced,pub_lfpr_bar,"GII mean labour participation index, published NHDR 2020"
+GII 2006-07 reproduced,pub_g_fm,"GII reference gender index, published NHDR 2020"
+GII 2006-07 reproduced,gii_health_f,"GII female reproductive health index, recomputed from published inputs"
+GII 2006-07 reproduced,gii_emp_f,"GII female empowerment index, recomputed from published inputs"
+GII 2006-07 reproduced,gii_emp_m,"GII male empowerment index, recomputed from published inputs"
+GII 2006-07 reproduced,gii_g_f,"GII female gender index, recomputed from published inputs"
+GII 2006-07 reproduced,gii_g_m,"GII male gender index, recomputed from published inputs"
+GII 2006-07 reproduced,gii_harm,"GII harmonic mean of the gender indices, recomputed from published inputs"
+GII 2006-07 reproduced,gii_health_bar,"GII mean reproductive health index, recomputed from published inputs"
+GII 2006-07 reproduced,gii_emp_bar,"GII mean empowerment index, recomputed from published inputs"
+GII 2006-07 reproduced,gii_lfpr_bar,"GII mean labour participation index, recomputed from published inputs"
+GII 2006-07 reproduced,gii_g_fm,"GII reference gender index, recomputed from published inputs"
+GII 2006-07 reproduced,gii_gii,"Gender Inequality Index (GII), recomputed from published inputs"
+GII 2006-07 reproduced,r_health_f,"GII female reproductive health index, reproduced 2006-07"
+GII 2006-07 reproduced,r_emp_f,"GII female empowerment index, reproduced 2006-07"
+GII 2006-07 reproduced,r_emp_m,"GII male empowerment index, reproduced 2006-07"
+GII 2006-07 reproduced,r_g_f,"GII female gender index, reproduced 2006-07"
+GII 2006-07 reproduced,r_g_m,"GII male gender index, reproduced 2006-07"
+GII 2006-07 reproduced,r_harm,"GII harmonic mean of the gender indices, reproduced 2006-07"
+GII 2006-07 reproduced,r_health_bar,"GII mean reproductive health index, reproduced 2006-07"
+GII 2006-07 reproduced,r_emp_bar,"GII mean empowerment index, reproduced 2006-07"
+GII 2006-07 reproduced,r_lfpr_bar,"GII mean labour participation index, reproduced 2006-07"
+GII 2006-07 reproduced,r_g_fm,"GII reference gender index, reproduced 2006-07"
+GII 2006-07 reproduced,r_gii,"Gender Inequality Index (GII), reproduced 2006-07"
+GII 2018-19 reproduced,nopre,"Women with a recent birth and no prenatal care, HIES 2018-19 (share)"
+GII 2018-19 reproduced,nopost,"Women with a recent birth and no postnatal care, HIES 2018-19 (share)"
+GII 2018-19 reproduced,domain,"Region (Pakistan, province, or urban/rural part)"
+GII 2018-19 reproduced,raw_no_care_f,"Women without prenatal and postnatal care, reproduced from HIES (%)"
+GII 2018-19 reproduced,year,Year (NHDR survey year)
+GII 2018-19 reproduced,raw_sec_f,"Women 10+ with primary education or higher, reproduced from HIES (%)"
+GII 2018-19 reproduced,raw_sec_m,"Men 10+ with primary education or higher, reproduced from HIES (%)"
+GII 2018-19 reproduced,raw_evm1519_f,"Women 15-19 ever married, reproduced from LFS (%)"
+GII 2018-19 reproduced,raw_lfpr_f,"Labour force participation rate, women 15+, reproduced from LFS (%)"
+GII 2018-19 reproduced,raw_lfpr_m,"Labour force participation rate, men 15+, reproduced from LFS (%)"
+GII 2018-19 reproduced,no_care_f,"Women without prenatal and postnatal care, published NHDR (%)"
+GII 2018-19 reproduced,evm1519_f,"Women 15-19 ever married, published NHDR (%)"
+GII 2018-19 reproduced,seats_f,Seats in parliament held by women (%)
+GII 2018-19 reproduced,seats_m,Seats in parliament held by men (%)
+GII 2018-19 reproduced,sec_f,"Women 10+ with primary education or higher, published NHDR (%)"
+GII 2018-19 reproduced,sec_m,"Men 10+ with primary education or higher, published NHDR (%)"
+GII 2018-19 reproduced,lfpr_f,"Labour force participation rate, women 15+, published NHDR (%)"
+GII 2018-19 reproduced,lfpr_m,"Labour force participation rate, men 15+, published NHDR (%)"
+GII 2018-19 reproduced,pub_gii,"Gender Inequality Index (GII), published NHDR 2020"
+GII 2018-19 reproduced,malelfs1718,"Male labour force participation, PBS LFS 2017-18 report (%)"
+GII 2018-19 reproduced,femalelfs1718,"Female labour force participation, PBS LFS 2017-18 report (%)"
+GII 2018-19 reproduced,malelfs1819,"Male labour force participation, PBS LFS 2018-19 report (%)"
+GII 2018-19 reproduced,femalelfs1819,"Female labour force participation, PBS LFS 2018-19 report (%)"
+GII 2018-19 reproduced,malelfs2425,"Male labour force participation, PBS LFS 2024-25 report (%)"
+GII 2018-19 reproduced,femalelfs2425,"Female labour force participation, PBS LFS 2024-25 report (%)"
+GII 2018-19 reproduced,raw_health_f,"GII female reproductive health index, every input reproduced"
+GII 2018-19 reproduced,raw_emp_f,"GII female empowerment index, every input reproduced"
+GII 2018-19 reproduced,raw_emp_m,"GII male empowerment index, every input reproduced"
+GII 2018-19 reproduced,raw_g_f,"GII female gender index, every input reproduced"
+GII 2018-19 reproduced,raw_g_m,"GII male gender index, every input reproduced"
+GII 2018-19 reproduced,raw_harm,"GII harmonic mean of the gender indices, every input reproduced"
+GII 2018-19 reproduced,raw_health_bar,"GII mean reproductive health index, every input reproduced"
+GII 2018-19 reproduced,raw_emp_bar,"GII mean empowerment index, every input reproduced"
+GII 2018-19 reproduced,raw_lfpr_bar,"GII mean labour participation index, every input reproduced"
+GII 2018-19 reproduced,raw_g_fm,"GII reference gender index, every input reproduced"
+GII 2018-19 reproduced,raw_gii,"Gender Inequality Index (GII), every input reproduced"
+GII 2018-19 reproduced,s1_health_f,"GII female reproductive health index, NHDR inputs, reproduced care"
+GII 2018-19 reproduced,s1_emp_f,"GII female empowerment index, NHDR inputs, reproduced care"
+GII 2018-19 reproduced,s1_emp_m,"GII male empowerment index, NHDR inputs, reproduced care"
+GII 2018-19 reproduced,s1_g_f,"GII female gender index, NHDR inputs, reproduced care"
+GII 2018-19 reproduced,s1_g_m,"GII male gender index, NHDR inputs, reproduced care"
+GII 2018-19 reproduced,s1_harm,"GII harmonic mean of the gender indices, NHDR inputs, reproduced care"
+GII 2018-19 reproduced,s1_health_bar,"GII mean reproductive health index, NHDR inputs, reproduced care"
+GII 2018-19 reproduced,s1_emp_bar,"GII mean empowerment index, NHDR inputs, reproduced care"
+GII 2018-19 reproduced,s1_lfpr_bar,"GII mean labour participation index, NHDR inputs, reproduced care"
+GII 2018-19 reproduced,s1_g_fm,"GII reference gender index, NHDR inputs, reproduced care"
+GII 2018-19 reproduced,s1_gii,"Gender Inequality Index (GII), NHDR inputs, reproduced care"
+GII 2018-19 reproduced,s2_health_f,"GII female reproductive health index, NHDR inputs, reproduced early marriage"
+GII 2018-19 reproduced,s2_emp_f,"GII female empowerment index, NHDR inputs, reproduced early marriage"
+GII 2018-19 reproduced,s2_emp_m,"GII male empowerment index, NHDR inputs, reproduced early marriage"
+GII 2018-19 reproduced,s2_g_f,"GII female gender index, NHDR inputs, reproduced early marriage"
+GII 2018-19 reproduced,s2_g_m,"GII male gender index, NHDR inputs, reproduced early marriage"
+GII 2018-19 reproduced,s2_harm,"GII harmonic mean of the gender indices, NHDR inputs, reproduced early marriage"
+GII 2018-19 reproduced,s2_health_bar,"GII mean reproductive health index, NHDR inputs, reproduced early marriage"
+GII 2018-19 reproduced,s2_emp_bar,"GII mean empowerment index, NHDR inputs, reproduced early marriage"
+GII 2018-19 reproduced,s2_lfpr_bar,"GII mean labour participation index, NHDR inputs, reproduced early marriage"
+GII 2018-19 reproduced,s2_g_fm,"GII reference gender index, NHDR inputs, reproduced early marriage"
+GII 2018-19 reproduced,s2_gii,"Gender Inequality Index (GII), NHDR inputs, reproduced early marriage"
+GII 2018-19 reproduced,s3_health_f,"GII female reproductive health index, NHDR inputs, reproduced schooling"
+GII 2018-19 reproduced,s3_emp_f,"GII female empowerment index, NHDR inputs, reproduced schooling"
+GII 2018-19 reproduced,s3_emp_m,"GII male empowerment index, NHDR inputs, reproduced schooling"
+GII 2018-19 reproduced,s3_g_f,"GII female gender index, NHDR inputs, reproduced schooling"
+GII 2018-19 reproduced,s3_g_m,"GII male gender index, NHDR inputs, reproduced schooling"
+GII 2018-19 reproduced,s3_harm,"GII harmonic mean of the gender indices, NHDR inputs, reproduced schooling"
+GII 2018-19 reproduced,s3_health_bar,"GII mean reproductive health index, NHDR inputs, reproduced schooling"
+GII 2018-19 reproduced,s3_emp_bar,"GII mean empowerment index, NHDR inputs, reproduced schooling"
+GII 2018-19 reproduced,s3_lfpr_bar,"GII mean labour participation index, NHDR inputs, reproduced schooling"
+GII 2018-19 reproduced,s3_g_fm,"GII reference gender index, NHDR inputs, reproduced schooling"
+GII 2018-19 reproduced,s3_gii,"Gender Inequality Index (GII), NHDR inputs, reproduced schooling"
+GII 2018-19 reproduced,s4_health_f,"GII female reproductive health index, NHDR inputs, reproduced participation"
+GII 2018-19 reproduced,s4_emp_f,"GII female empowerment index, NHDR inputs, reproduced participation"
+GII 2018-19 reproduced,s4_emp_m,"GII male empowerment index, NHDR inputs, reproduced participation"
+GII 2018-19 reproduced,s4_g_f,"GII female gender index, NHDR inputs, reproduced participation"
+GII 2018-19 reproduced,s4_g_m,"GII male gender index, NHDR inputs, reproduced participation"
+GII 2018-19 reproduced,s4_harm,"GII harmonic mean of the gender indices, NHDR inputs, reproduced participation"
+GII 2018-19 reproduced,s4_health_bar,"GII mean reproductive health index, NHDR inputs, reproduced participation"
+GII 2018-19 reproduced,s4_emp_bar,"GII mean empowerment index, NHDR inputs, reproduced participation"
+GII 2018-19 reproduced,s4_lfpr_bar,"GII mean labour participation index, NHDR inputs, reproduced participation"
+GII 2018-19 reproduced,s4_g_fm,"GII reference gender index, NHDR inputs, reproduced participation"
+GII 2018-19 reproduced,s4_gii,"Gender Inequality Index (GII), NHDR inputs, reproduced participation"
+GII 2018-19 reproduced,d_care,GII change from swapping in reproduced care
+GII 2018-19 reproduced,d_evm,GII change from swapping in reproduced early marriage
+GII 2018-19 reproduced,d_educ,GII change from swapping in reproduced schooling
+GII 2018-19 reproduced,d_lfpr,GII change from swapping in reproduced participation
+GII 2018-19 all microdata,domain,"Region (Pakistan, province, or urban/rural part)"
+GII 2018-19 all microdata,lfpr_f_1718,"Labour force participation, women 15+, LFS 2017-18 microdata (%)"
+GII 2018-19 all microdata,lfpr_m_1718,"Labour force participation, men 15+, LFS 2017-18 microdata (%)"
+GII 2018-19 all microdata,evm1519_f_1718,"Women 15-19 ever married, LFS 2017-18 microdata (%)"
+GII 2018-19 all microdata,raw_no_care_f,"Women without prenatal and postnatal care, reproduced from HIES (%)"
+GII 2018-19 all microdata,raw_sec_f,"Women 10+ with primary education or higher, reproduced from HIES (%)"
+GII 2018-19 all microdata,raw_sec_m,"Men 10+ with primary education or higher, reproduced from HIES (%)"
+GII 2018-19 all microdata,no_care_f,"Women without prenatal and postnatal care, published NHDR (%)"
+GII 2018-19 all microdata,evm1519_f,"Women 15-19 ever married, published NHDR (%)"
+GII 2018-19 all microdata,seats_f,Seats in parliament held by women (%)
+GII 2018-19 all microdata,seats_m,Seats in parliament held by men (%)
+GII 2018-19 all microdata,sec_f,"Women 10+ with primary education or higher, published NHDR (%)"
+GII 2018-19 all microdata,sec_m,"Men 10+ with primary education or higher, published NHDR (%)"
+GII 2018-19 all microdata,lfpr_f,"Labour force participation rate, women 15+, published NHDR (%)"
+GII 2018-19 all microdata,lfpr_m,"Labour force participation rate, men 15+, published NHDR (%)"
+GII 2018-19 all microdata,pub_gii,"Gender Inequality Index (GII), published NHDR 2020"
+GII 2018-19 all microdata,m_health_f,"GII female reproductive health index, all microdata"
+GII 2018-19 all microdata,m_emp_f,"GII female empowerment index, all microdata"
+GII 2018-19 all microdata,m_emp_m,"GII male empowerment index, all microdata"
+GII 2018-19 all microdata,m_g_f,"GII female gender index, all microdata"
+GII 2018-19 all microdata,m_g_m,"GII male gender index, all microdata"
+GII 2018-19 all microdata,m_harm,"GII harmonic mean of the gender indices, all microdata"
+GII 2018-19 all microdata,m_health_bar,"GII mean reproductive health index, all microdata"
+GII 2018-19 all microdata,m_emp_bar,"GII mean empowerment index, all microdata"
+GII 2018-19 all microdata,m_lfpr_bar,"GII mean labour participation index, all microdata"
+GII 2018-19 all microdata,m_g_fm,"GII reference gender index, all microdata"
+GII 2018-19 all microdata,m_gii,"Gender Inequality Index (GII), all microdata"
+GII 2024-25,domain,"Region (Pakistan, province, or urban/rural part)"
+GII 2024-25,evm1519_f,"Women 15-19 ever married, LFS 2024-25 (%)"
+GII 2024-25,lfpr_f,"Labour force participation, women 15+, LFS 2024-25 (%)"
+GII 2024-25,lfpr_m,"Labour force participation, men 15+, LFS 2024-25 (%)"
+GII 2024-25,no_care_f,"Women without prenatal and postnatal care, HIES 2024-25 (%)"
+GII 2024-25,sec_f,"Women 10+ with primary education or higher, HIES 2024-25 (%)"
+GII 2024-25,sec_m,"Men 10+ with primary education or higher, HIES 2024-25 (%)"
+GII 2024-25,malelfs2425,"Male labour force participation, PBS LFS 2024-25 report (%)"
+GII 2024-25,femalelfs2425,"Female labour force participation, PBS LFS 2024-25 report (%)"
+GII 2024-25,seats_f,"Seats held by women, 2018 assemblies (%)"
+GII 2024-25,seats_m,"Seats held by men, 2018 assemblies (%)"
+GII 2024-25,g24_health_f,"GII female reproductive health index, 2024-25"
+GII 2024-25,g24_emp_f,"GII female empowerment index, 2024-25"
+GII 2024-25,g24_emp_m,"GII male empowerment index, 2024-25"
+GII 2024-25,g24_g_f,"GII female gender index, 2024-25"
+GII 2024-25,g24_g_m,"GII male gender index, 2024-25"
+GII 2024-25,g24_harm,"GII harmonic mean of the gender indices, 2024-25"
+GII 2024-25,g24_health_bar,"GII mean reproductive health index, 2024-25"
+GII 2024-25,g24_emp_bar,"GII mean empowerment index, 2024-25"
+GII 2024-25,g24_lfpr_bar,"GII mean labour participation index, 2024-25"
+GII 2024-25,g24_g_fm,"GII reference gender index, 2024-25"
+GII 2024-25,g24_gii,"Gender Inequality Index (GII), 2024-25"
+GII 2024-25,raw_no_care_f,"Women without prenatal and postnatal care, reproduced from HIES (%)"
+GII 2024-25,raw_sec_f,"Women 10+ with primary education or higher, reproduced from HIES (%)"
+GII 2024-25,raw_sec_m,"Men 10+ with primary education or higher, reproduced from HIES (%)"
+GII 2024-25,raw_evm1519_f,"Women 15-19 ever married, reproduced from LFS (%)"
+GII 2024-25,raw_lfpr_f,"Labour force participation rate, women 15+, reproduced from LFS (%)"
+GII 2024-25,raw_lfpr_m,"Labour force participation rate, men 15+, reproduced from LFS (%)"
+GII 2024-25,pub_gii,"Gender Inequality Index (GII), published NHDR 2020"
+GII 2024-25,raw_gii,"Gender Inequality Index (GII), every input reproduced"
+GII 2024-25,gii_change,GII 2024-25 minus GII 2018-19 (reproduced basis)
+LFS 2017-18 participation,domain,"Region (Pakistan, province, or urban/rural part)"
+LFS 2017-18 participation,lfpr_f_1718,"Labour force participation, women 15+, LFS 2017-18 microdata (%)"
+LFS 2017-18 participation,lfpr_m_1718,"Labour force participation, men 15+, LFS 2017-18 microdata (%)"
+LFS 2017-18 participation,evm1519_f_1718,"Women 15-19 ever married, LFS 2017-18 microdata (%)"
+LFS 2017-18 participation,year,Year (NHDR survey year)
+LFS 2017-18 participation,evm1519_f,"Women 15-19 ever married, published NHDR (%)"
+LFS 2017-18 participation,lfpr_f,"Labour force participation rate, women 15+, published NHDR (%)"
+LFS 2017-18 participation,lfpr_m,"Labour force participation rate, men 15+, published NHDR (%)"
+CDI method Table 4,region,Region (Pakistan or province)
+CDI method Table 4,sex,Sex
+CDI method Table 4,year,Year (NHDR survey year)
+CDI method Table 4,income_pce,"Income per child equivalent, real rupees (CDI)"
+CDI method Table 4,top2,Children in the top two income quintiles (%)
+CDI method Table 4,notwork,Children 10-14 not working (%)
+CDI method Table 4,ner_p,"Net enrolment, primary (%)"
+CDI method Table 4,ner_m,"Net enrolment, middle (%)"
+CDI method Table 4,ner_x,"Net enrolment, matric (%)"
+CDI method Table 4,eec,Education spending per child equivalent
+CDI method Table 4,immun,Children 12-23 months fully immunized (%)
+CDI method Table 4,notstunted,Children under five not stunted (%)
+CDI method Table 4,notwasted,Children under five not wasted (%)
+CDI method Table 4,survival,Under-five survival (1 minus under-five mortality)
+CDI method Table 4,pub_sl_idx,"Living standard index, published"
+CDI method Table 4,pub_edu_idx,"Education index, published"
+CDI method Table 4,pub_health_idx,"Health and nutrition index, published"
+CDI method Table 4,pub_cdi,"Child Development Index (CDI), published NHDR 2020"
+CDI method Table 4,m_sl,"CDI living standard index, recomputed from published inputs"
+CDI method Table 4,m_edu,"CDI education index, recomputed from published inputs"
+CDI method Table 4,m_hea,"CDI health and nutrition index, recomputed from published inputs"
+CDI method Table 4,m_cdi,"Child Development Index (CDI), recomputed from published inputs"
+CDI method Table 4,cdi_from_pub,CDI as the mean of the published sub-indices
+CDI reproduced 2007-08 2018-19,immun,Children 12-23 months fully immunized (%)
+CDI reproduced 2007-08 2018-19,region,Region (Pakistan or province)
+CDI reproduced 2007-08 2018-19,income_pce,"Income per child equivalent, real rupees (CDI)"
+CDI reproduced 2007-08 2018-19,eec,Education spending per child equivalent
+CDI reproduced 2007-08 2018-19,top2,Children in the top two income quintiles (%)
+CDI reproduced 2007-08 2018-19,ner_p,"Net enrolment, primary (%)"
+CDI reproduced 2007-08 2018-19,ner_m,"Net enrolment, middle (%)"
+CDI reproduced 2007-08 2018-19,ner_x,"Net enrolment, matric (%)"
+CDI reproduced 2007-08 2018-19,year,Year (NHDR survey year)
+CDI reproduced 2007-08 2018-19,notwork,Children 10-14 not working (%)
+CDI reproduced 2007-08 2018-19,notwork_emp,"Children 10-14 not employed (employment only, %)"
+CDI reproduced 2007-08 2018-19,sex,Sex
+CDI reproduced 2007-08 2018-19,notstunted,Children under five not stunted (%)
+CDI reproduced 2007-08 2018-19,notwasted,Children under five not wasted (%)
+CDI reproduced 2007-08 2018-19,survival,Under-five survival (1 minus under-five mortality)
+CDI reproduced 2007-08 2018-19,pub_sl_idx,"Living standard index, published"
+CDI reproduced 2007-08 2018-19,pub_edu_idx,"Education index, published"
+CDI reproduced 2007-08 2018-19,pub_health_idx,"Health and nutrition index, published"
+CDI reproduced 2007-08 2018-19,pub_cdi,"Child Development Index (CDI), published NHDR 2020"
+CDI reproduced 2007-08 2018-19,p_income_pce,"Income per child equivalent, real rupees (CDI), published NHDR 2020"
+CDI reproduced 2007-08 2018-19,p_top2,"Children in the top two income quintiles (%), published NHDR 2020"
+CDI reproduced 2007-08 2018-19,p_notwork,"Children 10-14 not working (%), published NHDR 2020"
+CDI reproduced 2007-08 2018-19,p_ner_p,"Net enrolment, primary (%), published NHDR 2020"
+CDI reproduced 2007-08 2018-19,p_ner_m,"Net enrolment, middle (%), published NHDR 2020"
+CDI reproduced 2007-08 2018-19,p_ner_x,"Net enrolment, matric (%), published NHDR 2020"
+CDI reproduced 2007-08 2018-19,p_eec,"Education spending per child equivalent, published NHDR 2020"
+CDI reproduced 2007-08 2018-19,p_immun,"Children 12-23 months fully immunized (%), published NHDR 2020"
+CDI reproduced 2007-08 2018-19,r_sl,"CDI living standard index, reproduced"
+CDI reproduced 2007-08 2018-19,r_edu,"CDI education index, reproduced"
+CDI reproduced 2007-08 2018-19,r_hea,"CDI health and nutrition index, reproduced"
+CDI reproduced 2007-08 2018-19,r_cdi,"Child Development Index (CDI), reproduced"
+CDI reproduced PDHS,immun,Children 12-23 months fully immunized (%)
+CDI reproduced PDHS,region,Region (Pakistan or province)
+CDI reproduced PDHS,income_pce,"Income per child equivalent, real rupees (CDI)"
+CDI reproduced PDHS,eec,Education spending per child equivalent
+CDI reproduced PDHS,top2,Children in the top two income quintiles (%)
+CDI reproduced PDHS,ner_p,"Net enrolment, primary (%)"
+CDI reproduced PDHS,ner_m,"Net enrolment, middle (%)"
+CDI reproduced PDHS,ner_x,"Net enrolment, matric (%)"
+CDI reproduced PDHS,year,Year (NHDR survey year)
+CDI reproduced PDHS,notwork,Children 10-14 not working (%)
+CDI reproduced PDHS,notwork_emp,"Children 10-14 not employed (employment only, %)"
+CDI reproduced PDHS,sex,Sex
+CDI reproduced PDHS,notstunted,Children under five not stunted (%)
+CDI reproduced PDHS,notwasted,Children under five not wasted (%)
+CDI reproduced PDHS,survival,Under-five survival (1 minus under-five mortality)
+CDI reproduced PDHS,pub_sl_idx,"Living standard index, published"
+CDI reproduced PDHS,pub_edu_idx,"Education index, published"
+CDI reproduced PDHS,pub_health_idx,"Health and nutrition index, published"
+CDI reproduced PDHS,pub_cdi,"Child Development Index (CDI), published NHDR 2020"
+CDI reproduced PDHS,p_income_pce,"Income per child equivalent, real rupees (CDI), published NHDR 2020"
+CDI reproduced PDHS,p_top2,"Children in the top two income quintiles (%), published NHDR 2020"
+CDI reproduced PDHS,p_notwork,"Children 10-14 not working (%), published NHDR 2020"
+CDI reproduced PDHS,p_ner_p,"Net enrolment, primary (%), published NHDR 2020"
+CDI reproduced PDHS,p_ner_m,"Net enrolment, middle (%), published NHDR 2020"
+CDI reproduced PDHS,p_ner_x,"Net enrolment, matric (%), published NHDR 2020"
+CDI reproduced PDHS,p_eec,"Education spending per child equivalent, published NHDR 2020"
+CDI reproduced PDHS,p_immun,"Children 12-23 months fully immunized (%), published NHDR 2020"
+CDI reproduced PDHS,r_sl,"CDI living standard index, reproduced"
+CDI reproduced PDHS,r_edu,"CDI education index, reproduced"
+CDI reproduced PDHS,r_hea,"CDI health and nutrition index, reproduced"
+CDI reproduced PDHS,r_cdi,"Child Development Index (CDI), reproduced"
+CDI reproduced PDHS,survival_pd,"Under-five survival, PDHS microdata"
+CDI reproduced PDHS,notstunted_pd,"Children under five not stunted, PDHS microdata (%)"
+CDI reproduced PDHS,notwasted_pd,"Children under five not wasted, PDHS microdata (%)"
+CDI reproduced PDHS,surv_h,Under-five survival used (PDHS microdata)
+CDI reproduced PDHS,nst_h,"Not stunted used: PDHS microdata, or as printed if not measured (%)"
+CDI reproduced PDHS,nwa_h,"Not wasted used: PDHS microdata, or as printed if not measured (%)"
+CDI reproduced PDHS,anthro_from_pdhs,Stunting and wasting from PDHS microdata (1 = yes)
+CDI reproduced PDHS,h_sl,"CDI living standard index, reproduced, PDHS health"
+CDI reproduced PDHS,h_edu,"CDI education index, reproduced, PDHS health"
+CDI reproduced PDHS,h_hea,"CDI health and nutrition index, reproduced, PDHS health"
+CDI reproduced PDHS,h_cdi,"Child Development Index (CDI), reproduced, PDHS health"
+CDI 2024-25,immun_1819,"Children 12-23 months fully immunized (%), 2018-19 (2024-25 basis)"
+CDI 2024-25,region,Region (Pakistan or province)
+CDI 2024-25,income_pce_1819,"Income per child equivalent, real rupees (CDI), 2018-19 (2024-25 basis)"
+CDI 2024-25,eec_1819,"Education spending per child equivalent, 2018-19 (2024-25 basis)"
+CDI 2024-25,top2_1819,"Children in the top two income quintiles (%), 2018-19 (2024-25 basis)"
+CDI 2024-25,ner_p_1819,"Net enrolment, primary (%), 2018-19 (2024-25 basis)"
+CDI 2024-25,ner_m_1819,"Net enrolment, middle (%), 2018-19 (2024-25 basis)"
+CDI 2024-25,ner_x_1819,"Net enrolment, matric (%), 2018-19 (2024-25 basis)"
+CDI 2024-25,notwork_1819,"Children 10-14 not working (%), 2018-19 (2024-25 basis)"
+CDI 2024-25,pub_cdi,"Child Development Index (CDI), published NHDR 2020"
+CDI 2024-25,c18_sl,"CDI living standard index, 2018-19 on the 2024-25 basis"
+CDI 2024-25,c18_edu,"CDI education index, 2018-19 on the 2024-25 basis"
+CDI 2024-25,c18_hea,"CDI health and nutrition index, 2018-19 on the 2024-25 basis"
+CDI 2024-25,c18_cdi,"Child Development Index (CDI), 2018-19 on the 2024-25 basis"
+CDI 2024-25,immun,Children 12-23 months fully immunized (%)
+CDI 2024-25,income_pce,"Income per child equivalent, real rupees (CDI)"
+CDI 2024-25,eec,Education spending per child equivalent
+CDI 2024-25,top2,Children in the top two income quintiles (%)
+CDI 2024-25,ner_p,"Net enrolment, primary (%)"
+CDI 2024-25,ner_m,"Net enrolment, middle (%)"
+CDI 2024-25,ner_x,"Net enrolment, matric (%)"
+CDI 2024-25,year,Year (NHDR survey year)
+CDI 2024-25,notwork_wide,"Children 10-14 not working, including work for own use (%)"
+CDI 2024-25,notwork,Children 10-14 not employed (%)
+CDI 2024-25,notstunted,Children under five not stunted (%)
+CDI 2024-25,notwasted,Children under five not wasted (%)
+CDI 2024-25,survival,Under-five survival (1 minus under-five mortality)
+CDI 2024-25,c24_sl,"CDI living standard index, 2024-25"
+CDI 2024-25,c24_edu,"CDI education index, 2024-25"
+CDI 2024-25,c24_hea,"CDI health and nutrition index, 2024-25"
+CDI 2024-25,c24_cdi,"Child Development Index (CDI), 2024-25"
+CDI 2024-25,cdi_change,CDI 2024-25 minus CDI 2018-19 (same basis)
+CDI 2024-25,status_2024_25,Child development level 2024-25
+CDI 2024-25 PDHS,region,Region (Pakistan or province)
+CDI 2024-25 PDHS,pub_cdi,"Child Development Index (CDI), published NHDR 2020"
+CDI 2024-25 PDHS,c18h_cdi,"Child Development Index (CDI), 2018-19, PDHS health"
+CDI 2024-25 PDHS,c24_cdi,"Child Development Index (CDI), 2024-25"
+CDI 2024-25 PDHS,c24h_sl,"CDI living standard index, 2024-25, PDHS health"
+CDI 2024-25 PDHS,c24h_edu,"CDI education index, 2024-25, PDHS health"
+CDI 2024-25 PDHS,c24h_hea,"CDI health and nutrition index, 2024-25, PDHS health"
+CDI 2024-25 PDHS,c24h_cdi,"Child Development Index (CDI), 2024-25, PDHS health"
+CDI 2024-25 PDHS,cdi_change_h,"CDI 2024-25 minus 2018-19, PDHS health inputs"
+YDI method Table 5,region,Region (Pakistan or province)
+YDI method Table 5,year,Year (NHDR survey year)
+YDI method Table 5,mys,"Mean years of schooling, youth 15-29"
+YDI method Table 5,epr,Employment-to-population ratio
+YDI method Table 5,hied,Youth 15-29 with higher education (%)
+YDI method Table 5,fullemp,Employed youth working full time (%)
+YDI method Table 5,survival,"Youth annual survival, published NHDR 2020 Table 5A"
+YDI method Table 5,pub_mys_idx,"Schooling index, published"
+YDI method Table 5,pub_epr_idx,"Employment index, published"
+YDI method Table 5,pub_hied_idx,"Higher education index, published"
+YDI method Table 5,pub_full_idx,"Full employment index, published"
+YDI method Table 5,pub_surv_idx,"Survival index, published"
+YDI method Table 5,pub_ydi,"Youth Development Index (YDI), published NHDR 2020"
+YDI method Table 5,m_i_mys,"YDI schooling index, recomputed from published inputs"
+YDI method Table 5,m_i_epr,"YDI employment index, recomputed from published inputs"
+YDI method Table 5,m_i_hied,"YDI higher education index, recomputed from published inputs"
+YDI method Table 5,m_i_full,"YDI full employment index, recomputed from published inputs"
+YDI method Table 5,m_i_surv,"YDI survival index, recomputed from published inputs"
+YDI method Table 5,m_ydi,"Youth Development Index (YDI), recomputed from published inputs"
+YDI method Table 5,surv_idx_as_printed,Survival index with the goalposts as printed (0.9770 to 0.9999)
+YDI 2017-18 2024-25,region,Region (Pakistan or province)
+YDI 2017-18 2024-25,mys,"Mean years of schooling, youth 15-29"
+YDI 2017-18 2024-25,epr,Employment-to-population ratio
+YDI 2017-18 2024-25,hied,Youth 15-29 with higher education (%)
+YDI 2017-18 2024-25,fullemp,Employed youth working full time (%)
+YDI 2017-18 2024-25,year,Year (NHDR survey year)
+YDI 2017-18 2024-25,survival,"Youth annual survival, published NHDR 2020 (held for other years)"
+YDI 2017-18 2024-25,r_i_mys,"YDI schooling index, reproduced"
+YDI 2017-18 2024-25,r_i_epr,"YDI employment index, reproduced"
+YDI 2017-18 2024-25,r_i_hied,"YDI higher education index, reproduced"
+YDI 2017-18 2024-25,r_i_full,"YDI full employment index, reproduced"
+YDI 2017-18 2024-25,r_i_surv,"YDI survival index, reproduced"
+YDI 2017-18 2024-25,r_ydi,"Youth Development Index (YDI), reproduced"
+YDI 2017-18 2024-25,p_mys,"Mean years of schooling, published NHDR 2020"
+YDI 2017-18 2024-25,p_epr,"Employment-to-population ratio, published NHDR 2020 (%)"
+YDI 2017-18 2024-25,p_hied,"Youth with higher education, published NHDR 2020 (%)"
+YDI 2017-18 2024-25,p_fullemp,"Employed youth working full time, published NHDR 2020 (%)"
+YDI 2017-18 2024-25,pub_ydi,"Youth Development Index (YDI), published NHDR 2020"
+YDI 2017-18 2024-25,status,Youth development level
+YDI survival PMMS 2019,region,Region (Pakistan or province)
+YDI survival PMMS 2019,deaths_w,"Deaths at ages 15-29 in the year before the survey, weighted"
+YDI survival PMMS 2019,py_w,"Person-years at ages 15-29, weighted"
+YDI survival PMMS 2019,survival_pmms,"Youth annual survival, PMMS 2019 microdata"
+YDI survival PMMS 2019,survival,"Youth annual survival, published NHDR 2020 Table 5A"
+LDI method Table 8,region,Region (Pakistan or province)
+LDI method Table 8,year,Year (NHDR survey year)
+LDI method Table 8,epr,Employment-to-population ratio
+LDI method Table 8,lshare,Labour share of GDP
+LDI method Table 8,skillprem,Skill premium: top to bottom occupation wage ratio
+LDI method Table 8,humcap,Human capital: mean years of schooling of the labour force
+LDI method Table 8,decentwork,Incidence of decent work (%)
+LDI method Table 8,pub_epr_idx,"Employment index, published"
+LDI method Table 8,pub_lshare_idx,"Labour share index, published"
+LDI method Table 8,pub_sp_idx,"Skill premium index, published"
+LDI method Table 8,pub_hc_idx,"Human capital index, published"
+LDI method Table 8,pub_dw_idx,"Decent work index, published"
+LDI method Table 8,pub_ldidw,"Labour Development Index with decent work, published NHDR 2020"
+LDI method Table 8,m_i_ep,"LDI employment-to-population index, recomputed from published inputs"
+LDI method Table 8,m_i_ls,"LDI labour share index, recomputed from published inputs"
+LDI method Table 8,m_i_sp,"LDI skill premium index, recomputed from published inputs"
+LDI method Table 8,m_i_hc,"LDI human capital index, recomputed from published inputs"
+LDI method Table 8,m_i_dw,"LDI decent work index, recomputed from published inputs"
+LDI method Table 8,m_ldidw,"Labour Development Index with decent work, recomputed from published inputs"
+LDI method Table 8,m_ldin,"LDI without decent work, recomputed from published inputs"
+LDI method Table 8,gm5,LDI as the geometric mean of the five published sub-indices
+LDI method Table 8,am5,LDI as the arithmetic mean of the five published sub-indices
+LDI 2012-13 2017-18 2024-25,region,Region (Pakistan or province)
+LDI 2012-13 2017-18 2024-25,epr,Employment-to-population ratio
+LDI 2012-13 2017-18 2024-25,humcap,Human capital: mean years of schooling of the labour force
+LDI 2012-13 2017-18 2024-25,wbar,"Mean monthly wage, paid employees (rupees)"
+LDI 2012-13 2017-18 2024-25,wtop,"Mean monthly wage, managers and professionals (rupees)"
+LDI 2012-13 2017-18 2024-25,wbot,"Mean monthly wage, plant operators and elementary jobs (rupees)"
+LDI 2012-13 2017-18 2024-25,ptop,"Share of paid employees who are managers or professionals (ISCO 1, 2)"
+LDI 2012-13 2017-18 2024-25,pbot,"Share of paid employees in plant or elementary jobs (ISCO 8, 9)"
+LDI 2012-13 2017-18 2024-25,wf,"Mean monthly wage, female paid employees (rupees)"
+LDI 2012-13 2017-18 2024-25,wm,"Mean monthly wage, male paid employees (rupees)"
+LDI 2012-13 2017-18 2024-25,mwok,Paid employees earning above the minimum wage (share)
+LDI 2012-13 2017-18 2024-25,dh,Employed working more than 10 and under 48 hours a week (share)
+LDI 2012-13 2017-18 2024-25,fe,Employed in formal enterprises (share)
+LDI 2012-13 2017-18 2024-25,cf,Employed as contributing family workers (share)
+LDI 2012-13 2017-18 2024-25,n_ee,"Paid employees, weighted count"
+LDI 2012-13 2017-18 2024-25,n_se,"Self-employed, weighted count"
+LDI 2012-13 2017-18 2024-25,n_emp,"Employed, weighted count"
+LDI 2012-13 2017-18 2024-25,skillprem,Skill premium: top to bottom occupation wage ratio
+LDI 2012-13 2017-18 2024-25,wr,Female to male mean wage ratio
+LDI 2012-13 2017-18 2024-25,decentwork,Incidence of decent work (%)
+LDI 2012-13 2017-18 2024-25,LI,"Labour income, 12 x mean wage x (employees + 0.8 self-employed), rupees"
+LDI 2012-13 2017-18 2024-25,G,"Gross domestic product at current prices, provincial share applied (rupees)"
+LDI 2012-13 2017-18 2024-25,lshare,Labour share of GDP
+LDI 2012-13 2017-18 2024-25,Gf,GDP at current prices with Pasha 2018-19 shares held fixed (rupees)
+LDI 2012-13 2017-18 2024-25,lshare_fs,"Labour share of GDP, Pasha 2018-19 provincial shares held fixed"
+LDI 2012-13 2017-18 2024-25,year,Year (NHDR survey year)
+LDI 2012-13 2017-18 2024-25,r_i_ep,"LDI employment-to-population index, reproduced"
+LDI 2012-13 2017-18 2024-25,r_i_ls,"LDI labour share index, reproduced"
+LDI 2012-13 2017-18 2024-25,r_i_sp,"LDI skill premium index, reproduced"
+LDI 2012-13 2017-18 2024-25,r_i_hc,"LDI human capital index, reproduced"
+LDI 2012-13 2017-18 2024-25,r_i_dw,"LDI decent work index, reproduced"
+LDI 2012-13 2017-18 2024-25,r_ldidw,"Labour Development Index with decent work, reproduced"
+LDI 2012-13 2017-18 2024-25,r_ldin,"LDI without decent work, reproduced"
+LDI 2012-13 2017-18 2024-25,i_ls_fs,"Labour share index, provincial shares held fixed"
+LDI 2012-13 2017-18 2024-25,ldidw_fs,"LDI with decent work, provincial shares held fixed"
+LDI 2012-13 2017-18 2024-25,p_epr,"Employment-to-population ratio, published NHDR 2020"
+LDI 2012-13 2017-18 2024-25,p_lshare,"Labour share of GDP, published NHDR 2020"
+LDI 2012-13 2017-18 2024-25,p_skillprem,"Skill premium, published NHDR 2020"
+LDI 2012-13 2017-18 2024-25,p_humcap,"Human capital, published NHDR 2020 (years)"
+LDI 2012-13 2017-18 2024-25,p_decentwork,"Incidence of decent work, published NHDR 2020 (%)"
+LDI 2012-13 2017-18 2024-25,pub_ldidw,"Labour Development Index with decent work, published NHDR 2020"
+LDI 2012-13 2017-18 2024-25,i_ls_pub,Labour share index with NHDR's published labour share
+LDI 2012-13 2017-18 2024-25,ldidw_nhdr_ls,"LDI with decent work, NHDR's labour share swapped in"
+LDI 2012-13 2017-18 2024-25,status,Labour development level
+MPI 2019-20 national provincial,area,"Area (Pakistan, province, urban or rural part)"
+MPI 2019-20 national provincial,H,"Headcount ratio, share of people poor (%)"
+MPI 2019-20 national provincial,A,"Intensity, average deprivation among the poor (%)"
+MPI 2019-20 national provincial,pop,"Population, weighted"
+MPI 2019-20 national provincial,MPI,"Multidimensional Poverty Index (MPI), reproduced"
+MPI 2019-20 national provincial,mpi,"Multidimensional Poverty Index, published report"
+MPI 2019-20 national provincial,h,"Headcount ratio, published report (%)"
+MPI 2019-20 national provincial,a,"Intensity, published report (%)"
+MPI 2019-20 districts,province_name,Province
+MPI 2019-20 districts,division_name,Division
+MPI 2019-20 districts,district_name,District
+MPI 2019-20 districts,MPI,"Multidimensional Poverty Index (MPI), reproduced"
+MPI 2019-20 districts,mpi,"Multidimensional Poverty Index, published report"
+MPI 2019-20 districts,H,"Headcount ratio, share of people poor (%)"
+MPI 2019-20 districts,h,"Headcount ratio, published report (%)"
+MPI 2019-20 districts,h_lo,"Headcount ratio, published lower 95% bound (%)"
+MPI 2019-20 districts,h_hi,"Headcount ratio, published upper 95% bound (%)"
+MPI 2019-20 districts,h_in_ci,Reproduced headcount within the published interval (1 = yes)
+MPI 2019-20 districts,A,"Intensity, average deprivation among the poor (%)"
+MPI 2019-20 districts,a,"Intensity, published report (%)"
+MPI 2019-20 districts,hdi,District Human Development Index (this package)
+MPI 2019-20 districts,rank,District HDI rank (1 = highest)
+MPI 2019-20 districts,area,District as named in the MPI report
+MPI 2019-20 districts,mpi_lo,"MPI, published lower 95% bound"
+MPI 2019-20 districts,mpi_hi,"MPI, published upper 95% bound"
+MPI 2019-20 districts,district,"District (lower case, matching key)"
+MPI 2019-20 districts,pop,"Population, weighted"
+MPI 2019-20 districts,d_mpi,MPI reproduced minus published
+MPI 2019-20 divisions,province_name,Province
+MPI 2019-20 divisions,division_name,Division
+MPI 2019-20 divisions,H,"Headcount ratio, share of people poor (%)"
+MPI 2019-20 divisions,A,"Intensity, average deprivation among the poor (%)"
+MPI 2019-20 divisions,pop,"Population, weighted"
+MPI 2019-20 divisions,MPI,"Multidimensional Poverty Index (MPI), reproduced"
+MPI 2014-15 national provincial,area,"Area (Pakistan, province, urban or rural part)"
+MPI 2014-15 national provincial,H,"Headcount ratio, share of people poor (%)"
+MPI 2014-15 national provincial,A,"Intensity, average deprivation among the poor (%)"
+MPI 2014-15 national provincial,pop,"Population, weighted"
+MPI 2014-15 national provincial,MPI,"Multidimensional Poverty Index (MPI), reproduced"
+MPI 2014-15 national provincial,year,Year (NHDR survey year)
+MPI 2014-15 national provincial,mpi,"Multidimensional Poverty Index, published report"
+MPI 2014-15 national provincial,h,"Headcount ratio, published report (%)"
+MPI 2014-15 national provincial,a,"Intensity, published report (%)"
+MPI change 2014-15 2019-20,area,"Area (Pakistan, province, urban or rural part)"
+MPI change 2014-15 2019-20,H_19,"Headcount ratio, share of people poor (%), 2019-20"
+MPI change 2014-15 2019-20,A_19,"Intensity, average deprivation among the poor (%), 2019-20"
+MPI change 2014-15 2019-20,pop_19,"Population, weighted, 2019-20"
+MPI change 2014-15 2019-20,MPI_19,"Multidimensional Poverty Index (MPI), reproduced, 2019-20"
+MPI change 2014-15 2019-20,pub_mpi_19,"MPI, 2019-20, published"
+MPI change 2014-15 2019-20,pub_h_19,"Headcount ratio (%), 2019-20, published"
+MPI change 2014-15 2019-20,pub_a_19,"Intensity (%), 2019-20, published"
+MPI change 2014-15 2019-20,H_14,"Headcount ratio, share of people poor (%), 2014-15"
+MPI change 2014-15 2019-20,A_14,"Intensity, average deprivation among the poor (%), 2014-15"
+MPI change 2014-15 2019-20,pop_14,"Population, weighted, 2014-15"
+MPI change 2014-15 2019-20,MPI_14,"Multidimensional Poverty Index (MPI), reproduced, 2014-15"
+MPI change 2014-15 2019-20,pub_mpi_14,"MPI, 2014-15, published"
+MPI change 2014-15 2019-20,pub_h_14,"Headcount ratio (%), 2014-15, published"
+MPI change 2014-15 2019-20,pub_a_14,"Intensity (%), 2014-15, published"
+MPI change 2014-15 2019-20,d_MPI,"Change 2014-15 to 2019-20: Multidimensional Poverty Index (MPI), reproduced"
+MPI change 2014-15 2019-20,d_H,"Change 2014-15 to 2019-20: Headcount ratio, share of people poor (%)"
+MPI change 2014-15 2019-20,d_A,"Change 2014-15 to 2019-20: Intensity, average deprivation among the poor (%)"
+MPI change 2014-15 2019-20,pub_d_mpi,"Change in MPI 2014-15 to 2019-20, published report"
+MPI change districts,province_name,Province
+MPI change districts,district_name,District
+MPI change districts,MPI_14,"Multidimensional Poverty Index (MPI), reproduced, 2014-15"
+MPI change districts,MPI_19,"Multidimensional Poverty Index (MPI), reproduced, 2019-20"
+MPI change districts,d_MPI,"Change 2014-15 to 2019-20: Multidimensional Poverty Index (MPI), reproduced"
+MPI change districts,H_14,"Headcount ratio, share of people poor (%), 2014-15"
+MPI change districts,H_19,"Headcount ratio, share of people poor (%), 2019-20"
+MPI change districts,d_H,"Change 2014-15 to 2019-20: Headcount ratio, share of people poor (%)"
+MPI change districts,A_14,"Intensity, average deprivation among the poor (%), 2014-15"
+MPI change districts,A_19,"Intensity, average deprivation among the poor (%), 2019-20"
+MPI change districts,pop_14,"Population, weighted, 2014-15"
+MPI change districts,pop_19,"Population, weighted, 2019-20"
+MPI change districts,district_2014_15,PSLM 2014-15 district code
+Series HDI Pakistan,lit15,"Adult literacy rate 15+, HIES (%)"
+Series HDI Pakistan,ner,"Net enrolment rate 5-14, HIES (%)"
+Series HDI Pakistan,cons,"Consumption per head per year, HIES (rupees)"
+Series HDI Pakistan,quintile,"Income quintile (All, or Q1 poorest to Q5 richest)"
+Series HDI Pakistan,pci,"Income per head, HIES consumption scaled to WDI GNI per head (PPP $)"
+Series HDI Pakistan,year,Year (NHDR survey year)
+Series HDI Pakistan,births,Births in the window (unweighted count)
+Series HDI Pakistan,u5mr_per_1000,"Under-five mortality rate, deaths per 1,000 live births"
+Series HDI Pakistan,le,Life expectancy at birth from PDHS under-five mortality (years)
+Series HDI Pakistan,s_education_index,"Education index, Pakistan series"
+Series HDI Pakistan,s_health_index,"Health index, Pakistan series"
+Series HDI Pakistan,s_income_index,"Income index, Pakistan series"
+Series HDI Pakistan,s_hdi,"HDI, Pakistan series"
+Series HDI Pakistan,s_classification,"Human development level, Pakistan series"
+Series HDI Pakistan,a_edu,Atkinson inequality in education across quintiles
+Series HDI Pakistan,a_health,Atkinson inequality in life expectancy across PDHS wealth quintiles
+Series HDI Pakistan,a_inc,Atkinson inequality in income across quintiles
+Series HDI Pakistan,ihdi,Inequality-adjusted HDI (IHDI)
+Series HDI Pakistan,loss,Overall loss in HDI from inequality (%)
+Series HDI Pakistan,palma,Modified Palma ratio: HDI of richest quintile over poorest
+Series HDI Pakistan,pashum,"Pashum ratio: mean ratio of successive quintile HDIs, minus 1"
+Series GDI Pakistan,sex,"Sex code (1 male, 2 female)"
+Series GDI Pakistan,lit15,"Adult literacy rate 15+ by sex, HIES (%)"
+Series GDI Pakistan,ner,"Net enrolment rate 5-14 by sex, HIES (%)"
+Series GDI Pakistan,year,Year (NHDR survey year)
+Series GDI Pakistan,ea_f,"Female share of the economically active population, LFS"
+Series GDI Pakistan,wage_ratio,"Female to male mean earnings of paid employees, LFS"
+Series GDI Pakistan,s_f,Female share of earned income (UNDP method)
+Series GDI Pakistan,le_sex,"Life expectancy at birth by sex, World Bank WDI (years)"
+Series GDI Pakistan,pci_all,"GNI per head, WDI, fiscal-year average (PPP $)"
+Series GDI Pakistan,pci_sex,Estimated earned income per head by sex (PPP $)
+Series GDI Pakistan,g_edu,Education index by sex
+Series GDI Pakistan,g_hea,Life expectancy index by sex
+Series GDI Pakistan,g_inc,"Income index by sex (goalpost 75,000)"
+Series GDI Pakistan,g_hdi,HDI by sex
+Series GDI Pakistan,gdi,Gender Development Index (GDI)
+Series GDI Pakistan,sexname,Sex
+Series GII Pakistan,year,Year (NHDR survey year)
+Series GII Pakistan,seats_f,"Seats in parliament held by women, WDI SG.GEN.PARL.ZS (%)"
+Series GII Pakistan,seats_m,Seats in parliament held by men (%)
+Series GII Pakistan,no_care,"Women without prenatal and postnatal care, HIES/PSLM (%)"
+Series GII Pakistan,sec_f,"Women 10+ with primary education or higher, HIES (%)"
+Series GII Pakistan,sec_m,"Men 10+ with primary education or higher, HIES (%)"
+Series GII Pakistan,lfpr_f,"Labour force participation, women 15+, LFS (%)"
+Series GII Pakistan,lfpr_m,"Labour force participation, men 15+, LFS (%)"
+Series GII Pakistan,evm1519,"Women 15-19 ever married, LFS (%)"
+Series GII Pakistan,s_health_f,"GII female reproductive health index, Pakistan series"
+Series GII Pakistan,s_emp_f,"GII female empowerment index, Pakistan series"
+Series GII Pakistan,s_emp_m,"GII male empowerment index, Pakistan series"
+Series GII Pakistan,s_g_f,"GII female gender index, Pakistan series"
+Series GII Pakistan,s_g_m,"GII male gender index, Pakistan series"
+Series GII Pakistan,s_harm,"GII harmonic mean of the gender indices, Pakistan series"
+Series GII Pakistan,s_health_bar,"GII mean reproductive health index, Pakistan series"
+Series GII Pakistan,s_emp_bar,"GII mean empowerment index, Pakistan series"
+Series GII Pakistan,s_lfpr_bar,"GII mean labour participation index, Pakistan series"
+Series GII Pakistan,s_g_fm,"GII reference gender index, Pakistan series"
+Series GII Pakistan,s_gii,"Gender Inequality Index (GII), Pakistan series"
+HDI Pasha income,year,Year (NHDR survey year)
+HDI Pasha income,domain,"Region (Pakistan, province, or urban/rural part)"
+HDI Pasha income,quintile,"Income quintile (All, or Q1 poorest to Q5 richest)"
+HDI Pasha income,prov,Province of the domain (Pakistan for national rows)
+HDI Pasha income,rel_nhdr,"Province income per head relative to Pakistan, NHDR 2020 Table 2A"
+HDI Pasha income,rel_hies,"Province consumption per head relative to Pakistan, HIES"
+HDI Pasha income,rel_pasha,"Province product per head relative to Pakistan, Pasha (2007-08 or 2018-19)"
+HDI Pasha income,rel_pasha_alt,"Province product per head relative to Pakistan, Pasha IPR 2015, 2014-15"
+HDI Pasha income,pci_pub,"Income per head, published NHDR 2020 (PPP $)"
+HDI Pasha income,pci_micro,"Income per head from HIES consumption, scaled to WDI GNI per head (PPP $)"
+HDI Pasha income,pci_pasha_nl,"Income per head, Pasha provincial pattern, NHDR national level (PPP $)"
+HDI Pasha income,pci_pasha_alt,"Income per head, Pasha 2014-15 pattern, NHDR national level (PPP $)"
+HDI Pasha income,pci_pasha,"Income per head, Pasha provincial pattern, WDI national level (PPP $)"
+HDI Pasha income,p_hdi,"HDI from NHDR's printed inputs (Table 2A), NHDR construction"
+HDI Pasha income,hdi_e,"HDI, microdata education, published health and income"
+HDI Pasha income,hdi_pasha_nl,"HDI: microdata education, NHDR life expectancy, Pasha income pattern"
+HDI Pasha income,hdi_pasha_alt,HDI as hdi_pasha_nl with Pasha's 2014-15 pattern (2018-19 only)
+HDI Pasha income,hdi_ehi,"HDI, every dimension from microdata"
+HDI Pasha income,hdi_pasha,"HDI: microdata education and life expectancy, Pasha income, WDI level"
+PSLM district rounds tested,round,PSLM district round
+PSLM district rounds tested,region,Region (Pakistan or province)
+PSLM district rounds tested,lit,"Adult literacy rate 15+, PSLM (%)"
+PSLM district rounds tested,pub_lit_2006_07,"Adult literacy rate 15+, NHDR Table 2A 2006-07 (%)"
+PSLM district rounds tested,ner514,"Net enrolment rate 5-14, level matched, PSLM (%)"
+PSLM district rounds tested,pub_ner_2006_07,"Net enrolment rate 5-14, NHDR Table 2A 2006-07 (%)"
+PSLM district rounds tested,ner_p,"Net enrolment, primary, ages 5-9, PSLM (%)"
+PSLM district rounds tested,pub_ner_p,"Net enrolment, primary, NHDR Table 4A 2007-08 (%)"
+PSLM district rounds tested,ner_m,"Net enrolment, middle, ages 10-12, PSLM (%)"
+PSLM district rounds tested,pub_ner_m,"Net enrolment, middle, NHDR Table 4A 2007-08 (%)"
+PSLM district rounds tested,ner_x,"Net enrolment, matric, ages 13-14, PSLM (%)"
+PSLM district rounds tested,pub_ner_x,"Net enrolment, matric, NHDR Table 4A 2007-08 (%)"
+PSLM district rounds tested,immun,"Children 12-23 months with BCG, DPT3 and polio 3, PSLM (%)"
+PSLM district rounds tested,pub_immun,"Children 12-23 months fully immunized, NHDR Table 4A 2007-08 (%)"
+PSLM district rounds tested,n_child,Children aged 12-23 months in the sample (unweighted)
+WEF GGGI Pakistan,edition,Report edition (year)
+WEF GGGI Pakistan,gggi_score,"Global Gender Gap Index score, Pakistan (0 to 1, 1 = parity)"
+WEF GGGI Pakistan,rank,Pakistan's rank among countries covered
+WEF GGGI Pakistan,source_report,Source report
+WEF GGGI Pakistan,source_file,Local copy in 6. Raw data/Documents/Sources downloaded/WEF
+WEF GGGI Pakistan,pdf_page,Page of the report the value was read from
+WEF GGGI Pakistan,url,Web address of the report
+WEF GGGI Pakistan,table,Table the value was read from
+WEF GGGI Pakistan,retrieved,Date retrieved

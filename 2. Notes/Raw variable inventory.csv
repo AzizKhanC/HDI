@@ -1,0 +1,607 @@
+Survey,File,Variable,Label in the survey file,Do-file sections
+HIES 2005-06,roster with weights.dta,age,age in conpleted years,20
+HIES 2005-06,roster with weights.dta,hhcode,,20
+HIES 2005-06,roster with weights.dta,idc,,20
+HIES 2005-06,roster with weights.dta,province,,20
+HIES 2005-06,roster with weights.dta,region,,20
+HIES 2005-06,roster with weights.dta,s1aq03,sex of person,20
+HIES 2005-06,roster with weights.dta,weight,,20
+HIES 2005-06,sec 2a.dta,hhcode,,20
+HIES 2005-06,sec 2a.dta,idc,,20
+HIES 2005-06,sec 2a.dta,s2aq01,can read with understanding in any language,20
+HIES 2005-06,sec 2a.dta,s2bq01,what is the enrolment status of the person,20
+HIES 2005-06,sec 2a.dta,s2bq05,highest class passed,20
+HIES 2005-06,sec 2a.dta,s2bq14,which class u are currently attending,20
+HIES 2005-06,sec 4d.dta,hhcode,,20
+HIES 2005-06,sec 4d.dta,idc,,20
+HIES 2005-06,sec 4d.dta,province,,20
+HIES 2005-06,sec 4d.dta,s4dq01,have you given birth to any child during past 3 years?,20
+HIES 2005-06,sec 4d.dta,s4dq02,"while you were pregnant with your last child,did you have prenatal consultations",20
+HIES 2005-06,sec 4d.dta,s4dq11,after the delivery did you recieve the post natal checkup within six weeks form,20
+HIES 2005-06,sec6abcd.dta,hhcode,,20
+HIES 2005-06,sec6abcd.dta,itc,,20
+HIES 2005-06,sec6abcd.dta,v1,values for quantities(paid and consumed),20
+HIES 2005-06,sec6abcd.dta,v2,values for quantities(wages&salaries in kind consumed),20
+HIES 2005-06,sec6abcd.dta,v3,values for quantities (own produced & consumed),20
+HIES 2005-06,sec6abcd.dta,v4,"values for quantities  (receipt from assistance ,gift,dowry or other sources)",20
+HIES 2007-08,plist.dta,age,age in conpleted years,23
+HIES 2007-08,plist.dta,hhcode,,23
+HIES 2007-08,plist.dta,idc,,23
+HIES 2007-08,plist.dta,province,,23
+HIES 2007-08,plist.dta,s1aq03,sex of person,23
+HIES 2007-08,plist.dta,weight,,23
+HIES 2007-08,sec 6abcde.dta,hhcode,,23
+HIES 2007-08,sec 6abcde.dta,itc,,23
+HIES 2007-08,sec 6abcde.dta,sec,,23
+HIES 2007-08,sec 6abcde.dta,v1,values for quantities(paid and consumed),23
+HIES 2007-08,sec 6abcde.dta,v2,values for quantities(wages&salaries in kind consumed),23
+HIES 2007-08,sec 6abcde.dta,v3,values for quantities (own produced & consumed),23
+HIES 2007-08,sec 6abcde.dta,v4,"values for quantities  (receipt from assistance ,gift,dowry or other sources)",23
+HIES 2007-08,sec2a.dta,hhcode,,23
+HIES 2007-08,sec2a.dta,idc,,23
+HIES 2007-08,sec2a.dta,s2bq01,what is the enrolment status of the person,23
+HIES 2007-08,sec2a.dta,s2bq14,which class u are currently attending,23
+HIES 2007-08,sec2a.dta,s2bq19c,total expenditure,23
+HIES 2007-08,sec3b.dta,hhcode,,23
+HIES 2007-08,sec3b.dta,idc,,23
+HIES 2007-08,sec3b.dta,province,,23
+HIES 2007-08,sec3b.dta,s3bq01b,age of child in completed months,23
+HIES 2007-08,sec3b.dta,s3bq04a,bcg,23
+HIES 2007-08,sec3b.dta,s3bq04d,dpt3,23
+HIES 2007-08,sec3b.dta,s3bq04h,polio3,23
+HIES 2011-12,hh_weight.dta,hhcode,,26A
+HIES 2011-12,hh_weight.dta,weight,,26A
+HIES 2011-12,plist.dta,age,age in compelte year,26A
+HIES 2011-12,plist.dta,hhcode,,26A
+HIES 2011-12,plist.dta,idc,,26A
+HIES 2011-12,plist.dta,s1aq03,gender of person,26A
+HIES 2011-12,plist.dta,weight,,26A
+HIES 2011-12,sec_2a.dta,hhcode,,26A
+HIES 2011-12,sec_2a.dta,idc,,26A
+HIES 2011-12,sec_2a.dta,s2aq01,can read in any language with understanding,26A
+HIES 2011-12,sec_2a.dta,s2aq02,can write in any language with understanding,26A
+HIES 2011-12,sec_2a.dta,s2bq01,ask each person about his or her educational background,26A
+HIES 2011-12,sec_2a.dta,s2bq05,what was the highest class completed,26A
+HIES 2011-12,sec_2a.dta,s2bq14,what class are currently attending,26A
+HIES 2011-12,sec_4d.dta,hhcode,,26A
+HIES 2011-12,sec_4d.dta,idc,,26A
+HIES 2011-12,sec_4d.dta,s4dq01,have you given birth to a child since the last three years?,26A
+HIES 2011-12,sec_4d.dta,s4dq02,while you were pregnant with your last child did you have any prenatal consultat,26A
+HIES 2011-12,sec_4d.dta,s4dq11,after the birth did you receive a post natal checkup within six weeks of deliver,26A
+HIES 2011-12,sec_6abcde.dta,hhcode,,26A
+HIES 2011-12,sec_6abcde.dta,itc,,26A
+HIES 2011-12,sec_6abcde.dta,v1,values for quantities(paid and consumed),26A
+HIES 2011-12,sec_6abcde.dta,v2,values for quantities(wages&salaries in kind consumed),26A
+HIES 2011-12,sec_6abcde.dta,v3,values for quantities (own produced & consumed),26A
+HIES 2011-12,sec_6abcde.dta,v4,"values for quantities  (receipt from assistance ,gift,dowry or other sources)",26A
+HIES 2015-16,plist.dta,age,age in complete years,26A
+HIES 2015-16,plist.dta,hhcode,,26A
+HIES 2015-16,plist.dta,idc,,26A
+HIES 2015-16,plist.dta,s1aq04,gender of a person,26A
+HIES 2015-16,plist.dta,weights,,26A
+HIES 2015-16,sec_2a.dta,hhcode,,26A
+HIES 2015-16,sec_2a.dta,idc,,26A
+HIES 2015-16,sec_2a.dta,s2ac01,can this person read in any language with understanding?,26A
+HIES 2015-16,sec_2a.dta,s2ac02,can this person write in any language with understanding?,26A
+HIES 2015-16,sec_2a.dta,s2ac05,what was the highest level of education passed?,26A
+HIES 2015-16,sec_2a.dta,s2ac06,is the person currently studying in any educational institution?,26A
+HIES 2015-16,sec_2a.dta,s2ac07,in which is the person currently studying?,26A
+HIES 2015-16,sec_4abcde.dta,hhcode,,26A
+HIES 2015-16,sec_4abcde.dta,itc,,26A
+HIES 2015-16,sec_4abcde.dta,v1,,26A
+HIES 2015-16,sec_4abcde.dta,v2,,26A
+HIES 2015-16,sec_4abcde.dta,v3,,26A
+HIES 2015-16,sec_4abcde.dta,v4,,26A
+HIES 2018-19,plist.dta,age,age in complete year,"3, 23"
+HIES 2018-19,plist.dta,hhcode,,"3, 10, 23"
+HIES 2018-19,plist.dta,idc,,"3, 23"
+HIES 2018-19,plist.dta,province,,"3, 23"
+HIES 2018-19,plist.dta,region,,"3, 23"
+HIES 2018-19,plist.dta,s1aq04,gender of person,3
+HIES 2018-19,plist.dta,weights,,"3, 23"
+HIES 2018-19,sec_12ce.dta,hhcode,household code,"3, 10"
+HIES 2018-19,sec_12ce.dta,province,province,"3, 10"
+HIES 2018-19,sec_12ce.dta,psu,primary sample unit,"3, 10"
+HIES 2018-19,sec_12ce.dta,region,region,"3, 10"
+HIES 2018-19,sec_12ce.dta,t_exp,total expendirure z,"3, 10"
+HIES 2018-19,sec_12ce.dta,t_income,total income x,"3, 10"
+HIES 2018-19,sec_2ab.dta,hhcode,,"3, 23"
+HIES 2018-19,sec_2ab.dta,idc,,"3, 23"
+HIES 2018-19,sec_2ab.dta,province,,"3, 23"
+HIES 2018-19,sec_2ab.dta,region,,"3, 23"
+HIES 2018-19,sec_2ab.dta,s2aq01, can read  a simple statment in any language with understanding,3
+HIES 2018-19,sec_2ab.dta,s2bq01,ask each person about his or her educational background,"3, 23"
+HIES 2018-19,sec_2ab.dta,s2bq05,what was the highest grade completed,3
+HIES 2018-19,sec_2ab.dta,s2bq14,which grade is ---------  currently attending,"3, 23"
+HIES 2018-19,sec_3b.dta,hhcode,household code,23
+HIES 2018-19,sec_3b.dta,idc,identification code,23
+HIES 2018-19,sec_3b.dta,province,province,23
+HIES 2018-19,sec_3b.dta,s3bq1b,age of the child in months,23
+HIES 2018-19,sec_3b.dta,s3bq4a,bcg,23
+HIES 2018-19,sec_3b.dta,s3bq4d,penta3,23
+HIES 2018-19,sec_3b.dta,s3bq4k,polio3,23
+HIES 2018-19,sec_4d.dta,hhcode,household code,18
+HIES 2018-19,sec_4d.dta,province,province,18
+HIES 2018-19,sec_4d.dta,psu,primary sample unit,18
+HIES 2018-19,sec_4d.dta,region,region,18
+HIES 2018-19,sec_4d.dta,s4dq01,have you given birth to a child since the last three years?,18
+HIES 2018-19,sec_4d.dta,s4dq11a,after the birth did you receive a post natal checkup within six weeks of deliver,18
+HIES 2018-19,sec_4d.dta,s4dq2a,while you were pregnant with your last child did you have any prenatal consultat,18
+HIES 2018-19,sec_6a.dta,hhcode,,"11, 23"
+HIES 2018-19,sec_6a.dta,itc,,"9, 11, 23"
+HIES 2018-19,sec_6a.dta,province,,9
+HIES 2018-19,sec_6a.dta,psu,,"9, 11"
+HIES 2018-19,sec_6a.dta,v1,values for quantities(paid and consumed),"9, 11, 23"
+HIES 2018-19,sec_6a.dta,v2,values for quantities(wages&salaries in kind consumed),"9, 11, 23"
+HIES 2018-19,sec_6a.dta,v3,values for quantities (own produced & consumed),"9, 11, 23"
+HIES 2018-19,sec_6a.dta,v4,"values for quantities  (receipt from assistance ,gift,dowry or other sources)","9, 11, 23"
+HIES 2018-19,weight.dta,psu,,"9, 10, 11, 18"
+HIES 2018-19,weight.dta,weight,,"9, 10, 11, 18"
+HIES 2024-25,Sec_03b_immunisation.dta,hhcode,,23
+HIES 2024-25,Sec_03b_immunisation.dta,hhno,,23
+HIES 2024-25,Sec_03b_immunisation.dta,idc,,23
+HIES 2024-25,Sec_03b_immunisation.dta,prcode,,23
+HIES 2024-25,Sec_03b_immunisation.dta,province,,23
+HIES 2024-25,Sec_03b_immunisation.dta,region,,23
+HIES 2024-25,Sec_03b_immunisation.dta,s3bq01b,what is the age of the child?_day?_months,23
+HIES 2024-25,Sec_03b_immunisation.dta,s3bq04a,record the immunization events from the health card or the help of respondent_bc,23
+HIES 2024-25,Sec_03b_immunisation.dta,s3bq04b3,penta3,23
+HIES 2024-25,Sec_03b_immunisation.dta,s3bq04d3,polio3,23
+HIES 2024-25,Sec_04d_pre_post_natal.dta,hhno,,18
+HIES 2024-25,Sec_04d_pre_post_natal.dta,prcode,,18
+HIES 2024-25,Sec_04d_pre_post_natal.dta,province,,18
+HIES 2024-25,Sec_04d_pre_post_natal.dta,s4dq01,have you given birth to a child during the past 3 years?,18
+HIES 2024-25,Sec_04d_pre_post_natal.dta,s4dq021,"while you were pregnant with your last child, did you have any prenatal consulta",18
+HIES 2024-25,Sec_04d_pre_post_natal.dta,s4dq111,"after the birth, did you receive a post-natal check up within 6 weeks of deliver",18
+HIES 2024-25,plist_roster.dta,hhno,,"11, 23"
+HIES 2024-25,plist_roster.dta,idc,,"11, 23"
+HIES 2024-25,plist_roster.dta,prcode,,"11, 23"
+HIES 2024-25,plist_roster.dta,province,,"11, 23"
+HIES 2024-25,plist_roster.dta,region,,11
+HIES 2024-25,plist_roster.dta,s1aq03,sex,11
+HIES 2024-25,plist_roster.dta,s1aq51,age in complete year,"11, 23"
+HIES 2024-25,plist_roster.dta,weight,,"11, 23"
+HIES 2024-25,sec_2ab_education.dta,hhno,,"11, 23"
+HIES 2024-25,sec_2ab_education.dta,idc,,"11, 23"
+HIES 2024-25,sec_2ab_education.dta,prcode,,"11, 23"
+HIES 2024-25,sec_2ab_education.dta,province,,"11, 23"
+HIES 2024-25,sec_2ab_education.dta,region,,11
+HIES 2024-25,sec_2ab_education.dta,s2aq01,can………read simple statement in any language with full under-standing,11
+HIES 2024-25,sec_2ab_education.dta,s2aq02,can ……write simple statement in any language with full understanding?,11
+HIES 2024-25,sec_2ab_education.dta,s2bq01,"educational background: never attended, attended in the past, or currently atten","11, 23"
+HIES 2024-25,sec_2ab_education.dta,s2bq05,what was the highest grade completed at the last school/institution?,11
+HIES 2024-25,sec_2ab_education.dta,s2bq10,which grade is the person currently attending?,"11, 23"
+HIES 2024-25,sec_6a_consum_exp.dta,hhno,,"11, 23"
+HIES 2024-25,sec_6a_consum_exp.dta,itc,,"11, 23"
+HIES 2024-25,sec_6a_consum_exp.dta,prcode,,"11, 23"
+HIES 2024-25,sec_6a_consum_exp.dta,v1,,"11, 23"
+HIES 2024-25,sec_6a_consum_exp.dta,v2,,"11, 23"
+HIES 2024-25,sec_6a_consum_exp.dta,v3,,"11, 23"
+HIES 2024-25,sec_6a_consum_exp.dta,v4,,"11, 23"
+HIES 2024-25,section_info.dta,hhno,,11
+HIES 2024-25,section_info.dta,prcode,,11
+HIES 2024-25,section_info.dta,province,,11
+HIES 2024-25,section_info.dta,region,,11
+HIES 2024-25,weight.dta,prcode,p-code,"11, 18, 23"
+HIES 2024-25,weight.dta,weight,,"11, 18, 23"
+LFS 2006-07,lfs2006-07.sav,SECTION_10.10.1,"no label in file, read in Stata as _v113, used as unemployment question (1 to 5 = active)",22
+LFS 2006-07,lfs2006-07.sav,SECTION_4.4.5,"no label in file, read in Stata as _v4, used as sex",22
+LFS 2006-07,lfs2006-07.sav,SECTION_4.4.6,"no label in file, read in Stata as _v5, used as age",22
+LFS 2006-07,lfs2006-07.sav,SECTION_4.4.7,"no label in file, read in Stata as _v6, used as marital status",22
+LFS 2006-07,lfs2006-07.sav,SECTION_5.5.2,"no label in file, read in Stata as _v18, used as employment question 1 (code 1 = employed)",22
+LFS 2006-07,lfs2006-07.sav,SECTION_5.5.3,"no label in file, read in Stata as _v19, used as employment question 2 (code 1 = employed)",22
+LFS 2006-07,lfs2006-07.sav,SECTION_5.5.4,"no label in file, read in Stata as _v20, used as employment question 3 (codes 1, 2 = employed)",22
+LFS 2006-07,lfs2006-07.sav,SECTION_5.5.8,"no label in file, read in Stata as _v24, used as status in employment (1 to 4 = paid employee)",22
+LFS 2006-07,lfs2006-07.sav,SECTION_7.7.2,"no label in file, read in Stata as _v50, used as weekly cash earnings",22
+LFS 2006-07,lfs2006-07.sav,SECTION_7.7.3,"no label in file, read in Stata as _v51, used as monthly cash earnings",22
+LFS 2006-07,lfs2006-07.sav,weights,,22
+LFS 2012-13,LFS-2012-13.dta,Prcode,,22
+LFS 2012-13,LFS-2012-13.dta,Weights,,22
+LFS 2012-13,LFS-2012-13.dta,s4_q5,,22
+LFS 2012-13,LFS-2012-13.dta,s4_q6,,22
+LFS 2012-13,LFS-2012-13.dta,s4_q7,,22
+LFS 2012-13,LFS-2012-13.dta,s4_q9,,22
+LFS 2012-13,LFS-2012-13.dta,s5_q10,,22
+LFS 2012-13,LFS-2012-13.dta,s5_q11,,22
+LFS 2012-13,LFS-2012-13.dta,s5_q13,,22
+LFS 2012-13,LFS-2012-13.dta,s5_q17_1,,22
+LFS 2012-13,LFS-2012-13.dta,s5_q2,,22
+LFS 2012-13,LFS-2012-13.dta,s5_q3,,22
+LFS 2012-13,LFS-2012-13.dta,s5_q4,,22
+LFS 2012-13,LFS-2012-13.dta,s5_q8,,22
+LFS 2012-13,LFS-2012-13.dta,s5_q9,,22
+LFS 2012-13,LFS-2012-13.dta,s7_q3,,22
+LFS 2012-13,LFS-2012-13.dta,s7_q4,,22
+LFS 2012-13,LFS-2012-13.dta,s9_q1,,22
+LFS 2012-13,LFS-2012-13.dta,s9_q4,,22
+LFS 2012-13,LFS-2012-13.dta,s9_q6,,22
+LFS 2014-15,LFS-2014-15.sav,PROCESS_CODE,Processing Code,22
+LFS 2014-15,LFS-2014-15.sav,SEC10_COL_i11, Agriculture Operation Yes/No,22
+LFS 2014-15,LFS-2014-15.sav,SEC10_COL_ii11, Processing food Yes/No,22
+LFS 2014-15,LFS-2014-15.sav,SEC10_COL_iii11, Livestock Operation Yes/No,22
+LFS 2014-15,LFS-2014-15.sav,SEC10_COL_iv11, Poultry RaisingYes/No,22
+LFS 2014-15,LFS-2014-15.sav,SEC10_COL_v11, Construction Work Yes/No,22
+LFS 2014-15,LFS-2014-15.sav,SEC10_COL_vi11, Colletion of firewood Yes/No,22
+LFS 2014-15,LFS-2014-15.sav,SEC10_COL_vii11, Bringing water  Yes/No,22
+LFS 2014-15,LFS-2014-15.sav,SEC4_COL5,sex,22
+LFS 2014-15,LFS-2014-15.sav,SEC4_COL6, Age in complete years,22
+LFS 2014-15,LFS-2014-15.sav,SEC4_COL7, Marital status,22
+LFS 2014-15,LFS-2014-15.sav,SEC4_COL9, Education Level,22
+LFS 2014-15,LFS-2014-15.sav,SEC5_COL10, Nature of the work done,22
+LFS 2014-15,LFS-2014-15.sav,SEC5_COL11, Kind of Enterprises,22
+LFS 2014-15,LFS-2014-15.sav,SEC5_COL13, No. of Person engaged in enterprises,22
+LFS 2014-15,LFS-2014-15.sav,SEC5_COL17_1, Total Hours,22
+LFS 2014-15,LFS-2014-15.sav,SEC5_COL2, Did you work for pay or profit,22
+LFS 2014-15,LFS-2014-15.sav,SEC5_COL3, Did you work for fmaily gain,22
+LFS 2014-15,LFS-2014-15.sav,SEC5_COL4, Did you have job/Enterprises,22
+LFS 2014-15,LFS-2014-15.sav,SEC5_COL8, Employment Status,22
+LFS 2014-15,LFS-2014-15.sav,SEC5_COL9,Main Occupation1,22
+LFS 2014-15,LFS-2014-15.sav,SEC7_COL33, Net money earn from the main work in last week in Total,22
+LFS 2014-15,LFS-2014-15.sav,SEC7_COL43, Net money earn from the main work in last month in total,22
+LFS 2014-15,LFS-2014-15.sav,SEC9_COL1, Was seeking work in past week,22
+LFS 2014-15,LFS-2014-15.sav,SEC9_COL4, Availiable for work during past week,22
+LFS 2014-15,LFS-2014-15.sav,SEC9_COL6, Why not available to work,22
+LFS 2014-15,LFS-2014-15.sav,hours,,22
+LFS 2014-15,LFS-2014-15.sav,new_weight,,22
+LFS 2014-15,LFS-2014-15.sav,occ1,,22
+LFS 2017-18,LFS 2017-18.sav,PrCode,Processing Code,22
+LFS 2017-18,LFS 2017-18.sav,S04C05,sex,22
+LFS 2017-18,LFS 2017-18.sav,S04C06,Age in complete years,22
+LFS 2017-18,LFS 2017-18.sav,S04C07, Marital status,22
+LFS 2017-18,LFS 2017-18.sav,S04C09, Education Level,22
+LFS 2017-18,LFS 2017-18.sav,S04C10, Enrolment,22
+LFS 2017-18,LFS 2017-18.sav,S05C02, Did you work for pay or profit,22
+LFS 2017-18,LFS 2017-18.sav,S05C03, Did you work for fmaily gain,22
+LFS 2017-18,LFS 2017-18.sav,S05C04, Did you have job/Enterprises,22
+LFS 2017-18,LFS 2017-18.sav,S05C08, Employment Status,22
+LFS 2017-18,LFS 2017-18.sav,S05C09, Main Occupation,22
+LFS 2017-18,LFS 2017-18.sav,S05C10, Nature of the work done,22
+LFS 2017-18,LFS 2017-18.sav,S05C11, Kind of Enterprises,22
+LFS 2017-18,LFS 2017-18.sav,S05C13, No. of Person engaged in enterprises,22
+LFS 2017-18,LFS 2017-18.sav,S05C171, Total Hours,22
+LFS 2017-18,LFS 2017-18.sav,S06C01, Why did work less than 35 hours in last week,22
+LFS 2017-18,LFS 2017-18.sav,S07C033,Net money earn from main job last week,22
+LFS 2017-18,LFS 2017-18.sav,S07C043, Net money earn from the main work in last month in Total,22
+LFS 2017-18,LFS 2017-18.sav,S09C01, Was seeking work in past week,22
+LFS 2017-18,LFS 2017-18.sav,S09C04, Availiable for work during past week,22
+LFS 2017-18,LFS 2017-18.sav,S09C06, Why not available to work,22
+LFS 2017-18,LFS 2017-18.sav,S10C101, Agriculture Operation Yes/No,22
+LFS 2017-18,LFS 2017-18.sav,S10C102, Processing food Yes/No,22
+LFS 2017-18,LFS 2017-18.sav,S10C103, Livestock Operation Yes/No,22
+LFS 2017-18,LFS 2017-18.sav,S10C104, Poultry RaisingYes/No,22
+LFS 2017-18,LFS 2017-18.sav,S10C105, Construction Work Yes/No,22
+LFS 2017-18,LFS 2017-18.sav,S10C106, Colletion of firewood Yes/No,22
+LFS 2017-18,LFS 2017-18.sav,S10C107, Bringing water  Yes/No,22
+LFS 2017-18,LFS 2017-18.sav,Weight,Survey Weights,22
+LFS 2018-19,LFS 2018-19.dta,Province,,"9, 17"
+LFS 2018-19,LFS 2018-19.dta,Region,,17
+LFS 2018-19,LFS 2018-19.dta,S04C05,sex,17
+LFS 2018-19,LFS 2018-19.dta,S04C06,Age in complete years,17
+LFS 2018-19,LFS 2018-19.dta,S04C07, Marital status,17
+LFS 2018-19,LFS 2018-19.dta,S05C02, Did you work for pay or profit,17
+LFS 2018-19,LFS 2018-19.dta,S05C03, Did you work for fmaily gain,17
+LFS 2018-19,LFS 2018-19.dta,S05C04, Did you have job/Enterprises,17
+LFS 2018-19,LFS 2018-19.dta,S05C10, Nature of the work done,9
+LFS 2018-19,LFS 2018-19.dta,S05C11, Kind of Enterprises,9
+LFS 2018-19,LFS 2018-19.dta,S05C13, No. of Person engaged in enterprises,9
+LFS 2018-19,LFS 2018-19.dta,S07C03, Net money earn from the main work in last week in Total,17
+LFS 2018-19,LFS 2018-19.dta,S07C04, Net money earn from the main work in last month in Total,"9, 17"
+LFS 2018-19,LFS 2018-19.dta,S09C01, Was seeking work in past week,17
+LFS 2018-19,LFS 2018-19.dta,S09C04, Availiable for work during past week,17
+LFS 2018-19,LFS 2018-19.dta,S09C06, Why not available to work,17
+LFS 2018-19,LFS 2018-19.dta,Weight,,"9, 17"
+LFS 2024-25,LFS 2024-25.dta,Province,,"17, 22"
+LFS 2024-25,LFS 2024-25.dta,Region,Region,17
+LFS 2024-25,LFS 2024-25.dta,S10C10_10a,Collect any firewood,22
+LFS 2024-25,LFS 2024-25.dta,S10C10_1a,Work or help in agricultural operations,22
+LFS 2024-25,LFS 2024-25.dta,S10C10_2a,Work or help in livestock operations,22
+LFS 2024-25,LFS 2024-25.dta,S10C10_3a,Work or help poultry raising,22
+LFS 2024-25,LFS 2024-25.dta,S10C10_6a,Prepare preserved food or drinks for storage,22
+LFS 2024-25,LFS 2024-25.dta,S10C10_7a,"Construction work to build, renovate or extend the family home or help a family",22
+LFS 2024-25,LFS 2024-25.dta,S10C10_9a,Fetch water from natural or public sources,22
+LFS 2024-25,LFS 2024-25.dta,S4C5,1'Male' 2'Female',"17, 22"
+LFS 2024-25,LFS 2024-25.dta,S4C6,Age,"17, 22"
+LFS 2024-25,LFS 2024-25.dta,S4C7,Marital Status,"17, 22"
+LFS 2024-25,LFS 2024-25.dta,S4C9,Education Level,22
+LFS 2024-25,LFS 2024-25.dta,S5C1,Work for pay or wage,"17, 22"
+LFS 2024-25,LFS 2024-25.dta,S5C11,Status of Employment,22
+LFS 2024-25,LFS 2024-25.dta,S5C12,Major Occuption,22
+LFS 2024-25,LFS 2024-25.dta,S5C13,Major industry,22
+LFS 2024-25,LFS 2024-25.dta,S5C15,Kind of Establishment,22
+LFS 2024-25,LFS 2024-25.dta,S5C18,Person engaged in businees/enterprise,22
+LFS 2024-25,LFS 2024-25.dta,S5C2,Run any kind of business/agri farm,"17, 22"
+LFS 2024-25,LFS 2024-25.dta,S5C24,Actual Hours work,22
+LFS 2024-25,LFS 2024-25.dta,S5C3,Help to work in fmaily farm/business,"17, 22"
+LFS 2024-25,LFS 2024-25.dta,S5C4,Not work last week and have paid job or business,"17, 22"
+LFS 2024-25,LFS 2024-25.dta,S5C8,Last week Did you work in...,"17, 22"
+LFS 2024-25,LFS 2024-25.dta,S7C33,Net money earn in Total in last week,"17, 22"
+LFS 2024-25,LFS 2024-25.dta,S7C43,Net money earn in total  in last month,"17, 22"
+LFS 2024-25,LFS 2024-25.dta,S9C1,Was looking for work during last 4-weeks,"17, 22"
+LFS 2024-25,LFS 2024-25.dta,S9C6,Could start work within next 2 weeks,"17, 22"
+LFS 2024-25,LFS 2024-25.dta,Weights,,"17, 22"
+MICS6 Balochistan 2019-20,bh.sav,BH4C,Date of birth of child (CMC),8
+MICS6 Balochistan 2019-20,bh.sav,BH5,Still alive,8
+MICS6 Balochistan 2019-20,bh.sav,BH9C,Age at death months (imputed),8
+MICS6 Balochistan 2019-20,bh.sav,HH7,District,8
+MICS6 Balochistan 2019-20,bh.sav,WDOI,Date of interview women (CMC),8
+MICS6 Balochistan 2019-20,bh.sav,division,Division,8
+MICS6 Balochistan 2019-20,bh.sav,psu,Primary sampling unit,8
+MICS6 Balochistan 2019-20,bh.sav,windex5,Wealth index quintile,8
+MICS6 Balochistan 2019-20,bh.sav,wmweight,Woman's sample weight,8
+MICS6 KP 2019,bh.sav,BH4C,Date of birth of child (CMC),8
+MICS6 KP 2019,bh.sav,BH5,Still alive,8
+MICS6 KP 2019,bh.sav,BH9C,Age at death months (imputed),8
+MICS6 KP 2019,bh.sav,HH7,District,8
+MICS6 KP 2019,bh.sav,WDOI,Date of interview women (CMC),8
+MICS6 KP 2019,bh.sav,division,Division,8
+MICS6 KP 2019,bh.sav,psu,Primary Sampling Unit,8
+MICS6 KP 2019,bh.sav,windex5,Wealth index quintiles,8
+MICS6 KP 2019,bh.sav,wmweight,Woman's sample weight,8
+MICS6 Punjab 2017-18,bh.sav,BH4C,Date of birth of child (CMC),8
+MICS6 Punjab 2017-18,bh.sav,BH5,Still alive,8
+MICS6 Punjab 2017-18,bh.sav,BH9C,Age at death months (imputed),8
+MICS6 Punjab 2017-18,bh.sav,WDOI,Date of interview women (CMC),8
+MICS6 Punjab 2017-18,bh.sav,division,Division,8
+MICS6 Punjab 2017-18,bh.sav,hh7,Districts,8
+MICS6 Punjab 2017-18,bh.sav,psu,Primary sampling unit,8
+MICS6 Punjab 2017-18,bh.sav,windex5,Wealth index quintile,8
+MICS6 Punjab 2017-18,bh.sav,wmweight,Woman's sample weight,8
+MICS6 Sindh 2018-19,bh.sav,BH4C,Date of birth of child (CMC),8
+MICS6 Sindh 2018-19,bh.sav,BH5,Still alive,8
+MICS6 Sindh 2018-19,bh.sav,BH9C,Age at death months (imputed),8
+MICS6 Sindh 2018-19,bh.sav,HH7,District,8
+MICS6 Sindh 2018-19,bh.sav,WDOI,Date of interview women (CMC),8
+MICS6 Sindh 2018-19,bh.sav,division,Division,8
+MICS6 Sindh 2018-19,bh.sav,psu,Primary sample unit,8
+MICS6 Sindh 2018-19,bh.sav,windex5,Wealth index quintile,8
+MICS6 Sindh 2018-19,bh.sav,wmweight,Woman's sample weight,8
+PDHS 2006-07,PKBR53DT/PKBR53FL.DTA,b3,date of birth (cmc),"8A, 26A"
+PDHS 2006-07,PKBR53DT/PKBR53FL.DTA,b4,sex of child,"8A, 26A"
+PDHS 2006-07,PKBR53DT/PKBR53FL.DTA,b5,child is alive,"8A, 26A"
+PDHS 2006-07,PKBR53DT/PKBR53FL.DTA,b7,age at death (months-imputed),"8A, 26A"
+PDHS 2006-07,PKBR53DT/PKBR53FL.DTA,v005,sample weight,"8A, 26A"
+PDHS 2006-07,PKBR53DT/PKBR53FL.DTA,v008,date of interview (cmc),"8A, 26A"
+PDHS 2006-07,PKBR53DT/PKBR53FL.DTA,v024,region,"8A, 26A"
+PDHS 2006-07,PKBR53DT/PKBR53FL.DTA,v190,wealth index,"8A, 26A"
+PDHS 2006-07,PKPR53DT/PKPR53FL.DTA,hc1,na-age in months,8A
+PDHS 2006-07,PKPR53DT/PKPR53FL.DTA,hc70,na-ht/a standard deviations (according to who),8A
+PDHS 2006-07,PKPR53DT/PKPR53FL.DTA,hc72,na-wt/ht standard deviations (according to who),8A
+PDHS 2006-07,PKPR53DT/PKPR53FL.DTA,hv005,sample weight,8A
+PDHS 2006-07,PKPR53DT/PKPR53FL.DTA,hv024,region,8A
+PDHS 2006-07,PKPR53DT/PKPR53FL.DTA,hv103,slept last night,8A
+PDHS 2006-07,PKPR53DT/PKPR53FL.DTA,hv104,sex of household member,8A
+PDHS 2012-13,PKBR61DT/PKBR61FL.DTA,b3,Date of birth (CMC),"8A, 26A"
+PDHS 2012-13,PKBR61DT/PKBR61FL.DTA,b4,Sex of child,"8A, 26A"
+PDHS 2012-13,PKBR61DT/PKBR61FL.DTA,b5,Child is alive,"8A, 26A"
+PDHS 2012-13,PKBR61DT/PKBR61FL.DTA,b7,"Age at death (months, imputed)","8A, 26A"
+PDHS 2012-13,PKBR61DT/PKBR61FL.DTA,v005,Women's individual sample weight (6 decimals),"8A, 26A"
+PDHS 2012-13,PKBR61DT/PKBR61FL.DTA,v008,Date of interview (CMC),"8A, 26A"
+PDHS 2012-13,PKBR61DT/PKBR61FL.DTA,v024,Region,"8A, 26A"
+PDHS 2012-13,PKBR61DT/PKBR61FL.DTA,v190,Wealth index,26A
+PDHS 2012-13,PKPR61DT/PKPR61FL.DTA,hc1,Child's age in months,8A
+PDHS 2012-13,PKPR61DT/PKPR61FL.DTA,hc70,Height/Age standard deviation (new WHO),8A
+PDHS 2012-13,PKPR61DT/PKPR61FL.DTA,hc72,Weight/Height standard deviation (new WHO),8A
+PDHS 2012-13,PKPR61DT/PKPR61FL.DTA,hv005,Household sample weight (6 decimals),8A
+PDHS 2012-13,PKPR61DT/PKPR61FL.DTA,hv024,Region,8A
+PDHS 2012-13,PKPR61DT/PKPR61FL.DTA,hv103,Slept last night,8A
+PDHS 2012-13,PKPR61DT/PKPR61FL.DTA,hv104,Sex of household member,8A
+PDHS 2017-18,PKBR71DT/PKBR71FL.DTA,b3,date of birth (cmc),"8A, 26A"
+PDHS 2017-18,PKBR71DT/PKBR71FL.DTA,b4,sex of child,"8A, 26A"
+PDHS 2017-18,PKBR71DT/PKBR71FL.DTA,b5,child is alive,"8A, 26A"
+PDHS 2017-18,PKBR71DT/PKBR71FL.DTA,b7,"age at death (months, imputed)","8A, 26A"
+PDHS 2017-18,PKBR71DT/PKBR71FL.DTA,v005,women's individual sample weight (6 decimals),"8A, 26A"
+PDHS 2017-18,PKBR71DT/PKBR71FL.DTA,v008,date of interview (cmc),"8A, 26A"
+PDHS 2017-18,PKBR71DT/PKBR71FL.DTA,v024,region,"8A, 26A"
+PDHS 2017-18,PKBR71DT/PKBR71FL.DTA,v190,wealth index combined,"8A, 26A"
+PDHS 2017-18,PKHR71DT/PKHR71FL.DTA,hv005,household sample weight (6 decimals),8A
+PDHS 2017-18,PKHR71DT/PKHR71FL.DTA,hv024,region,8A
+PDHS 2017-18,PKHR71DT/PKHR71FL.DTA,hv201,source of drinking water,8A
+PDHS 2017-18,PKHR71DT/PKHR71FL.DTA,hv270,wealth index combined,8A
+PDHS 2017-18,PKKR71DT/PKKR71FL.DTA,b19,current age of child in months (months since birth for dead children),8A
+PDHS 2017-18,PKKR71DT/PKKR71FL.DTA,b3,date of birth (cmc),8A
+PDHS 2017-18,PKKR71DT/PKKR71FL.DTA,b5,child is alive,8A
+PDHS 2017-18,PKKR71DT/PKKR71FL.DTA,h2,received bcg,8A
+PDHS 2017-18,PKKR71DT/PKKR71FL.DTA,h3,received dpt 1,8A
+PDHS 2017-18,PKKR71DT/PKKR71FL.DTA,h4,received polio 1,8A
+PDHS 2017-18,PKKR71DT/PKKR71FL.DTA,h5,received dpt 2,8A
+PDHS 2017-18,PKKR71DT/PKKR71FL.DTA,h6,received polio 2,8A
+PDHS 2017-18,PKKR71DT/PKKR71FL.DTA,h7,received dpt 3,8A
+PDHS 2017-18,PKKR71DT/PKKR71FL.DTA,h8,received polio 3,8A
+PDHS 2017-18,PKKR71DT/PKKR71FL.DTA,h9,received measles 1,8A
+PDHS 2017-18,PKKR71DT/PKKR71FL.DTA,m15,place of delivery,8A
+PDHS 2017-18,PKKR71DT/PKKR71FL.DTA,v005,women's individual sample weight (6 decimals),8A
+PDHS 2017-18,PKKR71DT/PKKR71FL.DTA,v008,date of interview (cmc),8A
+PDHS 2017-18,PKKR71DT/PKKR71FL.DTA,v024,region,8A
+PDHS 2017-18,PKKR71DT/PKKR71FL.DTA,v190,wealth index combined,8A
+PDHS 2017-18,PKPR71DT/PKPR71FL.DTA,hc1,child's age in months,8A
+PDHS 2017-18,PKPR71DT/PKPR71FL.DTA,hc70,height/age standard deviation (new who),8A
+PDHS 2017-18,PKPR71DT/PKPR71FL.DTA,hc72,weight/height standard deviation (new who),8A
+PDHS 2017-18,PKPR71DT/PKPR71FL.DTA,hv005,household sample weight (6 decimals),8A
+PDHS 2017-18,PKPR71DT/PKPR71FL.DTA,hv024,region,8A
+PDHS 2017-18,PKPR71DT/PKPR71FL.DTA,hv103,slept last night,8A
+PDHS 2017-18,PKPR71DT/PKPR71FL.DTA,hv104,sex of household member,8A
+PMMS 2019,PKOD7ADT/PKOD7AFL.DTA,qh31,sex of person,24
+PMMS 2019,PKOD7ADT/PKOD7AFL.DTA,qh32c,date of death (cmc),24
+PMMS 2019,PKOD7ADT/PKOD7AFL.DTA,qh33n,age at death (number),24
+PMMS 2019,PKOD7ADT/PKOD7AFL.DTA,qh33u,age at death (units),24
+PMMS 2019,PKOD7ADT/PKOD7AFL.DTA,qhintc,date of household interview (cmc),24
+PMMS 2019,PKOD7ADT/PKOD7AFL.DTA,qhregion,region of residence,24
+PMMS 2019,PKOD7ADT/PKOD7AFL.DTA,qhweight,household weight (6 decimals),24
+PMMS 2019,PKPQ7ADT/PKPQ7AFL.DTA,qh04,sex of household member,24
+PMMS 2019,PKPQ7ADT/PKPQ7AFL.DTA,qh05,usual resident,24
+PMMS 2019,PKPQ7ADT/PKPQ7AFL.DTA,qh07,age of household member,24
+PMMS 2019,PKPQ7ADT/PKPQ7AFL.DTA,qhintc,date of household interview (cmc),24
+PMMS 2019,PKPQ7ADT/PKPQ7AFL.DTA,qhregion,region of residence,24
+PMMS 2019,PKPQ7ADT/PKPQ7AFL.DTA,qhweight,household weight (6 decimals),24
+PSLM 2006-07,hhweights.dta,hhcode,,23
+PSLM 2006-07,hhweights.dta,weights,,23
+PSLM 2006-07,sec_a.dta,hhcode,,23
+PSLM 2006-07,sec_a.dta,month,,23
+PSLM 2006-07,sec_a.dta,year,,23
+PSLM 2006-07,section b.dta,age, what is age in completing years?,23
+PSLM 2006-07,section b.dta,hhcode,processing code,23
+PSLM 2006-07,section b.dta,idc,member serial no,23
+PSLM 2006-07,section c.dta,hhcode,processing code,23
+PSLM 2006-07,section c.dta,idc,,23
+PSLM 2006-07,section c.dta,province,provinces,23
+PSLM 2006-07,section c.dta,psu,primary sampling units,23
+PSLM 2006-07,section c.dta,region,urban / rural,23
+PSLM 2006-07,section c.dta,scq01,can person read and write with understanding in any language?,23
+PSLM 2006-07,section c.dta,scq05,is currently studying in any educational institute?,23
+PSLM 2006-07,section c.dta,scq06,which class is currently attending?,23
+PSLM 2006-07,section h.dta,hhcode,processing code,23
+PSLM 2006-07,section h.dta,month_c, date of birth in month of child,23
+PSLM 2006-07,section h.dta,province,provinces,23
+PSLM 2006-07,section h.dta,psu,primary sampling units,23
+PSLM 2006-07,section h.dta,shq5_1,5.1 immunised bcg,23
+PSLM 2006-07,section h.dta,shq5_4,5.4 immunised dpt3,23
+PSLM 2006-07,section h.dta,shq5_7,5.7 immunised polio 3,23
+PSLM 2006-07,section h.dta,year_c, date of birth in year of the child,23
+PSLM 2008-09,sec_a.dta,hhcode,,23
+PSLM 2008-09,sec_a.dta,int_date,date of interview,23
+PSLM 2008-09,sec_b.dta,age, what is age in completing years?,23
+PSLM 2008-09,sec_b.dta,hhcode,processing code,23
+PSLM 2008-09,sec_b.dta,idc,member serial no,23
+PSLM 2008-09,sec_c.dta,hhcode,processing code,23
+PSLM 2008-09,sec_c.dta,idc,,23
+PSLM 2008-09,sec_c.dta,province,provinces,23
+PSLM 2008-09,sec_c.dta,psu,primary sampling units,23
+PSLM 2008-09,sec_c.dta,region,urban / rural,23
+PSLM 2008-09,sec_c.dta,scq01,can person read and write with understanding in any language?,23
+PSLM 2008-09,sec_c.dta,scq05,is currently studying in any educational institute?,23
+PSLM 2008-09,sec_c.dta,scq06,which class is currently attending?,23
+PSLM 2008-09,section_h.dta,hhcode,processing code,23
+PSLM 2008-09,section_h.dta,month_c, date of birth in month of child,23
+PSLM 2008-09,section_h.dta,province,provinces,23
+PSLM 2008-09,section_h.dta,psu,primary sampling units,23
+PSLM 2008-09,section_h.dta,shq5_1,5.1 immunised bcg,23
+PSLM 2008-09,section_h.dta,shq5_4,5.4 immunised dpt3,23
+PSLM 2008-09,section_h.dta,shq5_7,5.7 immunised polio 3,23
+PSLM 2008-09,section_h.dta,year_c, date of birth in year of the child,23
+PSLM 2008-09,weights_file.dta,psu,,23
+PSLM 2008-09,weights_file.dta,weights,,23
+PSLM 2014-15,plist.dta,age,age in complete years,"21, 26A"
+PSLM 2014-15,plist.dta,district,,21
+PSLM 2014-15,plist.dta,hhcode,,"21, 26A"
+PSLM 2014-15,plist.dta,idc,,"21, 26A"
+PSLM 2014-15,plist.dta,province,,"21, 26A"
+PSLM 2014-15,plist.dta,region,,"21, 26A"
+PSLM 2014-15,plist.dta,sbq04,gender of a person,"21, 26A"
+PSLM 2014-15,plist.dta,weight,,"21, 26A"
+PSLM 2014-15,sec_a.dta,hhcode,,21
+PSLM 2014-15,sec_a.dta,int_month,month of enumeration,21
+PSLM 2014-15,sec_a.dta,int_year,year of enumeration,21
+PSLM 2014-15,sec_c.dta,hhcode,,"21, 26A"
+PSLM 2014-15,sec_c.dta,idc,,"21, 26A"
+PSLM 2014-15,sec_c.dta,scq04,what was the highest level of education recieved?,"21, 26A"
+PSLM 2014-15,sec_c.dta,scq05,is the person currently studying in any educational institution?,"21, 26A"
+PSLM 2014-15,sec_c.dta,scq06,in which is the person currently studying?,26A
+PSLM 2014-15,sec_c.dta,scq91,what are the reasons behind not attening any educational institution?,21
+PSLM 2014-15,sec_c.dta,scq92,what are the reasons behind not attening any educational institution?,21
+PSLM 2014-15,sec_f1.dta,district,,21
+PSLM 2014-15,sec_f1.dta,hhcode,,21
+PSLM 2014-15,sec_f1.dta,itc,questions from (1-10),21
+PSLM 2014-15,sec_f1.dta,province,,21
+PSLM 2014-15,sec_f1.dta,region,,21
+PSLM 2014-15,sec_f1.dta,sf1c01, if _________________ has his own agriculture land?,21
+PSLM 2014-15,sec_f1.dta,sf1c02,if yes then how much acre/ total number of animals/ per total area he have?,21
+PSLM 2014-15,sec_f1.dta,sf1c04,"is the (land owned,rented out or rented in) mainly irrigated?(question 1-3) / (n",21
+PSLM 2014-15,sec_f2.dta,hhcode,,21
+PSLM 2014-15,sec_f2.dta,sf2q11a, do you have iron?,21
+PSLM 2014-15,sec_f2.dta,sf2q11b, do you have fan?,21
+PSLM 2014-15,sec_f2.dta,sf2q11c, do you have sewing machine?,21
+PSLM 2014-15,sec_f2.dta,sf2q11d, do you have radio or  cassite player?,21
+PSLM 2014-15,sec_f2.dta,sf2q11e," do you have table, chair?",21
+PSLM 2014-15,sec_f2.dta,sf2q11f, do you have clock?,21
+PSLM 2014-15,sec_f2.dta,sf2q11g," do you have t.v, led, lcd?",21
+PSLM 2014-15,sec_f2.dta,sf2q11h," do you have vcr, vcp, vcd?",21
+PSLM 2014-15,sec_f2.dta,sf2q11i," do you have refrigerator, freezer?",21
+PSLM 2014-15,sec_f2.dta,sf2q11j, do you have air cooler?,21
+PSLM 2014-15,sec_f2.dta,sf2q11k, do you have air conditioner?,21
+PSLM 2014-15,sec_f2.dta,sf2q11l," do you have computer, laptop, and tablet?",21
+PSLM 2014-15,sec_f2.dta,sf2q11m, do you have bicycle?,21
+PSLM 2014-15,sec_f2.dta,sf2q11n, do you have motor cycle?,21
+PSLM 2014-15,sec_f2.dta,sf2q11o, do you have car?,21
+PSLM 2014-15,sec_f2.dta,sf2q11p," do you have tractor, truck?",21
+PSLM 2014-15,sec_f2.dta,sf2q11q," do you have mobile, land line?",21
+PSLM 2014-15,sec_g.dta,hhcode,,21
+PSLM 2014-15,sec_g.dta,sgq02,how many seperate rooms are there in your dwelling?,21
+PSLM 2014-15,sec_g.dta,sgq04,what is the material of the walls of the house?,21
+PSLM 2014-15,sec_g.dta,sgq05,what is the main source of drinking water,21
+PSLM 2014-15,sec_g.dta,sgq06,what kind of toilet facility does your household use?,21
+PSLM 2014-15,sec_g.dta,sgq07,what is the main fuel used for cooking?,21
+PSLM 2014-15,sec_g.dta,sgq08,what is the main fuel used for lighting?,21
+PSLM 2014-15,sec_g.dta,sgq09,does the household (or any member) have a working telephone connection?,21
+PSLM 2014-15,sec_g.dta,sgq10_11,how far is it from here to reach the nearest--(time)--------?(drinking water),21
+PSLM 2014-15,sec_h.dta,hhcode,,21
+PSLM 2014-15,sec_h.dta,mon,month of birth,21
+PSLM 2014-15,sec_h.dta,yr,year of birth,21
+PSLM 2014-15,sec_i.dta,hhcode,,"21, 26A"
+PSLM 2014-15,sec_i.dta,idc,,26A
+PSLM 2014-15,sec_i.dta,siq01,has ---- given birth to child during last 3 years?,"21, 26A"
+PSLM 2014-15,sec_i.dta,siq02,did she recieve any pre-natal care during last pregnancy?,"21, 26A"
+PSLM 2014-15,sec_i.dta,siq09,who assisted during the birth?,21
+PSLM 2014-15,sec_i.dta,siq10,did she recieves any post-natal care during six weeks after dilivery?,26A
+PSLM 2019-20,plist.dta,age,age in complete years year of birth,"14, 19"
+PSLM 2019-20,plist.dta,district,,"14, 19"
+PSLM 2019-20,plist.dta,hhcode,,"14, 19"
+PSLM 2019-20,plist.dta,idc,,"14, 19"
+PSLM 2019-20,plist.dta,province,,"14, 19"
+PSLM 2019-20,plist.dta,psu,,"14, 19"
+PSLM 2019-20,plist.dta,region,,"14, 19"
+PSLM 2019-20,plist.dta,sb1q4,gender of person,19
+PSLM 2019-20,plist.dta,weights,,"14, 19"
+PSLM 2019-20,secc1.dta,district,,14
+PSLM 2019-20,secc1.dta,hhcode,,"14, 19"
+PSLM 2019-20,secc1.dta,idc,,"14, 19"
+PSLM 2019-20,secc1.dta,province,,14
+PSLM 2019-20,secc1.dta,psu,,14
+PSLM 2019-20,secc1.dta,region,,14
+PSLM 2019-20,secc1.dta,sc1q01,ask each person about his or her educational background,"14, 19"
+PSLM 2019-20,secc1.dta,sc1q02,why did not everattend school/institution,19
+PSLM 2019-20,secc1.dta,sc1q05,what was the highest grade completed,19
+PSLM 2019-20,secc1.dta,sc1q10,why did ------- leave this school/institution,19
+PSLM 2019-20,secc1.dta,sc1q14,which grade is ---------  currently attending,"14, 19"
+PSLM 2019-20,secc1.dta,sc1q1a, can.......... read  a simple statment in any language with understanding,14
+PSLM 2019-20,secc1.dta,sc1q2a,can........ write a simple statment in  any language with understanding,14
+PSLM 2019-20,sece.dta,district,,15
+PSLM 2019-20,sece.dta,hhcode,household code,15
+PSLM 2019-20,sece.dta,province,,15
+PSLM 2019-20,sece.dta,psu,primary sample unit,15
+PSLM 2019-20,sece.dta,region,,15
+PSLM 2019-20,sece.dta,seaq08,"how much money in cash, did â¦ earn during the last month?",15
+PSLM 2019-20,sece.dta,seaq09,"how many months, did .â¦. work during the last year?",15
+PSLM 2019-20,sece.dta,seaq10,"how much money in cash, did  â¦ earn during the last year?",15
+PSLM 2019-20,sece.dta,seaq15,how much member earned income from last year,15
+PSLM 2019-20,sece.dta,seaq17,how much member earned incomeany other work from last year,15
+PSLM 2019-20,sece.dta,seaq19,how much money did he/ she receive by selling the wages and salaries received in,15
+PSLM 2019-20,sece.dta,seaq21,"how much money in cash, did â¦ receive from pension and other benefits during t",15
+PSLM 2019-20,sece.dta,seaq23,income recieved by household from inside pakistan without performing any economi,15
+PSLM 2019-20,sece.dta,seaq24,income recieved by household in terms of foreign remittances without performing,15
+PSLM 2019-20,sece.dta,seaq25,"rent recieved by household from land, house or building",15
+PSLM 2019-20,sece.dta,seaq26,any other income,15
+PSLM 2019-20,secf2.dta,hhcode,,19
+PSLM 2019-20,secf2.dta,sf2q01,what is the main source of drinking water for the household?,19
+PSLM 2019-20,secf2.dta,sf2q04,how much time is consumed on a round trip to fetch the drinking water?,19
+PSLM 2019-20,secf2.dta,sf2q11,what type of toilet is used by your household?,19
+PSLM 2019-20,secg.dta,district,district,19
+PSLM 2019-20,secg.dta,hhcode,household code,19
+PSLM 2019-20,secg.dta,itc,item code,19
+PSLM 2019-20,secg.dta,province,province,19
+PSLM 2019-20,secg.dta,region,region,19
+PSLM 2019-20,secg.dta,sgaq01,does household or a member of household possess any property (yes/no)?,19
+PSLM 2019-20,secg.dta,sgaq03,if land then how many acres? if animals then number of animals?,19
+PSLM 2019-20,secg.dta,sgaq05,is most part of the land is irrigated through canal system or by rains?,19
+PSLM 2019-20,secg.dta,sgaq31,unit area of the land?,19
+PSLM 2019-20,sech.dta,c02,,19
+PSLM 2019-20,sech.dta,hhcode,,19
+PSLM 2019-20,sech.dta,itc,,19
+PSLM 2019-20,seci.dta,hhcode,household code,19
+PSLM 2019-20,seci.dta,idc,identification code,19
+PSLM 2019-20,seci.dta,siaq5k,polio3,19
+PSLM 2019-20,seci.dta,siaq5l,ipv,19
+PSLM 2019-20,seci.dta,siaq5m,measles1,19
+PSLM 2019-20,secj.dta,hhcode,household code,19
+PSLM 2019-20,secj.dta,sjaq01,have you given birth to a child since the last three years?,19
+PSLM 2019-20,secj.dta,sjaq10,who assisted you with this delivery?,19
+PSLM 2019-20,secj.dta,sjaq2a,did you have any prenatal consultations during last pregnancy?,19

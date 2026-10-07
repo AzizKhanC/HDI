@@ -1,0 +1,130 @@
+district,division_name,province,key
+Awaran,Kalat,Balochistan,awaran
+Barkhan,Zhob,Balochistan,barkhan
+Chaghi,Quetta,Balochistan,chaghi
+Dera Bugti,Sibi,Balochistan,dera bugti
+Gwadar,Mekran,Balochistan,gwadar
+Harnai,Sibi,Balochistan,harnai
+Jaffarabad,Nasirabad,Balochistan,jaffarabad
+Jhal Magsi,Nasirabad,Balochistan,jhal magsi
+Kachhi (Bolan),Nasirabad,Balochistan,kachhi bolan
+Kalat,Kalat,Balochistan,kalat
+Kech (Turbat),Mekran,Balochistan,kech turbat
+Kharan,Kalat,Balochistan,kharan
+Khuzdar,Kalat,Balochistan,khuzdar
+Killa Abdullah,Quetta,Balochistan,killa abdullah
+Killa Saifullah,Zhob,Balochistan,killa saifullah
+Kohlu,Sibi,Balochistan,kohlu
+Lasbela,Kalat,Balochistan,lasbela
+Lehri,Sibi,Balochistan,lehri
+Loralai,Zhob,Balochistan,loralai
+Mastung,Kalat,Balochistan,mastung
+Musakhel,Zhob,Balochistan,musakhel
+Nasirabad,Nasirabad,Balochistan,nasirabad
+Nushki,Quetta,Balochistan,nushki
+Panjgur,Mekran,Balochistan,panjgur
+Pishin,Quetta,Balochistan,pishin
+Quetta,Quetta,Balochistan,quetta
+Sheerani,Zhob,Balochistan,sheerani
+Sibbi,Sibi,Balochistan,sibbi
+SohbatPur,Nasirabad,Balochistan,sohbatpur
+Washuk,Kalat,Balochistan,washuk
+Zhob,Zhob,Balochistan,zhob
+Ziarat,Sibi,Balochistan,ziarat
+Abbotabad,Hazara,Khyber Pakhtunkhwa,abbotabad
+Bannu,Bannu,Khyber Pakhtunkhwa,bannu
+Batagram,Hazara,Khyber Pakhtunkhwa,batagram
+Buner,Malakand,Khyber Pakhtunkhwa,buner
+Charsadda,Peshawar,Khyber Pakhtunkhwa,charsadda
+Chitral,Malakand,Khyber Pakhtunkhwa,chitral
+Dera Ismail Khan,D.I. Khan,Khyber Pakhtunkhwa,dera ismail khan
+Hangu,Kohat,Khyber Pakhtunkhwa,hangu
+Hari Pur,Hazara,Khyber Pakhtunkhwa,hari pur
+Karak,Kohat,Khyber Pakhtunkhwa,karak
+Kohat,Kohat,Khyber Pakhtunkhwa,kohat
+Kohistan,Hazara,Khyber Pakhtunkhwa,kohistan
+Laki Marwat,Bannu,Khyber Pakhtunkhwa,laki marwat
+Lower Dir,Malakand,Khyber Pakhtunkhwa,lower dir
+Malakand,Malakand,Khyber Pakhtunkhwa,malakand
+Mansehra,Hazara,Khyber Pakhtunkhwa,mansehra
+Mardan,Mardan,Khyber Pakhtunkhwa,mardan
+Nowshehra,Peshawar,Khyber Pakhtunkhwa,nowshehra
+Peshawar,Peshawar,Khyber Pakhtunkhwa,peshawar
+Shangla,Malakand,Khyber Pakhtunkhwa,shangla
+Swabi,Mardan,Khyber Pakhtunkhwa,swabi
+Swat,Malakand,Khyber Pakhtunkhwa,swat
+Tank,D.I. Khan,Khyber Pakhtunkhwa,tank
+Torghar,Hazara,Khyber Pakhtunkhwa,torghar
+Upper Dir,Malakand,Khyber Pakhtunkhwa,upper dir
+Bajor,Malakand,Khyber Pakhtunkhwa,bajor
+Khyber,Peshawar,Khyber Pakhtunkhwa,khyber
+Kuram,Kohat,Khyber Pakhtunkhwa,kuram
+Mohmind,Peshawar,Khyber Pakhtunkhwa,mohmind
+North Waziristan,Bannu,Khyber Pakhtunkhwa,north waziristan
+Orakzai,Kohat,Khyber Pakhtunkhwa,orakzai
+South Waziristan,D.I. Khan,Khyber Pakhtunkhwa,south waziristan
+Badin,Hyderabad,Sindh,badin
+Dadu,Hyderabad,Sindh,dadu
+Ghotki,Sukkur,Sindh,ghotki
+Hyderabad,Hyderabad,Sindh,hyderabad
+Jacobabad,Larkana,Sindh,jacobabad
+Jamshoro,Hyderabad,Sindh,jamshoro
+Shahdad Kot,Larkana,Sindh,shahdad kot
+Karachi Central,Karachi,Sindh,karachi central
+Karachi East,Karachi,Sindh,karachi east
+Karachi South,Karachi,Sindh,karachi south
+Karachi West,Karachi,Sindh,karachi west
+Kashmore,Larkana,Sindh,kashmore
+Khairpur,Sukkur,Sindh,khairpur
+Karachi Korangi,Karachi,Sindh,karachi korangi
+Larkana,Larkana,Sindh,larkana
+Karachi Malir,Karachi,Sindh,karachi malir
+Matiari,Hyderabad,Sindh,matiari
+MirpurK Khas,Mirpurkhas,Sindh,mirpurk khas
+Naushahro Feroze,Shaheed Benazirabad,Sindh,naushahro feroze
+Sanghar,Shaheed Benazirabad,Sindh,sanghar
+Shaheed Benazirabad,Shaheed Benazirabad,Sindh,shaheed benazirabad
+Shikarpur,Larkana,Sindh,shikarpur
+Sujawal,Hyderabad,Sindh,sujawal
+Sukkur,Sukkur,Sindh,sukkur
+Tando Allahyar,Hyderabad,Sindh,tando allahyar
+Tando Muhmmad Khan,Hyderabad,Sindh,tando muhmmad khan
+Tharparkar,Mirpurkhas,Sindh,tharparkar
+Thatta,Hyderabad,Sindh,thatta
+Umer Kot,Mirpurkhas,Sindh,umer kot
+Bahawalpur,Bahawalpur,Punjab,bahawalpur
+Bahawalnagar,Bahawalpur,Punjab,bahawalnagar
+RY Khan,Bahawalpur,Punjab,ry khan
+DG Khan,DG Khan,Punjab,dg khan
+Layyah,DG Khan,Punjab,layyah
+Muzaffargarh,DG Khan,Punjab,muzaffargarh
+Rajanpur,DG Khan,Punjab,rajanpur
+Faisalabad,Faisalabad,Punjab,faisalabad
+Chiniot,Faisalabad,Punjab,chiniot
+Jhang,Faisalabad,Punjab,jhang
+TT Singh,Faisalabad,Punjab,tt singh
+Gujranwala,Gujranwala,Punjab,gujranwala
+Gujrat,Gujranwala,Punjab,gujrat
+Hafizabad,Gujranwala,Punjab,hafizabad
+Mandi Bahauddin,Gujranwala,Punjab,mandi bahauddin
+Narowal,Gujranwala,Punjab,narowal
+Sialkot,Gujranwala,Punjab,sialkot
+Lahore,Lahore,Punjab,lahore
+Kasur,Lahore,Punjab,kasur
+Nankana Sahib,Lahore,Punjab,nankana sahib
+Sheikhupura,Lahore,Punjab,sheikhupura
+Rawalpindi,Rawalpindi,Punjab,rawalpindi
+Attock,Rawalpindi,Punjab,attock
+Chakwal,Rawalpindi,Punjab,chakwal
+Jhelum,Rawalpindi,Punjab,jhelum
+Sahiwal,Sahiwal,Punjab,sahiwal
+Okara,Sahiwal,Punjab,okara
+Pakpattan,Sahiwal,Punjab,pakpattan
+Multan,Multan,Punjab,multan
+Khanewal,Multan,Punjab,khanewal
+Lodhran,Multan,Punjab,lodhran
+Vehari,Multan,Punjab,vehari
+Sargodha,Sargodha,Punjab,sargodha
+Bhakkar,Sargodha,Punjab,bhakkar
+Khushab,Sargodha,Punjab,khushab
+Mianwali,Sargodha,Punjab,mianwali

@@ -1,0 +1,8 @@
+{
+  "name": "nhdr2020-note",
+  "private": true,
+  "description": "Builds the Word technical note (note.js). Run npm install in this folder once.",
+  "dependencies": {
+    "docx": "^9.0.0"
+  }
+}
